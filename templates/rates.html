@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block title %}Skill Rates{% endblock %}
+{% block content %}
+  <h1>Skill Rates</h1>
+  {% for skill, rates in skill_rates.skills.items() %}
+    <h2>{{ skill }}</h2>
+    {% if rates %}
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Min Level</th>
+            <th>Max Level</th>
+            <th>XP Required</th>
+            <th>Method</th>
+            <th>Rate</th>
+            <th>Bonus XP</th>
+            <th>Bonus Skills</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for rate in rates %}
+          <tr>
+            <td>{{ rate.min_level }}</td>
+            <td>{{ rate.max_level if rate.max_level is not none else "99+" }}</td>
+            <td>{{ rate.method }}</td>
+            <td>{{ rate.rate }}</td>
+            <td>{{ rate.bonus_xp if rate.bonus_xp is not none else "" }}</td>
+            <td>
+              {% for bonus in rate.bonus_skills %}
+                {% for bonus_skill, bonus_value in bonus.items() %}
+                  {{ bonus_skill }}: {{ bonus_value }}{% if not loop.last %}, {% endif %}
+                {% endfor %}
+              {% endfor %}
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <p>No data available for {{ skill }}.</p>
+    {% endif %}
+  {% endfor %}
+{% endblock %}

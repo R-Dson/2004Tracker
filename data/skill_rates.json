@@ -1,0 +1,226 @@
+{
+  "skills": {
+    "Agility": [
+      {
+        "min_level": 1,
+        "max_level": 99,
+        "method": "placeholder",
+        "rate": 1000,
+        "bonus_skills": []
+      }
+    ],
+    "Hunter": [
+      {
+        "min_level": 1,
+        "max_level": 99,
+        "method": "placeholder",
+        "rate": 1000,
+        "bonus_skills": []
+      }
+    ],
+    "Construction": [
+      {
+        "min_level": 1,
+        "max_level": 99,
+        "method": "placeholder",
+        "rate": 1000,
+        "bonus_skills": []
+      }
+    ],
+    "Magic": [
+      {
+        "min_level": 1,
+        "max_level": 99,
+        "method": "placeholder",
+        "rate": 1000,
+        "bonus_skills": []
+      }
+    ],
+    "Cooking": [
+      {
+        "min_level": 1,
+        "max_level": 15,
+        "method": "Shrimps, Meat, Chicken. Anchovies",
+        "rate": 1000,
+        "bonus_skills": []
+      },
+      {
+        "min_level": 15,
+        "max_level": 70,
+        "method": "?",
+        "rate": 2000,
+        "bonus_skills": []
+      },
+      {
+        "min_level": 70,
+        "max_level": 99,
+        "method": "?",
+        "rate": 30000,
+        "bonus_skills": []
+      }
+    ],
+    "Mining": [
+      {
+        "min_level": 1,
+        "max_level": 39,
+        "method": "Quests",
+        "rate": 1000,
+        "bonus_skills": []
+      },
+      {
+        "min_level": 39,
+        "max_level": 65,
+        "method": "Motherlode Mine for the prospector kit and Shooting Stars",
+        "rate": 1000,
+        "bonus_skills": []
+      }
+    ],
+    "Crafting": [
+      {
+        "min_level": 1,
+        "max_level": 99,
+        "method": "placeholder",
+        "rate": 1000,
+        "bonus_skills": []
+      }
+    ],
+    "Prayer": [
+      {
+        "min_level": 1,
+        "max_level": 99,
+        "method": "placeholder",
+        "rate": 1000,
+        "bonus_skills": []
+      }
+    ],
+    "Farming": [
+      {
+        "min_level": 1,
+        "max_level": 99,
+        "method": "placeholder",
+        "rate": 1000,
+        "bonus_skills": []
+      }
+    ],
+    "Runecrafting": [
+      {
+        "min_level": 1,
+        "max_level": 99,
+        "method": "placeholder",
+        "rate": 1000,
+        "bonus_skills": []
+      }
+    ],
+    "Firemaking": [
+      {
+        "min_level": 1,
+        "max_level": 99,
+        "method": "placeholder",
+        "rate": 1000,
+        "bonus_skills": []
+      }
+    ],
+    "Smithing": [
+      {
+        "min_level": 65,
+        "max_level": 75,
+        "method": "3t granite",
+        "rate": 1000,
+        "bonus_skills": [
+          {
+            "Smithing": 0.08
+          }
+        ]
+      },
+      {
+        "min_level": 75,
+        "max_level": 85,
+        "method": "3t granite",
+        "rate": 1000,
+        "bonus_skills": [
+          {
+            "Smithing": 0.08
+          }
+        ]
+      },
+      {
+        "min_level": 85,
+        "max_level": 95,
+        "method": "3t granite",
+        "rate": 1000,
+        "bonus_skills": [
+          {
+            "Smithing": 0.08
+          }
+        ]
+      },
+      {
+        "min_level": 95,
+        "max_level": 99,
+        "method": "3t granite",
+        "rate": 1000,
+        "bonus_skills": [
+          {
+            "Smithing": 0.08
+          }
+        ]
+      },
+      {
+        "min_level": 99,
+        "max_level": null,
+        "method": "3t granite",
+        "rate": 1000,
+        "bonus_skills": [
+          {
+            "Smithing": 0.08
+          }
+        ]
+      }
+    ],
+    "Fishing": [
+      {
+        "min_level": 1,
+        "max_level": 99,
+        "method": "placeholder",
+        "rate": 1000,
+        "bonus_skills": []
+      }
+    ],
+    "Thieving": [
+      {
+        "min_level": 1,
+        "max_level": 99,
+        "method": "placeholder",
+        "rate": 1000,
+        "bonus_skills": []
+      }
+    ],
+    "Fletching": [
+      {
+        "min_level": 1,
+        "max_level": 99,
+        "method": "placeholder",
+        "rate": 1000,
+        "bonus_skills": []
+      }
+    ],
+    "Woodcutting": [
+      {
+        "min_level": 1,
+        "max_level": 99,
+        "method": "placeholder",
+        "rate": 1000,
+        "bonus_skills": []
+      }
+    ],
+    "Herblore": [
+      {
+        "min_level": 1,
+        "max_level": 99,
+        "method": "placeholder",
+        "rate": 1000,
+        "bonus_skills": []
+      }
+    ]
+  }
+}

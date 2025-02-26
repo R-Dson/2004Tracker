@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% block title %}Hiscores{% endblock %}
+{% block content %}
+  {% if username %}
+    <h1>Hiscores for {{ username }}</h1>
+{% if graphs %}
+  <div class="graph-container">
+    {% for graph in graphs %}
+      {{ graph|safe }}
+    {% endfor %}
+  </div>
+{% else %}
+      <p>No graphs available.</p>
+      {% endif %}
+      <div style="display: flex; gap: 20px;">
+         {% if ehp_data %}
+         <div style="flex: 1;">
+            <h2>Efficiency Hours Played</h2>
+            <table class="table table-bordered table-dark text-white table-hover table-striped">
+               <thead>
+                  <tr>
+                     <th>Skill</th>
+                     <th>EHP</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td><strong>Total</strong></td>
+                     <td><strong>{{ total_ehp }}</strong></td>
+                  </tr>
+                  {% for skill, value in ehp_data.items() %}
+                  <tr>
+                     <td>{{ skill }}</td>
+                     <td>{{ value }}</td>
+                  </tr>
+                  {% endfor %}
+               </tbody>
+            </table>
+         </div>
+         {% endif %}
+         <div style="flex: 1;">
+            <h2>Progress Overview</h2>
+            <table class="table table-bordered table-dark text-white table-hover table-striped">
+               <thead>
+                  <tr>
+                     <th>Skill</th>
+                     <th>Monthly</th>
+                     <th>Weekly</th>
+                     <th>Daily</th>
+                  </tr>
+               </thead>
+               <tbody>
+               {% for skill, progress in progress_by_skill.items() %}
+                  <tr>
+                     <td>{{ skill }}</td>
+                     <td>{{ progress.monthly if progress.monthly is not none else 'N/A' }}</td>
+                     <td>{{ progress.weekly if progress.weekly is not none else 'N/A' }}</td>
+                     <td>{{ progress.daily if progress.daily is not none else 'N/A' }}</td>
+                  </tr>
+               {% endfor %}
+               </tbody>
+            </table>
+         </div>
+      </div>
+  {% else %}
+    <p>No username provided.</p>
+  {% endif %}
+{% endblock %}

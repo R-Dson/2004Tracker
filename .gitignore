@@ -135,6 +135,20 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Debug files
+*_debug.html
+
+# IDE
+.vscode/
+.idea/
+
+# Database
+instance/*.db
 
 # Spyder project settings
 .spyderproject

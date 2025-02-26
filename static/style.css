@@ -1,0 +1,185 @@
+/* static/style.css */
+
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #181818; /* Darker background */
+    color: #EEEEEE; /* Even lighter light text */
+    font-family: 'Segoe UI', sans-serif; /* Modern font */
+    margin: 10px; /* Add some margin around the body */
+    padding: 30px; /* Increased padding for a spacious feel */
+}
+
+.container {
+    flex-grow: 1;
+}
+
+h1, h2 {
+    color: #FFFFFF; /* White headings */
+    font-family: 'Segoe UI', sans-serif; /* Modern font for headings too */
+}
+form {
+    background-color: #282828; /* Even lighter dark background for form */
+    padding: 30px; /* Increased padding for form */
+    border-radius: 8px; /* Reduced rounded corners for form */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Adding a subtle shadow */
+}
+
+label {
+    display: block;
+    margin-bottom: 10px; /* Slightly reduced margin for labels */
+    color: #EEEEEE; /* Light text for labels as well */
+    font-family: 'Segoe UI', sans-serif; /* Modern font for labels */
+}
+input[type="text"] {
+    padding: 15px; /* Increased padding for input */
+    margin-bottom: 25px; /* Increased margin bottom for input */
+    border: 2px solid #555; /* Slightly thicker and lighter border for input */
+    border-radius: 6px; /* Reduced rounded corners for input */
+    background-color: #333; /* Slightly darker input background */
+    color: #EEEEEE; /* Light text for input */
+    width: 100%; /* Make input fields wider */
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+    font-family: 'Segoe UI', sans-serif; /* Modern font for inputs */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Adding a subtle shadow */
+    transition: border-color 0.3s ease; /* Adding a transition for smooth focus */
+}
+
+input[type="text"]:focus {
+    border-color: #007bff; /* Highlight on focus */
+}
+input[type="submit"] {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+#bordered th, #bordered td {
+    border: 1px solid #EEEEEE;
+    margin: 0px;
+    padding: 8px;
+}
+
+table {
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    background-color: #2d2d2d;
+    color: #eeeeee;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.table-bordered {
+    border: 1px solid #444;
+    border-radius: 6px;
+}
+
+.table-bordered th,
+.table-bordered td {
+    border: 1px solid #444;
+    padding: 12px;
+    background-color: #2d2d2d;
+    color: #eeeeee;
+}
+
+.table-bordered th:first-child {
+    border-top-left-radius: 6px;
+}
+
+.table-bordered th:last-child {
+    border-top-right-radius: 6px;
+}
+
+.table-bordered tr:last-child td:first-child {
+    border-bottom-left-radius: 6px;
+}
+
+.table-bordered tr:last-child td:last-child {
+    border-bottom-right-radius: 6px;
+}
+
+.table thead th {
+    background-color: #333;
+    color: #ffffff;
+    border-bottom: 2px solid #444;
+}
+
+.table tbody tr:hover {
+    background-color: #3a3a3a;
+}
+
+#bordered th, #bordered td {
+    border: 1px solid #EEEEEE;
+    margin: 0px;
+    padding: 12px;
+    text-align: left;
+}
+
+#bordered th {
+    background-color: #333;
+    font-weight: bold;
+}
+
+h1, h2 {
+    color: #FFFFFF; /* White headings */
+    font-family: 'Segoe UI', sans-serif; /* Modern font for headings too */
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.graph-container {
+    background-color: #222;
+    padding: 20px;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+}
+
+.custom-header,
+.custom-header .navbar-nav .nav-link {
+    color: #fff;
+}
+
+.custom-header {
+    background-color: #222;
+    padding: 20px;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+}
+
+.custom-header .navbar-brand {
+    color: #fff;
+}
+
+.custom-footer {
+    background-color: #222;
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+    border-radius: 6px;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
+}
+
+.main-container {
+    padding: 20px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
