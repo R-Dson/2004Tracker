@@ -12,11 +12,11 @@
 {% else %}
       <p>No graphs available.</p>
       {% endif %}
-      <div style="display: flex; gap: 20px;">
+      <div style="margin-top: 20px;">
          {% if ehp_data %}
-         <div style="flex: 1;">
-            <h2>Efficiency Hours Played</h2>
-            <table class="table table-bordered table-dark text-white table-hover table-striped">
+         <div>
+            <h4>Efficiency Hours Played</h4>
+            <table class="data-table">
                <thead>
                   <tr>
                      <th>Skill</th>
@@ -38,9 +38,9 @@
             </table>
          </div>
          {% endif %}
-         <div style="flex: 1;">
-            <h2>Progress Overview</h2>
-            <table class="table table-bordered table-dark text-white table-hover table-striped">
+         <div>
+            <h4>Progress Overview</h4>
+            <table class="data-table">
                <thead>
                   <tr>
                      <th>Skill</th>

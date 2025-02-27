@@ -150,7 +150,7 @@ def compute_ehp(hiscores, skill_rates):
         ehp_data[skill] = round(skill_ehp, 1)
         total_ehp += skill_ehp
 
-    return ehp_data, total_ehp
+    return ehp_data, round(total_ehp, 1)
 
 if __name__ == "__main__":
     # Example usage with a sample username

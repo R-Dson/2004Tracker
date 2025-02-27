@@ -2,3 +2,6 @@ Flask
 requests
 beautifulsoup4
 flask-sqlalchemy
+pandas
+plotly
+

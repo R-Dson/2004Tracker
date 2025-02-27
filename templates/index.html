@@ -1,30 +1,32 @@
 {% extends 'base.html' %}
 {% block title %}04Tracker{% endblock %}
 {% block content %}
-  <div class="main-container">
-    <form action="/fetch" method="GET">
-        <div class="mb-3">
-            <label for="username" class="form-label">Username:</label>
-            <input type="text" class="form-control" id="username" name="username">
-        </div>
-        <input type="submit" class="btn btn-primary" value="Fetch Hiscores">
-    </form>
+  <div></div> <!-- Empty div for :first-child pseudo-elements -->
+  <div class="horizontal-edge-top"></div>
+  <div class="horizontal-edge-bottom"></div>
+  <div class="vertical-container"></div>
+  
+  <form action="/fetch" method="GET">
+    <div class="form-group">
+      <label for="username" class="form-label">Username</label>
+      <input type="text" class="form-input" id="username" name="username" required>
+    </div>
+    <input type="submit" class="button" value="Fetch Hiscores">
+  </form>
 
-
-    <h2 class="mt-4">Recently Updated Characters</h2>
-    <table class="table table-bordered table-dark text-white m-4 text-center table-hover table-striped" style="table-layout: fixed; max-width: 200px; white-space: nowrap;">
-        <thead>
-            <tr>
-                <th>Username</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for user in recently_updated_users %}
-            <tr style="background-color: #343a40 !important;">
-                <td><a href="/fetch?username={{ user.username }}">{{ user.username }}</a></td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-  </div>
+  <h2>Recently Updated Characters</h2>
+  <table class="data-table data-table-dark" style="max-width: 200px;">
+    <thead>
+      <tr>
+        <th>Username</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for user in recently_updated_users %}
+      <tr>
+        <td><a href="/fetch?username={{ user.username }}">{{ user.username }}</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
 {% endblock %}
