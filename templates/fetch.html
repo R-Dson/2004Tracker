@@ -2,7 +2,7 @@
 {% block title %}Hiscores{% endblock %}
 {% block content %}
   {% if username %}
-    <h1>Hiscores for {{ username }}</h1>
+    <h2>{{ username }}'s progress</h2>
 {% if graphs %}
   <div class="graph-container">
     {% for graph in graphs %}
@@ -15,7 +15,7 @@
       <div style="margin-top: 20px;">
          {% if ehp_data %}
          <div>
-            <h4>Efficiency Hours Played</h4>
+            <h3>Efficient Hours Played</h3>
             <table class="data-table">
                <thead>
                   <tr>
@@ -41,7 +41,7 @@
          <div>
             <h4>Progress Overview</h4>
             <table class="data-table">
-               <thead>
+              <thead>
                   <tr>
                      <th>Skill</th>
                      <th>Monthly</th>
@@ -53,11 +53,37 @@
                {% for skill, progress in progress_by_skill.items() %}
                   <tr>
                      <td>{{ skill }}</td>
-                     <td>{{ progress.monthly if progress.monthly is not none else 'N/A' }}</td>
-                     <td>{{ progress.weekly if progress.weekly is not none else 'N/A' }}</td>
-                     <td>{{ progress.daily if progress.daily is not none else 'N/A' }}</td>
+                     <td>{{ progress.monthly if progress.monthly is not none else '-' }}</td>
+                     <td>{{ progress.weekly if progress.weekly is not none else '-' }}</td>
+                     <td>{{ progress.daily if progress.daily is not none else '-' }}</td>
                   </tr>
                {% endfor %}
+                </tbody>
+             </table>
+          </div>
+          <div style="margin-top: 20px;">
+             <h4>Rank Progress</h4>
+             <table class="data-table">
+                <thead>
+                   <tr>
+                      <th>Skill</th>
+                      <th>Current Rank</th>
+                      <th>Monthly Change</th>
+                      <th>Weekly Change</th>
+                      <th>Daily Change</th>
+                   </tr>
+                </thead>
+                <tbody>
+                {% for entry in hiscores_latest %}
+                   {% set progress = rank_progress.get(entry.skill, {}) %}
+                   <tr>
+                      <td>{{ entry.skill }}</td>
+                      <td>{{ entry.rank }}</td>
+                      <td>{{ progress.monthly if progress.monthly is not none else '-' }}</td>
+                      <td>{{ progress.weekly if progress.weekly is not none else '-' }}</td>
+                      <td>{{ progress.daily if progress.daily is not none else '-' }}</td>
+                   </tr>
+                {% endfor %}
                </tbody>
             </table>
          </div>
