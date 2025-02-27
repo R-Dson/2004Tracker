@@ -42,6 +42,7 @@ def calculate_skill_level(current_xp):
     
     return int(round(level))
 
+# At this point, having a static table with a lookup is probably faster/better
 def get_xp_for_level(level):
     """Calculates the total XP needed to reach a given level."""
     if level <= 1:
