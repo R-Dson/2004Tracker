@@ -58,7 +58,7 @@ def fetch_hiscores_route():
     # Get existing data first
     with rate_lock:
         now = datetime.utcnow().timestamp()
-        timestamps = [ts for ts in rate_limits.get(username, []) 
+        timestamps = [ts for ts in rate_limits.get(username, [])
                      if (now - ts) <= 1800]  # 1800 seconds = 30 minutes
         rate_limits[username] = timestamps  # Update the list of valid timestamps
         
@@ -178,10 +178,12 @@ def process_and_render_data(username, database_hiscores_data, df):
 
 def compare_hiscores_data(fetched_data, existing_data_list):
     """
-    Compares fetched hiscores data with existing hiscores data from the database,
-    only updating if the overall experience has increased.
-    Returns True if update is needed, False otherwise.
-    """
+        Compares fetched hiscores data with existing hiscores data from the database,
+        updating if either:
+        1. The overall experience has increased
+        2. Any skill rank has changed
+        Returns True if update is needed, False otherwise.
+        """
     if not existing_data_list:
         return True  # No existing data, so fetched data is always different
 
@@ -204,7 +206,18 @@ def compare_hiscores_data(fetched_data, existing_data_list):
     if existing_overall_xp is None:
         return True # No existing overall xp, so update
 
-    return fetched_overall_xp > existing_overall_xp
+    # Check if overall XP increased
+    if fetched_overall_xp > existing_overall_xp:
+        return True
+
+    # Check if any ranks changed
+    for fetched_item in fetched_data:
+        for existing_item in existing_data_list:
+            if fetched_item['skill'] == existing_item.skill:
+                if fetched_item['rank'] != existing_item.rank:
+                    return True
+
+    return False
 
 def compute_progress_by_skill(df, today_midnight, yesterday_midnight, week_boundary, month_boundary, now):
     progress_by_skill = {}
