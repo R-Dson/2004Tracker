@@ -1,0 +1,1 @@
+Some of the data here is estimated from [f2p.wiki](https://www.f2p.wiki/ehp) and [OSRS wiki](https://oldschool.runescape.wiki).

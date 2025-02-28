@@ -40,47 +40,124 @@
       {
         "min_level": 1,
         "max_level": 15,
-        "method": "Shrimps, Meat, Chicken. Anchovies",
-        "rate": 1000,
+        "method": "Shrimps, Meat, Chicken. Anchovies. Estimated xp/h.",
+        "rate": 30000,
         "bonus_skills": []
       },
       {
         "min_level": 15,
-        "max_level": 70,
-        "method": "?",
-        "rate": 2000,
+        "max_level": 30,
+        "method": "Trout. Depends on level. Estimated xp/h.",
+        "rate": 65000,
         "bonus_skills": []
       },
       {
-        "min_level": 70,
+        "min_level": 30,
+        "max_level": 35,
+        "method": "Salmon. Depends on level. Estimated xp/h.",
+        "rate": 90000,
+        "bonus_skills": []
+      },
+      {
+        "min_level": 35,
+        "max_level": 68,
+        "method": "Jug of wine. Depends on level. Estimated xp/h.",
+        "rate": 175000,
+        "bonus_skills": []
+      },
+      {
+        "min_level": 68,
         "max_level": 99,
-        "method": "?",
-        "rate": 30000,
+        "method": "Jug of wine. Depends on level. Estimated xp/h.",
+        "rate": 300000,
         "bonus_skills": []
       }
     ],
     "Mining": [
       {
         "min_level": 1,
-        "max_level": 39,
-        "method": "Quests",
-        "rate": 1000,
+        "max_level": 15,
+        "method": "Power mining tin/copper ore? Estimated xp/h.",
+        "rate": 5000,
         "bonus_skills": []
       },
       {
-        "min_level": 39,
-        "max_level": 65,
-        "method": "Motherlode Mine for the prospector kit and Shooting Stars",
-        "rate": 1000,
+        "min_level": 15,
+        "max_level": 99,
+        "method": "Power mining iron ore. Estimated xp/h.",
+        "rate": 30000,
         "bonus_skills": []
       }
     ],
     "Crafting": [
       {
         "min_level": 1,
+        "max_level": 7,
+        "method": "Leather gloves.",
+        "rate": 18900,
+        "bonus_skills": []
+      },
+      {
+        "min_level": 7,
+        "max_level": 9,
+        "method": "Leather boots.",
+        "rate": 22750,
+        "bonus_skills": []
+      },
+      {
+        "min_level": 9,
+        "max_level": 11,
+        "method": "Leather cowl.",
+        "rate": 25900,
+        "bonus_skills": []
+      },
+      {
+        "min_level": 11,
+        "max_level": 14,
+        "method": "Leather vanraces.",
+        "rate": 30800,
+        "bonus_skills": []
+      },
+      {
+        "min_level": 14,
+        "max_level": 18,
+        "method": "Leather body.",
+        "rate": 22750,
+        "bonus_skills": []
+      },
+      {
+        "min_level": 18,
+        "max_level": 20,
+        "method": "Leather chaps.",
+        "rate": 22750,
+        "bonus_skills": []
+      },
+      {
+        "min_level": 20,
+        "max_level": 27,
+        "method": "Cutting sapphire.",
+        "rate": 145000,
+        "bonus_skills": []
+      },
+      {
+        "min_level": 27,
+        "max_level": 34,
+        "method": "Cutting Emerald.",
+        "rate": 175000,
+        "bonus_skills": []
+      },
+      {
+        "min_level": 34,
+        "max_level": 43,
+        "method": "Cutting Ruby.",
+        "rate": 230000,
+        "bonus_skills": []
+      },
+      {
+        "min_level": 43,
         "max_level": 99,
-        "method": "placeholder",
-        "rate": 1000,
+        "method": "Cutting Diamond.",
+        "rate": 290000,
         "bonus_skills": []
       }
     ],
@@ -88,8 +165,8 @@
       {
         "min_level": 1,
         "max_level": 99,
-        "method": "placeholder",
-        "rate": 1000,
+        "method": "Burying Big bones. Estimated xp/h.",
+        "rate": 100000,
         "bonus_skills": []
       }
     ],
@@ -106,83 +183,105 @@
       {
         "min_level": 1,
         "max_level": 99,
-        "method": "placeholder",
-        "rate": 1000,
+        "method": "Air runes with runners. Estimated xp/h.",
+        "rate": 10000,
         "bonus_skills": []
       }
     ],
     "Firemaking": [
       {
         "min_level": 1,
+        "max_level": 15,
+        "method": "Regular logs.",
+        "rate": 35000,
+        "bonus_skills": []
+      },
+      {
+        "min_level": 15,
+        "max_level": 30,
+        "method": "Oak logs.",
+        "rate": 100000,
+        "bonus_skills": []
+      },
+      {
+        "min_level": 30,
+        "max_level": 60,
+        "method": "Willow logs.",
+        "rate": 165000,
+        "bonus_skills": []
+      },
+      {
+        "min_level": 60,
         "max_level": 99,
-        "method": "placeholder",
-        "rate": 1000,
+        "method": "Yew logs",
+        "rate": 250000,
         "bonus_skills": []
       }
     ],
     "Smithing": [
       {
-        "min_level": 65,
-        "max_level": 75,
-        "method": "3t granite",
-        "rate": 1000,
-        "bonus_skills": [
-          {
-            "Smithing": 0.08
-          }
-        ]
+        "min_level": 1,
+        "max_level": 29,
+        "method": "The Knight's Sword",
+        "rate": 12750,
+        "bonus_skills": []
       },
       {
-        "min_level": 75,
-        "max_level": 85,
-        "method": "3t granite",
-        "rate": 1000,
-        "bonus_skills": [
-          {
-            "Smithing": 0.08
-          }
-        ]
+        "min_level": 29,
+        "max_level": 33,
+        "method": "Bronze platebodies. Estimated xp/h.",
+        "rate": 50000,
+        "bonus_skills": []
       },
       {
-        "min_level": 85,
-        "max_level": 95,
-        "method": "3t granite",
-        "rate": 1000,
-        "bonus_skills": [
-          {
-            "Smithing": 0.08
-          }
-        ]
+        "min_level": 33,
+        "max_level": 48,
+        "method": "Iron platebodies. Estimated xp/h.",
+        "rate": 100000,
+        "bonus_skills": []
       },
       {
-        "min_level": 95,
+        "min_level": 48,
+        "max_level": 68,
+        "method": "Steel platebodies. Estimated xp/h.",
+        "rate": 135000,
+        "bonus_skills": []
+      },
+      {
+        "min_level": 68,
+        "max_level": 88,
+        "method": "Mithril platebodies. Estimated xp/h.",
+        "rate": 200000,
+        "bonus_skills": []
+      },
+      {
+        "min_level": 88,
         "max_level": 99,
-        "method": "3t granite",
-        "rate": 1000,
-        "bonus_skills": [
-          {
-            "Smithing": 0.08
-          }
-        ]
-      },
-      {
-        "min_level": 99,
-        "max_level": null,
-        "method": "3t granite",
-        "rate": 1000,
-        "bonus_skills": [
-          {
-            "Smithing": 0.08
-          }
-        ]
+        "method": "Adamant platebodies. Estimated xp/h.",
+        "rate": 275000,
+        "bonus_skills": []
       }
     ],
     "Fishing": [
       {
         "min_level": 1,
+        "max_level": 20,
+        "method": "Raw shrimps and raw anchovies.",
+        "rate": 2250,
+        "bonus_skills": []
+      },
+      {
+        "min_level": 20,
+        "max_level": 30,
+        "method": "Raw trout.",
+        "rate": 15000,
+        "bonus_skills": []
+      },
+      {
+        "min_level": 40,
         "max_level": 99,
-        "method": "placeholder",
-        "rate": 1000,
+        "method": "Raw trout and raw salmon.",
+        "rate": 40000,
         "bonus_skills": []
       }
     ],
@@ -207,9 +306,23 @@
     "Woodcutting": [
       {
         "min_level": 1,
+        "max_level": 15,
+        "method": "Trees",
+        "rate": 15000,
+        "bonus_skills": []
+      },
+      {
+        "min_level": 15,
+        "max_level": 60,
+        "method": "Before rune axe. 2-tick trees at southern Falador using two rats. Estimated xp/h.",
+        "rate": 30000,
+        "bonus_skills": []
+      },
+      {
+        "min_level": 30,
         "max_level": 99,
-        "method": "placeholder",
-        "rate": 1000,
+        "method": "With rune axe. 2-tick trees at southern Falador using two rats. Estimated xp/h.",
+        "rate": 65000,
         "bonus_skills": []
       }
     ],
