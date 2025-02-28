@@ -133,7 +133,22 @@ def process_and_render_data(username, database_hiscores_data, df):
                            title=f'Total Level Progression for {username}',
                            labels={'timestamp': 'Date', 'level': 'Level'})
         fig_overall.update_yaxes(rangemode="nonnegative", dtick=10, tickformat='d')
-        fig_overall.update_layout(plot_bgcolor='rgba(0,0,0,0)', paper_bgcolor='rgba(0,0,0,0)', font_color='#F0F0F0')
+        fig_overall.update_layout(
+            plot_bgcolor='rgba(0,0,0,0)',
+            paper_bgcolor='rgba(0,0,0,0)',
+            height=600,
+            margin=dict(l=30, r=10, t=50, b=100),
+            xaxis=dict(showline=True, showgrid=True),
+            yaxis=dict(showline=True, showgrid=True),
+            font_color='#F0F0F0',
+            legend=dict(
+                yanchor="top",
+                y=-0.3,
+                xanchor="center",
+                x=0.5,
+                orientation="h"
+            )
+        )
         graphs.append(plotly.offline.plot(fig_overall, output_type='div'))
         fig_overall.update_xaxes(tickformat="%Y-%m-%d %H:00")
     if not df_skills.empty:
@@ -141,7 +156,22 @@ def process_and_render_data(username, database_hiscores_data, df):
                           title=f'Skill Level Progression for {username}',
                           labels={'timestamp': 'Date', 'level': 'Level'})
         fig_skills.update_yaxes(rangemode="nonnegative", dtick=10, tickformat='d')
-        fig_skills.update_layout(plot_bgcolor='rgba(0,0,0,0)', paper_bgcolor='rgba(0,0,0,0)', font_color='#F0F0F0')
+        fig_skills.update_layout(
+            plot_bgcolor='rgba(0,0,0,0)',
+            paper_bgcolor='rgba(0,0,0,0)',
+            height=600,
+            margin=dict(l=30, r=10, t=50, b=100),
+            xaxis=dict(showline=True, showgrid=True),
+            yaxis=dict(showline=True, showgrid=True),
+            font_color='#F0F0F0',
+            legend=dict(
+                yanchor="top",
+                y=-0.3,
+                xanchor="center",
+                x=0.5,
+                orientation="h"
+            )
+        )
         graphs.append(plotly.offline.plot(fig_skills, output_type='div'))
         fig_skills.update_xaxes(tickformat="%Y-%m-%d %H:00")
 
@@ -154,12 +184,21 @@ def process_and_render_data(username, database_hiscores_data, df):
         if record.skill not in latest_records or record.timestamp > latest_records[record.skill].timestamp:
             latest_records[record.skill] = record
     hiscores_latest = []
-    for skill in latest_records:
+    # First add Overall if it exists
+    if 'Overall' in latest_records:
         hiscores_latest.append({
-            "skill": latest_records[skill].skill,
-            "xp": latest_records[skill].xp,
-            "rank": latest_records[skill].rank
+            "skill": latest_records['Overall'].skill,
+            "xp": latest_records['Overall'].xp,
+            "rank": latest_records['Overall'].rank
         })
+    # Then add all other skills
+    for skill in sorted(latest_records):
+        if skill != 'Overall':
+            hiscores_latest.append({
+                "skill": latest_records[skill].skill,
+                "xp": latest_records[skill].xp,
+                "rank": latest_records[skill].rank
+            })
     from data_fetcher import compute_ehp
     ehp_data, total_ehp = compute_ehp(hiscores_latest, skill_rates)
 
@@ -222,23 +261,33 @@ def compare_hiscores_data(fetched_data, existing_data_list):
 def compute_progress_by_skill(df, today_midnight, yesterday_midnight, week_boundary, month_boundary, now):
     progress_by_skill = {}
     for skill in df['skill'].unique():
+        # Get data for this skill sorted by timestamp
         df_skill = df[df['skill'] == skill].sort_values('timestamp')
         # Daily progress for this skill
         df_daily_skill = df_skill[(df_skill['timestamp'] >= yesterday_midnight) & (df_skill['timestamp'] < today_midnight)]
         daily = None
+        daily_xp = None
         if not df_daily_skill.empty:
             daily = df_daily_skill.iloc[-1]['level'] - df_daily_skill.iloc[0]['level']
+            daily_xp = df_daily_skill.iloc[-1]['xp'] - df_daily_skill.iloc[0]['xp']
         # Weekly progress for this skill
         df_weekly_skill = df_skill[(df_skill['timestamp'] >= week_boundary) & (df_skill['timestamp'] <= now)]
         weekly = None
+        weekly_xp = None
         if not df_weekly_skill.empty:
             weekly = df_weekly_skill.iloc[-1]['level'] - df_weekly_skill.iloc[0]['level']
+            weekly_xp = df_weekly_skill.iloc[-1]['xp'] - df_weekly_skill.iloc[0]['xp']
         # Monthly progress for this skill
         df_monthly_skill = df_skill[(df_skill['timestamp'] >= month_boundary) & (df_skill['timestamp'] <= now)]
         monthly = None
+        monthly_xp = None
         if not df_monthly_skill.empty:
             monthly = df_monthly_skill.iloc[-1]['level'] - df_monthly_skill.iloc[0]['level']
-        progress_by_skill[skill] = {"daily": daily, "weekly": weekly, "monthly": monthly}
+            monthly_xp = df_monthly_skill.iloc[-1]['xp'] - df_monthly_skill.iloc[0]['xp']
+        progress_by_skill[skill] = {
+            "daily": daily, "weekly": weekly, "monthly": monthly,
+            "daily_xp": daily_xp, "weekly_xp": weekly_xp, "monthly_xp": monthly_xp
+        }
     return progress_by_skill
 
 def compute_rank_progress_by_skill(df, today_midnight, yesterday_midnight, week_boundary, month_boundary, now):

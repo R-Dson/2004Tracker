@@ -1,14 +1,29 @@
+@font-face {
+  font-family: 'RuneScape';
+  src: url('https://raw.githubusercontent.com/runelite/runelite/master/runelite-client/src/main/resources/net/runelite/client/ui/runescape.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 /* Reset some basic elements */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
-
+.positive {
+  color: rgb(0, 255, 0); 
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+.negative {
+  color: rgb(255, 0, 0);
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
 /* Default link styles */
 a {
   color: #ffff00;
   text-decoration: none;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
 a:hover {
@@ -16,10 +31,17 @@ a:hover {
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'RuneScape', Arial, Helvetica, sans-serif;
+  font-size: 24px;
+  font-smooth: never;
+  -webkit-font-smoothing: none;
+  text-rendering: pixelated;
+  image-rendering: pixelated;
+  -ms-interpolation-mode: nearest-neighbor;
   padding: 0;
   background-color: black;
   color: #ffff00;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
 /* Header and Navigation */
@@ -41,8 +63,9 @@ body {
 .site-brand {
   color: #ffff00;
   text-decoration: none;
-  font-size: 1.5rem;
+  font-size: 2.5rem;
   font-weight: bold;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
 .site-brand:hover {
@@ -72,8 +95,9 @@ body {
   background: none;
   border: none;
   color: #ffff00;
-  font-size: 1.5rem;
+  font-size: 2.5rem;
   cursor: pointer;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
   padding: 0.5rem;
 }
 
@@ -83,6 +107,7 @@ body {
   color: #ffff00;
   text-align: center;
   padding: 1rem 0;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
   width: 100%;
 }
 
@@ -100,8 +125,10 @@ body {
 .data-table th,
 .data-table td {
   text-align: left;
+  font-size: 1.3rem;
   border: 1px solid #211C15;
   padding: 0.75rem;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
   overflow-wrap: break-word;
   word-break: break-word;
 }
@@ -124,10 +151,10 @@ body {
 }
 
 
-
 /* Content Typography */
 h1, h2 {
   color: #ffff00;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
   margin: 1rem 0;
 }
 
@@ -237,6 +264,7 @@ h1, h2 {
   display: block;
   margin-bottom: 0.5rem;
   color: #ffff00;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
   font-weight: bold;
 }
 
@@ -245,9 +273,10 @@ h1, h2 {
   padding: 0.5rem;
   border: 1px solid #555;
   border-radius: 4px;
-  font-size: 1rem;
+  font-size: 1.5rem;
   background-color: #333;
   color: #eee;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
 .form-input:focus {
@@ -261,11 +290,12 @@ h1, h2 {
   padding: 0.5rem 1rem;
   background-color: #2b2b2b;
   color: white;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   text-decoration: none;
-  font-size: 1rem;
+  font-size: 1.5rem;
 }
 
 .button:hover {
