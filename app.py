@@ -304,7 +304,7 @@ def process_leaderboard_entry(skill, user_id, username, ehp):
 
 @app.route('/ehp-leaderboard')
 def ehp_leaderboard():
-    skills = sorted(['Overall'] + [s for s in VALID_SKILLS if s != 'Overall'])
+    skills = ['Overall'] + sorted([s for s in VALID_SKILLS if s != 'Overall'])
     leaderboards = {}
     
     for skill in skills:
