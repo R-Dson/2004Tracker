@@ -16,9 +16,6 @@ from werkzeug.middleware.proxy_fix import ProxyFix
 app = Flask(__name__)
 app.config.from_object(Config)
 
-# Ensure templates can be found by using absolute path
-app.template_folder = os.path.abspath(os.path.join(os.path.dirname(__file__), 'templates'))
-
 # Configure proxy fix
 app.wsgi_app = ProxyFix(
     app.wsgi_app, x_for=1, x_proto=1, x_host=1, x_prefix=1
@@ -252,11 +249,8 @@ def process_and_render_data(username, database_hiscores_data, df):
 
     # Compute progress data per skill
     import json
-    base_dir = os.path.abspath(os.path.dirname(__file__))
-    with open(os.path.join(base_dir, 'data', 'skill_rates.json')) as f:
+    with open('data/skill_rates.json') as f:
         skill_rates = json.load(f)
-    #with open('data/skill_rates.json') as f:
-    #    skill_rates = json.load(f)
     latest_records = {}
     for record in database_hiscores_data:
         if record.skill not in latest_records or record.timestamp > latest_records[record.skill].timestamp:
