@@ -19,7 +19,7 @@
                 {% for leader in leaders %}
                 <tr>
                     <td>{{ loop.index }}</td>
-                    <td><a href="{{ url_for('fetch_hiscores_route', username=leader.username) }}">{{ leader.username }}</a></td>
+                    <td style="font-size: 1.3rem;"><a href="{{ url_for('fetch_hiscores_route', username=leader.username) }}">{{ leader.username }}</a></td>
                     <td>{{ "%.1f"|format(leader.ehp) }}</td>
                     <td style="font-size: 1rem;">{{ leader.last_updated.strftime('%Y-%m-%d %H:%M') }}</td>
                 </tr>
