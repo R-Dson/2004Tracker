@@ -74,7 +74,7 @@
                 <tbody>
                 {% for entry in hiscores_latest %}
                    {% set progress = rank_progress.get(entry.skill, {}) %}
-                   <tr title="XP: {{ "{:,}".format(entry.xp) }}">
+                   <tr title="Level: {{ entry.level }}">
                       <td>{{ entry.skill }}</td>
                       <td>{{ entry.rank }}</td>
                       <td class="{% if progress.monthly is not none and progress.monthly > 0 %}positive{% elif progress.monthly is not none and progress.monthly < 0 %}negative{% endif %}">{{ progress.monthly if progress.monthly is not none else '-' }}</td>

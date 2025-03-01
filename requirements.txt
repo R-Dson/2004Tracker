@@ -4,4 +4,6 @@ beautifulsoup4
 flask-sqlalchemy
 pandas
 plotly
-
+gunicorn
+Werkzeug
+python-dotenv

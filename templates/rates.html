@@ -5,15 +5,14 @@
   {% for skill, rates in skill_rates.skills.items() %}
     <h4>{{ skill }}</h4>
     {% if rates %}
-      <table class="data-table">
+      <table class="data-table rates-table">
         <thead>
           <tr>
             <th>Min Level</th>
             <th>Max Level</th>
             <th>Method</th>
             <th>Rate</th>
-            <th>Bonus XP</th>
-            <th>Bonus Skills</th>
+            <th>Bonuses</th>
           </tr>
         </thead>
         <tbody>
@@ -21,15 +20,20 @@
           <tr>
             <td>{{ rate.min_level }}</td>
             <td>{{ rate.max_level if rate.max_level is not none else "99+" }}</td>
-            <td>{{ rate.method }}</td>
-            <td>{{ rate.rate }}</td>
-            <td>{{ rate.bonus_xp if rate.bonus_xp is not none else "" }}</td>
-            <td>
-              {% for bonus in rate.bonus_skills %}
-                {% for bonus_skill, bonus_value in bonus.items() %}
-                  {{ bonus_skill }}: {{ bonus_value }}{% if not loop.last %}, {% endif %}
+            <td style="font-size: 1rem;">{{ rate.method }}</td>
+            <td style="font-size: 1.1rem;">{{ rate.rate }}</td>
+            <td style="font-size: 1.1rem;">
+              {% if rate.bonus_xp %}
+                XP: {{ rate.bonus_xp }}
+                {% if rate.bonus_skills %}<br>{% endif %}
+              {% endif %}
+              {% if rate.bonus_skills %}
+                {% for bonus in rate.bonus_skills %}
+                  {% for bonus_skill, bonus_value in bonus.items() %}
+                    {{ bonus_skill }}: {{ bonus_value }}{% if not loop.last %}, {% endif %}
+                  {% endfor %}
                 {% endfor %}
-              {% endfor %}
+              {% endif %}
             </td>
           </tr>
           {% endfor %}

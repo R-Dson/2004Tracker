@@ -1,12 +1,64 @@
-from flask import Flask, render_template
+import os
+import json
+from flask import Flask, render_template, jsonify, request
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 import pandas as pd
 import plotly.express as px
 import plotly.offline
 from threading import Lock
+import logging.handlers
+import logging
+from config import Config
+import functools
+from werkzeug.middleware.proxy_fix import ProxyFix
 
 app = Flask(__name__)
+app.config.from_object(Config)
+
+# Configure proxy fix
+app.wsgi_app = ProxyFix(
+    app.wsgi_app, x_for=1, x_proto=1, x_host=1, x_prefix=1
+)
+
+# Security headers
+@app.after_request
+def add_security_headers(response):
+    response.headers['X-Content-Type-Options'] = 'nosniff'
+    response.headers['X-Frame-Options'] = 'DENY'
+    response.headers['X-XSS-Protection'] = '1; mode=block'
+    response.headers['Strict-Transport-Security'] = 'max-age=31536000; includeSubDomains'
+    response.headers['Content-Security-Policy'] = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'"
+    return response
+
+# Configure logging
+if not os.path.exists('logs'):
+    os.makedirs('logs')
+
+formatter = logging.Formatter(
+    '[%(asctime)s] %(levelname)s in %(module)s: %(message)s'
+)
+
+file_handler = logging.handlers.RotatingFileHandler(
+    Config.LOG_FILE,
+    maxBytes=10485760,  # 10MB
+    backupCount=10
+)
+file_handler.setFormatter(formatter)
+file_handler.setLevel(logging.INFO)
+
+app.logger.addHandler(file_handler)
+app.logger.setLevel(getattr(logging, Config.LOG_LEVEL))
+
+# Error handler for 500 errors
+@app.errorhandler(500)
+def internal_server_error(error):
+    app.logger.error(f'Server Error: {error}')
+    return jsonify({
+        'error': 'Internal Server Error',
+        'message': 'An unexpected error occurred'
+    }), 500
+
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
 db = SQLAlchemy(app)
 
@@ -34,6 +86,14 @@ class HiscoresData(db.Model):
 rate_limits = {}
 rate_lock = Lock()
 
+def rate_limit(f):
+    @functools.wraps(f)
+    def decorated_function(*args, **kwargs):
+        # Move rate limiting logic here
+        return f(*args, **kwargs)
+    return decorated_function
+
+
 @app.route('/')
 def home():
     recently_updated_users = get_recently_updated_users()
@@ -46,20 +106,27 @@ def get_recently_updated_users():
     users = User.query.join(HiscoresData).group_by(User.id).order_by(db.desc(db.func.max(HiscoresData.timestamp))).limit(10).all() # Limit to 10 for recently updated
     return users
 
+@app.route('/health')
+def health_check():
+    """Health check endpoint for monitoring"""
+    return jsonify({'status': 'healthy', 'timestamp': datetime.utcnow().isoformat()})
+
 @app.route('/fetch', methods=['GET'])
+@rate_limit
 def fetch_hiscores_route():
     from flask import request
     from data_fetcher import fetch_hiscores
 
     username = request.args.get("username")
     if not username:
-        return "Please provide username", 400
+        app.logger.warning("Fetch request missing username")
+        return jsonify({'error': 'Please provide username'}), 400
         
     # Get existing data first
     with rate_lock:
         now = datetime.utcnow().timestamp()
         timestamps = [ts for ts in rate_limits.get(username, [])
-                     if (now - ts) <= 1800]  # 1800 seconds = 30 minutes
+                     if (now - ts) <= Config.RATE_LIMIT_WINDOW]
         rate_limits[username] = timestamps  # Update the list of valid timestamps
         
     # If we have existing data and are rate limited, return it immediately
@@ -98,11 +165,13 @@ def fetch_hiscores_route():
 
             data = fetch_hiscores(username)
             if data is None:
-                return "Error retrieving hiscores", 500
+                app.logger.error(f"Failed to fetch hiscores for user: {username}")
+                return jsonify({'error': 'Error retrieving hiscores'}), 500
 
     # Continue with normal flow if not rate limited
     if data is None:
-        return "Error retrieving hiscores", 500
+        app.logger.error(f"Failed to fetch hiscores for user: {username}")
+        return jsonify({'error': 'Error retrieving hiscores'}), 500
 
     if compare_hiscores_data(data, database_hiscores_data):
         for item in data:
@@ -114,6 +183,7 @@ def fetch_hiscores_route():
                 author=user
             )
             db.session.add(hiscore_data)
+        app.logger.info(f"Updated hiscores data for user: {username}")
         db.session.commit()
 
     return process_and_render_data(username, database_hiscores_data, df)
@@ -189,7 +259,8 @@ def process_and_render_data(username, database_hiscores_data, df):
         hiscores_latest.append({
             "skill": latest_records['Overall'].skill,
             "xp": latest_records['Overall'].xp,
-            "rank": latest_records['Overall'].rank
+            "rank": latest_records['Overall'].rank,
+            "level": latest_records['Overall'].level
         })
     # Then add all other skills
     for skill in sorted(latest_records):
@@ -197,7 +268,8 @@ def process_and_render_data(username, database_hiscores_data, df):
             hiscores_latest.append({
                 "skill": latest_records[skill].skill,
                 "xp": latest_records[skill].xp,
-                "rank": latest_records[skill].rank
+                "rank": latest_records[skill].rank,
+                "level": latest_records[skill].level
             })
     from data_fetcher import compute_ehp
     ehp_data, total_ehp = compute_ehp(hiscores_latest, skill_rates)
@@ -260,7 +332,13 @@ def compare_hiscores_data(fetched_data, existing_data_list):
 
 def compute_progress_by_skill(df, today_midnight, yesterday_midnight, week_boundary, month_boundary, now):
     progress_by_skill = {}
-    for skill in df['skill'].unique():
+    skills = sorted(df['skill'].unique())
+    if 'Overall' in skills:
+        # Remove and add Overall first
+        skills.remove('Overall')
+        skills = ['Overall'] + skills
+
+    for skill in skills:
         # Get data for this skill sorted by timestamp
         df_skill = df[df['skill'] == skill].sort_values('timestamp')
         # Daily progress for this skill
@@ -328,9 +406,14 @@ def rates():
         skill_rates = json.load(f)
     return render_template('rates.html', skill_rates=skill_rates)
 
-    
-
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()
-    app.run(debug=True)
+    # export FLASK_ENV=development
+    if app.config['ENV'] == 'development':
+        app.run(host='0.0.0.0', port=5002, debug=True)
+    else:
+        # In production, use Gunicorn
+        app.logger.info('Production mode - use Gunicorn to run the application')
+        exit(1)
+
