@@ -3,6 +3,71 @@
 {% block content %}
   {% if username %}
     <h2>{{ username }}'s progress</h2>
+    <div class="update-section">
+      <button id="updateButton" class="button" onclick="updateHiscore('{{ username }}')">Update Hiscore</button>
+      <span id="updateStatus" style="display: none; margin-left: 10px;"></span>
+      <div id="refreshPopup" style="display: none; position: fixed; top: 20px; right: 20px; 
+           background-color: #0f0b08; border: 1px solid #3c3c3c; padding: 15px; color: white;
+           box-shadow: 0 2px 4px rgba(0,0,0,0.2); border-radius: 4px; z-index: 1000;">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;">
+          <span style="font-weight: bold;">Update Complete</span>
+          <button onclick="closePopup()" 
+                  style="border: none; background: none; cursor: pointer; font-size: 36px; color: white;">&times;</button>
+        </div>
+        <p style="margin: 0; color: #d3d3d3;">You may need to refresh the page to see all changes.<br>You may be refresh limited if you see no changes.</p>
+      </div>
+
+    </div>
+    <script>
+      async function updateHiscore(username) {
+        const button = document.getElementById('updateButton');
+        const status = document.getElementById('updateStatus');
+        button.disabled = true;
+        status.textContent = 'Updating...';
+        status.style.display = 'inline';
+        
+        try {
+          const response = await fetch('/fetch', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username: username })
+          });
+          
+          if (!response.ok) {
+            throw new Error('Failed to update');
+          }
+          
+          // Replace the current page content with the updated content
+          const html = await response.text();
+          
+          // Create a temporary div to parse the HTML
+          const temp = document.createElement('div');
+          temp.innerHTML = html;
+          
+          // Find the content section in both current and new page
+          // Only update the tables section (everything after the graphs)
+          const newTables = temp.querySelectorAll('.data-table');
+          const currentTables = document.querySelectorAll('.data-table');
+          newTables.forEach((newTable, index) => {
+            currentTables[index].innerHTML = newTable.innerHTML;
+          });
+          
+          button.disabled = false;
+          status.style.display = 'none';
+          showPopup();
+        } catch (error) {
+          status.textContent = 'Update failed. Please try again.';
+          button.disabled = false;
+        }
+      }
+      
+      function showPopup() {
+        document.getElementById('refreshPopup').style.display = 'block';
+      }
+      function closePopup() {
+        document.getElementById('refreshPopup').style.display = 'none';
+      }
+    </script>
 {% if graphs %}
   <div class="graph-container">
     {% for graph in graphs %}

@@ -111,28 +111,47 @@ def health_check():
     """Health check endpoint for monitoring"""
     return jsonify({'status': 'healthy', 'timestamp': datetime.utcnow().isoformat()})
 
-@app.route('/fetch', methods=['GET'])
+@app.route('/fetch', methods=['GET', 'POST'])
 @rate_limit
 def fetch_hiscores_route():
     from flask import request
     from data_fetcher import fetch_hiscores
+   
+    # Get username from either POST data or query params
+    if request.method == 'POST':
+        data = request.get_json()
+        if not data or 'username' not in data:
+            app.logger.warning("Fetch POST request missing username")
+            return jsonify({'error': 'Please provide username'}), 400
+        username = data['username']
+    else:
+        username = request.args.get("username")
 
-    username = request.args.get("username")
     if not username:
         app.logger.warning("Fetch request missing username")
         return jsonify({'error': 'Please provide username'}), 400
-        
-    # Get existing data first
-    with rate_lock:
-        now = datetime.utcnow().timestamp()
-        timestamps = [ts for ts in rate_limits.get(username, [])
-                     if (now - ts) <= Config.RATE_LIMIT_WINDOW]
-        rate_limits[username] = timestamps  # Update the list of valid timestamps
-        
-    # If we have existing data and are rate limited, return it immediately
-    is_rate_limited = len(timestamps) >= 5
+
+    # Get existing user data
     user = User.query.filter_by(username=username).first()
-    if user:
+    if not user:
+        if request.method == 'GET':
+            # For GET requests, just show empty data
+            return render_template('fetch.html', 
+                username=username,
+                graphs=[],
+                ehp_data={},
+                total_ehp=0,
+                progress_by_skill={},
+                rank_progress={},
+                hiscores_latest=[])
+        # For POST requests, create new user
+        user = User(username=username)
+        db.session.add(user)
+        database_hiscores_data = []
+        df = pd.DataFrame(columns=['timestamp', 'skill', 'rank', 'level', 'xp'])
+        # Ensure timestamp column is datetime type even for empty DataFrame
+        df['timestamp'] = pd.to_datetime(df['timestamp'])
+    else:
         database_hiscores_data = HiscoresData.query.filter_by(user_id=user.id).order_by(HiscoresData.timestamp.asc()).all()
         if database_hiscores_data:
             df = pd.DataFrame([(
@@ -142,35 +161,31 @@ def fetch_hiscores_route():
                 item.level,
                 item.xp
             ) for item in database_hiscores_data], columns=['timestamp', 'skill', 'rank', 'level', 'xp'])
-            
-            if not df.empty:
-                # If rate limited, return existing data
-                if is_rate_limited:
-                    return process_and_render_data(username, database_hiscores_data, df)
-    else:
-        user = User(username=username)
-        db.session.add(user)
-        database_hiscores_data = []
-        df = pd.DataFrame(columns=['timestamp', 'skill', 'rank', 'level', 'xp'])
-        # Ensure timestamp column is datetime type even for empty DataFrame
-        df['timestamp'] = pd.to_datetime(df['timestamp'])
-
-    # Rate limiting check
-    with rate_lock:
-        if is_rate_limited:
-                
-            return process_and_render_data(username, database_hiscores_data, df)
         else:
-            timestamps.append(now)
-            rate_limits[username] = timestamps
-            print(rate_limits[username])
+            df = pd.DataFrame(columns=['timestamp', 'skill', 'rank', 'level', 'xp'])
+            df['timestamp'] = pd.to_datetime(df['timestamp'])
+ 
+    # Only check rate limits and fetch new data for POST requests
+    if request.method == 'GET':
+        return process_and_render_data(username, database_hiscores_data, df)
+    
+    # Rate limiting for POST requests
+    with rate_lock:
+        now = datetime.utcnow().timestamp()
+        timestamps = [ts for ts in rate_limits.get(username, [])
+                     if (now - ts) <= Config.RATE_LIMIT_WINDOW]
+        rate_limits[username] = timestamps  # Update the list of valid timestamps
+        
+    is_rate_limited = len(timestamps) >= 5
 
-            data = fetch_hiscores(username)
-            if data is None:
-                app.logger.error(f"Failed to fetch hiscores for user: {username}")
-                return jsonify({'error': 'Error retrieving hiscores'}), 500
+    if is_rate_limited:
+        return process_and_render_data(username, database_hiscores_data, df)
 
-    # Continue with normal flow if not rate limited
+    timestamps.append(now)
+    rate_limits[username] = timestamps
+
+    # Fetch new data
+    data = fetch_hiscores(username)
     if data is None:
         app.logger.error(f"Failed to fetch hiscores for user: {username}")
         return jsonify({'error': 'Error retrieving hiscores'}), 500
@@ -208,7 +223,7 @@ def process_and_render_data(username, database_hiscores_data, df):
         fig_overall.update_layout(
             plot_bgcolor='rgba(0,0,0,0)',
             paper_bgcolor='rgba(0,0,0,0)',
-            height=600,
+            height=400,
             margin=dict(l=30, r=10, t=50, b=100),
             xaxis=dict(showline=True, showgrid=True),
             yaxis=dict(showline=True, showgrid=True),

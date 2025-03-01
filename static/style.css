@@ -196,8 +196,26 @@ h1, h2 {
 /* Graph Container Style */
 .graph-container {
   background-color: #0f0b08cb; /* Dark brown background for plotty graphs */
-  padding: 20px; /* Add some padding for better visual separation */
-  border-radius: 5px; /* Optional: Add rounded corners for a softer look */
+  padding: 20px;
+  border-radius: 5px;
+}
+
+/* Update Section Styles */
+.update-section {
+  margin: 1rem 0;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+#updateButton {
+  background-color: #211C15;
+  color: #ffff00;
+}
+
+#updateStatus {
+  color: #ffff00;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
 /* Bordered container styles */
@@ -307,9 +325,10 @@ h1, h2 {
   width: 100%;
   padding: 0.5rem;
   border: 1px solid #555;
-  border-radius: 4px;
+  border-radius: 0px;
   font-size: 1.5rem;
-  background-color: #333;
+  background-color: #2b2b2b;
+  transition: all 0.1s ease;
   color: #eee;
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
@@ -318,6 +337,8 @@ h1, h2 {
   outline: none;
   border-color: #888;
   box-shadow: 0 0 0 2px rgba(136, 136, 136, 0.1);
+  filter: brightness(125%);
+  transition: all 0.1s ease;
 }
 
 .button {
@@ -326,15 +347,16 @@ h1, h2 {
   background-color: #2b2b2b;
   color: white;
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
-  border: none;
-  border-radius: 4px;
+  border: 1.5px solid #555;
   cursor: pointer;
   text-decoration: none;
   font-size: 1.5rem;
+  transition: all 0.1s ease;
 }
 
 .button:hover {
-  background-color: #404040;
+  filter: brightness(125%);
+  transition: all 0.075s ease;
 }
 
 /* Responsive Navigation */
