@@ -16,6 +16,9 @@ from werkzeug.middleware.proxy_fix import ProxyFix
 app = Flask(__name__)
 app.config.from_object(Config)
 
+# Ensure templates can be found by using absolute path
+app.template_folder = os.path.abspath(os.path.join(os.path.dirname(__file__), 'templates'))
+
 # Configure proxy fix
 app.wsgi_app = ProxyFix(
     app.wsgi_app, x_for=1, x_proto=1, x_host=1, x_prefix=1
@@ -136,7 +139,7 @@ def fetch_hiscores_route():
         database_hiscores_data = HiscoresData.query.filter_by(user_id=user.id).order_by(HiscoresData.timestamp.asc()).all()
         if database_hiscores_data:
             df = pd.DataFrame([(
-                item.timestamp,
+                pd.to_datetime(item.timestamp),
                 item.skill,
                 item.rank,
                 item.level,
@@ -152,6 +155,8 @@ def fetch_hiscores_route():
         db.session.add(user)
         database_hiscores_data = []
         df = pd.DataFrame(columns=['timestamp', 'skill', 'rank', 'level', 'xp'])
+        # Ensure timestamp column is datetime type even for empty DataFrame
+        df['timestamp'] = pd.to_datetime(df['timestamp'])
 
     # Rate limiting check
     with rate_lock:
@@ -247,8 +252,11 @@ def process_and_render_data(username, database_hiscores_data, df):
 
     # Compute progress data per skill
     import json
-    with open('data/skill_rates.json') as f:
+    base_dir = os.path.abspath(os.path.dirname(__file__))
+    with open(os.path.join(base_dir, 'data', 'skill_rates.json')) as f:
         skill_rates = json.load(f)
+    #with open('data/skill_rates.json') as f:
+    #    skill_rates = json.load(f)
     latest_records = {}
     for record in database_hiscores_data:
         if record.skill not in latest_records or record.timestamp > latest_records[record.skill].timestamp:
