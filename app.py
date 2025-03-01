@@ -12,6 +12,7 @@ import logging
 from config import Config
 import functools
 from werkzeug.middleware.proxy_fix import ProxyFix
+import re
 
 def format_rate(value):
     """Format large numbers as 'k' format"""
@@ -118,6 +119,21 @@ def health_check():
     """Health check endpoint for monitoring"""
     return jsonify({'status': 'healthy', 'timestamp': datetime.utcnow().isoformat()})
 
+def ValidateUsername(username):
+    """Validate username for security and format requirements"""
+    if not username:
+        return False, "Please provide username"
+    
+    # Check length (RuneScape usernames are limited to 12 characters)
+    if len(username) > 13:
+        return False, "Username must be 12 characters or less"
+    
+    # Check for valid characters (only letters, numbers, spaces and underscores allowed)
+    if not re.match("^[a-zA-Z0-9_ ]*$", username):
+        return False, "Username can only contain letters, numbers, spaces and underscores"
+    
+    return True, None
+
 @app.route('/fetch', methods=['GET', 'POST'])
 @rate_limit
 def fetch_hiscores_route():
@@ -134,10 +150,13 @@ def fetch_hiscores_route():
     else:
         username = request.args.get("username")
 
-    if not username:
-        app.logger.warning("Fetch request missing username")
-        return jsonify({'error': 'Please provide username'}), 400
-
+    # Validate username
+    is_valid, error_message = ValidateUsername(username)
+    if not is_valid:
+        app.logger.warning(f"Invalid username attempt: {username}")
+        return jsonify({'error': error_message}), 400
+    
+    username = username.strip().replace(' ', '_').lower()
     # Get existing user data
     user = User.query.filter_by(username=username).first()
     if not user:
