@@ -1,6 +1,7 @@
 import os
 import json
 from flask import Flask, render_template, jsonify, request
+from data_fetcher import fetch_hiscores, compute_ehp, VALID_SKILLS
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 import pandas as pd
@@ -89,6 +90,22 @@ class HiscoresData(db.Model):
 
     def __repr__(self):
         return f"HiscoresData('{self.timestamp}', '{self.skill}', '{self.rank}', '{self.level}', '{self.xp}')"
+        
+class SkillEHPLeaderboard(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    username = db.Column(db.String(20), nullable=False)
+    skill = db.Column(db.String(30), nullable=False)  # 'Overall' or skill name
+    ehp = db.Column(db.Float, nullable=False)
+    last_updated = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+    
+    # Indexes and constraints
+    __table_args__ = (
+        db.Index('idx_skill_ehp', 'skill', 'ehp', 'username'),
+        db.UniqueConstraint('user_id', 'skill', name='uix_user_skill')
+    )
+    
+    user = db.relationship('User', backref='ehp_entries', lazy=True)
 
 # Rate limiting globals
 rate_limits = {}
@@ -138,7 +155,6 @@ def ValidateUsername(username):
 @rate_limit
 def fetch_hiscores_route():
     from flask import request
-    from data_fetcher import fetch_hiscores
    
     # Get username from either POST data or query params
     if request.method == 'POST':
@@ -229,8 +245,77 @@ def fetch_hiscores_route():
         app.logger.info(f"Updated hiscores data for user: {username}")
         db.session.commit()
 
+        # Update EHP leaderboard
+        # Load skill rates
+        with open('data/skill_rates.json') as f:
+            skill_rates = json.load(f)
+            
+        ehp_data, total_ehp = compute_ehp(data, skill_rates)
+        update_ehp_leaderboard(username, user.id, ehp_data, total_ehp)
+
     return process_and_render_data(username, database_hiscores_data, df)
 
+def update_ehp_leaderboard(username, user_id, ehp_data, total_ehp):
+    """Update the EHP leaderboard for a user's overall and skill-specific EHP"""
+    # Update overall EHP
+    process_leaderboard_entry('Overall', user_id, username, total_ehp)
+    
+    # Update individual skills
+    for skill, ehp in ehp_data.items():
+        process_leaderboard_entry(skill, user_id, username, ehp)
+
+def process_leaderboard_entry(skill, user_id, username, ehp):
+    """Process a single leaderboard entry, maintaining only top 10 entries per skill"""
+    # Skip if EHP is 0 or less
+    if ehp <= 1e-4:
+        return
+        
+    # Check if user already has an entry
+    existing = SkillEHPLeaderboard.query.filter_by(
+        user_id=user_id,
+        skill=skill
+    ).first()
+    
+    # Get current top 10
+    current_top = SkillEHPLeaderboard.query.filter_by(skill=skill)\
+        .order_by(SkillEHPLeaderboard.ehp.desc())\
+        .limit(10).all()
+    
+    if len(current_top) < 10 or ehp > current_top[-1].ehp or existing:
+        if existing:
+            existing.ehp = ehp
+            existing.last_updated = datetime.utcnow()
+        else:
+            new_entry = SkillEHPLeaderboard(
+                user_id=user_id,
+                username=username,
+                skill=skill,
+                ehp=ehp
+            )
+            db.session.add(new_entry)
+            
+        # Remove lowest entry if we're over 10 and this is a new entry
+        if len(current_top) >= 10 and not existing:
+            lowest = current_top[-1]
+            if lowest.ehp < ehp:  # Only remove if new entry has higher EHP
+                db.session.delete(lowest)
+        
+        db.session.commit()
+
+@app.route('/ehp-leaderboard')
+def ehp_leaderboard():
+    skills = sorted(['Overall'] + [s for s in VALID_SKILLS if s != 'Overall'])
+    leaderboards = {}
+    
+    for skill in skills:
+        leaders = SkillEHPLeaderboard.query\
+            .filter_by(skill=skill)\
+            .order_by(SkillEHPLeaderboard.ehp.desc())\
+            .limit(10)\
+            .all()
+        leaderboards[skill] = leaders
+    
+    return render_template('ehp_leaderboard.html', leaderboards=leaderboards)
 def process_and_render_data(username, database_hiscores_data, df):
     """Helper function to process and render the hiscores data"""
     df_overall = df[df['skill'] == 'Overall'].copy()
@@ -314,7 +399,6 @@ def process_and_render_data(username, database_hiscores_data, df):
                 "rank": latest_records[skill].rank,
                 "level": latest_records[skill].level
             })
-    from data_fetcher import compute_ehp
     ehp_data, total_ehp = compute_ehp(hiscores_latest, skill_rates)
 
     from datetime import timedelta

@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% block title %}EHP Leaderboards{% endblock %}
+
+{% block content %}
+<div class="leaderboard-container">
+    {% for skill, leaders in leaderboards.items() %}
+    <div class="leaderboard-section">
+        <h3>{{ skill }} EHP Leaderboard</h3>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Username</th>
+                    <th>EHP</th>
+                    <th>Last Updated</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for leader in leaders %}
+                <tr>
+                    <td>{{ loop.index }}</td>
+                    <td><a href="{{ url_for('fetch_hiscores_route', username=leader.username) }}">{{ leader.username }}</a></td>
+                    <td>{{ "%.1f"|format(leader.ehp) }}</td>
+                    <td>{{ leader.last_updated.strftime('%Y-%m-%d %H:%M') }}</td>
+                </tr>
+                {% endfor %}
+                {% if not leaders %}
+                <tr>
+                    <td colspan="4">No entries yet</td>
+                </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+    {% endfor %}
+</div>
+
+<style>
+.leaderboard-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.leaderboard-section {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 15px;
+    border-radius: 4px;
+}
+
+.leaderboard-section h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.data-table {
+    width: 100%;
+    margin-bottom: 0;
+}
+
+.data-table th, .data-table td {
+    padding: 8px;
+    text-align: left;
+}
+
+.data-table a {
+    color: #ffeb3b;
+    text-decoration: none;
+}
+
+.data-table a:hover {
+    text-decoration: underline;
+}
+</style>
+{% endblock %}

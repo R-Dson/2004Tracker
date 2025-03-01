@@ -32,7 +32,7 @@
         "min_level": 1,
         "max_level": 99,
         "method": "placeholder",
-        "rate": 1000,
+        "rate": 1e16,
         "bonus_skills": []
       }
     ],
