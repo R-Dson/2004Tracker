@@ -11,7 +11,7 @@
             <th>Min Level</th>
             <th>Max Level</th>
             <th>Method</th>
-            <th>Rate</th>
+            <th>Rate<br>(xp/h)</th>
             <th>Bonuses</th>
           </tr>
         </thead>
@@ -21,7 +21,7 @@
             <td>{{ rate.min_level }}</td>
             <td>{{ rate.max_level if rate.max_level is not none else "99+" }}</td>
             <td style="font-size: 1rem;">{{ rate.method }}</td>
-            <td style="font-size: 1.1rem;">{{ rate.rate }}</td>
+            <td style="font-size: 1.1rem;">{{ rate.rate|format_rate }}</td>
             <td style="font-size: 1.1rem;">
               {% if rate.bonus_xp %}
                 XP: {{ rate.bonus_xp }}

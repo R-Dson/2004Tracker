@@ -13,8 +13,15 @@ from config import Config
 import functools
 from werkzeug.middleware.proxy_fix import ProxyFix
 
+def format_rate(value):
+    """Format large numbers as 'k' format"""
+    if value >= 1000:
+        return f"{value/1000:.0f}k"
+    return str(value)
+
 app = Flask(__name__)
 app.config.from_object(Config)
+app.jinja_env.filters['format_rate'] = format_rate
 
 # Configure proxy fix
 app.wsgi_app = ProxyFix(
