@@ -3,6 +3,7 @@
 {% block content %}
   <h31>Skill Rates</h3>
   {% for skill, rates in skill_rates.skills.items() %}
+    <div class="skill-section">
     <h4>{{ skill }}</h4>
     {% if rates %}
       <table class="data-table rates-table">
@@ -20,19 +21,26 @@
           <tr>
             <td>{{ rate.min_level }}</td>
             <td>{{ rate.max_level if rate.max_level is not none else "99+" }}</td>
-            <td style="font-size: 1rem;">{{ rate.method }}</td>
-            <td style="font-size: 1.1rem;">{{ rate.rate|format_rate }}</td>
-            <td style="font-size: 1.1rem;">
-              {% if rate.bonus_xp %}
-                XP: {{ rate.bonus_xp }}
-                {% if rate.bonus_skills %}<br>{% endif %}
-              {% endif %}
-              {% if rate.bonus_skills %}
-                {% for bonus in rate.bonus_skills %}
-                  {% for bonus_skill, bonus_value in bonus.items() %}
-                    {{ bonus_skill }}: {{ bonus_value }}{% if not loop.last %}, {% endif %}
+            <td style="font-size: 1rem;" class="method-cell">
+              <div class="method-content">
+                {{ rate.method }}
+                {% if rate.bonus_skills %}
+                <div class="bonus-content" style="display: none;">
+                  <hr style="margin: 10px 0;">
+                  <strong>Bonus Skills:</strong><br>
+                  {% for bonus in rate.bonus_skills %}
+                    {{ bonus.skill }}: {{ bonus.method }} ({{ "{:,}".format(bonus.rate) }} xp/h)<br>
                   {% endfor %}
-                {% endfor %}
+                </div>
+                {% endif %}
+              </div>
+            </td>
+            <td style="font-size: 1.1rem;">{{ rate.rate|format_rate }}</td>
+            <td style="font-size: 1.1rem;" class="bonuses-cell">
+              {% if rate.bonus_skills %}
+                <button class="toggle-bonus">Show</button>
+              {% else %}
+                -
               {% endif %}
             </td>
           </tr>
@@ -42,5 +50,36 @@
     {% else %}
       <p>No data available for {{ skill }}.</p>
     {% endif %}
+    </div>
   {% endfor %}
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const toggleButtons = document.querySelectorAll('.toggle-bonus');
+      
+      toggleButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const row = this.closest('tr');
+          const methodCell = row.querySelector('.method-cell');
+          const bonusContent = methodCell.querySelector('.bonus-content');
+          
+          if (bonusContent.style.display === 'none') {
+            // Show bonus content
+            bonusContent.style.display = 'block';
+            methodCell.style.height = 'auto';
+            this.textContent = 'Hide';
+            
+            // Smooth transition for height
+            const currentHeight = methodCell.scrollHeight;
+            methodCell.style.maxHeight = currentHeight + 'px';
+          } else {
+            // Hide bonus content
+            bonusContent.style.display = 'none';
+            methodCell.style.maxHeight = '';
+            this.textContent = 'Show';
+          }
+        });
+      });
+    });
+  </script>
 {% endblock %}

@@ -282,7 +282,13 @@
         "max_level": 99,
         "method": "Raw trout and raw salmon.",
         "rate": 40000,
-        "bonus_skills": []
+        "bonus_skills": [
+          {
+            "skill": "Cooking",
+            "method": "Cooking raw trout and raw salmon. 80 xp per 60 xp in Fishing.",
+            "rate": 53333
+          }
+        ]
       }
     ],
     "Thieving": [

@@ -156,6 +156,40 @@ body {
 .rates-table td:last-child {
   text-align: left;
 }
+
+/* Expandable row styles */
+.method-cell {
+  position: relative;
+  transition: max-height 0.3s ease-out;
+  overflow: hidden;
+}
+.method-content {
+  padding: 5px 0;
+}
+
+.bonus-content {
+  font-size: 0.9rem;
+  color: #ffff00;
+}
+
+.toggle-bonus {
+  background: none;
+  border: 1px solid #ffff00;
+  color: #ffff00;
+  padding: 2px 8px;
+  cursor: pointer;
+  font-family: 'RuneScape', Arial, sans-serif;
+  font-size: 0.9rem;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.toggle-bonus:hover {
+  background: #493017;
+}
+
+.bonuses-cell {
+  text-align: center !important;
+}
 .data-table th,
 .data-table td {
   border: 1px solid #211C15;

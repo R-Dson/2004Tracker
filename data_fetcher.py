@@ -109,6 +109,7 @@ def compute_ehp(hiscores, skill_rates):
     """
     Compute the efficient hours played (EHP) for each skill based on current XP and skill rates.
     EHP for a skill is calculated by distributing the current XP across the defined intervals,
+    subtracting any EHP earned through bonus XP to get the real direct training EHP needed.
     dividing the XP in each interval by its rate, and summing the results.
     Returns a tuple: (ehp_data, total_ehp)
     """
@@ -116,11 +117,37 @@ def compute_ehp(hiscores, skill_rates):
     total_ehp = 0
     for entry in hiscores:
         skill = entry["skill"]
+        if skill == "Overall": continue
         xp = entry["xp"]
         if skill not in skill_rates["skills"]:
             continue
+            
+        # First calculate bonus XP this skill gets while training other skills
+        bonus_xp = 0
+        bonus_time = 0
+        for other_skill, intervals in skill_rates["skills"].items():
+            if other_skill == skill or other_skill == "Overall":
+                continue
+                
+            # Find the other skill's current XP
+            other_entry = next((h for h in hiscores if h["skill"] == other_skill), None)
+            if not other_entry:
+                continue
+                
+            # Check each training interval for bonus XP
+            other_xp = other_entry["xp"]
+            for interval in intervals:
+                if "bonus_skills" not in interval:
+                    continue
+                    
+                for bonus in interval["bonus_skills"]:
+                    if bonus["skill"] == skill:
+                        training_time = min(other_xp, interval["rate"]) / interval["rate"]
+                        bonus_xp += training_time * bonus["rate"]
+                        bonus_time += training_time
+                        
         intervals = skill_rates["skills"][skill]
-        skill_ehp = 0
+        skill_ehp = 0  # Will calculate total direct training time
         remaining_xp = xp
 
         for interval in intervals:
@@ -146,9 +173,11 @@ def compute_ehp(hiscores, skill_rates):
             skill_ehp += interval_ehp
             remaining_xp -= xp_in_interval
 
+        # Subtract bonus time to get real EHP needed
+        real_ehp = max(0, skill_ehp - bonus_time)  # Ensure we don't go negative
 
-        ehp_data[skill] = round(skill_ehp, 1)
-        total_ehp += skill_ehp
+        ehp_data[skill] = round(real_ehp, 1)
+        total_ehp += real_ehp
 
     return ehp_data, round(total_ehp, 1)
 
