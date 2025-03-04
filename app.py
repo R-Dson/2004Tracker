@@ -151,86 +151,37 @@ def ValidateUsername(username):
     
     return True, None
 
-@app.route('/fetch', methods=['GET', 'POST'])
-@rate_limit
-def fetch_hiscores_route():
-    from flask import request
-   
-    # Get username from either POST data or query params
-    if request.method == 'POST':
-        data = request.get_json()
-        if not data or 'username' not in data:
-            app.logger.warning("Fetch POST request missing username")
-            return jsonify({'error': 'Please provide username'}), 400
-        username = data['username']
-    else:
-        username = request.args.get("username")
-
-    # Validate username
-    is_valid, error_message = ValidateUsername(username)
-    if not is_valid:
-        app.logger.warning(f"Invalid username attempt: {username}")
-        return jsonify({'error': error_message}), 400
-    
-    username = username.strip().replace(' ', '_').lower()
-    # Get existing user data
-    user = User.query.filter_by(username=username).first()
-    if not user:
-        if request.method == 'GET':
-            # For GET requests, just show empty data
-            return render_template('fetch.html', 
-                username=username,
-                graphs=[],
-                ehp_data={},
-                total_ehp=0,
-                progress_by_skill={},
-                rank_progress={},
-                hiscores_latest=[])
-        # For POST requests, create new user
-        user = User(username=username)
-        db.session.add(user)
-        database_hiscores_data = []
-        df = pd.DataFrame(columns=['timestamp', 'skill', 'rank', 'level', 'xp'])
-        # Ensure timestamp column is datetime type even for empty DataFrame
-        df['timestamp'] = pd.to_datetime(df['timestamp'])
-    else:
-        database_hiscores_data = HiscoresData.query.filter_by(user_id=user.id).order_by(HiscoresData.timestamp.asc()).all()
-        if database_hiscores_data:
-            df = pd.DataFrame([(
-                pd.to_datetime(item.timestamp),
-                item.skill,
-                item.rank,
-                item.level,
-                item.xp
-            ) for item in database_hiscores_data], columns=['timestamp', 'skill', 'rank', 'level', 'xp'])
-        else:
-            df = pd.DataFrame(columns=['timestamp', 'skill', 'rank', 'level', 'xp'])
-            df['timestamp'] = pd.to_datetime(df['timestamp'])
- 
-    # Only check rate limits and fetch new data for POST requests
-    if request.method == 'GET':
-        return process_and_render_data(username, database_hiscores_data, df)
-    
-    # Rate limiting for POST requests
+def check_rate_limit(username):
+    """Check if username is rate limited. Returns (is_limited, timestamps)"""
     with rate_lock:
         now = datetime.utcnow().timestamp()
-        timestamps = [ts for ts in rate_limits.get(username, [])
-                     if (now - ts) <= Config.RATE_LIMIT_WINDOW]
-        rate_limits[username] = timestamps  # Update the list of valid timestamps
-        
+        timestamps = [ts for ts in rate_limits.get(username, []) if (now - ts) <= Config.RATE_LIMIT_WINDOW]
+        rate_limits[username] = timestamps
+
     is_rate_limited = len(timestamps) >= 5
+    
+    if not is_rate_limited:
+        timestamps.append(now)
+        rate_limits[username] = timestamps
+        
+    return is_rate_limited, timestamps
 
-    if is_rate_limited:
-        return process_and_render_data(username, database_hiscores_data, df)
+def get_or_create_user(username):
+    """Get existing user or create new one"""
+    user = User.query.filter_by(username=username).first()
+    if not user:
+        user = User(username=username)
+        db.session.add(user)
+        db.session.commit()
+    return user
 
-    timestamps.append(now)
-    rate_limits[username] = timestamps
-
-    # Fetch new data
-    data = fetch_hiscores(username)
+def update_user_data(username, user, data):
+    """Update user data if changes detected. Returns (was_updated, error)"""
     if data is None:
         app.logger.error(f"Failed to fetch hiscores for user: {username}")
-        return jsonify({'error': 'Error retrieving hiscores'}), 500
+        return False, "Error retrieving hiscores"
+
+    database_hiscores_data = HiscoresData.query.filter_by(user_id=user.id).order_by(HiscoresData.timestamp.asc()).all()
 
     if compare_hiscores_data(data, database_hiscores_data):
         for item in data:
@@ -242,16 +193,119 @@ def fetch_hiscores_route():
                 author=user
             )
             db.session.add(hiscore_data)
-        app.logger.info(f"Updated hiscores data for user: {username}")
         db.session.commit()
 
         # Update EHP leaderboard
-        # Load skill rates
         with open('data/skill_rates.json') as f:
             skill_rates = json.load(f)
-            
         ehp_data, total_ehp = compute_ehp(data, skill_rates)
         update_ehp_leaderboard(username, user.id, ehp_data, total_ehp)
+        return True, None
+
+    return False, None
+
+def validate_and_process_username(username):
+    """Validate and process username. Returns (username, error_message)"""
+    if not username:
+        return None, "Please provide username"
+
+    is_valid, error_message = ValidateUsername(username)
+    if not is_valid:
+        return None, error_message
+
+    return username.strip().replace(' ', '_').lower(), None
+
+def handle_update_request(username):
+    """Handle update request for both API and web routes"""
+    username, error = validate_and_process_username(username)
+    if error:
+        return None, error
+
+    is_limited, timestamps = check_rate_limit(username)
+    if is_limited:
+        return None, "Rate limit exceeded"
+
+    user = get_or_create_user(username)
+    data = fetch_hiscores(username)
+    was_updated, error = update_user_data(username, user, data)
+    
+    if error:
+        return None, error
+        
+    return was_updated, None
+
+@app.route('/api/update', methods=['POST'])
+@rate_limit
+def api_update():
+    username = request.args.get('username')
+    if username is None:
+        app.logger.warning("API update request missing username")
+        return jsonify({'error': 'Please provide username parameter'}), 400
+
+    was_updated, error = handle_update_request(username)
+    if error:
+        return jsonify({'error': error}), 429 if error == "Rate limit exceeded" else 400
+
+    return jsonify({
+            'status': 'success',
+            'updated': was_updated
+        }), 200
+
+@app.route('/fetch', methods=['GET', 'POST'])
+@rate_limit
+def fetch_hiscores_route():
+    # Get username from either POST data or query params
+    if request.method == 'POST':
+        data = request.get_json()
+        if not data or 'username' not in data:
+            app.logger.warning("Fetch POST request missing username")
+            return jsonify({'error': 'Please provide username'}), 400
+        username = data['username']
+    else:
+        username = request.args.get("username")
+
+    username, error = validate_and_process_username(username)
+    if error:
+        app.logger.warning(f"Invalid username attempt: {username}")
+        return jsonify({'error': error}), 400
+    
+    user = get_or_create_user(username)
+    if not user:
+        if request.method == 'GET':
+            # For GET requests, just show empty data
+            return render_template('fetch.html', 
+                username=username,
+                graphs=[],
+                ehp_data={},
+                total_ehp=0,
+                progress_by_skill={},
+                rank_progress={},
+                hiscores_latest=[])
+
+    database_hiscores_data = HiscoresData.query.filter_by(user_id=user.id).order_by(HiscoresData.timestamp.asc()).all()
+    df = pd.DataFrame([(
+        pd.to_datetime(item.timestamp),
+        item.skill,
+        item.rank,
+        item.level,
+        item.xp
+    ) for item in database_hiscores_data], columns=['timestamp', 'skill', 'rank', 'level', 'xp']) if database_hiscores_data else pd.DataFrame(columns=['timestamp', 'skill', 'rank', 'level', 'xp'])
+
+    if df.empty:
+        df['timestamp'] = pd.to_datetime(df['timestamp'])
+ 
+    # Only check rate limits and fetch new data for POST requests
+    if request.method == 'GET':
+        return process_and_render_data(username, database_hiscores_data, df)
+    
+    was_updated, error = handle_update_request(username)
+    if error:
+        if error == "Rate limit exceeded":
+            return process_and_render_data(username, database_hiscores_data, df)
+        return jsonify({'error': error}), 400
+    elif not was_updated:
+        return process_and_render_data(username, database_hiscores_data, df)
+
 
     return process_and_render_data(username, database_hiscores_data, df)
 
