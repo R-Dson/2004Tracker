@@ -465,8 +465,8 @@ def ehp_leaderboard():
     
     return render_template('ehp_leaderboard.html', leaderboards=leaderboards)
 
-@app.route('/xp-leaderboard')
-def xp_leaderboard():
+@app.route('/records')
+def records():
     """Display XP gain leaderboards for different time periods"""
     skills = ['Overall'] + sorted([s for s in VALID_SKILLS if s != 'Overall'])
     periods = ['daily', 'weekly', 'monthly']
@@ -484,7 +484,7 @@ def xp_leaderboard():
                 period_boards[skill] = leaders
         leaderboards[period] = period_boards
     
-    return render_template('xp_leaderboard.html', 
+    return render_template('records.html', 
                          leaderboards=leaderboards,
                          periods=periods,
                          skills=skills)
