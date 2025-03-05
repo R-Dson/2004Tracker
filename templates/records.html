@@ -1,12 +1,31 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="leaderboard-container">
+    <div class="toc-section" style="margin-bottom: 2rem;">
+        <h2>Quick Navigation</h2>
+        <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+            {% for period in periods %}
+            <details style="background: #16120E; padding: 0.5rem; border: 1px solid #201a14;">
+                <summary style="cursor: pointer; padding: 0.5rem; font-size: 1.2rem; font-weight: bold;">
+                    {{ period|capitalize }}
+                </summary>
+                <ul style="list-style: none; padding: 0.5rem 1rem; margin: 0;">
+                    {% for skill in skills %}
+                    <li style="padding: 0.25rem 0;">
+                        <a href="#{{ period }}-{{ skill|lower }}" onclick="smoothScroll(event, '{{ period }}-{{ skill|lower }}')">{{ skill }}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </details>
+            {% endfor %}
+        </div>
+    </div>
     {% for period in periods %}
     <div class="period-section">
         <h2>{{ period|capitalize }} XP Record</h2>
         {% for skill in skills %}
             {% if skill in leaderboards[period] and leaderboards[period][skill]|length > 0 %}
-            <div class="skill-section">
+            <div class="skill-section" id="{{ period }}-{{ skill|lower }}">
                 <h3>{{ skill }}</h3>
                 <table class="data-table leaderboard-table">
                     <thead>
@@ -21,7 +40,7 @@
                         {% for entry in leaderboards[period][skill] %}
                         <tr>
                             <td>{{ loop.index }}</td>
-                            <td>{{ entry.username }}</td>
+                            <td><a href="/fetch?username={{ entry.username }}">{{ entry.username }}</a></td>
                             <td>{{ entry.xp_gain|format_rate }}</td>
                             <td style="font-size: 1rem;">{{ entry.last_updated.strftime('%Y-%m-%d') }}</td>
                         </tr>
@@ -30,8 +49,9 @@
                 </table>
             </div>
             {% else %}
-            <div class="skill-section">
+            <div class="skill-section" id="{{ period }}-{{ skill|lower }}">
                 <h3>{{ skill }}</h3>
+                <div></div>
                 <table class="data-table leaderboard-table">
                     <thead>
                         <tr>
@@ -53,4 +73,25 @@
     </div>
     {% endfor %}
 </div>
+<button onclick="scrollToTop()" class="back-to-top">Back to Top</button>
+<script>
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+}
+document.addEventListener('scroll', function() {
+    document.querySelector('.back-to-top').style.display = window.scrollY > 200 ? 'block' : 'none';
+});
+
+function smoothScroll(e, targetId) {
+    e.preventDefault();
+    const element = document.getElementById(targetId);
+    element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+    });
+}
+</script>
 {% endblock %}

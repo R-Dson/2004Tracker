@@ -400,6 +400,25 @@ h1, h2 {
   transition: all 0.075s ease;
 }
 
+/* Back to Top button */
+.back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(33, 28, 21, 0.9);
+  color: #ffff00;
+  padding: 10px 15px;
+  border: 1px solid #ffff00;
+  cursor: pointer;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  font-family: 'RuneScape', Arial, sans-serif;
+  z-index: 1000;
+}
+
+.back-to-top:hover {
+  background: #493017;
+}
+
 /* Responsive Navigation */
 @media (max-width: 768px) {
   .nav-container {

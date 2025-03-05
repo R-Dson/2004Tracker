@@ -661,65 +661,51 @@ def compute_progress_by_skill(df, today_midnight, yesterday_midnight, week_bound
         df_skill = df[df['skill'] == skill].sort_values('timestamp')
         
         # Daily progress - find first non-zero XP in the period
-        df_daily_skill = df_skill[(df_skill['timestamp'] >= yesterday_midnight) & (df_skill['timestamp'] < today_midnight)]
+        # Get all data points from today
+        today = now.date()
+        df_daily_skill = df_skill[df_skill['timestamp'].dt.date == today]
         daily = None
         daily_xp = None
-        if not df_daily_skill.empty and yesterday_midnight >= earliest_timestamp:
-            # If period starts after tracking began, use first XP in period
-            if df_daily_skill.iloc[0]['timestamp'] >= earliest_timestamp:
-                start_xp = df_daily_skill.iloc[0]['xp']
-            else:
-                # If period includes pre-tracking data, use earliest tracked XP
-                earliest_data = df_skill[df_skill['timestamp'] == earliest_timestamp]
-                if not earliest_data.empty:
-                    start_xp = earliest_data.iloc[0]['xp']
-                else:
-                    # Fallback to first XP in period if earliest data not found
-                    start_xp = df_daily_skill.iloc[0]['xp']
-                    
-            daily = df_daily_skill.iloc[-1]['level'] - df_daily_skill.iloc[0]['level']
-            daily_xp = df_daily_skill.iloc[-1]['xp'] - start_xp
-            print(daily_xp)
+        
+        # Skip if no data points in period or only one data point (need at least 2 for gain calculation)
+        if len(df_daily_skill) <= 1:
+            daily = 0
+            daily_xp = 0
+        else:
+            # Use first and last data points from today
+            first_today = df_daily_skill.iloc[0]
+            last_today = df_daily_skill.iloc[-1]
+            daily = last_today['level'] - first_today['level']
+            daily_xp = last_today['xp'] - first_today['xp']
         
         # Weekly progress - find first non-zero XP in the period
         df_weekly_skill = df_skill[(df_skill['timestamp'] >= week_boundary) & (df_skill['timestamp'] <= now)]
         weekly = None
         weekly_xp = None
-        if not df_weekly_skill.empty and week_boundary >= earliest_timestamp:
-            # If period starts after tracking began, use first XP in period
-            if df_weekly_skill.iloc[0]['timestamp'] >= earliest_timestamp:
-                start_xp = df_weekly_skill.iloc[0]['xp']
-            else:
-                # If period includes pre-tracking data, use earliest tracked XP
-                earliest_data = df_skill[df_skill['timestamp'] == earliest_timestamp]
-                if not earliest_data.empty:
-                    start_xp = earliest_data.iloc[0]['xp']
-                else:
-                    # Fallback to first XP in period if earliest data not found
-                    start_xp = df_weekly_skill.iloc[0]['xp']
-                    
-            weekly = df_weekly_skill.iloc[-1]['level'] - df_weekly_skill.iloc[0]['level']
-            weekly_xp = df_weekly_skill.iloc[-1]['xp'] - start_xp
+
+        if len(df_weekly_skill) <= 1:
+            weekly = 0
+            weekly_xp = 0
+        else:
+            # Use first and last data points from the week
+            first_week = df_weekly_skill.iloc[0]
+            last_week = df_weekly_skill.iloc[-1]
+            weekly = last_week['level'] - first_week['level']
+            weekly_xp = last_week['xp'] - first_week['xp']
         
         # Monthly progress - find first non-zero XP in the period
         df_monthly_skill = df_skill[(df_skill['timestamp'] >= month_boundary) & (df_skill['timestamp'] <= now)]
         monthly = None
         monthly_xp = None
-        if not df_monthly_skill.empty and month_boundary >= earliest_timestamp:
-            # If period starts after tracking began, use first XP in period
-            if df_monthly_skill.iloc[0]['timestamp'] >= earliest_timestamp:
-                start_xp = df_monthly_skill.iloc[0]['xp']
-            else:
-                # If period includes pre-tracking data, use earliest tracked XP
-                earliest_data = df_skill[df_skill['timestamp'] == earliest_timestamp]
-                if not earliest_data.empty:
-                    start_xp = earliest_data.iloc[0]['xp']
-                else:
-                    # Fallback to first XP in period if earliest data not found
-                    start_xp = df_monthly_skill.iloc[0]['xp']
-                    
-            monthly = df_monthly_skill.iloc[-1]['level'] - df_monthly_skill.iloc[0]['level']
-            monthly_xp = df_monthly_skill.iloc[-1]['xp'] - start_xp
+        
+        if len(df_monthly_skill) <= 1:
+            monthly = 0
+            monthly_xp = 0
+        else:
+            first_month = df_monthly_skill.iloc[0]
+            last_month = df_monthly_skill.iloc[-1]
+            monthly = last_month['level'] - first_month['level']
+            monthly_xp = last_month['xp'] - first_month['xp']
         progress_by_skill[skill] = {
             "daily": daily, "weekly": weekly, "monthly": monthly,
             "daily_xp": daily_xp, "weekly_xp": weekly_xp, "monthly_xp": monthly_xp

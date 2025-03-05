@@ -3,8 +3,21 @@
 
 {% block content %}
 <div class="leaderboard-container">
+    <div class="toc-section" style="margin-bottom: 2rem;">
+        <h2>Quick Navigation</h2>
+        <details style="background: #16120E; padding: 0.5rem; border: 1px solid #201a14;">
+            <summary style="cursor: pointer; padding: 0.5rem; font-size: 1.2rem; font-weight: bold;">Skills</summary>
+            <ul style="list-style: none; padding: 0.5rem 1rem; margin: 0;">
+                {% for skill in leaderboards.keys() %}
+                <li style="padding: 0.25rem 0;">
+                    <a href="#{{ skill|lower }}" onclick="smoothScroll(event, '{{ skill|lower }}')">{{ skill }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </details>
+    </div>
     {% for skill, leaders in leaderboards.items() %}
-    <div class="leaderboard-section">
+    <div class="leaderboard-section"  id="{{ skill|lower }}">
         <h3>{{ skill }} EHP Leaderboard</h3>
         <table class="data-table">
             <thead>
@@ -34,4 +47,25 @@
     </div>
     {% endfor %}
 </div>
+<button onclick="scrollToTop()" class="back-to-top">Back to Top</button>
+<script>
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+}
+document.addEventListener('scroll', function() {
+    document.querySelector('.back-to-top').style.display = window.scrollY > 200 ? 'block' : 'none';
+});
+
+function smoothScroll(e, targetId) {
+    e.preventDefault();
+    const element = document.getElementById(targetId);
+    element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+    });
+}
+</script>
 {% endblock %}
