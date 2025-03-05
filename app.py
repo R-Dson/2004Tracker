@@ -17,6 +17,14 @@ import re
 
 def format_rate(value):
     """Format large numbers as 'k' format"""
+    try:
+        # Handle bytes-like objects
+        if isinstance(value, bytes):
+            value = value.decode('utf-8')
+        value = int(float(value))
+    except (TypeError, ValueError):
+        return str(value)
+        
     if value >= 1000:
         return f"{value/1000:.0f}k"
     return str(value)
@@ -106,6 +114,23 @@ class SkillEHPLeaderboard(db.Model):
     )
     
     user = db.relationship('User', backref='ehp_entries', lazy=True)
+
+class SkillXPLeaderboard(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    username = db.Column(db.String(20), nullable=False)
+    skill = db.Column(db.String(30), nullable=False)
+    xp_gain = db.Column(db.Integer, nullable=False)
+    period_type = db.Column(db.String(10), nullable=False)  # daily/weekly/monthly
+    period_start = db.Column(db.DateTime, nullable=False)
+    last_updated = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+
+    __table_args__ = (
+        db.Index('idx_skill_xp_period', 'skill', 'period_type', 'xp_gain', 'username'),
+        db.UniqueConstraint('user_id', 'skill', 'period_type', name='uix_user_skill_period')
+    )
+
+    user = db.relationship('User', backref='xp_entries', lazy=True)
 
 # Rate limiting globals
 rate_limits = {}
@@ -251,6 +276,75 @@ def api_update():
             'updated': was_updated
         }), 200
 
+def update_xp_leaderboard(username, progress_data, period_starts):
+    """Update the XP leaderboard for daily, weekly, and monthly gains"""
+    # Look up user by username
+    user = User.query.filter_by(username=username).first()
+    if not user:
+        app.logger.error(f"User not found for XP leaderboard update: {username}")
+        return
+
+    for skill, data in progress_data.items():
+        for period in ['daily', 'weekly', 'monthly']:
+            xp_gain = data.get(f'{period}_xp')
+            # Convert xp_gain to int if it exists
+            if xp_gain:
+                try:
+                    xp_gain = int(xp_gain)
+                    if xp_gain > 0:
+                        process_xp_leaderboard_entry(skill, user.id, username, xp_gain, period, period_starts[period])
+                except (TypeError, ValueError):
+                    app.logger.error(f"Invalid XP value for {username} in {skill}: {xp_gain}")
+
+def process_xp_leaderboard_entry(skill, user_id, username, xp_gain, period_type, period_start):
+    """Process a single XP leaderboard entry, maintaining only top 10 entries per skill and period"""
+    # Ensure xp_gain is an integer
+    try:
+        if isinstance(xp_gain, bytes):
+            xp_gain = int(xp_gain.decode('utf-8'))
+        else:
+            xp_gain = int(float(xp_gain))
+    except (TypeError, ValueError):
+        app.logger.error(f"Invalid XP value in process_xp_leaderboard_entry: {xp_gain}")
+        return
+
+    # Get current top 10 for this skill and period
+    current_top = SkillXPLeaderboard.query\
+        .filter_by(skill=skill, period_type=period_type)\
+        .order_by(SkillXPLeaderboard.xp_gain.desc())\
+        .limit(10).all()
+    
+    # Check if user already has an entry
+    existing = SkillXPLeaderboard.query.filter_by(
+        user_id=user_id,
+        skill=skill,
+        period_type=period_type
+    ).first()
+    
+    if len(current_top) < 10 or xp_gain > current_top[-1].xp_gain or existing:
+        if existing:
+            existing.xp_gain = xp_gain
+            existing.period_start = period_start
+            existing.last_updated = datetime.utcnow()
+        else:
+            new_entry = SkillXPLeaderboard(
+                user_id=user_id,
+                username=username,
+                skill=skill,
+                xp_gain=xp_gain,
+                period_type=period_type,
+                period_start=period_start
+            )
+            db.session.add(new_entry)
+            
+        # Remove lowest entry if we're over 10 and this is a new entry
+        if len(current_top) >= 10 and not existing:
+            lowest = current_top[-1]
+            if lowest.xp_gain < xp_gain:  # Only remove if new entry has higher XP
+                db.session.delete(lowest)
+        
+        db.session.commit()
+
 @app.route('/fetch', methods=['GET', 'POST'])
 @rate_limit
 def fetch_hiscores_route():
@@ -370,6 +464,31 @@ def ehp_leaderboard():
         leaderboards[skill] = leaders
     
     return render_template('ehp_leaderboard.html', leaderboards=leaderboards)
+
+@app.route('/xp-leaderboard')
+def xp_leaderboard():
+    """Display XP gain leaderboards for different time periods"""
+    skills = ['Overall'] + sorted([s for s in VALID_SKILLS if s != 'Overall'])
+    periods = ['daily', 'weekly', 'monthly']
+    leaderboards = {}
+    
+    for period in periods:
+        period_boards = {}
+        for skill in skills:
+            leaders = SkillXPLeaderboard.query\
+                .filter_by(skill=skill, period_type=period)\
+                .order_by(SkillXPLeaderboard.xp_gain.desc())\
+                .limit(10)\
+                .all()
+            if leaders:  # Only add if there are entries
+                period_boards[skill] = leaders
+        leaderboards[period] = period_boards
+    
+    return render_template('xp_leaderboard.html', 
+                         leaderboards=leaderboards,
+                         periods=periods,
+                         skills=skills)
+
 def process_and_render_data(username, database_hiscores_data, df):
     """Helper function to process and render the hiscores data"""
     df_overall = df[df['skill'] == 'Overall'].copy()
@@ -465,6 +584,12 @@ def process_and_render_data(username, database_hiscores_data, df):
     level_progress = compute_progress_by_skill(df, today_midnight, yesterday_midnight, week_boundary, month_boundary, now)
     rank_progress = compute_rank_progress_by_skill(df, today_midnight, yesterday_midnight, week_boundary, month_boundary, now)
     
+    # Update XP leaderboard
+    update_xp_leaderboard(username, level_progress, {
+        'daily': yesterday_midnight,
+        'weekly': week_boundary,
+        'monthly': month_boundary
+    })
     return render_template('fetch.html', username=username, graphs=graphs, ehp_data=ehp_data, total_ehp=total_ehp,
                          progress_by_skill=level_progress, rank_progress=rank_progress, hiscores_latest=hiscores_latest)
 
@@ -522,27 +647,46 @@ def compute_progress_by_skill(df, today_midnight, yesterday_midnight, week_bound
     for skill in skills:
         # Get data for this skill sorted by timestamp
         df_skill = df[df['skill'] == skill].sort_values('timestamp')
-        # Daily progress for this skill
+        
+        # Daily progress - find first non-zero XP in the period
         df_daily_skill = df_skill[(df_skill['timestamp'] >= yesterday_midnight) & (df_skill['timestamp'] < today_midnight)]
         daily = None
         daily_xp = None
         if not df_daily_skill.empty:
+            # Find first non-zero XP value
+            start_xp = df_daily_skill.iloc[0]['xp']
+            non_zero_xps = df_daily_skill[df_daily_skill['xp'] > 0]
+            if not non_zero_xps.empty:
+                start_xp = non_zero_xps.iloc[0]['xp']
             daily = df_daily_skill.iloc[-1]['level'] - df_daily_skill.iloc[0]['level']
-            daily_xp = df_daily_skill.iloc[-1]['xp'] - df_daily_skill.iloc[0]['xp']
-        # Weekly progress for this skill
+            daily_xp = df_daily_skill.iloc[-1]['xp'] - start_xp
+            print(daily_xp)
+        
+        # Weekly progress - find first non-zero XP in the period
         df_weekly_skill = df_skill[(df_skill['timestamp'] >= week_boundary) & (df_skill['timestamp'] <= now)]
         weekly = None
         weekly_xp = None
         if not df_weekly_skill.empty:
+            # Find first non-zero XP value
+            start_xp = df_weekly_skill.iloc[0]['xp']
+            non_zero_xps = df_weekly_skill[df_weekly_skill['xp'] > 0]
+            if not non_zero_xps.empty:
+                start_xp = non_zero_xps.iloc[0]['xp']
             weekly = df_weekly_skill.iloc[-1]['level'] - df_weekly_skill.iloc[0]['level']
-            weekly_xp = df_weekly_skill.iloc[-1]['xp'] - df_weekly_skill.iloc[0]['xp']
-        # Monthly progress for this skill
+            weekly_xp = df_weekly_skill.iloc[-1]['xp'] - start_xp
+        
+        # Monthly progress - find first non-zero XP in the period
         df_monthly_skill = df_skill[(df_skill['timestamp'] >= month_boundary) & (df_skill['timestamp'] <= now)]
         monthly = None
         monthly_xp = None
         if not df_monthly_skill.empty:
+            # Find first non-zero XP value
+            start_xp = df_monthly_skill.iloc[0]['xp']
+            non_zero_xps = df_monthly_skill[df_monthly_skill['xp'] > 0]
+            if not non_zero_xps.empty:
+                start_xp = non_zero_xps.iloc[0]['xp']
             monthly = df_monthly_skill.iloc[-1]['level'] - df_monthly_skill.iloc[0]['level']
-            monthly_xp = df_monthly_skill.iloc[-1]['xp'] - df_monthly_skill.iloc[0]['xp']
+            monthly_xp = df_monthly_skill.iloc[-1]['xp'] - start_xp
         progress_by_skill[skill] = {
             "daily": daily, "weekly": weekly, "monthly": monthly,
             "daily_xp": daily_xp, "weekly_xp": weekly_xp, "monthly_xp": monthly_xp

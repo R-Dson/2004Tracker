@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="leaderboard-container">
+    {% for period in periods %}
+    <div class="period-section">
+        <h2>{{ period|capitalize }} XP Record</h2>
+        {% for skill in skills %}
+            {% if skill in leaderboards[period] and leaderboards[period][skill]|length > 0 %}
+            <div class="skill-section">
+                <h3>{{ skill }}</h3>
+                <table class="data-table leaderboard-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 12%;">Rank</th>
+                            <th>Player</th>
+                            <th style="width: 13%;">XP Gained</th>
+                            <th style="width: 17%;">Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for entry in leaderboards[period][skill] %}
+                        <tr>
+                            <td>{{ loop.index }}</td>
+                            <td>{{ entry.username }}</td>
+                            <td>{{ entry.xp_gain|format_rate }}</td>
+                            <td style="font-size: 1rem;">{{ entry.last_updated.strftime('%Y-%m-%d') }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% else %}
+            <div class="skill-section">
+                <h3>{{ skill }}</h3>
+                <table class="data-table leaderboard-table">
+                    <thead>
+                        <tr>
+                            <th>Record</th>
+                            <th>Player</th>
+                            <th>XP Gained</th>
+                            <th style="width: 13%;">Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="4">No entries yet</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -13,8 +13,12 @@
       <nav>
         <div class="nav-container">
           <a class="site-brand" href="/">2004Progress</a>
-          <a href="/rates">Rates</a>
-          <a href="/ehp-leaderboard">EHP Leaderboard</a>
+          <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+          <div class="nav-menu">
+            <a href="/rates">Rates</a>
+            <a href="/ehp-leaderboard">EHP Leaderboard</a>
+            <a href="/xp-leaderboard">XP Records</a>
+          </div>
         </div>
       </nav>
     </header>
@@ -34,7 +38,7 @@
       <a href="https://github.com/R-Dson/2004Progress">2004Progress - Open Source Project</a>
     </footer>
     <script>
-      document.querySelector('.nav-toggle').addEventListener('click', function() {
+      document.querySelector('.nav-toggle').addEventListener('click', function(e) {
         document.querySelector('.nav-menu').classList.toggle('active');
       });
     </script>

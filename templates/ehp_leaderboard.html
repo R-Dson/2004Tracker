@@ -9,10 +9,10 @@
         <table class="data-table">
             <thead>
                 <tr>
-                    <th>Rank</th>
+                    <th style="width: 13%;">Rank</th>
                     <th>Username</th>
-                    <th>EHP</th>
-                    <th>Last Updated</th>
+                    <th style="width: 14%;">EHP</th>
+                    <th style="width: 13%;">Last Updated</th>
                 </tr>
             </thead>
             <tbody>
@@ -21,7 +21,7 @@
                     <td>{{ loop.index }}</td>
                     <td style="font-size: 1.3rem;"><a href="{{ url_for('fetch_hiscores_route', username=leader.username) }}">{{ leader.username }}</a></td>
                     <td>{{ "%.1f"|format(leader.ehp) }}</td>
-                    <td style="font-size: 1rem;">{{ leader.last_updated.strftime('%Y-%m-%d %H:%M') }}</td>
+                    <td style="font-size: 1rem;">{{ leader.last_updated.strftime('%Y-%m-%d') }}</td>
                 </tr>
                 {% endfor %}
                 {% if not leaders %}
