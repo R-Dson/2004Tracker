@@ -249,14 +249,14 @@
         "min_level": 14,
         "max_level": 18,
         "method": "Leather body.",
-        "rate": 22750,
+        "rate": 35000,
         "bonus_skills": []
       },
       {
         "min_level": 18,
         "max_level": 20,
         "method": "Leather chaps.",
-        "rate": 22750,
+        "rate": 37800,
         "bonus_skills": []
       },
       {
@@ -311,7 +311,7 @@
         "min_level": 1,
         "max_level": 99,
         "method": "Air runes with runners. Estimated xp/h.",
-        "rate": 10000,
+        "rate": 20000,
         "bonus_skills": []
       }
     ],
