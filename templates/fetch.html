@@ -104,7 +104,7 @@
          </div>
          {% endif %}
          <div>
-            <h4>Progress Overview</h4>
+            <h4>Experience Gained</h4>
             <table class="data-table">
               <thead>
                   <tr>
@@ -118,9 +118,9 @@
                {% for skill, progress in progress_by_skill.items() %}
                   <tr>
                      <td>{{ skill }}</td>
-                     <td class="{% if progress.monthly is not none and progress.monthly > 0 %}positive{% elif progress.monthly is not none and progress.monthly < 0 %}negative{% endif %}" title="{% if progress.monthly_xp is not none %}XP Gained: {{ "{:,}".format(progress.monthly_xp) }}{% endif %}">{{ progress.monthly if progress.monthly is not none else '-' }}</td>
-                     <td class="{% if progress.weekly is not none and progress.weekly > 0 %}positive{% elif progress.weekly is not none and progress.weekly < 0 %}negative{% endif %}" title="{% if progress.weekly_xp is not none %}XP Gained: {{ "{:,}".format(progress.weekly_xp) }}{% endif %}">{{ progress.weekly if progress.weekly is not none else '-' }}</td>
-                     <td class="{% if progress.daily is not none and progress.daily > 0 %}positive{% elif progress.daily is not none and progress.daily < 0 %}negative{% endif %}" title="{% if progress.daily_xp is not none %}XP Gained: {{ "{:,}".format(progress.daily_xp) }}{% endif %}">{{ progress.daily if progress.daily is not none else '-' }}</td>               {% endfor %}
+                     <td class="{% if progress.monthly is not none and progress.monthly > 0 %}positive{% elif progress.monthly is not none and progress.monthly < 0 %}negative{% endif %}" title="{% if progress.monthly is not none %}Levels Gained: {{ progress.monthly }}{% endif %}">{{ "{:,}".format(progress.monthly_xp) if progress.monthly_xp is not none else '-' }}</td>
+                     <td class="{% if progress.weekly is not none and progress.weekly > 0 %}positive{% elif progress.weekly is not none and progress.weekly < 0 %}negative{% endif %}" title="{% if progress.weekly is not none %}Levels Gained: {{ progress.weekly }}{% endif %}">{{ "{:,}".format(progress.weekly_xp) if progress.weekly_xp is not none else '-' }}</td>
+                     <td class="{% if progress.daily is not none and progress.daily > 0 %}positive{% elif progress.daily is not none and progress.daily < 0 %}negative{% endif %}" title="{% if progress.daily is not none %}Levels Gained: {{ progress.daily }}{% endif %}">{{ "{:,}".format(progress.daily_xp) if progress.daily_xp is not none else '-' }}</td>               {% endfor %}
                 </tbody>
              </table>
           </div>

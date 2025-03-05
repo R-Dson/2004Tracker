@@ -1,5 +1,132 @@
 {
   "skills": {
+    "Attack": [
+      {
+        "min_level": 1,
+        "max_level": 20,
+        "method": "Chicken/Giant rat/Cow. Estimated xp/h.",
+        "rate": 10000,
+        "bonus_skills": []
+      },
+      {
+        "min_level": 20,
+        "max_level": 40,
+        "method": "Al Kharid warrior. Estimated xp/h.",
+        "rate": 25000,
+        "bonus_skills": []
+      },
+      {
+        "min_level": 40,
+        "max_level": 99,
+        "method": "Hill Giant. Estimated xp/h.",
+        "rate": 50000,
+        "bonus_skills": []
+      }
+    ],
+    "Strength": [
+      {
+        "min_level": 1,
+        "max_level": 20,
+        "method": "Chicken/Giant rat/Cow. Estimated xp/h.",
+        "rate": 10000,
+        "bonus_skills": []
+      },
+      {
+        "min_level": 20,
+        "max_level": 40,
+        "method": "Al Kharid warriors. Estimated xp/h.",
+        "rate": 22000,
+        "bonus_skills": []
+      },
+      {
+        "min_level": 40,
+        "max_level": 50,
+        "method": "Hill Giants. Estimated xp/h.",
+        "rate": 37000,
+        "bonus_skills": []
+      },
+      {
+        "min_level": 50,
+        "max_level": 60,
+        "method": "Hill Giants/Moss Giants. Estimated xp/h.",
+        "rate": 40000,
+        "bonus_skills": []
+      },
+      {
+        "min_level": 60,
+        "max_level": 70,
+        "method": "Moss Giants. Estimated xp/h.",
+        "rate": 45000,
+        "bonus_skills": []
+      },
+      {
+        "min_level": 70,
+        "max_level": 80,
+        "method": "Moss Giants. Estimated xp/h.",
+        "rate": 48000,
+        "bonus_skills": []
+      },
+      {
+        "min_level": 80,
+        "max_level": 85,
+        "method": "Moss Giants. Estimated xp/h.",
+        "rate": 51000,
+        "bonus_skills": []
+      },
+      {
+        "min_level": 85,
+        "max_level": 90,
+        "method": "Moss Giants. Estimated xp/h.",
+        "rate": 54000,
+        "bonus_skills": []
+      },
+      {
+        "min_level": 90,
+        "max_level": 95,
+        "method": "Moss Giants. Estimated xp/h.",
+        "rate": 59000,
+        "bonus_skills": []
+      },
+      {
+        "min_level": 95,
+        "max_level": 99,
+        "method": "Moss Giants. Estimated xp/h.",
+        "rate": 62000,
+        "bonus_skills": []
+      }
+    ],
+    "Defence": [
+      {
+        "min_level": 1,
+        "max_level": 99,
+        "method": "Lowest priority. Train after Attack and Strength. Estimated xp/h.",
+        "rate": 62000,
+        "bonus_skills": []
+      }
+    ],
+    "Ranged": [
+      {
+        "min_level": 1,
+        "max_level": 20,
+        "method": "Chicken/Giant rat/Cow. Estimated xp/h.",
+        "rate": 7000,
+        "bonus_skills": []
+      },
+      {
+        "min_level": 20,
+        "max_level": 40,
+        "method": "Hill Giants. Estimated xp/h.",
+        "rate": 15000,
+        "bonus_skills": []
+      },
+      {
+        "min_level": 40,
+        "max_level": 99,
+        "method": "Hill Giants/Moss Giants. Estimated xp/h.",
+        "rate": 30000,
+        "bonus_skills": []
+      }
+    ],
     "Agility": [
       {
         "min_level": 1,

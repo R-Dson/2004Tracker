@@ -48,9 +48,10 @@ def fetch_hiscores(username):
     return None
 
 VALID_SKILLS = [
+    "Overall", "Attack", "Strength", "Defence", "Hitpoints", "Ranged", 
     "Agility", "Hunter", "Construction", "Magic", "Cooking", "Mining",
     "Crafting", "Prayer", "Farming", "Runecrafting", "Firemaking", "Smithing",
-    "Fishing", "Thieving", "Fletching", "Woodcutting", "Herblore", "Overall"
+    "Fishing", "Thieving", "Fletching", "Woodcutting", "Herblore"
 ]
 
 def parse_hiscores_table(table):
