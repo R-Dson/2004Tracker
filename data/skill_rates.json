@@ -157,9 +157,37 @@
     "Magic": [
       {
         "min_level": 1,
+        "max_level": 21,
+        "method": "Normal spells.",
+        "rate": 15000,
+        "bonus_skills": []
+      },
+      {
+        "min_level": 21,
+        "max_level": 43,
+        "method": "Low alch.",
+        "rate": 40000,
+        "bonus_skills": []
+      },
+      {
+        "min_level": 43,
+        "max_level": 55,
+        "method": "Super heat.",
+        "rate": 60000,
+        "bonus_skills": []
+      },
+      {
+        "min_level": 55,
+        "max_level": 59,
+        "method": "High alchemy + Falador teleport.",
+        "rate": 100000,
+        "bonus_skills": []
+      },
+      {
+        "min_level": 59,
         "max_level": 99,
-        "method": "placeholder",
-        "rate": 1e16,
+        "method": "High alchemy + Falador teleport + Fire blast.",
+        "rate": 150000,
         "bonus_skills": []
       }
     ],
@@ -446,15 +474,8 @@
       },
       {
         "min_level": 15,
-        "max_level": 60,
-        "method": "Before rune axe. 2-tick trees at southern Falador using two rats. Estimated xp/h.",
-        "rate": 30000,
-        "bonus_skills": []
-      },
-      {
-        "min_level": 30,
         "max_level": 99,
-        "method": "With rune axe. 2-tick trees at southern Falador using two rats. Estimated xp/h.",
+        "method": "Average rate. 2-tick trees at southern Falador using two rats. Estimated xp/h.",
         "rate": 65000,
         "bonus_skills": []
       }
