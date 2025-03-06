@@ -7,7 +7,7 @@
     <details style="background: #16120E; padding: 0.5rem; border: 1px solid #201a14;">
       <summary style="cursor: pointer; padding: 0.5rem; font-size: 1.2rem; font-weight: bold;">Skills</summary>
       <ul style="list-style: none; padding: 0.5rem 1rem; margin: 0;">
-        {% for skill in skill_rates.skills.keys() %}
+        {% for skill in skill_rates.skills.keys()|sort %}
         <li style="padding: 0.25rem 0;">
           <a href="#{{ skill|lower }}" onclick="smoothScroll(event, '{{ skill|lower }}')">{{ skill }}</a>
         </li>
@@ -15,7 +15,7 @@
       </ul>
     </details>
   </div>
-  {% for skill, rates in skill_rates.skills.items() %}
+  {% for skill, rates in skill_rates.skills.items()|sort %}
     <div class="skill-section" id="{{ skill|lower }}">
     <h4>{{ skill }}</h4>
     {% if rates %}

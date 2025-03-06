@@ -458,8 +458,17 @@ def process_leaderboard_entry(skill, user_id, username, ehp):
 def ehp_leaderboard():
     skills = ['Overall'] + sorted([s for s in VALID_SKILLS if s != 'Overall'])
     leaderboards = {}
-    
-    for skill in skills:
+
+    # First get Overall data
+    leaders = SkillEHPLeaderboard.query\
+        .filter_by(skill='Overall')\
+        .order_by(SkillEHPLeaderboard.ehp.desc())\
+        .limit(10)\
+        .all()
+    leaderboards['Overall'] = leaders
+
+    # Then get other skills in alphabetical order
+    for skill in sorted([s for s in skills if s != 'Overall']):
         leaders = SkillEHPLeaderboard.query\
             .filter_by(skill=skill)\
             .order_by(SkillEHPLeaderboard.ehp.desc())\
