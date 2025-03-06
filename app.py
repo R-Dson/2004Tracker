@@ -200,15 +200,15 @@ def get_or_create_user(username):
         db.session.commit()
     return user
 
-def update_user_data(username, user, data):
+def update_user_data(username, user, data, force=False):
     """Update user data if changes detected. Returns (was_updated, error)"""
     if data is None:
         app.logger.error(f"Failed to fetch hiscores for user: {username}")
         return False, "Error retrieving hiscores"
 
     database_hiscores_data = HiscoresData.query.filter_by(user_id=user.id).order_by(HiscoresData.timestamp.asc()).all()
-
-    if compare_hiscores_data(data, database_hiscores_data):
+    print(force)
+    if compare_hiscores_data(data, database_hiscores_data) or force:
         for item in data:
             hiscore_data = HiscoresData(
                 skill=item['skill'],
@@ -251,8 +251,12 @@ def handle_update_request(username):
         return None, "Rate limit exceeded"
 
     user = get_or_create_user(username)
+    today_start = datetime.utcnow().replace(hour=0, minute=0, second=0, microsecond=0)
+    existing_today = HiscoresData.query.filter_by(user_id=user.id).filter(HiscoresData.timestamp >= today_start).first()
+    force_update = existing_today is None  # Allow one update per day even without changes
+
     data = fetch_hiscores(username)
-    was_updated, error = update_user_data(username, user, data)
+    was_updated, error = update_user_data(username, user, data, force=force_update)
     
     if error:
         return None, error
@@ -739,9 +743,6 @@ def compute_rank_progress_by_skill(df, today_midnight, yesterday_midnight, week_
             monthly = df_monthly_skill.iloc[0]['rank'] - df_monthly_skill.iloc[-1]['rank']
         rank_progress[skill] = {"daily": daily, "weekly": weekly, "monthly": monthly}
     return rank_progress
-
-
-
 
 @app.route('/rates')
 def rates():
