@@ -507,56 +507,176 @@ def process_and_render_data(username, database_hiscores_data, df):
     df_overall = df[df['skill'] == 'Overall'].copy()
     df_overall = df_overall.sort_values('timestamp')
     df_skills = df[df['skill'] != 'Overall'].copy()
-    df_skills = df_skills.groupby(['skill', pd.Grouper(key='timestamp', freq='H')]).last().reset_index()
     df_skills = df_skills[df_skills['level'] > 1]
+    
+    # Sort chronologically within each skill
+    df_skills = df_skills.sort_values(['skill', 'timestamp'])
+    
+    # Get first occurrence of each level for each skill
+    df_first_levels = df_skills.loc[
+        df_skills.groupby(['skill', 'level'])['timestamp'].idxmin()
+    ]
+
+    # Get the most recent points
+    df_latest = df_skills.loc[df_skills.groupby('skill')['timestamp'].idxmax()]
+
+    df_skills = pd.concat([df_first_levels, df_latest]).drop_duplicates(['skill', 'timestamp']).reset_index(drop=True)    
+    df_skills = df_skills.sort_values(['skill', 'timestamp'])
 
     graphs = []
 
     if not df_overall.empty:
-        fig_overall = px.line(df_overall, x='timestamp', y='level', markers=True,
-                           title=f'Total Level Progression for {username}',
-                           labels={'timestamp': 'Date', 'level': 'Level'})
-        fig_overall.update_yaxes(rangemode="nonnegative", dtick=10, tickformat='d')
+        # For the overall level graph
+        fig_overall = px.line(
+            df_overall, 
+            x='timestamp', 
+            y='level', 
+            markers=True,
+            title=f'Total Level Progression for {username}',
+            labels={'timestamp': 'Date', 'level': 'Level'},
+            color_discrete_sequence=['#FF6B6B']  # A nicer red color
+        )
+
+        # Update y-axis settings
+        fig_overall.update_yaxes(
+            rangemode="nonnegative", 
+            dtick=10, 
+            tickformat='d',
+            gridcolor='rgba(255, 255, 255, 0.1)',
+            linecolor='rgba(255, 255, 255, 0.5)',
+            linewidth=0.5,
+            title_font=dict(size=14)
+        )
+
+        # Update x-axis settings
+        fig_overall.update_xaxes(
+            tickformat="%b %d\n%Y",
+            gridcolor='rgba(255, 255, 255, 0.1)',
+            linecolor='rgba(255, 255, 255, 0.5)',
+            linewidth=0.5,
+            title_font=dict(size=14)
+        )
+
+        # Update traces (lines and markers)
+        fig_overall.update_traces(
+            marker=dict(size=6),
+            line=dict(width=2),
+            hovertemplate='<b>Total Level</b><br>Date: %{x|%b %d, %Y}<br>Level: %{y}<extra></extra>'
+        )
+
+        # Update overall layout
         fig_overall.update_layout(
             plot_bgcolor='rgba(0,0,0,0)',
             paper_bgcolor='rgba(0,0,0,0)',
             height=400,
-            margin=dict(l=30, r=10, t=50, b=100),
-            xaxis=dict(showline=True, showgrid=True),
-            yaxis=dict(showline=True, showgrid=True),
+            margin=dict(l=30, r=20, t=60, b=100),
             font_color='#F0F0F0',
+            font_family="Arial",
+            title=dict(
+                text=f'Total Level Progression for {username}',
+                font=dict(size=18),
+                x=0.5,
+                xanchor='center'
+            ),
             legend=dict(
                 yanchor="top",
-                y=-0.3,
+                y=-0.2,
                 xanchor="center",
                 x=0.5,
-                orientation="h"
+                orientation="h",
+                bgcolor="rgba(0,0,0,0)",
+                bordercolor="rgba(0,0,0,0)",
+                borderwidth=0.5
+            ),
+            hoverlabel=dict(
+                bgcolor="#211C15",
+                font_size=16,
+                font_family="Arial",
+                font_color="white",
+                bordercolor="#555"
             )
         )
+
+        # Add to graphs list
         graphs.append(plotly.offline.plot(fig_overall, output_type='div'))
-        fig_overall.update_xaxes(tickformat="%Y-%m-%d %H:00")
-    if not df_skills.empty:
-        fig_skills = px.line(df_skills, x='timestamp', y='level', color='skill', markers=True,
-                          title=f'Skill Level Progression for {username}',
-                          labels={'timestamp': 'Date', 'level': 'Level'})
-        fig_skills.update_yaxes(rangemode="nonnegative", dtick=10, tickformat='d')
-        fig_skills.update_layout(
-            plot_bgcolor='rgba(0,0,0,0)',
-            paper_bgcolor='rgba(0,0,0,0)',
-            height=600,
-            margin=dict(l=30, r=10, t=50, b=100),
-            xaxis=dict(showline=True, showgrid=True),
-            yaxis=dict(showline=True, showgrid=True),
-            font_color='#F0F0F0',
-            legend=dict(
-                yanchor="top",
-                y=-0.3,
-                xanchor="center",
-                x=0.5,
-                orientation="h"
+
+        # For the skills graph (if data exists)
+        if not df_skills.empty:
+            # Create skills figure
+            fig_skills = px.line(
+                df_skills, 
+                x='timestamp', 
+                y='level', 
+                color='skill', 
+                markers=True,
+                title=f'Skill Level Progression for {username}',
+                labels={'timestamp': 'Date', 'level': 'Level', 'skill': 'Skill'},
+                color_discrete_sequence=px.colors.qualitative.Vivid  # More vibrant color scheme
             )
-        )
-        graphs.append(plotly.offline.plot(fig_skills, output_type='div'))
+            
+            # Update y-axis settings
+            fig_skills.update_yaxes(
+                rangemode="nonnegative", 
+                dtick=10, 
+                tickformat='d',
+                gridcolor='rgba(255, 255, 255, 0.1)',
+                linecolor='rgba(255, 255, 255, 0.5)',
+                linewidth=0.5,
+                title_font=dict(size=14)
+            )
+            
+            # Update x-axis settings
+            fig_skills.update_xaxes(
+                tickformat="%b %d\n%Y",
+                gridcolor='rgba(255, 255, 255, 0.1)',
+                linecolor='rgba(255, 255, 255, 0.5)',
+                linewidth=0.5,
+                title_font=dict(size=14)
+            )
+            
+            # Update traces (lines and markers)
+            fig_skills.update_traces(
+                marker=dict(size=6),
+                line=dict(width=1.5),
+                hovertemplate='<b>%{fullData.name}</b><br>Date: %{x|%b %d, %Y}<br>Level: %{y}<extra></extra>'
+            )
+            
+            # Update overall layout
+            fig_skills.update_layout(
+                plot_bgcolor='rgba(0,0,0,0)',
+                paper_bgcolor='rgba(0,0,0,0)',
+                height=600,
+                margin=dict(l=30, r=20, t=60, b=100),
+                font_color='#F0F0F0',
+                font_family="Arial",
+                title=dict(
+                    text=f'Skill Level Progression for {username}',
+                    font=dict(size=18),
+                    x=0.5,
+                    xanchor='center'
+                ),
+                legend=dict(
+                    yanchor="top",
+                    y=-0.15,
+                    xanchor="center",
+                    x=0.5,
+                    orientation="h",
+                    bgcolor="rgba(0,0,0,0)",
+                    bordercolor="rgba(0,0,0,0)",
+                    borderwidth=0.5
+                ),
+                hoverlabel=dict(
+                    bgcolor="#211C15",
+                    font_size=16,
+                    font_family="Arial",
+                    font_color="white",
+                    bordercolor="#555"
+                )
+            )
+            
+            # Add to graphs list
+            graphs.append(plotly.offline.plot(fig_skills, output_type='div'))
+
         fig_skills.update_xaxes(tickformat="%Y-%m-%d %H:00")
 
     # Compute progress data per skill

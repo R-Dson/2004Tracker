@@ -69,11 +69,45 @@
       }
     </script>
 {% if graphs %}
-  <div class="graph-container">
+<style>
+    .graph-container {
+        margin: 20px 0;
+        padding: 15px;
+        border-radius: 8px;
+        background-color: rgba(30, 30, 30, 0.4);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    .graph-wrapper {
+        margin-bottom: 25px;
+    }
+    
+    .graph-wrapper:last-child {
+        margin-bottom: 0;
+    }
+    
+    /* Override some Plotly styling */
+    .js-plotly-plot .plotly .modebar {
+        opacity: 0.3;
+        transition: opacity 0.3s;
+    }
+    
+    .js-plotly-plot .plotly .modebar:hover {
+        opacity: 1;
+    }
+    
+    .js-plotly-plot .plotly .main-svg {
+        border-radius: 4px;
+    }
+</style>
+
+<div class="graph-container">
     {% for graph in graphs %}
-      {{ graph|safe }}
+    <div class="graph-wrapper">
+        {{ graph|safe }}
+    </div>
     {% endfor %}
-  </div>
+</div>
 {% else %}
       <p>No graphs available.</p>
       {% endif %}
