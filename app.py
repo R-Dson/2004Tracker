@@ -469,6 +469,10 @@ def ehp_leaderboard():
 
     # Then get other skills in alphabetical order
     for skill in sorted([s for s in skills if s != 'Overall']):
+        # Skip unwanted skills
+        if skill in ['Farming', 'Construction', 'Hunter']:
+            continue
+            
         leaders = SkillEHPLeaderboard.query\
             .filter_by(skill=skill)\
             .order_by(SkillEHPLeaderboard.ehp.desc())\
@@ -481,7 +485,8 @@ def ehp_leaderboard():
 @app.route('/records')
 def records():
     """Display XP gain leaderboards for different time periods"""
-    skills = ['Overall'] + sorted([s for s in VALID_SKILLS if s != 'Overall'])
+    filtered_skills = [s for s in VALID_SKILLS if s != 'Overall' and s not in ['Farming', 'Construction', 'Hunter']]
+    skills = ['Overall'] + sorted(filtered_skills)
     periods = ['daily', 'weekly', 'monthly']
     leaderboards = {}
     
@@ -509,7 +514,11 @@ def process_and_render_data(username, database_hiscores_data, df):
     df_skills = df[df['skill'] != 'Overall'].copy()
     df_skills = df_skills[df_skills['level'] > 1]
     
-    # Sort chronologically within each skill
+    # Filter out unwanted skills
+    df_skills = df_skills[
+        ~df_skills['skill'].isin(['Farming', 'Construction', 'Hunter'])
+    ]
+    
     df_skills = df_skills.sort_values(['skill', 'timestamp'])
     
     # Get first occurrence of each level for each skill
@@ -675,9 +684,8 @@ def process_and_render_data(username, database_hiscores_data, df):
             )
             
             # Add to graphs list
+            fig_skills.update_xaxes(tickformat="%Y-%m-%d %H:00")
             graphs.append(plotly.offline.plot(fig_skills, output_type='div'))
-
-        fig_skills.update_xaxes(tickformat="%Y-%m-%d %H:00")
 
     # Compute progress data per skill
     import json
@@ -698,6 +706,10 @@ def process_and_render_data(username, database_hiscores_data, df):
         })
     # Then add all other skills
     for skill in sorted(latest_records):
+        # Skip unwanted skills
+        if skill in ['Farming', 'Construction', 'Hunter']:
+            continue
+            
         if skill != 'Overall':
             hiscores_latest.append({
                 "skill": latest_records[skill].skill,
@@ -705,6 +717,9 @@ def process_and_render_data(username, database_hiscores_data, df):
                 "rank": latest_records[skill].rank,
                 "level": latest_records[skill].level
             })
+
+    # Filter out unwanted skills before computing EHP
+    hiscores_latest = [item for item in hiscores_latest if item['skill'] not in ['Farming', 'Construction', 'Hunter']]
     ehp_data, total_ehp = compute_ehp(hiscores_latest, skill_rates)
 
     from datetime import timedelta
@@ -772,7 +787,8 @@ def compare_hiscores_data(fetched_data, existing_data_list):
 def compute_progress_by_skill(df, today_midnight, yesterday_midnight, week_boundary, month_boundary, now):
     progress_by_skill = {}
     skills = sorted(df['skill'].unique())
-    
+    skills = [s for s in skills if s not in ['Farming', 'Construction', 'Hunter']]
+
     # Get the earliest timestamp for each skill
     earliest_timestamps = {}
     for skill in skills:

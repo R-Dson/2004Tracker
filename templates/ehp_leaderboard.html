@@ -9,9 +9,11 @@
             <summary style="cursor: pointer; padding: 0.5rem; font-size: 1.2rem; font-weight: bold;">Skills</summary>
             <ul style="list-style: none; padding: 0.5rem 1rem; margin: 0;">
                 {% for skill in leaderboards.keys() %}
-                <li style="padding: 0.25rem 0;">
-                    <a href="#{{ skill|lower }}" onclick="smoothScroll(event, '{{ skill|lower }}')">{{ skill }}</a>
-                </li>
+                    {% if skill not in ['Farming', 'Construction', 'Hunter'] %}
+                    <li style="padding: 0.25rem 0;">
+                        <a href="#{{ skill|lower }}" onclick="smoothScroll(event, '{{ skill|lower }}')">{{ skill }}</a>
+                    </li>
+                    {% endif %}
                 {% endfor %}
             </ul>
         </details>

@@ -385,13 +385,13 @@ h1, h2 {
 .button {
   display: inline-block;
   padding: 0.5rem 1rem;
-  background-color: #2b2b2b;
-  color: white;
+  background-color: #211C15;
+  color: #ffff00;
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
   border: 1.5px solid #555;
   cursor: pointer;
   text-decoration: none;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   transition: all 0.1s ease;
 }
 

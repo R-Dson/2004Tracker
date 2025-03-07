@@ -4,8 +4,9 @@
   {% if username %}
     <h2>{{ username }}'s progress</h2>
     <div class="update-section">
-      <button id="updateButton" class="button" onclick="updateHiscore('{{ username }}')">Update Hiscore</button>
+      <button id="updateButton" class="button updateButton" onclick="updateHiscore('{{ username }}')">Update Hiscore</button>
       <span id="updateStatus" style="display: none; margin-left: 10px;"></span>
+      <button id="toggleMembersSkills" class="button updateButton" onclick="toggleMembersSkills()" style="margin-left: 10px;">Show members skills</button>
       <div id="refreshPopup" style="display: none; position: fixed; top: 20px; right: 20px; 
            background-color: #0f0b08; border: 1px solid #3c3c3c; padding: 15px; color: white;
            box-shadow: 0 2px 4px rgba(0,0,0,0.2); border-radius: 4px; z-index: 1000;">
@@ -19,6 +20,39 @@
 
     </div>
     <script>
+      // List of members-only skills
+      const membersSkills = ['Agility', 'Fletching', 'Herblore', 'Thieving'];
+      let membersSkillsVisible = true;  // Start true so first toggle hides skills
+
+      function toggleMembersSkills() {
+        const button = document.getElementById('toggleMembersSkills');
+        membersSkillsVisible = !membersSkillsVisible;
+        
+        // Update button text
+        button.textContent = membersSkillsVisible ? 'Hide members skills' : 'Show members skills';
+        
+        // Get all tables
+        const tables = document.querySelectorAll('.data-table');
+        
+        tables.forEach(table => {
+          const rows = table.getElementsByTagName('tr');
+          
+          // Skip header row, start from index 1
+          for (let i = 1; i < rows.length; i++) {
+            const skillCell = rows[i].cells[0];
+            if (skillCell) {
+              const skillName = skillCell.textContent.trim();
+              if (membersSkills.includes(skillName)) {
+                rows[i].style.display = membersSkillsVisible ? '' : 'none';
+              }
+            }
+          }
+        });
+      }
+
+      // Initialize members skills as hidden when page loads
+      window.addEventListener('load', () => toggleMembersSkills());
+
       async function updateHiscore(username) {
         const button = document.getElementById('updateButton');
         const status = document.getElementById('updateStatus');

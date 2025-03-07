@@ -11,9 +11,11 @@
                 </summary>
                 <ul style="list-style: none; padding: 0.5rem 1rem; margin: 0;">
                     {% for skill in skills %}
-                    <li style="padding: 0.25rem 0;">
-                        <a href="#{{ period }}-{{ skill|lower }}" onclick="smoothScroll(event, '{{ period }}-{{ skill|lower }}')">{{ skill }}</a>
-                    </li>
+                        {% if skill not in ['Farming', 'Construction', 'Hunter'] %}
+                        <li style="padding: 0.25rem 0;">
+                            <a href="#{{ period }}-{{ skill|lower }}" onclick="smoothScroll(event, '{{ period }}-{{ skill|lower }}')">{{ skill }}</a>
+                        </li>
+                        {% endif %}
                     {% endfor %}
                 </ul>
             </details>
@@ -24,6 +26,7 @@
     <div class="period-section">
         <h2>{{ period|capitalize }} XP Record</h2>
         {% for skill in skills %}
+            {% if skill not in ['Farming', 'Construction', 'Hunter'] %}
             {% if skill in leaderboards[period] and leaderboards[period][skill]|length > 0 %}
             <div class="skill-section" id="{{ period }}-{{ skill|lower }}">
                 <h3>{{ skill }}</h3>
@@ -68,6 +71,7 @@
                     </tbody>
                 </table>
             </div>
+            {% endif %}
             {% endif %}
         {% endfor %}
     </div>
