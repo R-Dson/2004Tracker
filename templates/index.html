@@ -1,32 +1,46 @@
-{% extends 'base.html' %}
-{% block title %}04Tracker{% endblock %}
-{% block content %}
-  <div></div> <!-- Empty div for :first-child pseudo-elements -->
-  <div class="horizontal-edge-top"></div>
-  <div class="horizontal-edge-bottom"></div>
-  <div class="vertical-container"></div>
-  
-  <form action="/fetch" method="GET">
-    <div class="form-group">
-      <label for="username" class="form-label">Username</label>
-      <input type="text" class="form-input" id="username" name="username" required>
-    </div>
-    <input type="submit" class="button" value="Search" style="background-color: #211C15;">
-  </form>
+{% extends 'base.html' %} {% block content %}
+<div></div>
+<!-- Empty div for :first-child pseudo-elements -->
+<div class="horizontal-edge-top"></div>
+<div class="horizontal-edge-bottom"></div>
+<div class="vertical-container"></div>
 
-  <h4 style="padding-top: 20px;">Recently Updated Characters</h4>
-  <table class="data-table data-table-dark" style="max-width: 200px;">
+<form action="/fetch" method="GET">
+    <div class="form-group">
+        <label for="username" class="form-label">Username</label>
+        <input
+            type="text"
+            class="form-input"
+            id="username"
+            name="username"
+            required
+        />
+    </div>
+    <input
+        type="submit"
+        class="button"
+        value="Search"
+        style="background-color: #211c15"
+    />
+</form>
+
+<h4 style="padding-top: 20px">Recently Updated Characters</h4>
+<table class="data-table data-table-dark" style="max-width: 200px">
     <thead>
-      <tr>
-        <th>Username</th>
-      </tr>
+        <tr>
+            <th>Username</th>
+        </tr>
     </thead>
     <tbody>
-      {% for user in recently_updated_users %}
-      <tr>
-        <td><a href="/fetch?username={{ user.username }}">{{ user.username }}</a></td>
-      </tr>
-      {% endfor %}
+        {% for user in recently_updated_users %}
+        <tr>
+            <td>
+                <a href="/fetch?username={{ user.username }}"
+                    >{{ user.username }}</a
+                >
+            </td>
+        </tr>
+        {% endfor %}
     </tbody>
-  </table>
+</table>
 {% endblock %}
