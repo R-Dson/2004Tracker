@@ -506,29 +506,53 @@
         "min_level": 25,
         "max_level": 50,
         "method": "Raw trout and raw salmon.",
-        "rate": 40000,
-        "bonus_skills": []
+        "rate": 20000,
+        "bonus_skills": [
+          {
+            "skill": "Cooking",
+            "method": "Cook caught fish and then use them to 3t",
+            "rate": 28000
+          }
+        ]
       },
       {
         "min_level": 50,
         "max_level": 75,
         "method": "Raw trout and raw salmon.",
-        "rate": 55000,
-        "bonus_skills": []
+        "rate": 30000,
+        "bonus_skills": [
+          {
+            "skill": "Cooking",
+            "method": "Cook caught fish and then use them to 3t",
+            "rate": 42000
+          }
+        ]
       },
       {
         "min_level": 75,
         "max_level": 95,
         "method": "Raw trout and raw salmon.",
-        "rate": 75000,
-        "bonus_skills": []
+        "rate": 40000,
+        "bonus_skills": [
+          {
+            "skill": "Cooking",
+            "method": "Cook caught fish and then use them to 3t",
+            "rate": 55000
+          }
+        ]
       },
       {
         "min_level": 95,
         "max_level": 99,
         "method": "Raw trout and raw salmon.",
-        "rate": 80000,
-        "bonus_skills": []
+        "rate": 50000,
+        "bonus_skills": [
+          {
+            "skill": "Cooking",
+            "method": "Cook caught fish and then use them to 3t",
+            "rate": 70000
+          }
+        ]
       }
     ],
     "Thieving": [
