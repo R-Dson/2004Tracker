@@ -584,14 +584,14 @@
       {
         "min_level": 15,
         "max_level": 60,
-        "method": "Average rate. 2-tick trees at southern Falador using two rats. Estimated xp/h.",
+        "method": "Average rate. 2-tick Oak trees at southern Falador using two rats. Estimated xp/h.",
         "rate": 40000,
         "bonus_skills": []
       },
       {
         "min_level": 60,
         "max_level": 99,
-        "method": "Average rate. 2-tick trees at southern Falador using two rats. Estimated xp/h.",
+        "method": "Average rate. 2-tick Oak trees at southern Falador using two rats. Estimated xp/h.",
         "rate": 65000,
         "bonus_skills": []
       }

@@ -2,14 +2,14 @@
 {% block content %}
 <div class="leaderboard-container">
     <div class="toc-section" style="margin-bottom: 2rem;">
-        <h2>Quick Navigation</h2>
+        <h4>Quick Navigation</h4>
         <div style="display: flex; flex-direction: column; gap: 0.5rem;">
             {% for period in periods %}
             <details style="background: #16120E; padding: 0.5rem; border: 1px solid #201a14;">
                 <summary style="cursor: pointer; padding: 0.5rem; font-size: 1.2rem; font-weight: bold;">
                     {{ period|capitalize }}
                 </summary>
-                <ul style="list-style: none; padding: 0.5rem 1rem; margin: 0;">
+                <ul style="list-style: none; padding: 0.5rem 1rem; margin: 0; font-size: 0.75em;">
                     {% for skill in skills %}
                         {% if skill not in ['Farming', 'Construction', 'Hunter'] %}
                         <li style="padding: 0.25rem 0;">
@@ -24,12 +24,12 @@
     </div>
     {% for period in periods %}
     <div class="period-section">
-        <h2>{{ period|capitalize }} XP Record</h2>
+        <h3>{{ period|capitalize }} XP Record</h3>
         {% for skill in skills %}
             {% if skill not in ['Farming', 'Construction', 'Hunter'] %}
             {% if skill in leaderboards[period] and leaderboards[period][skill]|length > 0 %}
             <div class="skill-section" id="{{ period }}-{{ skill|lower }}">
-                <h3>{{ skill }}</h3>
+                <h4>{{ skill }}</h4>
                 <table class="data-table leaderboard-table">
                     <thead>
                         <tr>
@@ -53,7 +53,7 @@
             </div>
             {% else %}
             <div class="skill-section" id="{{ period }}-{{ skill|lower }}">
-                <h3>{{ skill }}</h3>
+                <h4>{{ skill }}</h4>
                 <div></div>
                 <table class="data-table leaderboard-table">
                     <thead>

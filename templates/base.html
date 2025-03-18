@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <link rel="icon" href="../static/img/playgame/swordarrow.gif"
+    <link rel="icon" href="../static/img/gamewin/navbar_mainmenu.gif"
         type="image/x-icon" />
     <title>{% block title %}2004Progress{% endblock %}</title>
   </head>
@@ -12,7 +12,9 @@
     <header class="custom-header">
       <nav>
         <div class="nav-container">
-          <a class="site-brand" href="/">2004Progress</a>
+          <div class="brand-container">
+            <a class="site-brand" href="/">2004Progress</a>
+          </div>
           <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
           <div class="nav-menu">
             <a href="/rates">Rates</a>
