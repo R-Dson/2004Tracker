@@ -3,7 +3,7 @@ import json
 from flask import Flask, render_template, jsonify, request
 from data_fetcher import fetch_hiscores, compute_ehp, VALID_SKILLS
 from flask_sqlalchemy import SQLAlchemy
-from datetime import datetime
+from datetime import datetime, timedelta
 import pandas as pd
 import plotly.express as px
 import plotly.offline
@@ -135,6 +135,7 @@ class SkillXPLeaderboard(db.Model):
 # Rate limiting globals
 rate_limits = {}
 rate_lock = Lock()
+last_top_ehp_update = None
 
 def rate_limit(f):
     @functools.wraps(f)
@@ -279,6 +280,58 @@ def api_update():
             'status': 'success',
             'updated': was_updated
         }), 200
+
+
+@app.route('/api/update-top-ehp', methods=['POST', 'GET'])
+def update_top_ehp_player():
+    """Rebuild EHP leaderboard by updating all players currently in it (limited to once per 24h)"""
+    global last_top_ehp_update
+    
+    with rate_lock:
+        now = datetime.utcnow()
+        
+        if last_top_ehp_update and (now - last_top_ehp_update).total_seconds() < 86400:  # 24 hours
+            time_remaining = 86400 - (now - last_top_ehp_update).total_seconds()
+            return jsonify({
+                'error': 'Rate limit exceeded',
+                'message': f'Please wait {int(time_remaining/3600)} hours and {int((time_remaining%3600)/60)} minutes before updating again'
+            }), 429
+
+        # Get all unique players currently in the leaderboard
+        current_players = db.session.query(SkillEHPLeaderboard.username).distinct().all()
+        if not current_players:
+            return jsonify({'error': 'No players found in EHP leaderboard'}), 404
+        
+        # Extract usernames from query result
+        usernames = [player[0] for player in current_players]
+        
+        # Delete all current leaderboard entries
+        db.session.query(SkillEHPLeaderboard).delete()
+        db.session.commit()
+        
+        # Update each player and rebuild their leaderboard entries
+        results = []
+        
+    for username in usernames:
+        # Update player's hiscores
+        was_updated, error = handle_update_request(username)
+        
+        results.append({
+            'username': username,
+            'updated': was_updated if not error else False,
+            'error': error
+        })
+        
+    # Update last update time
+    last_top_ehp_update = now
+        
+    return jsonify({
+        'status': 'success',
+        'players_processed': len(usernames),
+        'next_update_available': (now + timedelta(days=1)).isoformat(),
+        #'results': results
+    }), 200
+
 
 def update_xp_leaderboard(username, progress_data, period_starts):
     """Update the XP leaderboard for daily, weekly, and monthly gains"""
