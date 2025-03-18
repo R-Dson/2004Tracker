@@ -17,10 +17,29 @@
       },
       {
         "min_level": 40,
-        "max_level": 99,
-        "method": "Hill Giant. Estimated xp/h.",
+        "max_level": 95,
+        "method": "Moss Giants. Estimated xp/h.",
         "rate": 50000,
-        "bonus_skills": []
+        "bonus_skills": [
+          {
+            "skill": "Prayer",
+            "method": "Big bone drops",
+            "rate": 3125
+          }
+        ]
+      },
+      {
+        "min_level": 95,
+        "max_level": 99,
+        "method": "Moss Giants. Estimated xp/h.",
+        "rate": 55000,
+        "bonus_skills": [
+          {
+            "skill": "Prayer",
+            "method": "Big bone drops",
+            "rate": 3438
+          }
+        ]
       }
     ],
     "Strength": [
@@ -35,73 +54,127 @@
         "min_level": 20,
         "max_level": 40,
         "method": "Al Kharid warriors. Estimated xp/h.",
-        "rate": 22000,
+        "rate": 18000,
         "bonus_skills": []
       },
       {
         "min_level": 40,
         "max_level": 50,
         "method": "Hill Giants. Estimated xp/h.",
-        "rate": 37000,
-        "bonus_skills": []
+        "rate": 24000,
+        "bonus_skills": [
+          {
+            "skill": "Prayer",
+            "method": "Big bone drops",
+            "rate": 2571
+          }
+        ]
       },
       {
         "min_level": 50,
         "max_level": 60,
-        "method": "Hill Giants/Moss Giants. Estimated xp/h.",
-        "rate": 40000,
-        "bonus_skills": []
+        "method": "Hill Giants. Estimated xp/h.",
+        "rate": 28000,
+        "bonus_skills": [
+          {
+            "skill": "Prayer",
+            "method": "Big bone drops",
+            "rate": 3000
+          }
+        ]
       },
       {
         "min_level": 60,
         "max_level": 70,
         "method": "Moss Giants. Estimated xp/h.",
-        "rate": 45000,
-        "bonus_skills": []
+        "rate": 32000,
+        "bonus_skills": [
+          {
+            "skill": "Prayer",
+            "method": "Big bone drops",
+            "rate": 2000
+          }
+        ]
       },
       {
         "min_level": 70,
         "max_level": 80,
         "method": "Moss Giants. Estimated xp/h.",
-        "rate": 48000,
-        "bonus_skills": []
+        "rate": 38000,
+        "bonus_skills": [
+          {
+            "skill": "Prayer",
+            "method": "Big bone drops",
+            "rate": 2375
+          }
+        ]
       },
       {
         "min_level": 80,
         "max_level": 85,
         "method": "Moss Giants. Estimated xp/h.",
-        "rate": 51000,
-        "bonus_skills": []
+        "rate": 42000,
+        "bonus_skills": [
+          {
+            "skill": "Prayer",
+            "method": "Big bone drops",
+            "rate": 2625
+          }
+        ]
       },
       {
         "min_level": 85,
         "max_level": 90,
         "method": "Moss Giants. Estimated xp/h.",
-        "rate": 54000,
-        "bonus_skills": []
+        "rate": 45000,
+        "bonus_skills": [
+          {
+            "skill": "Prayer",
+            "method": "Big bone drops",
+            "rate": 2812
+          }
+        ]
       },
       {
         "min_level": 90,
         "max_level": 95,
         "method": "Moss Giants. Estimated xp/h.",
-        "rate": 59000,
-        "bonus_skills": []
+        "rate": 50000,
+        "bonus_skills": [
+          {
+            "skill": "Prayer",
+            "method": "Big bone drops",
+            "rate": 3125
+          }
+        ]
       },
       {
         "min_level": 95,
         "max_level": 99,
         "method": "Moss Giants. Estimated xp/h.",
-        "rate": 62000,
-        "bonus_skills": []
+        "rate": 55000,
+        "bonus_skills": [
+          {
+            "skill": "Prayer",
+            "method": "Big bone drops",
+            "rate": 3438
+          }
+        ]
       }
     ],
     "Defence": [
       {
         "min_level": 1,
         "max_level": 99,
-        "method": "Lowest priority. Train after Attack and Strength. Estimated xp/h.",
-        "rate": 62000,
-        "bonus_skills": []
+        "method": "Moss Giants. Train after Attack and Strength. Estimated xp/h.",
+        "rate": 55000,
+        "bonus_skills": [
+          {
+            "skill": "Prayer",
+            "method": "Big bone drops",
+            "rate": 3438
+          }
+        ]
       }
     ],
     "Ranged": [
@@ -117,14 +190,39 @@
         "max_level": 40,
         "method": "Hill Giants. Estimated xp/h.",
         "rate": 15000,
-        "bonus_skills": []
+        "bonus_skills": [
+          {
+            "skill": "Prayer",
+            "method": "Big bone drops",
+            "rate": 1607
+          }
+        ]
       },
       {
         "min_level": 40,
-        "max_level": 99,
+        "max_level": 95,
         "method": "Hill Giants/Moss Giants. Estimated xp/h.",
         "rate": 30000,
-        "bonus_skills": []
+        "bonus_skills": [
+          {
+            "skill": "Prayer",
+            "method": "Big bone drops",
+            "rate": 1875
+          }
+        ]
+      },
+      {
+        "min_level": 95,
+        "max_level": 99,
+        "method": "Moss Giants. Estimated xp/h.",
+        "rate": 35000,
+        "bonus_skills": [
+          {
+            "skill": "Prayer",
+            "method": "Big bone drops",
+            "rate": 2187
+          }
+        ]
       }
     ],
     "Agility": [
@@ -214,17 +312,17 @@
         "bonus_skills": []
       },
       {
-        "min_level": 35,
-        "max_level": 68,
-        "method": "Jug of wine. Depends on level. Estimated xp/h.",
-        "rate": 175000,
+        "min_level": 40,
+        "max_level": 74,
+        "method": "Lobster",
+        "rate": 150000,
         "bonus_skills": []
       },
       {
-        "min_level": 68,
+        "min_level": 74,
         "max_level": 99,
-        "method": "Jug of wine. Depends on level. Estimated xp/h.",
-        "rate": 300000,
+        "method": "Lobster",
+        "rate": 220000,
         "bonus_skills": []
       }
     ],
@@ -238,9 +336,16 @@
       },
       {
         "min_level": 15,
+        "max_level": 60,
+        "method": "Power mining iron ore. Estimated xp/h.",
+        "rate": 20000,
+        "bonus_skills": []
+      },
+      {
+        "min_level": 60,
         "max_level": 99,
         "method": "Power mining iron ore. Estimated xp/h.",
-        "rate": 30000,
+        "rate": 37500,
         "bonus_skills": []
       }
     ],
@@ -282,37 +387,16 @@
       },
       {
         "min_level": 18,
-        "max_level": 20,
+        "max_level": 28,
         "method": "Leather chaps.",
         "rate": 37800,
         "bonus_skills": []
       },
       {
-        "min_level": 20,
-        "max_level": 27,
-        "method": "Cutting sapphire.",
-        "rate": 145000,
-        "bonus_skills": []
-      },
-      {
-        "min_level": 27,
-        "max_level": 34,
-        "method": "Cutting Emerald.",
-        "rate": 175000,
-        "bonus_skills": []
-      },
-      {
-        "min_level": 34,
-        "max_level": 43,
-        "method": "Cutting Ruby.",
-        "rate": 230000,
-        "bonus_skills": []
-      },
-      {
-        "min_level": 43,
+        "min_level": 28,
         "max_level": 99,
-        "method": "Cutting Diamond.",
-        "rate": 290000,
+        "method": "Hardleather bodies",
+        "rate": 175000,
         "bonus_skills": []
       }
     ],
@@ -321,7 +405,7 @@
         "min_level": 1,
         "max_level": 99,
         "method": "Burying Big bones. Estimated xp/h.",
-        "rate": 100000,
+        "rate": 40000,
         "bonus_skills": []
       }
     ],
@@ -348,28 +432,28 @@
         "min_level": 1,
         "max_level": 15,
         "method": "Regular logs.",
-        "rate": 35000,
+        "rate": 20000,
         "bonus_skills": []
       },
       {
         "min_level": 15,
         "max_level": 30,
         "method": "Oak logs.",
-        "rate": 90000,
+        "rate": 60000,
         "bonus_skills": []
       },
       {
         "min_level": 30,
         "max_level": 60,
         "method": "Willow logs.",
-        "rate": 150000,
+        "rate": 121000,
         "bonus_skills": []
       },
       {
         "min_level": 60,
         "max_level": 99,
         "method": "Yew logs",
-        "rate": 200000,
+        "rate": 275000,
         "bonus_skills": []
       }
     ],
@@ -392,28 +476,14 @@
         "min_level": 33,
         "max_level": 48,
         "method": "Iron platebodies. Estimated xp/h.",
-        "rate": 100000,
+        "rate": 80000,
         "bonus_skills": []
       },
       {
         "min_level": 48,
-        "max_level": 68,
-        "method": "Steel platebodies. Estimated xp/h.",
-        "rate": 135000,
-        "bonus_skills": []
-      },
-      {
-        "min_level": 68,
-        "max_level": 88,
-        "method": "Mithril platebodies. Estimated xp/h.",
-        "rate": 200000,
-        "bonus_skills": []
-      },
-      {
-        "min_level": 88,
         "max_level": 99,
-        "method": "Adamant platebodies. Estimated xp/h.",
-        "rate": 275000,
+        "method": "Steel platebodies. Estimated xp/h.",
+        "rate": 120000,
         "bonus_skills": []
       }
     ],
@@ -434,14 +504,53 @@
       },
       {
         "min_level": 25,
-        "max_level": 99,
+        "max_level": 50,
+        "method": "Raw trout and raw salmon.",
+        "rate": 20000,
+        "bonus_skills": [
+          {
+            "skill": "Cooking",
+            "method": "Cook caught fish and then use them to 3t",
+            "rate": 28000
+          }
+        ]
+      },
+      {
+        "min_level": 50,
+        "max_level": 75,
+        "method": "Raw trout and raw salmon.",
+        "rate": 30000,
+        "bonus_skills": [
+          {
+            "skill": "Cooking",
+            "method": "Cook caught fish and then use them to 3t",
+            "rate": 42000
+          }
+        ]
+      },
+      {
+        "min_level": 75,
+        "max_level": 95,
         "method": "Raw trout and raw salmon.",
         "rate": 40000,
         "bonus_skills": [
           {
             "skill": "Cooking",
-            "method": "Cooking raw trout and raw salmon. 80 xp per 60 xp in Fishing.",
-            "rate": 53333
+            "method": "Cook caught fish and then use them to 3t",
+            "rate": 55000
+          }
+        ]
+      },
+      {
+        "min_level": 95,
+        "max_level": 99,
+        "method": "Raw trout and raw salmon.",
+        "rate": 50000,
+        "bonus_skills": [
+          {
+            "skill": "Cooking",
+            "method": "Cook caught fish and then use them to 3t",
+            "rate": 70000
           }
         ]
       }
@@ -474,6 +583,13 @@
       },
       {
         "min_level": 15,
+        "max_level": 60,
+        "method": "Average rate. 2-tick trees at southern Falador using two rats. Estimated xp/h.",
+        "rate": 40000,
+        "bonus_skills": []
+      },
+      {
+        "min_level": 60,
         "max_level": 99,
         "method": "Average rate. 2-tick trees at southern Falador using two rats. Estimated xp/h.",
         "rate": 65000,
