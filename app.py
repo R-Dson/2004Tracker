@@ -99,6 +99,13 @@ class HiscoresData(db.Model):
     def __repr__(self):
         return f"HiscoresData('{self.timestamp}', '{self.skill}', '{self.rank}', '{self.level}', '{self.xp}')"
         
+class LastUpdate(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    update_type = db.Column(db.String(50), unique=True, nullable=False)
+    last_update = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+    
+    __table_args__ = (db.Index('idx_update_type', 'update_type'),)
+
 class SkillEHPLeaderboard(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
@@ -136,7 +143,6 @@ class SkillXPLeaderboard(db.Model):
 rate_limits = {}
 rate_limit_lock = Lock()  # For individual user rate limiting
 ehp_update_lock = Lock()  # For top EHP updates
-last_top_ehp_update = None
 
 def rate_limit(f):
     @functools.wraps(f)
@@ -282,17 +288,17 @@ def api_update():
             'updated': was_updated
         }), 200
 
-
 @app.route('/api/update-top-ehp', methods=['POST', 'GET'])
 def update_top_ehp_player():
     """Rebuild EHP leaderboard by updating all players currently in it (limited to once per 24h)"""
-    global last_top_ehp_update
-    
     with ehp_update_lock:
         now = datetime.utcnow()
+        last_update = LastUpdate.query.filter_by(update_type='top_ehp').first()
         
-        if last_top_ehp_update and (now - last_top_ehp_update).total_seconds() < 86400:  # 24 hours
-            time_remaining = 86400 - (now - last_top_ehp_update).total_seconds()
+        if last_update and (now - last_update.last_update).total_seconds() < 86400:  # 24 hours
+            time_remaining = 86400 - (now - last_update.last_update).total_seconds()
+            db.session.rollback()  # Ensure we don't hold locks
+            
             return jsonify({
                 'error': 'Rate limit exceeded',
                 'message': f'Please wait {int(time_remaining/3600)} hours and {int((time_remaining%3600)/60)} minutes before updating again'
@@ -302,6 +308,13 @@ def update_top_ehp_player():
         current_players = db.session.query(SkillEHPLeaderboard.username).distinct().all()
         if not current_players:
             return jsonify({'error': 'No players found in EHP leaderboard'}), 404
+            
+        # Update or create last update timestamp
+        if last_update:
+            last_update.last_update = now
+        else:
+            last_update = LastUpdate(update_type='top_ehp', last_update=now)
+            db.session.add(last_update)
         
         # Extract usernames from query result
         usernames = [player[0] for player in current_players]
@@ -323,8 +336,6 @@ def update_top_ehp_player():
             'error': error
         })
         
-    # Update last update time
-    last_top_ehp_update = now
         
     return jsonify({
         'status': 'success',
