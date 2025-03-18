@@ -134,7 +134,8 @@ class SkillXPLeaderboard(db.Model):
 
 # Rate limiting globals
 rate_limits = {}
-rate_lock = Lock()
+rate_limit_lock = Lock()  # For individual user rate limiting
+ehp_update_lock = Lock()  # For top EHP updates
 last_top_ehp_update = None
 
 def rate_limit(f):
@@ -179,7 +180,7 @@ def ValidateUsername(username):
 
 def check_rate_limit(username):
     """Check if username is rate limited. Returns (is_limited, timestamps)"""
-    with rate_lock:
+    with rate_limit_lock:
         now = datetime.utcnow().timestamp()
         timestamps = [ts for ts in rate_limits.get(username, []) if (now - ts) <= Config.RATE_LIMIT_WINDOW]
         rate_limits[username] = timestamps
@@ -287,7 +288,7 @@ def update_top_ehp_player():
     """Rebuild EHP leaderboard by updating all players currently in it (limited to once per 24h)"""
     global last_top_ehp_update
     
-    with rate_lock:
+    with ehp_update_lock:
         now = datetime.utcnow()
         
         if last_top_ehp_update and (now - last_top_ehp_update).total_seconds() < 86400:  # 24 hours
