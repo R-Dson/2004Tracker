@@ -23,6 +23,22 @@
       // List of members-only skills
       const membersSkills = ['Agility', 'Fletching', 'Herblore', 'Thieving'];
       let membersSkillsVisible = true;  // Start true so first toggle hides skills
+      let showingLevels = false;
+
+      function toggleXpLevels() {
+        showingLevels = !showingLevels;
+        const button = document.getElementById('toggleXpLevels');
+        button.textContent = showingLevels ? 'Show Experience' : 'Show Levels';
+
+        const cells = document.querySelectorAll('.data-table td[title*="Levels Gained"]');
+        cells.forEach(cell => {
+          if (!cell.hasAttribute('data-xp')) {
+            cell.setAttribute('data-xp', cell.textContent);
+          }
+          const level = cell.title.match(/Levels Gained: (-?\d+)/)?.[1] || '-';
+          cell.textContent = showingLevels ? level : cell.getAttribute('data-xp');
+        });
+      }
 
       function toggleMembersSkills() {
         const button = document.getElementById('toggleMembersSkills');
@@ -172,7 +188,10 @@
          </div>
          {% endif %}
          <div>
-            <h4>Experience Gained</h4>
+            <div style="display: flex; align-items: center;">
+                <h4 style="margin: 0;">Experience Gained</h4>
+                <button id="toggleXpLevels" class="button updateButton" onclick="toggleXpLevels()" style="margin-left: 10px;">Show Levels</button>
+             </div>
             <table class="data-table">
               <thead>
                   <tr>

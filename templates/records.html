@@ -1,26 +1,30 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="leaderboard-container">
+    <h3 style="margin-bottom: 2rem;">XP Records</h3>
     <div class="toc-section" style="margin-bottom: 2rem;">
-        <h4>Quick Navigation</h4>
-        <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+        <div class="period-buttons" style="margin-bottom: 1rem;">
             {% for period in periods %}
-            <details style="background: #16120E; padding: 0.5rem; border: 1px solid #201a14;">
-                <summary style="cursor: pointer; padding: 0.5rem; font-size: 1.2rem; font-weight: bold;">
-                    {{ period|capitalize }}
-                </summary>
-                <ul style="list-style: none; padding: 0.5rem 1rem; margin: 0; font-size: 0.75em;">
-                    {% for skill in skills %}
-                        {% if skill not in ['Farming', 'Construction', 'Hunter'] %}
-                        <li style="padding: 0.25rem 0;">
-                            <a href="#{{ period }}-{{ skill|lower }}" onclick="smoothScroll(event, '{{ period }}-{{ skill|lower }}')">{{ skill }}</a>
-                        </li>
-                        {% endif %}
-                    {% endfor %}
-                </ul>
-            </details>
+            <button class="button period-button{% if loop.first %} active{% endif %}" data-period="{{ period }}">{{ period|capitalize }}</button>
             {% endfor %}
+            <div style="clear: both;"></div>
         </div>
+        {% for period in periods %}
+        <div class="skills-nav" data-period="{{ period }}"{% if not loop.first %} style="display: none;"{% endif %}>
+            <div class="skills-header" style="cursor: pointer; padding: 0.5rem; font-size: 1.2rem; font-weight: bold; background: #16120E;">
+                Quick Navigation
+            </div>
+            <ul class="skills-list" style="max-height: 0; overflow: hidden; list-style: none; padding: 0; margin: 0; font-size: 0.75em; background: #16120E; border: 1px solid #201a14;">
+                {% for skill in skills %}
+                    {% if skill not in ['Farming', 'Construction', 'Hunter'] %}
+                    <li style="padding: 0.25rem 0;">
+                        <a href="#{{ period }}-{{ skill|lower }}" onclick="smoothScroll(event, '{{ period }}-{{ skill|lower }}')">{{ skill }}</a>
+                    </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+        {% endfor %}
     </div>
     {% for period in periods %}
     <div class="period-section">
@@ -85,8 +89,57 @@ function scrollToTop() {
         behavior: 'smooth'
     });
 }
+
 document.addEventListener('scroll', function() {
     document.querySelector('.back-to-top').style.display = window.scrollY > 200 ? 'block' : 'none';
+});
+
+// Period switching functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const periodButtons = document.querySelectorAll('.period-button');
+    const periodSections = document.querySelectorAll('.period-section');
+    const skillsNavs = document.querySelectorAll('.skills-nav');
+
+    // Hide all period sections except the first one initially
+    periodSections.forEach((section, index) => {
+        if (index !== 0) {
+            section.style.display = 'none';
+        }
+    });
+
+    // Add click event listeners to period buttons
+    periodButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const selectedPeriod = this.getAttribute('data-period');
+            
+            // Update active button state
+            periodButtons.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+            
+            // Show selected period section and hide others
+            periodSections.forEach(section => 
+                section.style.display = section.querySelector('h3').textContent.toLowerCase().includes(selectedPeriod) ? 'block' : 'none');
+            
+            // Show selected skills navigation and hide others
+            skillsNavs.forEach(nav => 
+                nav.style.display = nav.getAttribute('data-period') === selectedPeriod ? 'block' : 'none');
+        });
+    });
+
+    // Skills list toggle functionality
+    const skillHeaders = document.querySelectorAll('.skills-header');
+    skillHeaders.forEach(header => {
+        header.addEventListener('click', function() {
+            const skillsList = this.nextElementSibling;
+            if (skillsList.style.maxHeight === '0px' || !skillsList.style.maxHeight) {
+                skillsList.style.maxHeight = skillsList.scrollHeight + 'px';
+                this.style.borderBottom = '1px solid #201a14';
+            } else {
+                skillsList.style.maxHeight = '0';
+                this.style.borderBottom = 'none';
+            }
+        });
+    });
 });
 
 function smoothScroll(e, targetId) {

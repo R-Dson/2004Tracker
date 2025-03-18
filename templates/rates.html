@@ -3,19 +3,18 @@
 {% block content %}
   <h3 style="margin-bottom: 2rem;">Skill Rates</h3>
   <div class="toc-section" style="margin-bottom: 2rem;">
-    <h4>Quick Navigation</h4>
-    <details style="background: #16120E; padding: 0.5rem; border: 1px solid #201a14;">
-      <summary style="cursor: pointer; padding: 0.5rem; font-size: 1.2rem; font-weight: bold;">Skills</summary>
-      <ul style="list-style: none; padding: 0.5rem 1rem; margin: 0; font-size: 0.75em;">
+    <div class="skills-header" style="cursor: pointer; padding: 0.5rem; font-size: 1.2rem; font-weight: bold; background: #16120E;">
+      Quick Navigation
+    </div>
+    <ul class="skills-list" style="max-height: 0; overflow: hidden; list-style: none; padding: 0; margin: 0; font-size: 0.75em; background: #16120E; border: 1px solid #201a14;">
         {% for skill in skill_rates.skills.keys()|sort %}
           {% if skill not in ['Farming', 'Construction', 'Hunter'] %}
           <li style="padding: 0.25rem 0;">
-            <a href="#{{ skill|lower }}" onclick="smoothScroll(event, '{{ skill|lower }}')">{{ skill }}</a>
+            <a style="padding-left: 1rem;" href="#{{ skill|lower }}" onclick="smoothScroll(event, '{{ skill|lower }}')">{{ skill }}</a>
           </li>
           {% endif %}
         {% endfor %}
-      </ul>
-    </details>
+    </ul>
   </div>
   {% for skill, rates in skill_rates.skills.items()|sort %}
     {% if skill not in ['Farming', 'Construction', 'Hunter'] %}
@@ -72,6 +71,20 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
+      // Skills list toggle functionality
+      const skillHeader = document.querySelector('.skills-header');
+      const skillsList = document.querySelector('.skills-list');
+      
+      skillHeader.addEventListener('click', function() {
+        if (skillsList.style.maxHeight === '0px' || !skillsList.style.maxHeight) {
+          skillsList.style.maxHeight = skillsList.scrollHeight + 'px';
+          this.style.borderBottom = '1px solid #201a14';
+        } else {
+          skillsList.style.maxHeight = '0';
+          this.style.borderBottom = 'none';
+        }
+      });
+      
       const toggleButtons = document.querySelectorAll('.toggle-bonus');
       
       toggleButtons.forEach(button => {

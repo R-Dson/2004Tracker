@@ -368,6 +368,17 @@ input, button {
   background: rgb(56, 36, 24);
 }
 
+.skills-list {
+  transition: all 0.2s ease-in-out;
+}
+
+.period-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
 @media (max-width: 768px) {
   .nav-container {
     flex-wrap: wrap;
