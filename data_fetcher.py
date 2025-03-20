@@ -1,15 +1,29 @@
 import requests
 from utils.exp import get_xp_for_level
 
-# Update VALID_SKILLS to match API type numbering
+# API type IDs map to these skills
 VALID_SKILLS = [
-    "Overall", "Attack", "Defence", "Strength", "Hitpoints",
-    "Ranged", "Prayer", "Magic", "Cooking", "Woodcutting",
-    "Fletching", "Fishing", "Firemaking", "Crafting", "Smithing",
-    "Mining", "Herblore", "Agility", "Thieving", "Runecrafting"
-]
-
-TYPE_TO_SKILL = {i: skill for i, skill in enumerate(VALID_SKILLS)}
+    "Overall",       # 0
+    "Attack",        # 1
+    "Defence",       # 2
+    "Strength",      # 3
+    "Hitpoints",     # 4
+    "Ranged",        # 5
+    "Prayer",        # 6
+    "Magic",         # 7
+    "Cooking",       # 8
+    "Woodcutting",   # 9
+    "Fletching",     # 10
+    "Fishing",       # 11
+    "Firemaking",    # 12
+    "Crafting",      # 13
+    "Smithing",      # 14
+    "Mining",        # 15
+    "Herblore",      # 16
+    "Agility",       # 17
+    "Thieving",      # 18
+    "Runecrafting"   # 21
+] 
 
 def fetch_hiscores(username):
     """
@@ -38,7 +52,19 @@ def fetch_hiscores(username):
     skill_map = {entry["type"]: entry for entry in api_data}
 
     hiscores = []
-    for type_id, skill_name in TYPE_TO_SKILL.items():
+    
+    # Map API types to skills, with special handling for Runecrafting
+    type_mapping = {
+        i: skill for i, skill in enumerate(VALID_SKILLS[:-1])  # All skills except Runecrafting
+    }
+    # Add Runecrafting with type 21
+    type_mapping[21] = "Runecrafting"
+    
+    # Process skills in VALID_SKILLS order
+    for skill_name in VALID_SKILLS:
+        # Find the type_id for this skill
+        type_id = next(tid for tid, name in type_mapping.items() if name == skill_name)
+        
         entry = skill_map.get(type_id, None)
         if entry:
             hiscores.append({
