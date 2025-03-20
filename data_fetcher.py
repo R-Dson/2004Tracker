@@ -1,110 +1,61 @@
 import requests
-from bs4 import BeautifulSoup
 from utils.exp import get_xp_for_level
+
+# Update VALID_SKILLS to match API type numbering
+VALID_SKILLS = [
+    "Overall", "Attack", "Defence", "Strength", "Hitpoints",
+    "Ranged", "Prayer", "Magic", "Cooking", "Woodcutting",
+    "Fletching", "Fishing", "Firemaking", "Crafting", "Smithing",
+    "Mining", "Herblore", "Agility", "Thieving", "Runecrafting"
+]
+
+TYPE_TO_SKILL = {i: skill for i, skill in enumerate(VALID_SKILLS)}
 
 def fetch_hiscores(username):
     """
-    Fetch the hiscores page for the given username, parse the HTML to locate the hiscores table,
-    and extract the data as a list of dictionaries.
+    Fetch the hiscores data for the given username using the API.
     
     Each dictionary contains:
         - skill: Skill name
-        - rank: Rank (integer if possible)
-        - level: Level (integer if possible)
-        - xp: XP (integer if possible)
+        - rank: Rank (integer)
+        - level: Level (integer)
+        - xp: XP (integer, divided by 10 and truncated)
+        
     Returns None if an error occurs.
     """
-    url = f"https://2004.lostcity.rs/hiscores/player/{username}"
+    url = f"https://2004.lostcity.rs/api/hiscores/player/{username}"
     print(f"Fetching URL: {url}")
     try:
         response = requests.get(url)
         print(f"Response code: {response.status_code}")
         response.raise_for_status()
+        api_data = response.json()
     except Exception as e:
-        print(f"Error fetching hiscores for {username}: {e}")
+        print(f"Error fetching hiscores API for {username}: {e}")
         return None
 
-    # Save HTML for debugging
-    with open(f"{username}_debug.html", "w") as f:
-        f.write(response.text)
+    # Create a mapping of type to entry for easier lookup
+    skill_map = {entry["type"]: entry for entry in api_data}
 
-    soup = BeautifulSoup(response.text, 'html.parser')
-    
-    # Try multiple ways to locate the hiscores table
-    # First try: Look for table with bgcolor="black"
-    outer_table = soup.find('table', attrs={'bgcolor': 'black'})
-    if outer_table:
-        inner_table = outer_table.find('table')
-        if inner_table:
-            return parse_hiscores_table(inner_table)
-    
-    # Second try: Look for any table with "Hiscores" in its text
-    tables = soup.find_all('table')
-    for table in tables:
-        if "Hiscores" in table.get_text():
-            return parse_hiscores_table(table)
-    
-    print(f"Could not locate hiscores table for {username}.")
-    return None
-
-VALID_SKILLS = [
-    "Overall", "Attack", "Strength", "Defence", "Hitpoints", "Ranged", 
-    "Magic", "Cooking", "Mining", "Crafting", "Prayer", "Runecrafting", 
-    "Firemaking", "Smithing", "Fishing", "Thieving", "Fletching", 
-    "Woodcutting", "Herblore", "Agility"
-] # , "Hunter", "Construction", "Farming", "Slayer" # Not in the game yet
-
-def parse_hiscores_table(table):
-    """Parse the hiscores table and return structured data"""
-    rows = table.find_all('tr')
-    if not rows or len(rows) < 2:
-        print("Not enough rows found in the hiscores table.")
-        return None
-
-    # Skip the first three rows (header, empty row, and title row)
-    data_rows = rows[3:]
-    
-    # Create a dictionary to store found skills
-    found_skills = {}
-    for row in data_rows:
-        cols = row.find_all('td')
-        # Expecting at least 6 columns: first two might be empty, then skill, rank, level, xp.
-        if len(cols) >= 6:
-            try:
-                skill = cols[2].get_text(strip=True)
-                # Only process if it's a valid skill
-                if skill in VALID_SKILLS:
-                    rank_text = cols[3].get_text(strip=True).replace(",", "")
-                    level_text = cols[4].get_text(strip=True).replace(",", "")
-                    xp_text = cols[5].get_text(strip=True).replace(",", "")
-                    rank = int(rank_text) if rank_text.isdigit() else rank_text
-                    level = int(level_text) if level_text.isdigit() else level_text
-                    xp = int(xp_text) if xp_text.isdigit() else xp_text
-                    found_skills[skill] = {
-                        "skill": skill,
-                        "rank": rank,
-                        "level": level,
-                        "xp": xp
-                    }
-            except Exception as e:
-                print(f"Error parsing row: {e}")
-                continue
-    
-    # Create complete hiscores list with default values for missing skills
     hiscores = []
-    for skill in VALID_SKILLS:
-        if skill in found_skills:
-            hiscores.append(found_skills[skill])
+    for type_id, skill_name in TYPE_TO_SKILL.items():
+        entry = skill_map.get(type_id, None)
+        if entry:
+            hiscores.append({
+                "skill": skill_name,
+                "rank": entry["rank"],
+                "level": entry["level"],
+                "xp": entry["value"] // 10  # API stores XP * 10, divide and truncate
+            })
         else:
             hiscores.append({
-                "skill": skill,
+                "skill": skill_name,
                 "rank": 0,
                 "level": 1,
                 "xp": 0
             })
-    
-    return hiscores
 
+    return hiscores
 
 def compute_ehp(hiscores, skill_rates):
     """
