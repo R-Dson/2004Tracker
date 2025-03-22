@@ -48,7 +48,7 @@
                         <tr>
                             <td>{{ loop.index }}</td>
                             <td><a href="/fetch?username={{ entry.username }}">{{ entry.username }}</a></td>
-                            <td>{{ entry.xp_gain|format_rate }}</td>
+                            <td>{{ ('{:,}'.format(entry.xp_gain//1000).replace(',', ' ') + 'k') }}</td>
                             <td style="font-size: 1rem;">{{ entry.last_updated.strftime('%Y-%m-%d') }}</td>
                         </tr>
                         {% endfor %}

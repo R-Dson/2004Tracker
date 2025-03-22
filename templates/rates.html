@@ -44,7 +44,7 @@
                   <hr style="margin: 10px 0;">
                   <strong>Bonus Skills:</strong><br>
                   {% for bonus in rate.bonus_skills %}
-                    {{ bonus.skill }}: {{ bonus.method }} ({{ "{:,}".format(bonus.rate) }} xp/h)<br>
+                    {{ bonus.skill }}: {{ bonus.method }} ({{ ('{:,}'.format(bonus.rate//1000).replace(',', ' ') + 'k') }} xp/h)<br>
                   {% endfor %}
                 </div>
                 {% endif %}
