@@ -87,7 +87,7 @@
         "min_level": 60,
         "max_level": 70,
         "method": "Moss Giants. Estimated xp/h.",
-        "rate": 32000,
+        "rate": 36000,
         "bonus_skills": [
           {
             "skill": "Prayer",
@@ -100,7 +100,7 @@
         "min_level": 70,
         "max_level": 80,
         "method": "Moss Giants. Estimated xp/h.",
-        "rate": 38000,
+        "rate": 43000,
         "bonus_skills": [
           {
             "skill": "Prayer",
@@ -113,7 +113,7 @@
         "min_level": 80,
         "max_level": 85,
         "method": "Moss Giants. Estimated xp/h.",
-        "rate": 42000,
+        "rate": 47000,
         "bonus_skills": [
           {
             "skill": "Prayer",
@@ -126,7 +126,7 @@
         "min_level": 85,
         "max_level": 90,
         "method": "Moss Giants. Estimated xp/h.",
-        "rate": 45000,
+        "rate": 50000,
         "bonus_skills": [
           {
             "skill": "Prayer",
@@ -139,7 +139,7 @@
         "min_level": 90,
         "max_level": 95,
         "method": "Moss Giants. Estimated xp/h.",
-        "rate": 50000,
+        "rate": 55000,
         "bonus_skills": [
           {
             "skill": "Prayer",
@@ -341,16 +341,30 @@
       },
       {
         "min_level": 40,
-        "max_level": 74,
+        "max_level": 45,
         "method": "Lobster",
         "rate": 150000,
         "bonus_skills": []
       },
       {
-        "min_level": 74,
-        "max_level": 99,
-        "method": "Lobster",
+        "min_level": 45,
+        "max_level": 80,
+        "method": "Swordfish",
         "rate": 220000,
+        "bonus_skills": []
+      },
+      {
+        "min_level": 80,
+        "max_level": 90,
+        "method": "Shark",
+        "rate": 290000,
+        "bonus_skills": []
+      },
+      {
+        "min_level": 80,
+        "max_level": 90,
+        "method": "Shark",
+        "rate": 330000,
         "bonus_skills": []
       }
     ],
@@ -422,18 +436,32 @@
       },
       {
         "min_level": 28,
-        "max_level": 99,
+        "max_level": 63,
         "method": "Hardleather bodies",
         "rate": 175000,
+        "bonus_skills": []
+      },
+      {
+        "min_level": 63,
+        "max_level": 99,
+        "method": "Green Leather Body",
+        "rate": 240000,
         "bonus_skills": []
       }
     ],
     "Prayer": [
       {
         "min_level": 1,
+        "max_level": 34,
+        "method": "Holy Grail. 30 min to complete.",
+        "rate": 22000,
+        "bonus_skills": []
+      },
+      {
+        "min_level": 34,
         "max_level": 99,
         "method": "Burying Dragon Bones. Estimated xp/h.",
-        "rate": 480000,
+        "rate": 190000,
         "bonus_skills": []
       }
     ],
@@ -449,9 +477,16 @@
     "Runecrafting": [
       {
         "min_level": 1,
-        "max_level": 99,
+        "max_level": 54,
         "method": "Air runes with runners. Estimated xp/h.",
         "rate": 20000,
+        "bonus_skills": []
+      },
+      {
+        "min_level": 54,
+        "max_level": 99,
+        "method": "Law runes with runners. Estimated xp/h.",
+        "rate": 25000,
         "bonus_skills": []
       }
     ],
@@ -483,6 +518,13 @@
         "method": "Yew logs",
         "rate": 275000,
         "bonus_skills": []
+      },
+      {
+        "min_level": 60,
+        "max_level": 99,
+        "method": "Magic logs",
+        "rate": 335000,
+        "bonus_skills": []
       }
     ],
     "Smithing": [
@@ -502,16 +544,16 @@
       },
       {
         "min_level": 33,
-        "max_level": 48,
+        "max_level": 40,
         "method": "Iron platebodies. Estimated xp/h.",
         "rate": 80000,
         "bonus_skills": []
       },
       {
-        "min_level": 48,
+        "min_level": 40,
         "max_level": 99,
-        "method": "Steel platebodies. Estimated xp/h.",
-        "rate": 120000,
+        "method": "Gold Bars with Goldsmith gauntlets. Estimated xp/h.",
+        "rate": 80000,
         "bonus_skills": []
       }
     ],
@@ -681,7 +723,7 @@
         "min_level": 40,
         "max_level": 50,
         "method": "Willow Longbow.",
-        "rate": 10666,
+        "rate": 50000,
         "bonus_skills": []
       },
       {
