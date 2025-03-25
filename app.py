@@ -377,12 +377,6 @@ def process_xp_leaderboard_entry(skill, user_id, username, xp_gain, period_type,
         app.logger.error(f"Invalid XP value in process_xp_leaderboard_entry: {xp_gain}")
         return
 
-    # Get current top 10 for this skill and period
-    current_top = SkillXPLeaderboard.query\
-        .filter_by(skill=skill, period_type=period_type)\
-        .order_by(SkillXPLeaderboard.xp_gain.desc())\
-        .limit(10).all()
-    
     # Check if user already has an entry
     existing = SkillXPLeaderboard.query.filter_by(
         user_id=user_id,
@@ -390,28 +384,32 @@ def process_xp_leaderboard_entry(skill, user_id, username, xp_gain, period_type,
         period_type=period_type
     ).first()
     
-    if len(current_top) < 10 or xp_gain > current_top[-1].xp_gain or existing:
-        if existing:
+    # Only update if new XP is higher than existing
+    if existing:
+        if xp_gain > existing.xp_gain:
             existing.xp_gain = xp_gain
             existing.period_start = period_start
             existing.last_updated = datetime.utcnow()
-        else:
-            new_entry = SkillXPLeaderboard(
-                user_id=user_id,
-                username=username,
-                skill=skill,
-                xp_gain=xp_gain,
-                period_type=period_type,
-                period_start=period_start
-            )
-            db.session.add(new_entry)
-            
-        # Remove lowest entry if we're over 10 and this is a new entry
-        if len(current_top) >= 10 and not existing:
-            lowest = current_top[-1]
-            if lowest.xp_gain < xp_gain:  # Only remove if new entry has higher XP
-                db.session.delete(lowest)
-        
+            db.session.commit()
+        return
+
+    # Get current top 10 for this skill and period
+    current_top = SkillXPLeaderboard.query\
+        .filter_by(skill=skill, period_type=period_type)\
+        .order_by(SkillXPLeaderboard.xp_gain.desc())\
+        .limit(10).all()
+
+    # Only add new entry if it would make top 10
+    if len(current_top) < 10 or xp_gain > current_top[-1].xp_gain:
+        new_entry = SkillXPLeaderboard(
+            user_id=user_id,
+            username=username,
+            skill=skill,
+            xp_gain=xp_gain,
+            period_type=period_type,
+            period_start=period_start
+        )
+        db.session.add(new_entry)
         db.session.commit()
 
 @app.route('/fetch', methods=['GET', 'POST'])
