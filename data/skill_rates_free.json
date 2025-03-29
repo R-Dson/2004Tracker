@@ -87,7 +87,7 @@
         "min_level": 60,
         "max_level": 70,
         "method": "Moss Giants. Estimated xp/h.",
-        "rate": 36000,
+        "rate": 32000,
         "bonus_skills": [
           {
             "skill": "Prayer",
@@ -100,7 +100,7 @@
         "min_level": 70,
         "max_level": 80,
         "method": "Moss Giants. Estimated xp/h.",
-        "rate": 43000,
+        "rate": 38000,
         "bonus_skills": [
           {
             "skill": "Prayer",
@@ -113,7 +113,7 @@
         "min_level": 80,
         "max_level": 85,
         "method": "Moss Giants. Estimated xp/h.",
-        "rate": 47000,
+        "rate": 42000,
         "bonus_skills": [
           {
             "skill": "Prayer",
@@ -126,7 +126,7 @@
         "min_level": 85,
         "max_level": 90,
         "method": "Moss Giants. Estimated xp/h.",
-        "rate": 50000,
+        "rate": 45000,
         "bonus_skills": [
           {
             "skill": "Prayer",
@@ -139,7 +139,7 @@
         "min_level": 90,
         "max_level": 95,
         "method": "Moss Giants. Estimated xp/h.",
-        "rate": 55000,
+        "rate": 50000,
         "bonus_skills": [
           {
             "skill": "Prayer",
@@ -228,37 +228,9 @@
     "Agility": [
       {
         "min_level": 1,
-        "max_level": 29,
-        "method": "Tourist trap. Est. 45 min. https://web.archive.org/web/20060220020715/http://www.zybez.net/quests.php?id=58",
-        "rate": 12400,
-        "bonus_skills": []
-      },
-      {
-        "min_level": 29,
-        "max_level": 32,
-        "method": "The Grand Tree. Est. 45 min. https://web.archive.org/web/20060220020650/http://www.zybez.net/quests.php?id=54",
-        "rate": 10533,
-        "bonus_skills": []
-      },
-      {
-        "min_level": 32,
-        "max_level": 35,
-        "method": "Log balance (Coal Trucks). 4.5s per crossing. 800 crossings/h. https://www.youtube.com/watch?v=3ejq9-x_Bls. Alt method: Gnome Stronghold. 6228 xp/h. 50s per lap and 72 laps/h.",
-        "rate": 6800,
-        "bonus_skills": []
-      },
-      {
-        "min_level": 35,
-        "max_level": 52,
-        "method": "Barbarian Outpost. Est 45s per lap. 80 laps/h.",
-        "rate": 12264,
-        "bonus_skills": []
-      },
-      {
-        "min_level": 52,
         "max_level": 99,
-        "method": "Wilderness Agility. Xp/h. https://web.archive.org/web/20060220020135/http://www.zybez.net/skills.php?id=8",
-        "rate": 45000,
+        "method": "placeholder",
+        "rate": 1000,
         "bonus_skills": []
       }
     ],
@@ -341,30 +313,16 @@
       },
       {
         "min_level": 40,
-        "max_level": 45,
+        "max_level": 74,
         "method": "Lobster",
         "rate": 150000,
         "bonus_skills": []
       },
       {
-        "min_level": 45,
-        "max_level": 80,
-        "method": "Swordfish",
+        "min_level": 74,
+        "max_level": 99,
+        "method": "Lobster",
         "rate": 220000,
-        "bonus_skills": []
-      },
-      {
-        "min_level": 80,
-        "max_level": 90,
-        "method": "Shark",
-        "rate": 290000,
-        "bonus_skills": []
-      },
-      {
-        "min_level": 80,
-        "max_level": 90,
-        "method": "Shark",
-        "rate": 330000,
         "bonus_skills": []
       }
     ],
@@ -436,32 +394,18 @@
       },
       {
         "min_level": 28,
-        "max_level": 63,
+        "max_level": 99,
         "method": "Hardleather bodies",
         "rate": 175000,
-        "bonus_skills": []
-      },
-      {
-        "min_level": 63,
-        "max_level": 99,
-        "method": "Green Leather Body",
-        "rate": 240000,
         "bonus_skills": []
       }
     ],
     "Prayer": [
       {
         "min_level": 1,
-        "max_level": 34,
-        "method": "Holy Grail. 30 min to complete.",
-        "rate": 22000,
-        "bonus_skills": []
-      },
-      {
-        "min_level": 34,
         "max_level": 99,
-        "method": "Burying Dragon Bones. Estimated xp/h.",
-        "rate": 190000,
+        "method": "Burying Big bones. Estimated xp/h.",
+        "rate": 40000,
         "bonus_skills": []
       }
     ],
@@ -477,16 +421,9 @@
     "Runecrafting": [
       {
         "min_level": 1,
-        "max_level": 54,
+        "max_level": 99,
         "method": "Air runes with runners. Estimated xp/h.",
         "rate": 20000,
-        "bonus_skills": []
-      },
-      {
-        "min_level": 54,
-        "max_level": 99,
-        "method": "Law runes with runners. Estimated xp/h.",
-        "rate": 25000,
         "bonus_skills": []
       }
     ],
@@ -518,13 +455,6 @@
         "method": "Yew logs",
         "rate": 275000,
         "bonus_skills": []
-      },
-      {
-        "min_level": 60,
-        "max_level": 99,
-        "method": "Magic logs",
-        "rate": 335000,
-        "bonus_skills": []
       }
     ],
     "Smithing": [
@@ -544,16 +474,16 @@
       },
       {
         "min_level": 33,
-        "max_level": 40,
+        "max_level": 48,
         "method": "Iron platebodies. Estimated xp/h.",
         "rate": 80000,
         "bonus_skills": []
       },
       {
-        "min_level": 40,
+        "min_level": 48,
         "max_level": 99,
-        "method": "Gold Bars with Goldsmith gauntlets. Estimated xp/h.",
-        "rate": 80000,
+        "method": "Steel platebodies. Estimated xp/h.",
+        "rate": 120000,
         "bonus_skills": []
       }
     ],
@@ -628,130 +558,18 @@
     "Thieving": [
       {
         "min_level": 1,
-        "max_level": 10,
-        "method": "Biohazard. 30 min to complete. https://web.archive.org/web/20060220020108/http://www.zybez.net/skills.php?id=5#S8",
-        "rate": 2500,
-        "bonus_skills": []
-      },
-      {
-        "min_level": 10,
-        "max_level": 16,
-        "method": "Hazeel Cult. 30 min to complete.",
-        "rate": 3000,
-        "bonus_skills": []
-      },
-      {
-        "min_level": 16,
-        "max_level": 20,
-        "method": "Fight Arena. 30 min to complete.",
-        "rate": 4350,
-        "bonus_skills": []
-      },
-      {
-        "min_level": 20,
-        "max_level": 25,
-        "method": "Silk stall. Est. xp/h. The following is from https://web.archive.org/web/20060220020108/http://www.zybez.net/skills.php?id=5#S8",
-        "rate": 15000,
-        "bonus_skills": []
-      },
-      {
-        "min_level": 25,
-        "max_level": 35,
-        "method": "Warrior. Est. xp/h.",
-        "rate": 20000,
-        "bonus_skills": []
-      },
-      {
-        "min_level": 35,
-        "max_level": 40,
-        "method": "Fur stall. Est. xp/h.",
-        "rate": 25000,
-        "bonus_skills": []
-      },
-      {
-        "min_level": 40,
-        "max_level": 55,
-        "method": "Guards. Est. xp/h.",
-        "rate": 40000,
-        "bonus_skills": []
-      },
-      {
-        "min_level": 55,
-        "max_level": 65,
-        "method": "Knights. Est. xp/h.",
-        "rate": 60000,
-        "bonus_skills": []
-      },
-      {
-        "min_level": 65,
-        "max_level": 70,
-        "method": "Watchmen. Est. xp/h.",
-        "rate": 80000,
-        "bonus_skills": []
-      },
-      {
-        "min_level": 70,
         "max_level": 99,
-        "method": "Paladin. Est. xp/h.",
-        "rate": 120000,
+        "method": "placeholder",
+        "rate": 1000,
         "bonus_skills": []
       }
     ],
     "Fletching": [
       {
         "min_level": 1,
-        "max_level": 25,
-        "method": "Temple of Ikov. https://web.archive.org/web/20060220020644/http://www.zybez.net/quests.php?id=53",
-        "rate": 10666,
-        "bonus_skills": []
-      },
-      {
-        "min_level": 25,
-        "max_level": 35,
-        "method": "Iron Dart. https://oldschool.runescape.wiki/w/Ironman_Guide/Fletching",
-        "rate": 45000,
-        "bonus_skills": []
-      },
-      {
-        "min_level": 35,
-        "max_level": 40,
-        "method": "Willow Shortbow. The following rates are from https://web.archive.org/web/20150221200736/http://www.crystalmathlabs.com:80/tracker/suppliescalc.php",
-        "rate": 50000,
-        "bonus_skills": []
-      },
-      {
-        "min_level": 40,
-        "max_level": 50,
-        "method": "Willow Longbow.",
-        "rate": 50000,
-        "bonus_skills": []
-      },
-      {
-        "min_level": 50,
-        "max_level": 55,
-        "method": "Maple Shortbow.",
-        "rate": 50000,
-        "bonus_skills": []
-      },
-      {
-        "min_level": 55,
-        "max_level": 70,
-        "method": "Maple Longbow.",
-        "rate": 50000,
-        "bonus_skills": []
-      },
-      {
-        "min_level": 70,
-        "max_level": 85,
-        "method": "Yew Longbow.",
-        "rate": 50000,
-        "bonus_skills": []
-      },
-      {
-        "min_level": 85,
         "max_level": 99,
-        "method": "Magic Longbow.",
-        "rate": 50000,
+        "method": "placeholder",
+        "rate": 1000,
         "bonus_skills": []
       }
     ],
@@ -781,65 +599,9 @@
     "Herblore": [
       {
         "min_level": 1,
-        "max_level": 3,
-        "method": "Druidic Ritual. https://web.archive.org/web/20060220020229/http://www.zybez.net/quests.php?id=14",
-        "rate": 1500,
-        "bonus_skills": []
-      },
-      {
-        "min_level": 3,
-        "max_level": 38,
-        "method": "Attack Potion. https://web.archive.org/web/20150221200736/http://www.crystalmathlabs.com:80/tracker/suppliescalc.php",
-        "rate": 60000,
-        "bonus_skills": []
-      },
-      {
-        "min_level": 38,
-        "max_level": 45,
-        "method": "Prayer Potion. https://web.archive.org/web/20150221200736/http://www.crystalmathlabs.com:80/tracker/suppliescalc.php",
-        "rate": 150000,
-        "bonus_skills": []
-      },
-      {
-        "min_level": 45,
-        "max_level": 55,
-        "method": "Super Attack. The following is from https://web.archive.org/web/20190722064334/https://oldschool.runescape.wiki/w/Herblore_training",
-        "rate": 200000,
-        "bonus_skills": []
-      },
-      {
-        "min_level": 55,
-        "max_level": 66,
-        "method": "Super Strength",
-        "rate": 235000,
-        "bonus_skills": []
-      },
-      {
-        "min_level": 66,
-        "max_level": 69,
-        "method": "Super Defence",
-        "rate": 270000,
-        "bonus_skills": []
-      },
-      {
-        "min_level": 69,
-        "max_level": 72,
-        "method": "Antifire Potion",
-        "rate": 305000,
-        "bonus_skills": []
-      },
-      {
-        "min_level": 72,
-        "max_level": 78,
-        "method": "Ranging Potion",
-        "rate": 340000,
-        "bonus_skills": []
-      },
-      {
-        "min_level": 78,
         "max_level": 99,
-        "method": "Zamorak Brew",
-        "rate": 375000,
+        "method": "placeholder",
+        "rate": 1000,
         "bonus_skills": []
       }
     ]

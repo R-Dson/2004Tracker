@@ -38,7 +38,19 @@
             <td>{{ rate.max_level if rate.max_level is not none else "99+" }}</td>
             <td style="font-size: 1rem;" class="method-cell">
               <div class="method-content">
-                {{ rate.method }}
+                {% set text_parts = [] %}
+                {% set urls = [] %}
+                {% for word in rate.method.split() %}
+                  {% if word.startswith('http://') or word.startswith('https://') %}
+                    {% set _ = urls.append(word) %}
+                  {% else %}
+                    {% set _ = text_parts.append(word) %}
+                  {% endif %}
+                {% endfor %}
+                {{ text_parts|join(' ') }}
+                {% for url in urls %}
+                   <a href="{{ url }}" target="_blank">Source</a>
+                {% endfor %}
                 {% if rate.bonus_skills %}
                 <div class="bonus-content" style="display: none;">
                   <hr style="margin: 10px 0;">

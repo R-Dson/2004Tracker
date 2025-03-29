@@ -6,7 +6,7 @@
     <div class="update-section">
       <button id="updateButton" class="button updateButton" onclick="updateHiscore('{{ username }}')">Update Hiscore</button>
       <span id="updateStatus" style="display: none; margin-left: 10px;"></span>
-      <button id="toggleMembersSkills" class="button updateButton" onclick="toggleMembersSkills()" style="margin-left: 10px;">Show members skills</button>
+      <button id="toggleMembersSkills" class="button updateButton" onclick="toggleMembersSkills()" style="margin-left: 10px;">Hide members skills</button>
       <div id="refreshPopup" style="display: none; position: fixed; top: 20px; right: 20px; 
            background-color: #0f0b08; border: 1px solid #3c3c3c; padding: 15px; color: white;
            box-shadow: 0 2px 4px rgba(0,0,0,0.2); border-radius: 4px; z-index: 1000;">
@@ -22,7 +22,7 @@
     <script>
       // List of members-only skills
       const membersSkills = ['Agility', 'Fletching', 'Herblore', 'Thieving'];
-      let membersSkillsVisible = true;  // Start true so first toggle hides skills
+      let membersSkillsVisible = true;
       let showingLevels = false;
 
       function toggleXpLevels() {
@@ -65,9 +65,6 @@
           }
         });
       }
-
-      // Initialize members skills as hidden when page loads
-      window.addEventListener('load', () => toggleMembersSkills());
 
       async function updateHiscore(username) {
         const button = document.getElementById('updateButton');
