@@ -127,6 +127,7 @@ def compute_ehp(hiscores, skill_rates):
         intervals = skill_rates["skills"][skill]
         skill_ehp = 0  # Will calculate total direct training time
         remaining_xp = xp
+        last_interval_rate = 1 # Store the rate of the last interval processed, default 1 to avoid division by zero
 
         for interval in intervals:
             min_level = interval["min_level"]
@@ -150,6 +151,11 @@ def compute_ehp(hiscores, skill_rates):
             interval_ehp = xp_in_interval / rate
             skill_ehp += interval_ehp
             remaining_xp -= xp_in_interval
+            last_interval_rate = rate # Update with the rate of the current interval
+ 
+        # Add EHP for XP gained beyond 99
+        if remaining_xp > 0 and last_interval_rate > 0:
+            skill_ehp += remaining_xp / last_interval_rate
 
         # Subtract bonus time to get real EHP needed
         real_ehp = max(0, skill_ehp - bonus_time)  # Ensure we don't go negative
