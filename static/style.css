@@ -39,6 +39,13 @@ body {
   padding: 0;
   background-color: rgb(0, 0, 0);
   color: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+#bgfix {
+  flex-grow: 1;
 }
 
 .custom-header {
@@ -48,7 +55,7 @@ body {
 .nav-container {
   width: fit-content;
   margin: 0 auto;
-  padding: 10px 20px;
+  padding: 15px 20px;
   margin-bottom: 1rem;
   position: relative;
   display: flex;
@@ -56,11 +63,14 @@ body {
   align-items: center;
   border: 2px solid rgb(56 36 24);
   background-color: rgb(12, 10, 8);
+  min-height: 80px;
 }
- 
+
 .brand-container {
   text-align: center;
   margin-bottom: 15px;
+  position: relative;
+  width: 100%;
 }
 
 .site-brand {
@@ -89,10 +99,24 @@ body {
   display: none;
   background: none;
   border: none;
-  color: rgb(255, 255, 255);
-  font-size: 2.5rem;
+  color: rgb(200, 200, 200);
+  font-size: 2rem;
   cursor: pointer;
-  padding: 0.5rem;
+  padding: 5px;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 100;
+  transition: color 0.2s ease;
+}
+
+.nav-toggle:hover {
+  color: rgb(255, 255, 255);
+}
+
+.leaderboard-section {
+  margin-top: 10px;
 }
 
 .custom-footer {
@@ -100,6 +124,18 @@ body {
   text-align: center;
   padding: 1rem 0;
   width: 100%;
+  font-size: 1rem;
+}
+
+.custom-footer .nav-container span {
+  margin: 0 0.5rem;
+}
+
+.TableWrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 1rem 0;
 }
 
 .data-table {
@@ -107,7 +143,7 @@ body {
   max-width: 100%;
   table-layout: fixed;
   border-collapse: collapse;
-  margin: 1rem 0;
+  margin: 0;
   background-color: rgb(33, 28, 21);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
@@ -204,6 +240,14 @@ body {
 
 h1, h2 {
   margin: 1rem 0;
+}
+
+h3 {
+  font-size: 1.6rem;
+}
+
+h4 {
+  font-size: 1.4rem;
 }
 
 .graph-container {
@@ -379,35 +423,38 @@ input, button {
   justify-content: center;
 }
 
+.period-button {
+  padding: 0.4rem 0.8rem;
+  font-size: 1.1rem;
+}
+
 @media (max-width: 768px) {
   .nav-container {
-    flex-wrap: wrap;
-    padding: 10px 20px;
+    width: 90%;
+    padding: 10px 0;
   }
 
   .nav-toggle {
     display: block;
-    position: absolute;
-    top: 10px;
     right: 20px;
   }
 
   .nav-menu {
     display: none;
-    width: calc(100% + 40px);
-    margin-left: -20px;
+    width: 100%;
     position: absolute;
-    top: calc(100% - 10px);
+    top: 100%;
     left: 0;
     background-color: rgb(33, 28, 21);
     padding: 1rem;
-    gap: 0;
+    gap: 0.5rem;
+    border-top: 1px solid rgb(56, 36, 24);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   }
 
   .nav-menu.active {
     display: flex;
     flex-direction: column;
-    align-items: center;
     z-index: 1000;
   }
 
@@ -416,5 +463,104 @@ input, button {
     text-align: center;
     padding: 1rem;
     border-bottom: 1px solid rgba(255, 255, 0, 0.1);
+    font-size: 1.3em;;
+  }
+
+  .nav-menu a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    text-decoration: none;
+  }
+
+  /* Adjust main container padding and hide decorative borders */
+  .bordered-container {
+    padding: 20px 15px;
+    max-width: 95%;
+  }
+
+  .bordered-container:before,
+  .bordered-container:after,
+  .bordered-container > :first-child:before,
+  .bordered-container > :first-child:after,
+  .horizontal-edge-top,
+  .horizontal-edge-bottom {
+    display: none;
+  }
+
+  /* Table adjustments */
+  .data-table {
+    min-width: 600px;
+  }
+
+  .data-table th,
+  .data-table td {
+    padding: 0.5rem;
+    font-size: 1.1rem;
+  }
+
+  /* Adjust typography */
+  body {
+    font-size: 20px;
+  }
+
+  h1, h2 {
+    font-size: 1.8rem;
+  }
+  h3 {
+    font-size: 1.5rem;
+  }
+  h4 {
+    font-size: 1.3rem;
+  }
+
+  /* Stack update buttons */
+  .update-section {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+
+  .custom-footer span {
+    display: block;
+    margin: 0.5rem 0;
+  }
+
+  /* Adjust form elements */
+  .form-input {
+    font-size: 1.2rem;
+  }
+
+  .button {
+    font-size: 1.1rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .back-to-top {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    right: 10px;
+    top: 10px;
+  }
+
+  .period-buttons {
+    gap: 0.3rem;
+  }
+
+  .period-button {
+    padding: 0.3rem 0.6rem;
+    font-size: 1rem;
+  }
+
+  .vertical-container {
+    display: none;
+  }
+
+  .brand-container {
+    text-align: center;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding-top: 15px;
   }
 }

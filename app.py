@@ -155,7 +155,10 @@ def rate_limit(f):
 @app.route('/')
 def home():
     recently_updated_users = get_recently_updated_users()
-    return render_template('index.html', recently_updated_users=recently_updated_users)
+    todays_top_gainers = GetTodaysTopXpGainers() # Use the new function
+    return render_template('index.html',
+                           recently_updated_users=recently_updated_users,
+                           todays_top_gainers=todays_top_gainers) # Pass the correct variable
 
 def get_recently_updated_users():
     """
@@ -163,6 +166,61 @@ def get_recently_updated_users():
     """
     users = User.query.join(HiscoresData).group_by(User.id).order_by(db.desc(db.func.max(HiscoresData.timestamp))).limit(10).all() # Limit to 10 for recently updated
     return users
+
+def GetTodaysTopXpGainers():
+    """Calculates and returns the top 5 users based on 'Overall' XP gained today."""
+    try:
+        today_start = datetime.utcnow().replace(hour=0, minute=0, second=0, microsecond=0)
+        
+        # Fetch all 'Overall' records created today, including username
+        todays_data = HiscoresData.query \
+            .join(User) \
+            .filter(HiscoresData.skill == 'Overall', HiscoresData.timestamp >= today_start) \
+            .add_columns(User.username) \
+            .order_by(HiscoresData.user_id, HiscoresData.timestamp) \
+            .all()
+
+        if not todays_data:
+            return []
+
+        user_gains = {}
+        current_user_id = None
+        start_xp = None
+
+        # Process records to find start and latest XP for each user today
+        for record, username in todays_data:
+            if record.user_id != current_user_id:
+                # Starting a new user
+                current_user_id = record.user_id
+                start_xp = record.xp
+                # Initialize with username, start_xp, and latest_xp (initially same as start)
+                user_gains[current_user_id] = {'username': username, 'start_xp': start_xp, 'latest_xp': start_xp}
+            else:
+                # Update latest_xp for the current user
+                user_gains[current_user_id]['latest_xp'] = record.xp
+
+        # Calculate gains and format the result list
+        gains_list = []
+        for user_id, data in user_gains.items():
+            # Ensure both start_xp and latest_xp are integers
+            try:
+                current_start_xp = int(data['start_xp'])
+                current_latest_xp = int(data['latest_xp'])
+                gain = current_latest_xp - current_start_xp
+                if gain > 0: # Only include users with positive gain
+                    gains_list.append({'username': data['username'], 'xp_gain': gain})
+            except (TypeError, ValueError) as e:
+                 app.logger.warning(f"Could not calculate gain for user {data['username']} ({user_id}): {e}. Data: {data}")
+                 continue # Skip user if XP cannot be converted to int
+
+        # Sort by gain descending and take top 5
+        top_gainers = sorted(gains_list, key=lambda x: x['xp_gain'], reverse=True)[:5]
+        
+        return top_gainers
+
+    except Exception as e:
+        app.logger.error(f"Error calculating today's top XP gainers: {e}")
+        return [] # Return empty list on error
 
 @app.route('/health')
 def health_check():
@@ -612,7 +670,7 @@ def process_and_render_data(username, database_hiscores_data, df):
         # Update y-axis settings
         fig_overall.update_yaxes(
             rangemode="nonnegative", 
-            dtick=10, 
+            dtick=50, 
             tickformat='d',
             gridcolor='rgba(255, 255, 255, 0.1)',
             linecolor='rgba(255, 255, 255, 0.5)',
@@ -640,8 +698,8 @@ def process_and_render_data(username, database_hiscores_data, df):
         fig_overall.update_layout(
             plot_bgcolor='rgba(0,0,0,0)',
             paper_bgcolor='rgba(0,0,0,0)',
-            height=400,
-            margin=dict(l=30, r=20, t=60, b=100),
+            height=300,
+            margin=dict(l=00, r=50, t=25, b=00),
             font_color='#F0F0F0',
             font_family="Arial",
             title=dict(
@@ -717,8 +775,8 @@ def process_and_render_data(username, database_hiscores_data, df):
             fig_skills.update_layout(
                 plot_bgcolor='rgba(0,0,0,0)',
                 paper_bgcolor='rgba(0,0,0,0)',
-                height=600,
-                margin=dict(l=30, r=20, t=60, b=100),
+                height=500,
+                margin=dict(l=0, r=0, t=25, b=00),
                 font_color='#F0F0F0',
                 font_family="Arial",
                 title=dict(
@@ -729,7 +787,7 @@ def process_and_render_data(username, database_hiscores_data, df):
                 ),
                 legend=dict(
                     yanchor="top",
-                    y=-0.15,
+                    y=-0.55,
                     xanchor="center",
                     x=0.5,
                     orientation="h",

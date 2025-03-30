@@ -10,7 +10,7 @@
             <div style="clear: both;"></div>
         </div>
         {% for period in periods %}
-        <div class="skills-nav" data-period="{{ period }}"{% if not loop.first %} style="display: none;"{% endif %}>
+        <div class="skills-nav" data-period="{{ period }}"{% if period == 'daily' %} style="display: none;"{% endif %}>
             <div class="skills-header" style="cursor: pointer; padding: 0.5rem; font-size: 1.2rem; font-weight: bold; background: #16120E;">
                 Quick Navigation
             </div>
@@ -25,6 +25,9 @@
             </ul>
         </div>
         {% endfor %}
+        <div id="DailyNoteContainer" class="nav-container" style="font-size: 1.3rem; margin-top: 15px; display: none;">
+            <p>The daily experience is between the first manual update of the day and the latest.</p>
+        </div>
     </div>
     {% for period in periods %}
     <div class="period-section">
@@ -99,30 +102,45 @@ document.addEventListener('DOMContentLoaded', function() {
     const periodButtons = document.querySelectorAll('.period-button');
     const periodSections = document.querySelectorAll('.period-section');
     const skillsNavs = document.querySelectorAll('.skills-nav');
+    const dailyNoteContainer = document.getElementById('DailyNoteContainer'); // Get the note container
 
-    // Hide all period sections except the first one initially
-    periodSections.forEach((section, index) => {
-        if (index !== 0) {
-            section.style.display = 'none';
+    // Function to update visibility based on selected period
+    function updateVisibility(selectedPeriod) {
+        // Show selected period section and hide others
+        periodSections.forEach(section =>
+            section.style.display = section.querySelector('h3').textContent.toLowerCase().includes(selectedPeriod) ? 'block' : 'none');
+
+        // Show selected skills navigation and hide others
+        skillsNavs.forEach(nav =>
+            nav.style.display = nav.getAttribute('data-period') === selectedPeriod ? 'block' : 'none');
+
+        // Show/hide the daily note
+        if (dailyNoteContainer) {
+            dailyNoteContainer.style.display = selectedPeriod === 'daily' ? 'block' : 'none';
+        }
+    }
+
+    // Initial setup: Hide sections/navs not matching the initially active button
+    let initiallyActivePeriod = '{{ periods[0] }}'; // Default to the first period from Jinja
+    periodButtons.forEach(button => {
+        if (button.classList.contains('active')) {
+            initiallyActivePeriod = button.getAttribute('data-period');
         }
     });
+    updateVisibility(initiallyActivePeriod); // Call updateVisibility for initial state
+
 
     // Add click event listeners to period buttons
     periodButtons.forEach(button => {
         button.addEventListener('click', function() {
             const selectedPeriod = this.getAttribute('data-period');
-            
+
             // Update active button state
             periodButtons.forEach(btn => btn.classList.remove('active'));
             this.classList.add('active');
-            
-            // Show selected period section and hide others
-            periodSections.forEach(section => 
-                section.style.display = section.querySelector('h3').textContent.toLowerCase().includes(selectedPeriod) ? 'block' : 'none');
-            
-            // Show selected skills navigation and hide others
-            skillsNavs.forEach(nav => 
-                nav.style.display = nav.getAttribute('data-period') === selectedPeriod ? 'block' : 'none');
+
+            // Update visibility of sections, navs, and the note
+            updateVisibility(selectedPeriod);
         });
     });
 

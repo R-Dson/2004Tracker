@@ -24,23 +24,55 @@
     />
 </form>
 
-<h4 style="padding-top: 20px">Recently Updated Characters</h4>
-<table class="data-table data-table-dark" style="max-width: 200px">
-    <thead>
-        <tr>
-            <th>Username</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for user in recently_updated_users %}
-        <tr>
-            <td>
-                <a href="/fetch?username={{ user.username }}"
-                    >{{ user.username }}</a
-                >
-            </td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
+<div style="display: grid; grid-template-columns: 200px 300px; gap: 20px; margin-top: 20px">
+    <div>
+        <h4 style="padding-top: 20px">Recently Updated Characters</h4>
+        <table class="data-table data-table-dark">
+            <thead>
+                <tr>
+                    <th>Username</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in recently_updated_users %}
+                <tr>
+                    <td>
+                        <a href="/fetch?username={{ user.username }}"
+                            >{{ user.username }}</a
+                        >
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div>
+        <h4 style="padding-top: 20px">Top Daily XP Gainers</h4>
+        <table class="data-table data-table-dark" style="margin-top: 1.05em; width: 96%;">
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>XP Gained</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for gainer in todays_top_gainers %}
+                <tr>
+                    <td>
+                        <a href="/fetch?username={{ gainer.username }}"
+                            >{{ gainer.username }}</a
+                        >
+                    </td>
+                    <td>{{ gainer.xp_gain | format_rate }}</td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="2">No daily gains recorded yet.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
 {% endblock %}
