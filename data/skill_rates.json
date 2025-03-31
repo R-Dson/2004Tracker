@@ -361,8 +361,8 @@
         "bonus_skills": []
       },
       {
-        "min_level": 80,
-        "max_level": 90,
+        "min_level": 90,
+        "max_level": 99,
         "method": "Shark",
         "rate": 330000,
         "bonus_skills": []

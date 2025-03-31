@@ -42,11 +42,25 @@
         <span>Created by <a href="https://2004progress.dson.cloud/fetch?username=agi" target="_blank" rel="noopener noreferrer">Agi</a>/<a href="https://github.com/R-Dson" target="_blank" rel="noopener noreferrer">R-Dson</a></span>|
         <span><a href="https://github.com/R-Dson/2004Progress" target="_blank" rel="noopener noreferrer">Open Source Project.</a></span>
       </div>
+      <div class="time-container" style="color: white; font-size: 14px; margin-right: 20px;">
+        Server Time: <span id="serverTime"></span>
+      </div>
     </footer>
     <script>
       document.querySelector('.nav-toggle').addEventListener('click', function(e) {
         document.querySelector('.nav-menu').classList.toggle('active');
       });
+
+      function updateServerTime() {
+        const now = new Date();
+        const hours = now.getUTCHours().toString().padStart(2, '0');
+        const minutes = now.getUTCMinutes().toString().padStart(2, '0');
+        const seconds = now.getUTCSeconds().toString().padStart(2, '0');
+        document.getElementById('serverTime').textContent = `${hours}:${minutes}:${seconds}`;
+      }
+      
+      updateServerTime();
+      setInterval(updateServerTime, 1000);
     </script>
   </body>
 </html>
