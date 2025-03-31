@@ -716,42 +716,42 @@
         "min_level": 35,
         "max_level": 40,
         "method": "Willow Shortbow. The following rates are from https://web.archive.org/web/20150221200736/http://www.crystalmathlabs.com:80/tracker/suppliescalc.php",
-        "rate": 50000,
+        "rate": 70000,
         "bonus_skills": []
       },
       {
         "min_level": 40,
         "max_level": 50,
         "method": "Willow Longbow.",
-        "rate": 50000,
+        "rate": 85000,
         "bonus_skills": []
       },
       {
         "min_level": 50,
         "max_level": 55,
         "method": "Maple Shortbow.",
-        "rate": 50000,
+        "rate": 100000,
         "bonus_skills": []
       },
       {
         "min_level": 55,
         "max_level": 70,
         "method": "Maple Longbow.",
-        "rate": 50000,
+        "rate": 115000,
         "bonus_skills": []
       },
       {
         "min_level": 70,
         "max_level": 85,
         "method": "Yew Longbow.",
-        "rate": 50000,
+        "rate": 155000,
         "bonus_skills": []
       },
       {
         "min_level": 85,
         "max_level": 99,
         "method": "Magic Longbow.",
-        "rate": 50000,
+        "rate": 190000,
         "bonus_skills": []
       }
     ],
