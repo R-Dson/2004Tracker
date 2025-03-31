@@ -214,7 +214,7 @@ def GetTodaysTopXpGainers():
                  continue # Skip user if XP cannot be converted to int
 
         # Sort by gain descending and take top 5
-        top_gainers = sorted(gains_list, key=lambda x: x['xp_gain'], reverse=True)[:5]
+        top_gainers = sorted(gains_list, key=lambda x: x['xp_gain'], reverse=True)[:10]
         
         return top_gainers
 

@@ -428,6 +428,15 @@ input, button {
   font-size: 1.1rem;
 }
 
+/* Styles for the index page grid */
+.IndexGridContainer {
+  display: grid;
+  grid-template-columns: 200px 300px; /* Default two-column layout */
+  gap: 20px;
+  margin-top: 20px;
+  justify-content: center; /* Center the grid items if space allows */
+}
+
 @media (max-width: 768px) {
   .nav-container {
     width: 90%;
@@ -489,7 +498,7 @@ input, button {
 
   /* Table adjustments */
   .data-table {
-    min-width: 600px;
+    min-width: 180px;
   }
 
   .data-table th,
@@ -563,4 +572,11 @@ input, button {
     height: 100%;
     padding-top: 15px;
   }
+
+  .IndexGridContainer {
+    grid-template-columns: 1fr; /* Stack items in a single column */
+    gap: 30px; /* Increase gap slightly for vertical stacking */
+    justify-items: center; /* Center items within the single column */
+  }
+  
 }
