@@ -1,0 +1,88 @@
+{
+  "id": 16,
+  "name": "Shield of Arrav",
+  "Start point": "Reldo in the Varrock Palace Library.",
+  "Official difficulty": "Novice",
+  "Official length": "Medium",
+  "Description": "Varrock is home to two rival gangs: the Black Arm Gang and the Phoenix Gang. Unbeknownst to most, each gang possesses one half of the legendary Shield of Arrav, an artefact lost years ago. King Roald of Varrock is offering a reward for the return of the shield. To retrieve both halves, you'll need to infiltrate one of the gangs and cooperate with another player who infiltrates the opposing gang.",
+  "Requirements": {
+    "Quest points": "None",
+    "Items required": [
+      "20 Coins",
+      "A partner who has not completed the quest and is willing to join the opposite gang."
+    ]
+  },
+  "Recommended": [
+    "Ability to defeat a level 2 enemy."
+  ],
+  "Enemies to defeat": "Johnny the Beard (level 2) (Phoenix Gang path only)",
+  "Walkthrough": [
+    {
+      "step": "Starting the Quest",
+      "substeps": [
+        "Speak to Reldo in the Varrock Palace Library (north wing of the palace). Ask him for a quest.",
+        "He will mention the Shield of Arrav. Search the bookcases in the library to find 'The Shield of Arrav' book.",
+        "Read the book, then speak to Reldo again.",
+        "Reldo suggests talking to Baraek.",
+        "Find Baraek, the fur trader in Varrock Centre square.",
+        "Pay Baraek 20 coins to learn the locations of the two gangs."
+      ]
+    },
+    {
+      "step": "Locating the Gangs & Choosing Sides",
+      "substeps": [
+        "Decide with your partner who will join which gang. One must join the Black Arm Gang, the other must join the Phoenix Gang.",
+        "Black Arm Gang HQ: Located down an alley south-west of Varrock square, near Charlie the Tramp. Speak to the Tramp to confirm the location.",
+        "Phoenix Gang HQ: Located in a building south-east of Varrock square, near the south entrance and Aubury's Rune Shop. Look for the dungeon icon."
+      ]
+    },
+    {
+      "step": "Phoenix Gang Member Steps (Partner 1)",
+      "substeps": [
+        "Go to the Blue Moon Inn, located east of Varrock Centre square.",
+        "Attack and kill Johnny the Beard (level 2). Pick up the Intelligence report he drops.",
+        "Go to the Phoenix Gang HQ.",
+        "Climb down the ladder inside.",
+        "Speak to Straven. Tell him you know about the VTAM Corporation and want to join.",
+        "Give him the Intelligence report when asked. He will accept you into the gang and give you a weapon store key.",
+        "Leave the hideout and enter the Phoenix Gang weapon store, the small building just west of the HQ entrance.",
+        "Use the key on the door.",
+        "Inside, search the chest to obtain the Shield of Arrav (Phoenix half).",
+        "Take two Phoenix crossbows from the weapon rack. Give these to your partner (the Black Arm Gang member)."
+      ]
+    },
+    {
+      "step": "Black Arm Gang Member Steps (Partner 2)",
+      "substeps": [
+        "Go to the Black Arm Gang HQ.",
+        "Speak to Katrine. Ask to join the gang.",
+        "She will task you with stealing two Phoenix crossbows.",
+        "Receive the two Phoenix crossbows from your partner (the Phoenix Gang member).",
+        "Speak to Katrine again and give her the crossbows. She will accept you into the gang.",
+        "Go upstairs in the Black Arm HQ.",
+        "Search the cupboard to obtain the Shield of Arrav (Black Arm half)."
+      ]
+    },
+    {
+      "step": "Rejoining the Shield",
+      "substeps": [
+        "Meet up with your partner.",
+        "One player must use their shield half on the other player's shield half. This combines them into the Shield of Arrav (one player will now have the completed shield)."
+      ]
+    },
+    {
+      "step": "Claiming the Reward",
+      "substeps": [
+        "The player holding the completed Shield of Arrav must go to Varrock Palace.",
+        "Speak to King Roald.",
+        "He will instruct you to show the shield to the Curator at the Varrock Museum.",
+        "Go to the Varrock Museum (south-east of the palace).",
+        "Speak to Curator Haig Halen on the ground floor[UK]1st floor[US].",
+        "He will take the shield and give you two identical reward certificates.",
+        "It is customary (and recommended) to give one certificate to your partner.",
+        "Each certificate can be redeemed by talking to King Roald again for 600 coins."
+      ]
+    }
+  ],
+  "Type": "Free"
+}

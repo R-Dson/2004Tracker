@@ -45,7 +45,7 @@ def add_security_headers(response):
     response.headers['X-Frame-Options'] = 'DENY'
     response.headers['X-XSS-Protection'] = '1; mode=block'
     response.headers['Strict-Transport-Security'] = 'max-age=31536000; includeSubDomains'
-    response.headers['Content-Security-Policy'] = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'"
+    response.headers['Content-Security-Policy'] = "default-src 'self'; img-src 'self' data: https://oldschool.runescape.wiki; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'"
     return response
 
 # Configure logging
@@ -1009,6 +1009,66 @@ def compute_rank_progress_by_skill(df, today_midnight, yesterday_midnight, week_
             monthly = df_monthly_skill.iloc[0]['rank'] - df_monthly_skill.iloc[-1]['rank']
         rank_progress[skill] = {"daily": daily, "weekly": weekly, "monthly": monthly}
     return rank_progress
+
+QUESTS_DIR_FREE = 'data/quests/free'
+QUESTS_DIR_MEMBERS = 'data/quests/members'
+@app.route('/quests')
+def quests_list():
+    """Show list of all available quests"""
+    quests_free = []
+    quests_members=[]
+    if os.path.exists(QUESTS_DIR_FREE):
+        for filename in os.listdir(QUESTS_DIR_FREE):
+            if filename.endswith('.json'):
+                try:
+                    quest_id = int(filename.split('.')[0])
+                    with open(os.path.join(QUESTS_DIR_FREE, filename)) as f:
+                        quest_data = json.load(f)
+                        quests_free.append({
+                            'id': quest_id,
+                            'name': quest_data.get('name', f'Quest {quest_id}')
+                        })
+                except (ValueError, json.JSONDecodeError) as e:
+                    app.logger.error(f"Error loading quest {filename}: {e}")
+    
+    if os.path.exists(QUESTS_DIR_MEMBERS):
+        for filename in os.listdir(QUESTS_DIR_MEMBERS):
+            if filename.endswith('.json'):
+                try:
+                    quest_id = int(filename.split('.')[0])
+                    with open(os.path.join(QUESTS_DIR_MEMBERS, filename)) as f:
+                        quest_data = json.load(f)
+                        quests_members.append({
+                            'id': quest_id,
+                            'name': quest_data.get('name', f'Quest {quest_id}')
+                        })
+                except (ValueError, json.JSONDecodeError) as e:
+                    app.logger.error(f"Error loading quest {filename}: {e}")
+    quests_free.sort(key=lambda x: x['name'])
+    quests_members.sort(key=lambda x: x['name'])
+    
+    return render_template('quests_list.html', quests_free=quests_free, quests_members=quests_members)
+
+@app.route('/quest/<int:quest_id>')
+def quest_detail(quest_id):
+    """Show details for a specific quest"""
+    if os.path.exists(os.path.join(QUESTS_DIR_FREE, f'{quest_id}.json')):
+        quest_file = os.path.join(QUESTS_DIR_FREE, f'{quest_id}.json')
+    else:
+        quest_file = os.path.join(QUESTS_DIR_MEMBERS, f'{quest_id}.json')
+    if not os.path.exists(quest_file):
+        return jsonify({'error': 'No Quest found.'}), 404
+    
+    try:
+        with open(quest_file) as f:
+            quest_data = json.load(f)
+            for key in quest_data['Requirements']:
+                if isinstance(quest_data['Requirements'][key], str):
+                    quest_data['Requirements'][key] = [quest_data['Requirements'][key]]
+            return render_template('quest_detail.html', quest=quest_data)
+    except json.JSONDecodeError as e:
+        app.logger.error(f"Error loading quest {quest_id}: {e}")
+        return jsonify({f'error': 'Error reading file. Error: {e}'}), 500
 
 @app.route('/rates')
 def rates():

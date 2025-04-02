@@ -1,0 +1,72 @@
+{
+  "id": 34,
+  "name": "Monk's Friend",
+  "Start point": "Brother Omad in the Monastery south of Ardougne Zoo.",
+  "Official difficulty": "Novice",
+  "Official length": "Short",
+  "Description": "Brother Omad's friend's child has had their blanket stolen by thieves. Find the blanket, and then help Brother Omad locate Brother Cedric who is late delivering drinks for the child's party.",
+  "Type": "Members",
+  "Requirements": {
+    "Items required": [
+      "Jug",
+      "Logs (can be obtained during the quest with a hatchet)"
+    ]
+  },
+  "Recommended": [
+    "Weapon to defeat level 14 and 26 Thieves",
+    "Hatchet (if you don't bring logs)"
+  ],
+  "Enemies to defeat": [
+    "Thief (level 14)",
+    "Thief (level 26)"
+  ],
+  "Walkthrough": [
+    {
+      "step": "Starting the Quest",
+      "substeps": [
+        "Speak to Brother Omad in the Monastery south of Ardougne Zoo. He will tell you about the stolen blanket."
+      ]
+    },
+    {
+      "step": "Retrieving the Blanket",
+      "substeps": [
+        "Head north-west from the Monastery to a ring of stones, located just east of the Gnome Stronghold/Battlefield.",
+        "A ladder will appear in the centre of the stones. Climb down it into the Thieves' Den.",
+        "Follow the passage, take the first turn, and enter the room.",
+        "Fight the Thieves (level 14 and 26) if necessary.",
+        "Take the Child's blanket from the table."
+      ]
+    },
+    {
+      "step": "Returning the Blanket",
+      "substeps": [
+        "Return to Brother Omad at the Monastery and give him the blanket."
+      ]
+    },
+    {
+      "step": "Finding Brother Cedric",
+      "substeps": [
+        "Speak to Brother Omad again. He will ask you to find Brother Cedric who was supposed to bring drinks for the party.",
+        "Go just north of the Monastery to find Brother Cedric sitting by a broken cart."
+      ]
+    },
+    {
+      "step": "Helping Brother Cedric",
+      "substeps": [
+        "Speak to Brother Cedric. He will ask for water.",
+        "Use your Jug on the sink inside one of the Kandarin Head Guard houses south of the Monastery to fill it with water.",
+        "Return to Brother Cedric and use the Jug of water on him.",
+        "Speak to him again. He will ask for Logs to fix his cart.",
+        "Give him the Logs (obtain them nearby with a hatchet if you didn't bring any)."
+      ]
+    },
+    {
+      "step": "Completing the Quest",
+      "substeps": [
+        "Return to Brother Omad one last time.",
+        "Talk to him to receive your reward and celebrate the party.",
+        "Quest complete!"
+      ]
+    }
+  ]
+}

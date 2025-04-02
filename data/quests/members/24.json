@@ -1,0 +1,110 @@
+{
+  "id": 24,
+  "name": "Family Crest",
+  "Start point": "Dimintheis Fitzharmon, in his house southeast of the Varrock East Bank.",
+  "Official difficulty": "Experienced",
+  "Official length": "Long",
+  "Description": "The Fitzharmon family crest has gone missing, and the family honour has been lost. Can you find the crest and return it to Dimintheis in Varrock? There are 3 different rewards available, but you can only choose one, so choose carefully!",
+  "Type": "Members",
+  "Requirements": {
+    "Skills": [
+      "40 Mining",
+      "40 Smithing",
+      "59 Magic (56 possible with a Wizard's mind bomb)",
+      "40 Crafting"
+    ],
+    "Items required": [
+      "Pickaxe",
+      "Runes to cast Wind Blast, Water Blast, Earth Blast, and Fire Blast (Air, Water, Earth, Fire, Chaos, Death runes)",
+      "2 Cut rubies",
+      "Ring mould",
+      "Necklace mould",
+      "Antipoison potion",
+      "Cooked shrimp (can be obtained during quest)",
+      "Cooked salmon (can be obtained during quest)",
+      "Cooked tuna (can be obtained during quest)",
+      "Cooked bass (can be obtained during quest)",
+      "Cooked swordfish (can be obtained during quest)"
+    ]
+  },
+  "Recommended": [
+    "Combat level sufficient to defeat level 139 Chronozon and survive attacks from various monsters including level 172 Black demons and level 64 Poison spiders.",
+    "Good armour and weapon",
+    "Food",
+    "Wizard's mind bomb (if Magic level is 56-58)",
+    "Stamina potions"
+  ],
+  "Enemies to defeat": [
+    "Chronozon (level 139)",
+    "Hellhound (level 122) x2 (optional)"
+  ],
+  "Walkthrough": [
+    {
+      "step": "Starting the Quest",
+      "substeps": [
+        "Speak to Dimintheis Fitzharmon in his house located southeast of the Varrock East Bank.",
+        "Agree to help him find the missing pieces of his family crest, held by his three sons."
+      ]
+    },
+    {
+      "step": "First Son - Caleb",
+      "substeps": [
+        "Travel to Catherby.",
+        "Speak to Chef Caleb in the house northeast of the Catherby bank.",
+        "He requires five specific cooked fish: Shrimp, Salmon, Tuna, Bass, and Swordfish. (You can fish and cook these yourself, or buy them).",
+        "Give Caleb the five cooked fish to receive the first crest piece."
+      ]
+    },
+    {
+      "step": "Second Son - Avan",
+      "substeps": [
+        "Travel to Al Kharid.",
+        "Speak to the Gem Trader.",
+        "He will direct you to a man near the Scorpion Pit Chasm mine north of Al Kharid.",
+        "Find Avan near the gold rocks in the mine.",
+        "Avan demands a ruby ring and ruby necklace made from 'perfect gold'. He suggests asking Boot the dwarf about it.",
+        "Travel to the Dwarven Mine (under Ice Mountain, north of Falador).",
+        "Find Boot in the southwestern part of the mine and speak to him. He'll tell you perfect gold is guarded by hellhounds in a dungeon near Ardougne.",
+        "Go to the dungeon east of Ardougne (Witchaven Dungeon - entrance is southeast of East Ardougne, near the Legends' Guild).",
+        "Navigate the dungeon. You need to solve a lever puzzle to access the 'perfect gold' rocks guarded by two level 122 Hellhounds:",
+        "  I) Go to the North wall lever (outside room) and pull it UP.",
+        " II) Go to the South room lever and pull it DOWN.",
+        "III) Go back to the North wall lever (outside room) and pull it DOWN.",
+        " IV) Go inside the North room and pull the lever UP.",
+        "  V) Go outside the North room and pull the lever on the North wall UP.",
+        " VI) Go back to the South room and pull the lever DOWN.",
+        "Enter the cage. Mine two 'Perfect gold ores'. (You may need to kill the Hellhounds, or wait for others to do so).",
+        "Smelt the Perfect gold ores into two Perfect gold bars using any furnace.",
+        "Use a furnace again with the two Perfect gold bars, two Cut rubies, a Ring mould, and a Necklace mould to craft a Perfect ruby ring and a Perfect ruby necklace.",
+        "Return to Avan at the Scorpion Pit Chasm mine and give him the Perfect ruby ring and necklace.",
+        "He will give you the second crest piece."
+      ]
+    },
+    {
+      "step": "Third Son - Johnathon",
+      "substeps": [
+        "Gather the required items: Antipoison potion, Runes for all four Blast spells (Wind, Water, Earth, Fire), good combat gear, food, and ensure you meet the Magic level requirement (59+, or 56+ with a Wizard's mind bomb).",
+        "Go to the Jolly Boar Inn, located northeast of Varrock.",
+        "Find Johnathon Fitzharmon on the 1st floor[UK]2nd floor[US] in the southernmost room.",
+        "Talk to him. He is poisoned. Use your Antipoison potion on him.",
+        "He explains his crest piece was stolen by Chronozon, a demon deep within the Edgeville Dungeon (Wilderness section), who can only be harmed after being hit by all four Blast spells.",
+        "Travel to Edgeville and enter the dungeon.",
+        "Proceed north past the monkeys, then west through the area with Chaos druids and skeletons.",
+        "Continue west past the Black demons and Poison spiders, then head south into the Earth Obelisk room.",
+        "Find Chronozon (level 139). You *must* successfully cast Wind Blast, Water Blast, Earth Blast, and Fire Blast on him at least once each.",
+        "Once all four spells have hit, defeat Chronozon using any attack style.",
+        "Pick up the crest piece he drops.",
+        "(Optional Strategy: You can potentially safespot Chronozon behind the obelisk pillar after luring him, dealing with any attacking spiders first)."
+      ]
+    },
+    {
+      "step": "Finishing the Quest",
+      "substeps": [
+        "Use any piece of the crest on another to combine all three into the Fitzharmon Crest.",
+        "Return to Dimintheis Fitzharmon in Varrock.",
+        "Speak to him to give him the restored crest.",
+        "He will reward you with 1 Quest Point and a pair of Steel gauntlets. You can later choose to enhance these gauntlets by speaking to one of the sons again (only one enhancement possible)."
+      ]
+    }
+  ]
+}

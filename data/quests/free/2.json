@@ -1,0 +1,66 @@
+{
+  "id": 2,
+  "name": "Cook's Assistant",
+  "Start point": "Cook in the Lumbridge Castle kitchen.",
+  "Official difficulty": "Novice",
+  "Official length": "Short",
+  "Description": "The Duke of Lumbridge is having a birthday party, but his Cook has forgotten to buy the ingredients for the cake. He needs your help to retrieve them.",
+  "Requirements": {
+    "Items required": [
+      "Pot",
+      "Bucket"
+    ]
+  },
+  "Recommended": [],
+  "Enemies to defeat": [],
+  "Walkthrough": [
+    {
+      "step": "Starting the quest",
+      "substeps": [
+        "Talk to the Cook in the kitchen on the ground floor[UK]1st floor[US] of Lumbridge Castle.",
+        "Agree to help him find the ingredients for the Duke's birthday cake.",
+        {
+          "image": "https://oldschool.runescape.wiki/images/thumb/Cook%27s_Assistant_-_Lumbridge_kitchen.png/1024px-Cook%27s_Assistant_-_Lumbridge_kitchen.png",
+          "caption": "The chefs location."
+        }
+      ]
+    },
+    {
+      "step": "Getting the flour",
+      "substeps": [
+            "Pick up a Pot from the table in the Lumbridge Castle kitchen if you don't have one.",
+            "Go to the wheat field north-west of Lumbridge, just west of the windmill.",
+            "Pick some Wheat.",
+            "Enter the Lumbridge windmill.",
+            "Climb to the top floor.",
+            "Use the Wheat on the hopper.",
+            "Operate the hopper controls.",
+            "Climb down to the ground floor[UK]1st floor[US].",
+            "Use your empty Pot on the flour bin to collect the flour."
+      ]
+    },
+    {
+      "step": "Getting the milk",
+      "substeps": [
+        "Pick up a Bucket if you don't have one.",
+        "Go to the cow field east of the Lumbridge windmill.",
+        "Use the Bucket on a cow to get a Bucket of milk."
+      ]
+    },
+    {
+      "step": "Getting the egg",
+      "substeps": [
+        "Go to Fred the Farmer's farm north-east of Lumbridge (across the river).",
+        "Pick up an Egg from inside the chicken coop."
+      ]
+    },
+    {
+      "step": "Completing the quest",
+      "substeps": [
+        "Return to the Cook in Lumbridge Castle with the Supergrain flour, Bucket of milk, and Egg.",
+        "Give him the ingredients to complete the quest."
+      ]
+    }
+  ],
+  "Type": "Free"
+}

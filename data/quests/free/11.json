@@ -1,0 +1,66 @@
+{
+  "id": 11,
+  "name": "Restless Ghost",
+  "Start point": "Father Aereck in the Lumbridge Chapel.",
+  "Official difficulty": "Novice",
+  "Official length": "Short",
+  "Description": "Father Aereck, the priest in Lumbridge chapel, is having problems with a ghost in the graveyard. He needs your help.",
+  "Requirements": {
+    "Skills": "None",
+    "Items required": "None"
+  },
+  "Recommended": [
+    "Combat level sufficient to defeat a level 13 Skeleton (optional, fighting can be avoided)."
+  ],
+  "Enemies to defeat": "Skeleton (level 13) (optional, can be avoided)",
+  "Walkthrough": [
+    {
+      "step": "Starting the quest",
+      "substeps": [
+        "Speak to Father Aereck in the Lumbridge Chapel. He will ask you to talk to Father Urhney."
+      ]
+    },
+    {
+      "step": "Finding Father Urhney",
+      "substeps": [
+        "Travel south-west from Lumbridge, deep into the Lumbridge Swamp.",
+        "Find Father Urhney in a small shack in the south-east part of the swamp.",
+        "Speak to Father Urhney. He will give you an Amulet of ghostspeak."
+      ]
+    },
+    {
+      "step": "Speaking to the Ghost",
+      "substeps": [
+        "Return to the Lumbridge graveyard, located behind the church.",
+        "Equip the Amulet of ghostspeak.",
+        "Open the stone coffin inside the small crypt building.",
+        "Speak to the Restless Ghost that appears. He will tell you his skull was stolen and taken to the Wizards' Tower."
+      ]
+    },
+    {
+      "step": "Retrieving the Skull",
+      "substeps": [
+        "Travel south from Lumbridge, across the bridge, to the Wizards' Tower.",
+        "Enter the tower and climb down the ladder to the basement.",
+        "Search the altar at the end of the room. You will find the Ghost's skull.",
+        "A level 13 Skeleton will appear and attack. You can either kill it or quickly run out of the basement with the skull."
+      ]
+    },
+    {
+      "step": "Laying the Ghost to Rest",
+      "substeps": [
+        "Return to the Lumbridge graveyard crypt.",
+        "Ensure you are *not* wearing the Amulet of ghostspeak.",
+        "Use the Ghost's skull on the coffin.",
+        "The ghost will appear, thank you, and disappear."
+      ]
+    },
+    {
+      "step": "Completing the quest",
+      "substeps": [
+        "Quest complete! Your reward is automatically given."
+      ]
+    }
+  ],
+  "Type": "Free"
+}

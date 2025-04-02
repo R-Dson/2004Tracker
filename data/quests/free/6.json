@@ -1,0 +1,100 @@
+{
+  "id": 6,
+  "name": "Ernest The Chicken",
+  "Start point": "Veronica outside Draynor Manor.",
+  "Official difficulty": "Novice",
+  "Official length": "Short",
+  "Description": "Veronica is very worried. Her fiancee, Ernest, went into the spooky Draynor Manor to ask for directions an hour ago and hasn't returned. She asks you to find him.",
+  "Requirements": {
+  },
+  "Enemies to defeat": "None",
+  "Walkthrough": [
+    {
+      "step": "Starting the Quest",
+      "substeps": [
+        "Speak to Veronica, found wandering just outside the entrance to Draynor Manor.",
+        "Agree to help her find her fiance, Ernest."
+      ]
+    },
+    {
+      "step": "Meeting the Professor",
+      "substeps": [
+        "Enter Draynor Manor.",
+        "Climb the stairs to the 1st floor[UK]2nd floor[US].",
+        "Climb the next set of stairs to the 2nd floor[UK]3rd floor[US].",
+        "Talk to Professor Oddenstein in the western room.",
+        "He reveals he accidentally turned Ernest into a chicken and needs three parts to fix his machine: a Pressure gauge, a Rubber tube, and an Oil can."
+      ]
+    },
+    {
+      "step": "Obtaining the Oil Can (Basement)",
+      "substeps": [
+        "Go down to the ground floor[UK]1st floor[US] and enter the room with the ladder in the north-west corner.",
+        "Climb down the ladder into the basement.",
+        "Follow this lever sequence precisely:",
+        "Pull Lever A (Down).",
+        "Pull Lever B (Down).",
+        "Enter the North-Eastern door.",
+        "Pull Lever D (Down).",
+        "Enter the South-Western door.",
+        "Enter the Southern door.",
+        "Pull Lever A (Up).",
+        "Pull Lever B (Up).",
+        "Enter the North-Western door.",
+        "Enter the Western door.",
+        "Pull Lever F (Down).",
+        "Pull Lever E (Down).",
+        "Enter the Eastern door.",
+        "Enter the next Eastern door.",
+        "Pull Lever C (Down).",
+        "Enter the North-Western door.",
+        "Enter the Western door.",
+        "Pull Lever E (Up).",
+        "Enter the Eastern door.",
+        "Enter the Southern door.",
+        "Enter the next Southern door.",
+        "Enter the Western door.",
+        "Pick up the Oil can from the floor in the small room."
+      ]
+    },
+    {
+      "step": "Obtaining the Rubber Tube",
+      "substeps": [
+        "Return to the ground floor[UK]1st floor[US] of the Manor.",
+        "Go into the kitchen (south-eastern room) and take the Spade.",
+        "Go outside the Manor.",
+        "Walk to the west side of the Manor to find a Compost heap.",
+        "Use the Spade on the Compost heap to find a small key.",
+        "Go back inside the Manor.",
+        "Use the key on the door to the small room under the main staircase (the room contains a skeleton).",
+        "Enter the room and pick up the Rubber tube from the floor."
+      ]
+    },
+    {
+      "step": "Obtaining the Pressure Gauge",
+      "substeps": [
+        "On the ground floor[UK]1st floor[US], go to the small room north of the main entrance (with the witch symbol on the map) and pick up the Poison.",
+        "Climb the main staircase to the 1st floor[UK]2nd floor[US].",
+        "Enter the south-eastern room and pick up the Fish food.",
+        "Use the Poison on the Fish food to create Poisoned fish food.",
+        "Go back outside the Manor.",
+        "Walk to the fountain located south-west of the Manor.",
+        "Use the Poisoned fish food on the fountain (the piranhas will die).",
+        "Search the fountain to obtain the Pressure gauge."
+      ]
+    },
+    {
+      "step": "Completing the Quest",
+      "substeps": [
+        "With the Oil can, Rubber tube, and Pressure gauge in your inventory, return to Professor Oddenstein on the top floor.",
+        "Talk to Professor Oddenstein. He will take the parts, fix the machine, and turn Ernest back into a human.",
+        "Ernest will thank you and give you your reward."
+      ]
+    }
+  ],
+  "Reward": [
+    "4 Quest points",
+    "300 Coins"
+  ],
+  "Type": "Free"
+}

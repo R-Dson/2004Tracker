@@ -1,0 +1,105 @@
+{
+  "id": 33,
+  "name": "Merlin's Crystal",
+  "Start point": "Talk to King Arthur in Camelot Castle.",
+  "Official difficulty": "Intermediate",
+  "Official length": "Medium",
+  "Description": "Merlin the Wizard has carelessly become imprisoned inside a giant crystal. Take up King Arthur's quest to free Merlin and become one of the Knights of the Round Table.",
+  "Type": "Members",
+  "Requirements": {
+    "Items required": [
+      "Bat bones",
+      "Black candle (obtained during quest, requires Insect repellent, Bucket, Tinderbox)",
+      "Tinderbox",
+      "Loaf of bread"
+    ]
+  },
+  "Recommended": [
+    "Combat level sufficient to fight Sir Mordred (level 39)"
+  ],
+  "Enemies to defeat": "Sir Mordred (level 39) (partially)",
+  "Walkthrough": [
+    {
+      "step": "Starting the quest",
+      "substeps": [
+        "Talk to King Arthur in Camelot Castle and ask him if you can be a knight of his round table. Accept the quest."
+      ]
+    },
+    {
+      "step": "Gathering Information",
+      "substeps": [
+        "Talk to Sir Gawain (in Camelot Castle) and ask how Merlin got trapped, then ask for ideas to get into Keep Le Faye.",
+        "Talk to Sir Lancelot (in Camelot Castle) and ask for ideas to get into Keep Le Faye."
+      ]
+    },
+    {
+      "step": "Infiltrating Keep Le Faye",
+      "substeps": [
+        "Go to Catherby.",
+        "Find the crate behind the candle shop (west of the bank).",
+        "Right-click the crate and choose 'Hide-in'. You will be shipped to Keep Le Faye."
+      ]
+    },
+    {
+      "step": "Confronting Morgan Le Faye",
+      "substeps": [
+        "Inside Keep Le Faye, go up the stairs to the top floor.",
+        "Talk to Sir Mordred. He will attack you.",
+        "Fight Sir Mordred until Morgan Le Fay appears and tells you to stop.",
+        "Talk to Morgan Le Fay and ask her how to untrap Merlin."
+      ]
+    },
+    {
+      "step": "Obtaining the Black Candle",
+      "substeps": [
+        "Return to Catherby.",
+        "Talk to the candle maker inside his shop.",
+        "Get Insect repellent from the house north of the Catherby bank.",
+        "Go west to the beehives.",
+        "Use the Insect repellent on a beehive.",
+        "Right-click the hive and choose 'Take-from' (requires a Bucket in inventory - buy one from a general store if needed).",
+        "Return to the candle maker with the bucket of wax. He will give you a Black candle.",
+        "Use a Tinderbox on the Black candle to light it."
+      ]
+    },
+    {
+      "step": "Getting Excalibur",
+      "substeps": [
+        "Go to the lake south of Taverley.",
+        "Talk to the Lady of the Lake. Tell her you seek Excalibur.",
+        "Go to the jewellery shop in Port Sarim.",
+        "Attempt to open the door. A beggar will appear.",
+        "Give the beggar a Loaf of bread.",
+        "The beggar will reveal herself as the Lady of the Lake and give you Excalibur."
+      ]
+    },
+    {
+      "step": "Finding the Magic Words",
+      "substeps": [
+        "Travel to the Chaos Temple located in level 12 Wilderness (east of the Dark Knights' Fortress).",
+        "Right-click the altar inside and choose 'Check Altar' to learn the magic words: Snarthon Candtrick Termanto."
+      ]
+    },
+    {
+      "step": "Summoning Thrantax",
+      "substeps": [
+        "Return to Camelot Castle.",
+        "Go to the north-east side of the castle grounds where there is a pentagram on the floor.",
+        "Stand on the orange symbol within the pentagram.",
+        "Drop the Bat bones onto the symbol.",
+        "A demon (Thrantax) will appear. You must chant the words you learned. Select the options corresponding to: Snarthon, Candtrick, Termanto.",
+        "Thrantax will confirm the magic binding Merlin is weakened."
+      ]
+    },
+    {
+      "step": "Freeing Merlin and Completing",
+      "substeps": [
+        "Go to the south-east tower of Camelot Castle.",
+        "Climb to the top floor where Merlin is trapped.",
+        "Use the Excalibur sword on the crystal to shatter it.",
+        "Talk to Merlin.",
+        "Return to King Arthur and talk to him to claim your reward."
+      ]
+    }
+  ]
+}

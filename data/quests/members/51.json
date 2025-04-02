@@ -1,0 +1,100 @@
+{
+  "id": 51,
+  "name": "Witch's House",
+  "Start point": "Talk to the boy south of the Witch's house in Taverley.",
+  "Official difficulty": "Medium",
+  "Official length": "Medium",
+  "Description": "A boy has kicked his ball into an old witch's house. He wants you to go get it for him.",
+  "Type": "Members",
+  "Requirements": {
+    "Items required": [
+      "Cheese",
+      "Leather gloves (can be bought from the clothes shop in Varrock)"
+    ]
+  },
+  "Recommended": [
+    "Combat level sufficient to defeat monsters up to level 53.",
+    "Food",
+    "Weapon",
+    "Armour"
+  ],
+  "Enemies to defeat": [
+    "Witch's Experiment (level 19)",
+    "Spider (level 30)",
+    "Bear (level 42)",
+    "Wolf (level 53)"
+  ],
+  "Walkthrough": [
+    {
+      "step": "Starting the Quest",
+      "substeps": [
+        "Speak to the boy located south of the Witch's house in Taverley."
+      ]
+    },
+    {
+      "step": "Entering the House and Getting the Diary",
+      "substeps": [
+        "Go to the main door of the Witch's house.",
+        "Search the potted plant next to the door to find a key.",
+        "Use the key on the door to enter.",
+        "Go upstairs to the bedroom.",
+        "Take the diary from the table.",
+        "Read the diary."
+      ]
+    },
+    {
+      "step": "Getting the Magnet",
+      "substeps": [
+        "Go back downstairs and enter the basement.",
+        "Go through the gate.",
+        "Open and search the wall cupboard to find a magnet."
+      ]
+    },
+    {
+      "step": "Getting the Key from the Mouse",
+      "substeps": [
+        "Go into the small room between the main basement room and the garden door.",
+        "Put on your Leather gloves.",
+        "Use the Cheese on the mouse hole in the corner.",
+        "Quickly use the Magnet on the mouse that appears to get a key."
+      ]
+    },
+    {
+      "step": "Navigating the Garden",
+      "substeps": [
+        "Go out into the garden.",
+        "Watch the Witch on the minimap and hide behind the hedges when she passes, staying near the centre of the hedge.",
+        "Move along the fence towards the shed door.",
+        "Try to open the shed door (it will be locked).",
+        "Continue along the wall towards the fountain, hiding from the Witch as needed.",
+        "Check the fountain (it should say 'It looks scenic').",
+        "Read the diary again.",
+        "Check the fountain again to receive the shed key. (If you don't get the key, try opening the shed door again, then read the diary again, then check the fountain again)."
+      ]
+    },
+    {
+      "step": "The Experiment",
+      "substeps": [
+        "Carefully sneak back to the shed door, hiding from the Witch.",
+        "Use the shed key to unlock the door and enter the shed.",
+        "Try to pick up the ball.",
+        "Defeat the Witch's Experiment through its four forms:",
+        "  - Form 1: Level 19 Experiment",
+        "  - Form 2: Level 30 Spider",
+        "  - Form 3: Level 42 Bear",
+        "  - Form 4: Level 53 Wolf",
+        "(Note: Leaving the shed during the fight will reset it)."
+      ]
+    },
+    {
+      "step": "Completing the Quest",
+      "substeps": [
+        "After defeating all forms, pick up the ball.",
+        "Leave the shed.",
+        "Sneak past the Witch one last time towards the house exit.",
+        "Exit the Witch's property.",
+        "Return the ball to the boy to complete the quest."
+      ]
+    }
+  ]
+}

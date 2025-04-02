@@ -1,0 +1,96 @@
+{
+  "id": 9,
+  "name": "Pirate's Treasure",
+  "Start point": "Redbeard Frank in The Rusty Anchor pub in Port Sarim.",
+  "Official difficulty": "Novice",
+  "Official length": "Short",
+  "Description": "Redbeard Frank knows where secret pirate treasure is hidden. It may require some work to persuade him to let you know where, though.",
+  "Requirements": {
+    "Items required": [
+      "60 coins (30 for rum, 30 for Karamja boat fare)",
+      "White apron (can be obtained during the quest)",
+      "Spade (can be obtained during the quest)"
+    ]
+  },
+  "Recommended": [],
+  "Enemies to defeat": "Gardener (level 4)",
+  "Walkthrough": [
+    {
+      "step": "Starting the Quest",
+      "substeps": [
+        "Talk to Redbeard Frank in The Rusty Anchor pub in Port Sarim.",
+        "Agree to get him some Karamjan Rum."
+      ]
+    },
+    {
+      "step": "Obtaining the Rum",
+      "substeps": [
+        "Items needed: 60 coins.",
+        "Take the boat from the southern Port Sarim dock to Musa Point, Karamja (costs 30 coins).",
+        "Go west to the Karamja Wines, Spirits, and Beers bar.",
+        "Buy Karamjan Rum for 30 coins from Zambo.",
+        "Go north-east and speak to Luthas at the banana plantation house. Ask for a job.",
+        "Pick 10 Bananas from the plantation trees just west of Luthas.",
+        "Go to the Crate on the dock east of the plantation entrance.",
+        "Use *some* (e.g., 5) Bananas on the Crate.",
+        "Use the Karamjan Rum on the Crate.",
+        "Use the *remaining* Bananas on the Crate until it is full.",
+        "Talk to Luthas again to get paid 30 coins."
+      ]
+    },
+    {
+      "step": "Smuggling the Rum",
+      "substeps": [
+        "Items needed: White apron.",
+        "Take the boat back to Port Sarim.",
+        "If you don't have a White apron, buy one from the Varrock Clothes Shop (requires 2 coins) or get a free spawn from the Fishing Guild kitchen (requires 68 Fishing, or 65 with admiral pie).",
+        "Go to Wydin's Food Store west of the Port Sarim dock.",
+        "Equip the White apron.",
+        "Talk to Wydin and ask for a job.",
+        "Search the crate in the back room (the one with the bananas icon).",
+        "Take the Karamjan Rum."
+      ]
+    },
+    {
+      "step": "Getting the Clue",
+      "substeps": [
+        "Return to Redbeard Frank in The Rusty Anchor pub.",
+        "Give him the Karamjan Rum.",
+        "He will give you a Chest key and tell you the chest is in the Blue Moon Inn in Varrock."
+      ]
+    },
+    {
+      "step": "The Chest",
+      "substeps": [
+        "Travel to Varrock.",
+        "Go to the Blue Moon Inn (south of the Varrock Square, behind the general store).",
+        "Go upstairs (1st floor[UK]/2nd floor[US]).",
+        "Enter the westernmost room.",
+        "Use the Chest key on the Chest.",
+        "You will receive a Pirate message. Read it (Right-click -> Read). It points to Falador Park."
+      ]
+    },
+    {
+      "step": "Digging for Treasure",
+      "substeps": [
+        "Items needed: Spade.",
+        "Travel to Falador.",
+        "If you don't have a Spade, one spawns near the Estate Agent's house north-east of the park, or buy one from the Falador General Store.",
+        "Go to Falador Park (centre of Falador).",
+        "Find the statue of Saradomin in the centre of the park.",
+        "Locate the patch of flowers just west of the statue, surrounded by a dirt path.",
+        "Use your Spade on this flower patch.",
+        "The Gardener (level 4) will appear and attack you. Kill him.",
+        "Use the Spade on the flower patch again."
+      ]
+    },
+    {
+      "step": "Completing the Quest",
+      "substeps": [
+        "You will find the treasure: One-Eyed Hector's Treasure Chest, containing 450 coins, a Gold ring, and a Cut Emerald.",
+        "Quest complete!"
+      ]
+    }
+  ],
+  "Type": "Free"
+}

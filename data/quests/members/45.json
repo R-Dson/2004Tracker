@@ -1,0 +1,138 @@
+{
+  "id": 45,
+  "name": "The Holy Grail",
+  "Start point": "King Arthur in Camelot Castle.",
+  "Official difficulty": "Experienced",
+  "Official length": "Long",
+  "Description": "King Arthur is sending out his knights on a quest for the famous Holy Grail. If you are a Knight of the Round Table, go to King Arthur for further orders.",
+  "Type": "Members",
+  "Requirements": {
+    "Quests": [
+      "Merlin's Crystal"
+    ],
+    "Items required": [
+      "Excalibur (can be re-obtained from the Lady of the Lake if lost)",
+      "Magic whistle (obtained during quest)"
+    ]
+  },
+  "Recommended": [
+    "Combat level sufficient to defeat a level 126 Black Knight Titan",
+    "43 Prayer for Protect from Melee",
+    "Good armour and weapon",
+    "Food",
+    "Prayer potions",
+    "Antipoison potions or antidote++"
+  ],
+  "Enemies to defeat": "Black Knight Titan (level 126)",
+  "Walkthrough": [
+    {
+      "step": "Starting the Quest",
+      "substeps": [
+        "Talk to King Arthur in Camelot Castle. He will ask you to find the Holy Grail.",
+        "Go upstairs and talk to Merlin in his workshop. He will direct you to Sir Galahad."
+      ]
+    },
+    {
+      "step": "Finding Sir Galahad",
+      "substeps": [
+        "Travel to the small house directly west of McGrubor's Wood.",
+        "Talk to Sir Galahad."
+      ]
+    },
+    {
+      "step": "Visiting Entrana",
+      "substeps": [
+        "Ensure you have no weapons or armour equipped or in your inventory.",
+        "Travel to Port Sarim and take the boat to Entrana.",
+        "Go to the church on Entrana and talk to the High Priest.",
+        "During the conversation, the Crone will interrupt. Speak to her about the Fisher King and the whistle."
+      ]
+    },
+    {
+      "step": "Obtaining the Napkin and Whistle",
+      "substeps": [
+        "Return to Sir Galahad's house west of McGrubor's Wood.",
+        "Talk to Galahad again and ask for an item. He will give you a Holy table napkin.",
+        "Go to Draynor Manor, north of Draynor Village.",
+        "Go to the top floor and enter the southernmost room.",
+        "With the Holy table napkin in your inventory, pick up the Magic whistle from the table. (It's recommended to take two, as one is needed later)."
+      ]
+    },
+    {
+      "step": "Preparing for Battle",
+      "substeps": [
+        "Gather your combat gear: good armour, weapon, food, Prayer potions, Antipoison/Antidote++, and your Excalibur.",
+        "Ensure you have the Magic whistle(s) in your inventory."
+      ]
+    },
+    {
+      "step": "Locating the Fisher King's Realm",
+      "substeps": [
+        "Travel to Brimhaven.",
+        "Head west, past the gold rocks and poison scorpions, until you reach the coastline.",
+        "Head north along the coast. You will see a wooden platform on stilts slightly inland, past a horseshoe-shaped cluster of gold rocks.",
+        "Stand directly underneath the wooden platform and blow the Magic whistle."
+      ]
+    },
+    {
+      "step": "Defeating the Black Knight Titan",
+      "substeps": [
+        "After blowing the whistle, you will be teleported.",
+        "Head west and talk to the Black Knight Titan to initiate the fight.",
+        "Activate Protect from Melee if you have 43 Prayer.",
+        "Fight the Black Knight Titan. You must deal the finishing blow with Excalibur's special attack (or just by attacking with it equipped if the special attack is not needed for the final hit in OSRS)."
+      ]
+    },
+    {
+      "step": "Entering the Castle",
+      "substeps": [
+        "After defeating the Titan, head towards the small peninsula to the east.",
+        "Cross the bridge.",
+        "Talk to the Fisherman south-east of the bridge. Ask how to enter the castle.",
+        "Go west of the fisherman towards the castle. Pick up the Grail bell lying outside the north-west wall.",
+        "Ring the Grail bell. A Grail Maiden will let you into the castle courtyard."
+      ]
+    },
+    {
+      "step": "Meeting the Fisher King",
+      "substeps": [
+        "Enter the castle building.",
+        "Climb the large central staircase.",
+        "Enter the room to the east and talk to the Fisher King. He asks you to find his son, Sir Percival."
+      ]
+    },
+    {
+      "step": "Finding Sir Percival",
+      "substeps": [
+        "Blow the Magic whistle to exit the Fisher King's realm.",
+        "Return to Camelot.",
+        "Talk to King Arthur and ask about Percival. He will give you a Magic feather (Note: In OSRS, he just tells you Percival was last seen near Goblin Village, no feather is given).",
+        "Travel to Goblin Village (north of Falador).",
+        "Enter the easternmost hut.",
+        "Right-click 'Search' or 'Prod' the sacks inside the hut. Sir Percival will emerge.",
+        "Talk to Sir Percival. He will take your spare Magic whistle (or you give him one) to return home."
+      ]
+    },
+    {
+      "step": "Retrieving the Holy Grail",
+      "substeps": [
+        "Return to the Fisher King's realm by blowing the whistle under the platform near Brimhaven again.",
+        "Enter the castle (the front door should now be open).",
+        "Go up the main central staircase. You will find Sir Percival is now the king. Talk to him.",
+        "Go back down the central staircase.",
+        "Enter the eastern tower.",
+        "Climb the staircase.",
+        "Climb the ladder.",
+        "Take the Holy Grail from the table."
+      ]
+    },
+    {
+      "step": "Completing the Quest",
+      "substeps": [
+        "Blow the Magic whistle to leave the realm.",
+        "Return to Camelot.",
+        "Talk to King Arthur to give him the Holy Grail and claim your reward."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,212 @@
+{
+  "id": 46,
+  "name": "Underground Pass",
+  "Start point": "King Lathas on the 1st floor[UK]2nd floor[US] of East Ardougne Castle.",
+  "Official difficulty": "Experienced",
+  "Official length": "Long",
+  "Description": "King Lathas needs you to venture into the dangerous Underground Pass, seeking passage to the elven lands. Deep within lies the evil Zamorakian mage, Iban, whose presence blocks the way. You must navigate treacherous tunnels, solve puzzles, and ultimately confront Iban himself.",
+  "Type": "Members",
+  "Requirements": {
+    "Quest points": "Completion of Biohazard",
+    "Skills": "25 Ranged",
+    "Items required": [
+      "Bow",
+      "Arrows (any type, around 20 suggested)",
+      "Spade",
+      "Rope",
+      "Tinderbox",
+      "Armour and Weapon (for various low/mid-level enemies)",
+      "Food (plenty recommended)"
+    ]
+  },
+  "Recommended": [
+    "Combat level 50+",
+    "Agility 50+ (highly recommended for obstacles)",
+    "Thieving 50+ (helpful for traps and locks)",
+    "Prayer potions",
+    "Weight-reducing clothing"
+  ],
+  "Enemies to defeat": [
+    "Paladins (various levels)",
+    "Disciple of Iban (level 91) x3",
+    "Kalrag (level 101 Giant Spider)",
+    "Iban (level-less, defeated via mechanics)"
+  ],
+  "Walkthrough": [
+    {
+      "step": "Starting the Quest",
+      "substeps": [
+        "Speak to King Lathas on the 1st floor[UK]2nd floor[US] of East Ardougne Castle to begin the quest.",
+        "Travel west out of Ardougne towards the mountains.",
+        "Speak to Koftik near the cave entrance.",
+        "Enter the Underground Pass cave."
+      ]
+    },
+    {
+      "step": "Entering the Pass",
+      "substeps": [
+        "Cross the swamp: Either use a Rope on the Old Journal rock, or jump across the Agility stones (requires Agility).",
+        "Speak to Koftik on the other side.",
+        "Use the Damp cloths he gives you on your arrows (around 10 needed).",
+        "Use the cloth-wrapped arrows on the nearby fire to create Fire arrows."
+      ]
+    },
+    {
+      "step": "Crossing the Chasm & First Obstacles",
+      "substeps": [
+        "Walk north around the cliff edge until you are behind a wooden fence.",
+        "Stand near the middle of the fence and shoot the Guide rope on the far side of the bridge with your Fire arrows until it breaks.",
+        "Walk north and pick up the Plank.",
+        "Head south along the path.",
+        "Use your Rope on the overhanging rock to swing across the gap.",
+        "Follow the path, climb over the rockslide, then climb over another rockslide to the west.",
+        "Speak to Koftik again."
+      ]
+    },
+    {
+      "step": "The Grid Puzzle",
+      "substeps": [
+        "Carefully walk across the pressure plate grid. The safe path follows a specific pattern:",
+        "Row 1: 1st tile (from north wall)",
+        "Row 2: 2nd tile",
+        "Row 3: 3rd tile",
+        "Row 4: 3rd tile",
+        "Row 5: 4th tile",
+        "If you fall, climb back up the rocks and retry.",
+        "Pull the lever on the other side to open the portcullis."
+      ]
+    },
+    {
+      "step": "The Orb Room - Part 1: Traps",
+      "substeps": [
+        "Follow the path past the Zombies.",
+        "Navigate the trapped corridor: Either run through quickly, or carefully search the Odd Markings on the floor to disarm the traps (requires Thieving)."
+      ]
+    },
+    {
+      "step": "The Orb Room - Part 2: Collecting Orbs",
+      "substeps": [
+        "You are now in a room with a central well.",
+        "North Path: Use your Plank on the Flat stones to cross the gaps. Pick up the Orb of Light.",
+        "North-West Path: Run past the enemies and pick up the Orb of Light.",
+        "West Path: Use your Plank on the Flat stones to cross the gaps. Pick up the Orb of Light.",
+        "South-West Path: Search the Flat stone beneath the orb, then attempt to take the Orb of Light, choosing to disarm the trap (requires Thieving).",
+        "Return to the central well after collecting each orb."
+      ]
+    },
+    {
+      "step": "The Orb Room - Part 3: The Furnace",
+      "substeps": [
+        "Navigate back through the trapped corridor (run or disarm) to the zombie room.",
+        "Use all four Orbs of Light on the Furnace.",
+        "Go back through the trapped corridor to the well room."
+      ]
+    },
+    {
+      "step": "Descending Further",
+      "substeps": [
+        "Climb down the Well.",
+        "Search the nearby Crates for some food (optional).",
+        "Run past the Blessed Spiders.",
+        "Picklock the cage door to the south-east.",
+        "Use your Spade on the Pile of Mud inside the cage to dig a tunnel."
+      ]
+    },
+    {
+      "step": "The Gates and Bridges",
+      "substeps": [
+        "Head west and cross the narrow Ledge.",
+        "Choose your path: Either picklock the two southern gates (requires Thieving 50+ recommended), OR navigate the narrow stone bridges to the south.",
+        "Follow the path south and squeeze through the Obstacle pipe."
+      ]
+    },
+    {
+      "step": "The Unicorn Puzzle",
+      "substeps": [
+        "Search the cage near the pipe exit to find an old Railing.",
+        "Walk north to find a large boulder blocking a path.",
+        "Use the Railing on the boulder to dislodge it.",
+        "Return to the cage where you found the railing and search it again to find a Unicorn horn."
+      ]
+    },
+    {
+      "step": "The Paladins",
+      "substeps": [
+        "Enter the nearby Tunnel.",
+        "Follow the path past the Zombies.",
+        "Speak to the group of Paladins. Sir Carl will give you some food and a Prayer potion.",
+        "Fight and defeat Sir Carl and the other Paladins to obtain three Paladin's badges (Crests)."
+      ]
+    },
+    {
+      "step": "The Well of Voyage",
+      "substeps": [
+        "Continue along the path.",
+        "Use your Plank on the suspicious Flat rock on the floor to disarm a trap.",
+        "Use the Unicorn horn and the three Paladin's badges on the Well of Voyage.",
+        "Enter the door that opens."
+      ]
+    },
+    {
+      "step": "The Witch and the Cat",
+      "substeps": [
+        "**Crucial Step:** Immediately head south and speak to the Dwarves (Nardok, Kamen, Klank). Continue talking to them until they mention a witch.",
+        "Head north-east from the dwarves, cross the bridge, and go south to a small hut.",
+        "Look through the Window. You'll see the witch searching for her cat.",
+        "Find the cat: Go north from the hut, then follow a path alternating west then north (W, N, W, N...) until you find it.",
+        "Pick up the Cat.",
+        "Return to the witch's hut and use the Cat on the door.",
+        "While the witch is distracted, open the door, enter, and search the chest for Iban's shadow."
+      ]
+    },
+    {
+      "step": "Preparing the Doll - Part 1: Soul, Flesh, Blood",
+      "substeps": [
+        "Go to the south-west section of this large area.",
+        "Find and kill the three Disciples of Iban (level 91) to obtain Iban's ashes, Iban's dove, and Iban's amulet.",
+        "Open the nearby Chest for Iban's soul.",
+        "Go back to the Dwarves (Nardok, Kamen, Klank). Talk to them all. Klank will give you Klank's gauntlets.",
+        "Take the Bucket near the dwarves.",
+        "Search the Barrel inside the small building to fill the bucket with Dwarf brew.",
+        "Go east from the dwarves to find Iban's Tomb.",
+        "Use the Dwarf brew on the tomb, then use your Tinderbox on it.",
+        "Pick up Iban's flesh.",
+        "Head to the north-east area with spiders.",
+        "Find and kill Kalrag (level 101 Giant Spider) to obtain Iban's blood.",
+        "Use Iban's shadow, soul, flesh, and blood on the Doll of Iban (obtained from the witch's chest)."
+      ]
+    },
+    {
+      "step": "Preparing the Doll - Part 2: The Dove",
+      "substeps": [
+        "Go up one of the staircases (located north-west and south of the main area).",
+        "Head to the far north-west section of the upper level.",
+        "Wear Klank's gauntlets.",
+        "Search the Cages in this area (and a slightly more southern group of cages) until you find a cage containing a dove. Search it to obtain Iban's dove.",
+        "Use Iban's dove on the Doll of Iban."
+      ]
+    },
+    {
+      "step": "The Final Confrontation",
+      "substeps": [
+        "Head towards the centre of the maze area.",
+        "Kill Iban disciples until they drop Zamorak robes (top, bottom, hat - only top and bottom needed).",
+        "Equip the Zamorak robe top and bottom.",
+        "**Important:** Ensure you have at least 3 empty inventory spaces. Unequip your weapon, shield, and gloves (Klank's gauntlets are okay to keep for now but must be unequipped before entering). You cannot wield anything.",
+        "Approach the entrance to Iban's Temple.",
+        "Enter the temple.",
+        "Iban will attack with magical floor spikes. Avoid them as best you can.",
+        "Run towards the Well in the centre of the room and use the completed Doll of Iban on it.",
+        "Wait for the cutscene and Iban's defeat."
+      ]
+    },
+    {
+      "step": "Completion",
+      "substeps": [
+        "You will appear in a cave.",
+        "Speak to the ghost of Koftik, who will teleport you outside.",
+        "Return to King Lathas in East Ardougne Castle to claim your reward."
+      ]
+    }
+  ]
+}

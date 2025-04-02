@@ -1,0 +1,74 @@
+{
+  "id": 27,
+  "name": "Gertrude's Cat",
+  "Start point": "Gertrude in her house west of Varrock, south of the Cooking Guild.",
+  "Official difficulty": "Novice",
+  "Official length": "Very Short",
+  "Description": "Gertrude's beloved cat, Fluffs, has gone missing and she is frantic with worry. She needs your help to track down Fluffs and bring her home safely.",
+  "Type": "Members",
+  "Requirements": {
+    "Items required": [
+      "Bucket of milk",
+      "Raw sardine",
+      "Doogle leaf",
+      "100 coins"
+    ]
+  },
+  "Recommended": [
+    "Stamina potions",
+    "Varrock teleport"
+  ],
+  "Enemies to defeat": "None",
+  "Walkthrough": [
+    {
+      "step": "Starting the quest",
+      "substeps": [
+        "Speak to Gertrude in her house west of Varrock (south of Cooks' Guild)",
+        "Agree to help find her missing cat Fluffs",
+        "Get directed to her sons in Varrock Square"
+      ]
+    },
+    {
+      "step": "Getting information from the boys",
+      "substeps": [
+        "Find Shilop and Wilough near Varrock Square fountain",
+        "Pay Shilop 100 coins for location info",
+        "Learn Fluffs is at Varrock Lumber Mill"
+      ]
+    },
+    {
+      "step": "Locating Fluffs",
+      "substeps": [
+        "Travel to Varrock Lumber Mill (north-east of Varrock)",
+        "Jump broken fence section on south side",
+        "Enter building and climb ladder to upper floor"
+      ]
+    },
+    {
+      "step": "Caring for Fluffs",
+      "substeps": [
+        "Attempt to pick up Fluffs (causes 3 damage)",
+        "Use Bucket of milk on Fluffs",
+        "Combine Doogle leaf with Raw sardine to make Seasoned sardine",
+        "Feed Seasoned sardine to Fluffs"
+      ]
+    },
+    {
+      "step": "Finding kittens",
+      "substeps": [
+        "Climb back down ladder",
+        "Search crates until finding kitten (south-eastern crate recommended)",
+        "Collect kitten from crate"
+      ]
+    },
+    {
+      "step": "Reuniting family",
+      "substeps": [
+        "Return to Fluffs with kitten",
+        "Use kitten on Fluffs",
+        "Return to Gertrude's house",
+        "Speak to Gertrude to complete quest"
+      ]
+    }
+  ]
+}

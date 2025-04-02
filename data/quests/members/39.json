@@ -1,0 +1,78 @@
+{
+  "id": 39,
+  "name": "Sea Slug",
+  "Start point": "Caroline, south of the Legends' Guild and south-east of Ardougne.",
+  "Official difficulty": "Easy",
+  "Official length": "Short",
+  "Description": "Strange occurrences have taken over a fishing platform. Solve the mystery and save a family from the clutches of the slugs.",
+  "Type": "Members",
+  "Requirements": {
+    "Skills": [
+      "30 Firemaking"
+    ],
+    "Items required": [
+      "Swamp paste (can be bought or made)",
+      "Hatchet",
+      "Tinderbox"
+    ]
+  },
+  "Recommended": [],
+  "Enemies to defeat": "None",
+  "Walkthrough": [
+    {
+      "step": "Starting the Quest",
+      "substeps": [
+        "Talk to Caroline, south of the Legends' Guild.",
+        "Talk to Holgart nearby.",
+        "Give Holgart the Swamp paste.",
+        "Travel with Holgart to the Fishing Platform."
+      ]
+    },
+    {
+      "step": "Investigating the Platform",
+      "substeps": [
+        "Walk west and talk to Bailey.",
+        "Climb the ladder on the north-east part of the platform.",
+        "Head west to the building and talk to Kennith (shout across the crates)."
+      ]
+    },
+    {
+      "step": "Finding Kent",
+      "substeps": [
+        "Go back down and talk to Holgart to travel.",
+        "Talk to Kent on the small island.",
+        "Talk to Holgart again to return to the platform."
+      ]
+    },
+    {
+      "step": "Preparing to Rescue Kennith",
+      "substeps": [
+        "Attempt to climb the ladder (fishermen will block you).",
+        "Talk to Bailey to learn the slugs' weakness and receive an unlit torch.",
+        "Pick up the Broken glass from the corner near Bailey.",
+        "Pick up Damp sticks from the north-east section of the platform.",
+        "Use the Broken glass on the Damp sticks to get Dry sticks.",
+        "Use your Tinderbox on the Dry sticks (requires 30 Firemaking) while holding the unlit torch to light it."
+      ]
+    },
+    {
+      "step": "Rescuing Kennith",
+      "substeps": [
+        "Climb the ladder (with the lit torch equipped or in inventory).",
+        "Talk to Kennith.",
+        "Kick the loose panels on the outside of the building Kennith is in.",
+        "Talk to Kennith again.",
+        "Rotate the crane outside.",
+        "Kennith will jump onto the crane and into the rowboat."
+      ]
+    },
+    {
+      "step": "Completing the Quest",
+      "substeps": [
+        "Go back down and talk to Holgart.",
+        "Return to the mainland.",
+        "Talk to Caroline to claim your reward."
+      ]
+    }
+  ]
+}

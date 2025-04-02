@@ -1,0 +1,50 @@
+{
+  "id": 14,
+  "name": "Sheep Shearer",
+  "Start point": "Fred the Farmer in his farmhouse north-west of Lumbridge.",
+  "Official difficulty": "Novice",
+  "Official length": "Very Short",
+  "Description": "Farmer Fred's sheep are getting mighty woolly. He will pay you to shear them.",
+  "Requirements": {
+    "Quest points": "None",
+    "Items required": [
+      "Shears (can be obtained during the quest for 1 coin)"
+    ]
+  },
+  "Recommended": [],
+  "Enemies to defeat": "None",
+  "Walkthrough": [
+    {
+      "step": "Starting the quest",
+      "substeps": [
+        "Talk to Fred the Farmer in his farmhouse north-west of Lumbridge (next to the sheep pen).",
+        "Agree to help him by gathering 20 balls of wool."
+      ]
+    },
+    {
+      "step": "Gathering Wool",
+      "substeps": [
+        "Obtain a pair of Shears. If you don't have any, you can buy them from the Lumbridge General Store for 1 coin.",
+        "Go to the sheep pen just east of Fred's house.",
+        "Use the Shears on 20 sheep to collect 20 pieces of Wool. Note: Black sheep cannot be sheared for this quest."
+      ]
+    },
+    {
+      "step": "Spinning the Wool",
+      "substeps": [
+        "Go to Lumbridge Castle.",
+        "Climb the stairs to the 1st floor[UK]2nd floor[US].",
+        "Find the spinning wheel in the western room.",
+        "Use the Wool on the spinning wheel to create 20 Balls of wool."
+      ]
+    },
+    {
+      "step": "Completing the quest",
+      "substeps": [
+        "Return to Fred the Farmer with the 20 Balls of wool in your inventory.",
+        "Talk to Fred to give him the wool and claim your reward."
+      ]
+    }
+  ],
+  "Type": "Free"
+}

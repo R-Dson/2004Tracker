@@ -1,0 +1,157 @@
+{
+  "id": 42,
+  "name": "Temple of Ikov",
+  "Start point": "Lucien in the Flying Horse Inn, north-west of the Paladin Tower, west of the Ardougne River.",
+  "Official difficulty": "Experienced",
+  "Official length": "Medium",
+  "Description": "A mysterious stranger called Lucien asks you to go on a mission deep under the Temple of Ikov in central Kandarin. He wants you to retrieve an artifact known as the Staff of Armadyl. Towards the end of the quest you are presented with a choice on how to complete the quest.",
+  "Type": "Members",
+  "Requirements": {
+    "Skills": [
+      "42 Thieving",
+      "40 Ranged"
+    ],
+    "Items required": [
+      "Yew bow or Magic bow",
+      "Candle (lit, unlit can be bought during quest)",
+      "Tinderbox (if candle is unlit)",
+      "20 Limpwurt roots (unnoted)",
+      "Knife"
+    ]
+  },
+  "Recommended": [
+    "Combat level to withstand attacks from level 61 Ice Spiders",
+    "Prayer 37 Prayer (Protect from Magic)",
+    "Armour with good Melee defence (e.g. Rune armour)",
+    "Armour with good Magic defence (e.g. Dragonhide armour)",
+    "Food",
+    "Prayer potions (if using Protect from Magic)"
+  ],
+  "Enemies to defeat": [
+    "Ice Spiders (level 61) (can be ignored)",
+    "Fire Warrior of Lesarkus (level 70)",
+    "Guardians of Armadyl (levels 43 & 45) (conditional)",
+    "Lucien (level 14) (conditional)"
+  ],
+  "Walkthrough": [
+    {
+      "step": "Starting the quest",
+      "substeps": [
+        "Talk to Lucien in the Flying Horse Inn (north-west of the Paladin Tower, west side of the river near East Ardougne).",
+        "Agree to retrieve the Staff of Armadyl for him. He will give you a Pendant of Lucien."
+      ]
+    },
+    {
+      "step": "Entering the Temple & Getting Boots (Trip 1)",
+      "substeps": [
+        "**Items needed:** Pendant of Lucien, Lit candle, Knife.",
+        "**(Optional)** If you don't have a lit candle, buy one from the Candle Shop in Catherby and light it with a Tinderbox.",
+        "Equip the Pendant of Lucien (keep it equipped for most of the quest).",
+        "Travel to the Temple of Ikov (south-east of the Ranging Guild).",
+        "Enter the temple dungeon by climbing down the ladder.",
+        "Head west through the first room, then down the stairs.",
+        "Go to the back (west side) of this lower room.",
+        "Use your Knife on the spider web to cut through it.",
+        "Pick up the Boots of lightness.",
+        "Equip the Boots of lightness and drop your Knife (to reduce weight).",
+        "Return up the stairs to the main dungeon room."
+      ]
+    },
+    {
+      "step": "Getting the Lever Piece",
+      "substeps": [
+        "**Ensure your weight is below 0 kg.** Check your equipment screen.",
+        "Go north into the room with skeletons.",
+        "Walk to the west side of this room to find a broken bridge over lava.",
+        "Cross the bridge (you will fall and take damage if your weight is 0 kg or higher).",
+        "Enter the small room on the other side.",
+        "Pick up the Lever from the ground.",
+        "Leave the temple and bank."
+      ]
+    },
+    {
+      "step": "Getting Ice Arrows (Trip 2)",
+      "substeps": [
+        "**Items needed:** Pendant of Lucien, Lever, Food, Armour with good Melee defence.",
+        "Return to the Temple of Ikov dungeon.",
+        "In the first room (where you climbed down the ladder), use the Lever on the Lever bracket on the south wall.",
+        "Pull the lever to open the southern gate.",
+        "Go through the gate and follow the icy path south and then east.",
+        "Search the chests found in the small alcoves off the main path. Ice Spiders (level 61) patrol this area.",
+        "Keep searching chests until you find Ice arrows. You may need to search multiple chests, or the same chest multiple times.",
+        "Collect at least 20-30 Ice arrows (more is safer).",
+        "Leave the temple and bank."
+      ]
+    },
+    {
+      "step": "Defeating Lesarkus (Trip 3)",
+      "substeps": [
+        "**Items needed:** Pendant of Lucien, Yew or Magic bow, Ice arrows, Food, Armour with good Magic defence (Dragonhide recommended), Prayer potions (optional, if using Protect from Magic).",
+        "Return to the Temple of Ikov dungeon.",
+        "Go north through the skeleton room.",
+        "Continue north past the bridge area to a lever next to a trapdoor.",
+        "**Important:** Right-click the lever and select 'Search for traps'. Disarm the trap (requires 42 Thieving).",
+        "Pull the lever.",
+        "Go down the stairs/ladder revealed.",
+        "Follow the western path until you reach a door.",
+        "Open the door and walk across the room to the next door.",
+        "Attempt to open the second door. The Fire Warrior of Lesarkus (level 70) will appear and attack with Magic.",
+        "Equip your bow and Ice arrows.",
+        "Kill Lesarkus using Ranged. Use Protect from Magic if possible.",
+        "**(Note:** If you don't kill him fast enough, he may despawn. Simply try opening the door again to resummon him).",
+        "Once Lesarkus is defeated, you can optionally bank before proceeding, or continue directly if prepared for the next step."
+      ]
+    },
+    {
+      "step": "Reaching the Staff (Trip 4 or continuation)",
+      "substeps": [
+        "**Items needed:** Pendant of Lucien, 20 Limpwurt roots (unnoted), Food, Armour/Weapon (optional, for Guardians).",
+        "Go back to where you fought Lesarkus (or continue from there).",
+        "Go through the door Lesarkus was guarding.",
+        "Speak to Winelda the witch.",
+        "Give her the 20 Limpwurt roots, and she will teleport you across the lava.",
+        "Follow the path past the Guardians of Armadyl room and the ladder, all the way to the end.",
+        "Pick up the Shiny key from the ground.",
+        "Return to the large room with the Guardians of Armadyl."
+      ]
+    },
+    {
+      "step": "The Choice",
+      "substeps": [
+        "You must now decide whether to side with Lucien or the Guardians of Armadyl.",
+        "The Staff of Armadyl is in the small chamber in the north-west corner of the Guardian room."
+      ]
+    },
+    {
+      "step": "Option 1: Siding with the Guardians",
+      "substeps": [
+        "**Unequip the Pendant of Lucien.**",
+        "Talk to one of the Guardians of Armadyl.",
+        "Tell them Lucien sent you. They will ask you to stop Lucien and give you a Pendant of Armadyl.",
+        "**(Teleport):** You will be teleported outside the temple.",
+        "**(Optional):** Go up the ladder nearby, use the Shiny key on the door to exit the building north of McGrubbor's Wood.",
+        "Travel to Varrock.",
+        "Find Lucien in a small house north-east of Varrock Palace (outside the main castle walls, near the wilderness ditch).",
+        "**Equip the Pendant of Armadyl.**",
+        "Attack and kill Lucien (level 14).",
+        "Quest complete! You keep the Pendant of Armadyl."
+      ]
+    },
+    {
+      "step": "Option 2: Siding with Lucien",
+      "substeps": [
+        "**Ensure the Pendant of Lucien is equipped.**",
+        "Enter the small north-west chamber in the Guardian room.",
+        "Try to take the Staff of Armadyl. Any nearby Guardians (levels 43 & 45) will attack.",
+        "Kill the attacking Guardians.",
+        "Take the Staff of Armadyl.",
+        "Leave the Guardian room and go up the nearby ladder.",
+        "Use the Shiny key on the door to exit the building north of McGrubbor's Wood.",
+        "Travel to Varrock.",
+        "Find Lucien in a small house north-east of Varrock Palace (outside the main castle walls, near the wilderness ditch).",
+        "Talk to Lucien and give him the Staff of Armadyl.",
+        "Quest complete! You keep the Pendant of Lucien."
+      ]
+    }
+  ]
+}

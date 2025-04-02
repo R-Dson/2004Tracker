@@ -1,0 +1,96 @@
+{
+  "id": 21,
+  "name": "Clock Tower",
+  "Start point": "Brother Kojo in the Clock Tower, south-west of Ardougne Zoo.",
+  "Official difficulty": "Medium",
+  "Official length": "Short",
+  "Description": "Help brother Kojo to fix his clock tower by finding the missing cogs.",
+  "Type": "Members",
+  "Requirements": {
+    "Items required": [
+      "Bucket of water OR Ice gloves"
+    ]
+  },
+  "Recommended": [
+    "Weapon and Armour",
+    "Combat level sufficient to survive attacks from level 53 Ogres (can be avoided)."
+  ],
+  "Enemies to defeat": "None required (Ogres level 53 and Giant Spiders level 2 are present but can potentially be avoided).",
+  "Walkthrough": [
+    {
+      "step": "Starting the Quest",
+      "substeps": [
+        "Talk to Brother Kojo inside the Clock Tower, located south-west of Ardougne Zoo."
+      ]
+    },
+    {
+      "step": "General Cog Mechanics",
+      "substeps": [
+        "Go down the ladder inside the Clock Tower to reach the dungeon.",
+        "Note the coloured tiles on the floor in the next room; these indicate the general direction of the corresponding cog.",
+        "You can only carry one cog at a time."
+      ]
+    },
+    {
+      "step": "Getting the Black Cog",
+      "substeps": [
+        "From the coloured tile room, follow the direction indicated by the black tile.",
+        "Go through the passage to a door.",
+        "Enter the room containing level 2 Giant Spiders and the Black Cog surrounded by flames.",
+        "Use a Bucket of water on the cog OR wear Ice gloves to pick it up.",
+        "Return to the main ladder and climb up to the ground floor (1st floor [US]).",
+        "Use the Black Cog on the black pole on this floor."
+      ]
+    },
+    {
+      "step": "Getting the Red Cog",
+      "substeps": [
+        "Go back down the ladder to the dungeon and return to the coloured tile room.",
+        "Follow the direction indicated by the red tile (south-east).",
+        "Enter the room containing three level 53 Ogres and the Red Cog.",
+        "Carefully pick up the Red Cog (avoid or fight the Ogres).",
+        "Return to the main ladder and climb up to the 1st floor (2nd floor [US]).",
+        "Use the Red Cog on the red pole on this floor."
+      ]
+    },
+    {
+      "step": "Getting the White Cog",
+      "substeps": [
+        "Go back down the ladder to the dungeon and return to the coloured tile room.",
+        "Follow the direction indicated by the white tile (north-west).",
+        "Continue north-west to find Rat poison on the floor and pick it up.",
+        "Go east to find a rat cage with two levers.",
+        "Pull both levers to open the cage doors and enter.",
+        "Use the Rat poison on the 'Rats food trough' inside the cage.",
+        "Wait for the rats to eat the poison and die. A nearby door will open.",
+        "Enter the newly opened room and pick up the White Cog.",
+        "Go up the ladder in this area (you will appear outside the Clock Tower).",
+        "Re-enter the Clock Tower and climb the stairs/ladders to the 2nd floor (3rd floor [US]).",
+        "Use the White Cog on the white pole on this floor."
+      ]
+    },
+    {
+      "step": "Getting the Blue Cog",
+      "substeps": [
+        "Go back down the main ladder to the dungeon and return to the coloured tile room.",
+        "Follow the direction indicated by the blue tile (south-west).",
+        "Enter the room with several caged monsters. The Blue Cog is also caged with no obvious door.",
+        "Find and climb the ladder within this room (you will appear outside the Clock Tower).",
+        "Walk north-east towards the Ardougne Monastery gate. Find Brother Cedric.",
+        "Locate a ladder just west of Brother Cedric and climb down.",
+        "Follow the underground passage until you reach a wall/door.",
+        "Go through the door and pick up the Blue Cog.",
+        "Climb back up the ladder.",
+        "Re-enter the Clock Tower and climb the stairs/ladders to the 1st floor (2nd floor [US]).",
+        "Use the Blue Cog on the blue pole on this floor."
+      ]
+    },
+    {
+      "step": "Completing the Quest",
+      "substeps": [
+        "Ensure all four cogs are placed on their respective poles.",
+        "Talk to Brother Kojo on the ground floor to claim your reward."
+      ]
+    }
+  ]
+}

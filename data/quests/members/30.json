@@ -1,0 +1,55 @@
+{
+  "id": 30,
+  "name": "Jungle Potion",
+  "Start point": "Trufitus Shakaya in Tai Bwo Wannai Village",
+  "Official difficulty": "Medium",
+  "Official length": "Short",
+  "Description": "Collect 5 rare herbs for Trufitus to create a communion potion with the gods of Karamja.",
+  "Type": "Members",
+  "Requirements": {},
+  "Recommended": [
+    "Combat level to handle Jogres (level 48)"
+  ],
+  "Enemies to defeat": "Jogre (level 48) (optional)",
+  "Rewards": [
+    "1 Quest point",
+    "775 Herblore XP"
+  ],
+  "Walkthrough": [
+    {
+      "step": "Starting the Quest",
+      "substeps": [
+        "Talk to Trufitus Shakaya in Tai Bwo Wannai Village"
+      ]
+    },
+    {
+      "step": "Herb Collection",
+      "substeps": [
+        "Snake Weed: Search marshy vines SW of village",
+        "Ardrigal: Search palm trees NE coastal area",
+        "Sito Foil: Scorched earth near perpetual fire",
+        {
+          "image": "https://oldschool.runescape.wiki/images/Jungle_Potion_-_Sito_foil.png", 
+          "caption": "The sito foil location."
+        },
+        "Volencia Moss: Rocks SE coastal area",
+        {
+          "image": "https://oldschool.runescape.wiki/images/Jungle_Potion_-_Valencia_moss.png", 
+          "caption": "The valencia moss location."
+        },
+        "Rogues' Purse: Karamja dungeon fungal wall (past Jogres)",
+        {
+          "image": "https://oldschool.runescape.wiki/images/Jungle_Potion_-_Rogue%27s_purse.png", 
+          "caption": "The rogues' purse location."
+        }
+      ]
+    },
+    {
+      "step": "Final Steps",
+      "substeps": [
+        "Return all herbs to Trufitus",
+        "Receive Herblore XP and quest completion"
+      ]
+    }
+  ]
+}

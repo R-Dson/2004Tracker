@@ -1,0 +1,108 @@
+{
+  "id": 50,
+  "name": "Waterfall Quest",
+  "Start point": "Almera in her house north of the Baxtorian Falls.",
+  "Official difficulty": "Hard",
+  "Official length": "Medium",
+  "Description": "Investigate the death of the elven leaders of old and find mysterious treasures hidden within the Baxtorian Falls.",
+  "Type": "Members",
+  "Requirements": {
+    "Items required": [
+      "Rope (obtainable from Ned in Draynor Village for 15 coins)",
+      "6 Air runes",
+      "6 Water runes",
+      "6 Earth runes"
+    ]
+  },
+  "Recommended": [
+    "Combat level sufficient to survive level 52 Shadow Spiders, level 84 Moss Guardians, and level 86 Fire Giants (running past is possible).",
+    "Good weapon and armour",
+    "Stat restore potion",
+    "Food"
+  ],
+  "Enemies to defeat": "None required, but you will encounter Shadow Spider (level 52), Moss Guardian (level 84), and Fire Giant (level 86).",
+  "Walkthrough": [
+    {
+      "step": "Starting the quest",
+      "substeps": [
+        "Speak to Almera in her house north of Baxtorian Falls.",
+        "Board the raft behind her house.",
+        "After crashing, speak to Hudon on the shore.",
+        "Right-click 'Swim to' the rock south in the water.",
+        "Use your Rope on the rock across the water to the south.",
+        "Use your Rope on the dead tree to climb down the ledge (you will take minor damage)."
+      ]
+    },
+    {
+      "step": "Hadley and the Book",
+      "substeps": [
+        "Enter the house nearby and speak to Hadley.",
+        "Return north to Almera and speak to her.",
+        "Go back to Hadley's house.",
+        "Go upstairs, search the bookcases for 'Book on Baxtorians' and read it.",
+        "Speak to Hadley again downstairs."
+      ]
+    },
+    {
+      "step": "Obtaining Glarial's Pebble",
+      "substeps": [
+        "Travel to the Tree Gnome Village (south of Ardougne, west of Yanille).",
+        "Navigate the maze to the dungeon entrance in the centre.",
+        "Enter the dungeon.",
+        "Go to the eastern alcove, search the crates/boxes until you find a Key.",
+        "Go to the western alcove, use the Key on the jail door.",
+        "Speak to the gnome prisoner, Golrie, to receive Glarial's pebble.",
+        "Leave the dungeon and the maze."
+      ]
+    },
+    {
+      "step": "Glarial's Tomb",
+      "substeps": [
+        "Bank ALL items, including armour, weapons, and runes. Only bring Glarial's pebble and some food.",
+        "Go to Glarial's Tombstone, located east of Hadley's house.",
+        "Use Glarial's pebble on the tombstone to enter.",
+        "Search the chest in the northern room to obtain Glarial's amulet.",
+        "Search the coffin in the southern room to obtain Glarial's urn.",
+        "Climb the ladder to exit the tomb."
+      ]
+    },
+    {
+      "step": "Preparing for the Waterfall",
+      "substeps": [
+        "Retrieve your Rope, 6 Air runes, 6 Water runes, 6 Earth runes, combat equipment, food, and stat restore potion from the bank.",
+        "Ensure you have Glarial's amulet and Glarial's urn in your inventory.",
+        "Equip Glarial's amulet."
+      ]
+    },
+    {
+      "step": "Entering the Waterfall",
+      "substeps": [
+        "Return to Almera's house and board the raft again.",
+        "Swim to the rock south again.",
+        "Use the Rope on the rock across the water again.",
+        "Use the Rope on the dead tree again. You will land on a different ledge this time.",
+        "Open the door on the ledge (requires Glarial's amulet equipped)."
+      ]
+    },
+    {
+      "step": "Inside the Waterfall Dungeon",
+      "substeps": [
+        "Enter the dungeon (beware of Shadow Spiders, Moss Guardians, and Fire Giants).",
+        "Head east into the large room with crates.",
+        "Search the crates until you find a Key.",
+        "Head west into the large room with Fire Giants.",
+        "Run past the giants to the passage in the north-west corner.",
+        "Use the Key on the first door.",
+        "Use the Key on the second door to enter the final room."
+      ]
+    },
+    {
+      "step": "The Chalice Room and Completion",
+      "substeps": [
+        "In the room with 6 pillars and a statue, use 1 Water rune, 1 Air rune, and 1 Earth rune on EACH of the 6 pillars (18 runes total).",
+        "Use Glarial's amulet on the Statue of Glarial.",
+        "Use Glarial's urn on the Chalice of Eternity that appears."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "id": 23,
+  "name": "Dwarf Cannon",
+  "Start point": "Captain Lawgof at the Coal Trucks, west of Seers' Village and south of McGrubor's Wood (requires crossing a log bridge).",
+  "Official difficulty": "Medium",
+  "Official length": "Medium",
+  "Description": "The dwarf commander, Captain Lawgof, needs help repairing his base and defences against goblin attacks.",
+  "Type": "Members",
+  "Requirements": {
+    "Skills required": [
+      "Level 20 Agility (to cross the log bridge to the starting point, not boostable)"
+    ]
+  },
+  "Recommended": [
+    "Falador teleport",
+    "Camelot teleport or Seers' Village teleport",
+    "Energy potions or Stamina potions"
+  ],
+  "Enemies to defeat": "None",
+  "Walkthrough": [
+    {
+      "step": "Starting the Quest",
+      "substeps": [
+        "Cross the log bridge (requires 20 Agility) west of Seers' Village to reach the Coal Trucks area.",
+        "Speak to Captain Lawgof.",
+        "Agree to help him fix the fence. He will give you 6 railings.",
+        "Inspect the broken sections of the fence surrounding the camp until you have used all 6 railings. The locations are fixed but require searching.",
+        "Return and speak to Captain Lawgof."
+      ]
+    },
+    {
+      "step": "Investigating the Watchtower",
+      "substeps": [
+        "Captain Lawgof asks you to check on his watchtower to the south.",
+        "Go south to the Dwarven Watchtower.",
+        "Climb up the ladder and take the Dwarf remains.",
+        "Return to Captain Lawgof and give him the remains."
+      ]
+    },
+    {
+      "step": "Rescuing Gilob",
+      "substeps": [
+        "Captain Lawgof tells you the remains belonged to Gilob's father and asks you to find the child.",
+        "Head southeast, past the Fishing Guild, towards the windmill near Ardougne.",
+        "Enter the cave entrance located just west of the windmill.",
+        "Inside the cave, go to the room diagonally opposite the entrance (north-west corner).",
+        "Search the crates in this room until you find Gilob. He will automatically run back.",
+        "Return to Captain Lawgof."
+      ]
+    },
+    {
+      "step": "Repairing the Cannon",
+      "substeps": [
+        "Speak to Captain Lawgof. He will give you a Dwarf toolkit and ask you to fix the cannon.",
+        "Go into the small shed just north of Lawgof.",
+        "Use the toolkit on the broken multicannon inside the shed.",
+        "Inspect the cannon parts (Spring, Safety switch, Gear) repeatedly until they are all fixed. You will likely fail multiple times.",
+        "Speak to Captain Lawgof again."
+      ]
+    },
+    {
+      "step": "Retrieving the Mould",
+      "substeps": [
+        "Lawgof sends you to the dwarven base near Ice Mountain to get cannon schematics.",
+        "Travel to the Dwarven Mine entrance south of Ice Mountain (use Falador teleport for speed).",
+        "Find Nulodion in a small building just east of the mine entrance.",
+        "Speak to Nulodion. He will give you the Ammo mould and Nulodion's notes."
+      ]
+    },
+    {
+      "step": "Completing the Quest",
+      "substeps": [
+        "Return to Captain Lawgof at the Coal Trucks (use Camelot/Seers' teleport).",
+        "Speak to him one last time to complete the quest."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "id": 19,
+  "name": "Big Chompy Bird Hunting",
+  "Start point": "Rantz, south-east of Yanille in the Feldip Hills.",
+  "Official difficulty": "Medium",
+  "Official length": "Medium",
+  "Description": "Rantz the Ogre needs to feed his demanding children, Fycie and Bugs so he wants to go Big Chompy Bird hunting. Problem is, he's all fingers and thumbs when it comes to making ogre arrows. Could someone please give him a hand.",
+  "Type": "Members",
+  "Requirements": {
+    "Skills": [
+      "5 Fletching",
+      "30 Cooking",
+      "30 Ranging"
+    ],
+    "Items required": [
+      "Chisel",
+      "Hatchet",
+      "Knife",
+      "Approx. 100 Feathers",
+      "4-5 sets of Wolf bones (can be obtained during the quest)",
+      "Weapon and armour to kill level 64 wolves"
+    ]
+  },
+  "Recommended": [],
+  "Enemies to defeat": [
+    "Wolf (level 64) (multiple)",
+    "Chompy bird (level varies)"
+  ],
+  "Walkthrough": [
+    {
+      "step": "Starting the Quest",
+      "substeps": [
+        "Talk to Rantz, located south-east of Yanille, near the ogre settlement in Feldip Hills. He will ask you to make Ogre arrows ('stabbers')."
+      ]
+    },
+    {
+      "step": "Making Ogre Arrows ('Stabbers')",
+      "substeps": [
+        "Cut down Achey Trees nearby using your Hatchet to get Achey tree logs (around 10 recommended).",
+        "Use your Knife on the Achey tree logs to create Ogre arrow shafts.",
+        "Use Feathers on the Ogre arrow shafts.",
+        "Go west of Rantz and kill Wolves (level 64) until you have 4-5 sets of Wolf bones.",
+        "Use your Chisel on the Wolf bones to create Ogre arrowtips (you get 2-6 tips per bone).",
+        "Use the Ogre arrowtips on the feathered Ogre arrow shafts to create Ogre arrows. Make at least 6, but making 12 or more is recommended for later.",
+        "Talk to Rantz again with the Ogre arrows in your inventory."
+      ]
+    },
+    {
+      "step": "Preparing the Bait",
+      "substeps": [
+        "Go north into the cave near Rantz.",
+        "Talk to Rantz's children, Fycie and Bugs.",
+        "Search the chest in the north-west corner of the cave to obtain Ogre bellows.",
+        "Go to the swamp area just west of Rantz.",
+        "Use the Ogre bellows on the swamp bubbles to fill them with gas.",
+        "Use the gas-filled Ogre bellows on 3 Swamp toads hopping nearby. The inflated toads will go into your inventory (max 3 at a time)."
+      ]
+    },
+    {
+      "step": "Setting the Trap",
+      "substeps": [
+        "Return to Rantz with the 3 inflated toads.",
+        "He will direct you to the Chompy hunting grounds south of him (marked by an arrow).",
+        "Go to the marked area and drop the 3 inflated toads."
+      ]
+    },
+    {
+      "step": "Getting the Bow and Hunting",
+      "substeps": [
+        "Go back and talk to Rantz. After he fails to shoot a Chompy, insist on trying yourself until he gives you an Ogre bow.",
+        "Ensure you have at least 5 Ogre arrows. If not, repeat the arrow-making steps.",
+        "Collect 3 more inflated toads from the swamp as before.",
+        "Go back to the hunting grounds and drop the 3 toads.",
+        "Walk a short distance away.",
+        "Wait for a Chompy bird to land near the toads.",
+        "Shoot the Chompy bird with your Ogre bow and arrows.",
+        "Once killed, pluck the Chompy bird to get Raw Chompy, bones, and feathers.",
+        "Take the Raw Chompy back to Rantz."
+      ]
+    },
+    {
+      "step": "Cooking the Chompy",
+      "substeps": [
+        "Talk to Rantz. He will tell you how he wants the bird cooked and ask you to get his sons' orders.",
+        "Go back to the cave and talk to Fycie and Bugs to find out what ingredients they want.",
+        "Note down all the required ingredients (will be a combination of: Cabbage, Tomato, Potato, Onion, Equa leaves, Doogle leaves).",
+        "Gather the required ingredients from the areas around Rantz and the swamp:",
+        "  - Onions & Tomatoes: West of the swamp.",
+        "  - Cabbage: North of the swamp or near Equa leaves.",
+        "  - Doogle leaves: West of the onions.",
+        "  - Potatoes & Equa leaves: South-east of Rantz, near the shore (Potato spawn is rare).",
+        "Go to the special fire ('Rantz's spit-roast') located north of Rantz / south of the cave.",
+        "Use the Raw Chompy on the fire. It will be cooked with the ingredients automatically if they are in your inventory."
+      ]
+    },
+    {
+      "step": "Completing the Quest",
+      "substeps": [
+        "Talk to Rantz with the seasoned, cooked Chompy bird in your inventory."
+      ]
+    }
+  ]
+}

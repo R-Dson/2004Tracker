@@ -1,0 +1,48 @@
+{
+  "id": 4,
+  "name": "Doric's Quest",
+  "Start point": "Doric, in his house north of Falador.",
+  "Official difficulty": "Novice",
+  "Official length": "Very Short",
+  "Description": "Doric the dwarf is happy to let you use his anvils, but first he would like you to run an errand for him.",
+  "Requirements": {
+    "Skills": "15 Mining (can be boosted)",
+    "Items required": [
+      "Any Pickaxe (can be obtained during the quest)"
+    ]
+  },
+  "Recommended": [],
+  "Enemies to defeat": "None",
+  "Walkthrough": [
+    {
+      "step": "Starting the quest",
+      "substeps": [
+        "Speak to Doric in his house north of Falador.",
+        "He will ask you to bring him 6 Clay, 4 Copper ore, and 2 Iron ore.",
+        {
+          "image": "https://oldschool.runescape.wiki/images/Doric%27s_Quest.png",
+          "caption": "Doric in his house."
+        }
+      ]
+    },
+    {
+      "step": "Gathering the materials",
+      "substeps": [
+        "Ensure you have a pickaxe. If not, one can be found on a table in a building in Barbarian Village.",
+        "Enter the Dwarven Mine, located just north-east of Doric's house.",
+        "Go down the entrance ladder.",
+        "Mine 4 Copper ore from the copper rocks.",
+        "Mine 2 Iron ore from the iron rocks.",
+        "Mine 6 Clay from the clay rocks (further south within the mine)."
+      ]
+    },
+    {
+      "step": "Completing the quest",
+      "substeps": [
+        "Return to Doric with the 6 Clay, 4 Copper ore, and 2 Iron ore.",
+        "Talk to him to give him the items and complete the quest."
+      ]
+    }
+  ],
+  "Type": "Free"
+}

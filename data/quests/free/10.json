@@ -1,0 +1,81 @@
+{
+  "id": 10,
+  "name": "Prince Ali Rescue",
+  "Start point": "Hassan in the Al Kharid palace.",
+  "Official difficulty": "Novice",
+  "Official length": "Short",
+  "Description": "Prince Ali of Al Kharid has been kidnapped by the scheming Lady Keli. You are hired by his father to stage a rescue mission.",
+  "Requirements": {
+    "Quest points": "None",
+    "Items required": [
+      "Soft clay (Mine clay and use a water source on it)",
+      "3 Balls of wool",
+      "Yellow dye (Bring 2 Onions and 5 coins to Aggie in Draynor Village)",
+      "Redberries (Found west of Varrock south-east mine)",
+      "Ashes (Obtained after a fire burns out)",
+      "Pot of flour (Use wheat on the hopper at the top of a windmill, operate it, then collect from the bin on the ground floor)",
+      "Bucket of water (Use an empty Bucket on a water source)",
+      "Pink skirt (Bought from Thessalia's Fine Clothes in Varrock)",
+      "Bronze bar (Smelt Copper ore and Tin ore in a furnace)",
+      "3 Beers (Bought from any bar)",
+      "Rope (Bought from Ned in Draynor Village for 15 coins, or requires 4 balls of wool if asking him to make one during the quest)"
+    ]
+  },
+  "Recommended": [
+    "Teleport runes/methods to Varrock and Al Kharid."
+  ],
+  "Enemies to defeat": "None",
+  "Walkthrough": [
+    {
+      "step": "Starting the Quest",
+      "substeps": [
+        "Speak to Hassan in the Al Kharid palace.",
+        "Speak to Osman, the palace spy master, located just outside the palace entrance to the north-west.",
+        "Osman will tell you to speak to Leela, his daughter, in Draynor Village."
+      ]
+    },
+    {
+      "step": "Gathering the Disguise and Key Imprint",
+      "substeps": [
+        "Travel to Draynor Village and speak to Leela, located north of the wheat field.",
+        "Speak to Aggie, the witch in the house west of the Draynor Village bank. Ask her to make Yellow dye (requires 2 onions, 5 coins) and Skin paste (requires redberries, ashes, flour, bucket of water).",
+        "Speak to Ned in the house east of the Draynor Village bank. Ask him to make a Wig (requires 3 balls of wool). Buy a Rope if you don't have one.",
+        "Go to the jail building south-east of Draynor Village.",
+        "Speak to Lady Keli. Use the following chat options:",
+        "   - \"I have heard of your work.\"",
+        "   - \"What is your latest plan then?\"",
+        "   - \"You must have been very skilful...\"",
+        "   - \"Are you sure they will not try to rescue him?\"",
+        "   - \"Could I see the key for a moment?\" (Requires Soft Clay in inventory)",
+        "   - \"Could I touch the key for a moment?\" (You will automatically make an imprint)"
+      ]
+    },
+    {
+      "step": "Forging the Key",
+      "substeps": [
+        "Return to Osman in Al Kharid with the Key imprint and a Bronze bar.",
+        "Osman will tell you to collect the key from Leela.",
+        "Go back to Draynor Village and speak to Leela to receive the Bronze key."
+      ]
+    },
+    {
+      "step": "The Rescue",
+      "substeps": [
+        "Ensure you have the Pink skirt, Wig, Skin paste, Bronze key, Rope, and 3 Beers.",
+        "Go back to the jail building near Draynor Village.",
+        "Talk to the Guard outside the jail cell. Offer him a beer.",
+        "Keep talking to him until you've given him all 3 beers and he passes out drunk.",
+        "Use the Rope on Lady Keli to tie her up.",
+        "Use the Bronze key on the jail door to unlock it.",
+        "Speak to Prince Ali. He will automatically take the disguise items (Wig, Skirt, Skin Paste) and escape."
+      ]
+    },
+    {
+      "step": "Completing the Quest",
+      "substeps": [
+        "Return to Hassan in the Al Kharid palace to claim your reward."
+      ]
+    }
+  ],
+  "Type": "Free"
+}

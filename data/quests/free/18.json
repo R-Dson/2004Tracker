@@ -1,0 +1,48 @@
+{
+  "id": 18,
+  "name": "Witch's Potion",
+  "Start point": "Hetty in her house in Rimmington.",
+  "Official difficulty": "Novice",
+  "Official length": "Short",
+  "Description": "Become one with your darker side. Tap into your hidden depths of magical potential by making a potion with the help of Hetty the Rimmington witch.",
+  "Type": "Free",
+  "Requirements": {
+    "Items required": [
+      "Onion (obtainable during quest)",
+      "Rat's tail (obtainable during quest)",
+      "Eye of newt (obtainable during quest)",
+      "Burnt meat (obtainable during quest)"
+    ]
+  },
+  "Recommended": [
+     "Coins (around 3) to buy an eye of newt if not already owned."
+  ],
+  "Enemies to defeat": "Rat (level 1)",
+  "Walkthrough": [
+    {
+      "step": "Starting the quest",
+      "substeps": [
+        "Speak to Hetty in her house in the south-east corner of Rimmington.",
+        "Agree to help her make a potion. She will ask you to find four ingredients: an onion, a rat's tail, an eye of newt, and burnt meat."
+      ]
+    },
+    {
+      "step": "Gathering Ingredients",
+      "substeps": [
+        "**Onion:** Go to the field just north-west of Rimmington (behind the house with the range) and pick an Onion.",
+        "**Rat's tail:** Kill a Rat (level 1) found wandering around Rimmington or east of the village. It will drop a Rat's tail (this only drops after starting the quest).",
+        "**Eye of newt:** Go to the magic shop in Port Sarim (east of Rimmington). Buy an Eye of newt from Betty for 3 coins.",
+        "**Burnt meat:** Kill a Rat (level 1) and pick up the meat. Go to the house north of Hetty's house in Rimmington. Use the raw rat meat on the range. If it cooks successfully, use the cooked meat on the range again to burn it. If it burns the first time, you have the required item."
+      ]
+    },
+    {
+      "step": "Completing the quest",
+      "substeps": [
+        "Return to Hetty with all four ingredients (Onion, Rat's tail, Eye of newt, Burnt meat).",
+        "Speak to Hetty. She will take the ingredients.",
+        "Drink from the cauldron.",
+        "Quest complete!"
+      ]
+    }
+  ]
+}

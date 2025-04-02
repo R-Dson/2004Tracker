@@ -1,0 +1,66 @@
+{
+  "id": 40,
+  "name": "Sheep Herder",
+  "Start point": "Councilor Halgrive, south of the East Ardougne church.",
+  "Official difficulty": "Medium",
+  "Official length": "Short",
+  "Description": "Four plague-infected sheep have gotten loose and it's up to you to recapture them and rid Ardougne of them.",
+  "Type": "Members",
+  "Requirements": {
+    "Items required": [
+      "100 coins"
+    ]
+  },
+  "Recommended": [
+    "A friend to help block sheep (optional)"
+  ],
+  "Enemies to defeat": "None",
+  "Walkthrough": [
+    {
+      "step": "Starting the quest",
+      "substeps": [
+        "Talk to Councilor Halgrive south of the East Ardougne church. He will give you some poisoned Sheep feed.",
+        "He tells you to speak to Doctor Orbon.",
+        "Go north into the church and talk to Doctor Orbon.",
+        "Buy the Plague suit from Doctor Orbon for 100 coins."
+      ]
+    },
+    {
+      "step": "Preparing for herding",
+      "substeps": [
+        "Go to the sheep pen north-west of the church (follow the road north).",
+        "Put on the Plague jacket and Plague trousers.",
+        "Talk to Farmer Brunty inside the pen.",
+        "Take the Cattleprod from the shed just north of Brunty.",
+        "Wield the Cattleprod."
+      ]
+    },
+    {
+      "step": "Herding the Sheep",
+      "substeps": [
+        "General Herding: Use the 'Prod' option on the cattleprod while wielding it. Stand on the opposite side of the sheep from the direction you want it to move. Guide each sheep towards the pen gate near Farmer Brunty.",
+        "Sheep #1 (Yellow): Found south of the pen, near the north Ardougne wall. Prod it towards the pen gate.",
+        "Sheep #2 (Blue): Found just east of the pen, outside the fenced area. Prod it towards the pen gate.",
+        "Sheep #3 (Green): Found north-west of the pen, past the Warrior woman. Prod it towards the pen gate.",
+        "Sheep #4 (Red): Found north-east of the pen, towards the Fishing Guild entrance. Prod it towards the pen gate.",
+        "Feeding: Once a sheep is inside the pen, use the poisoned Sheep feed on it.",
+        "Collect Bones: Pick up the Diseased sheep bones after feeding each sheep. Keep them until you have all four sets."
+      ]
+    },
+    {
+      "step": "Disposing of the evidence",
+      "substeps": [
+        "Ensure all four sheep have been fed and you have collected their bones.",
+        "Use one set of Diseased sheep bones on the incinerator next to the shed in the pen.",
+        "Repeat for the remaining three sets of bones."
+      ]
+    },
+    {
+      "step": "Completing the quest",
+      "substeps": [
+        "Return to Councilor Halgrive.",
+        "Talk to him to claim your reward."
+      ]
+    }
+  ]
+}

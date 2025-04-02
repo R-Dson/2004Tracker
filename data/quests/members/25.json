@@ -1,0 +1,82 @@
+{
+  "id": 25,
+  "name": "Fight Arena",
+  "Start point": "Lady Servil, southeast of the gnome battlefield, northwest edge of the arena camp.",
+  "Official difficulty": "Hard",
+  "Official length": "Medium",
+  "Description": "The Servil family has been broken up by the evil General Khazard. Reunite the family and ultimately defeat the General.",
+  "Type": "Members",
+  "Requirements": {
+    "Combat requirements": "Ability to defeat multiple high-level enemies including level 132 Bouncer and level 112 General Khazard"
+  },
+  "Recommended": [
+    "Good weapon and armour",
+    "Food",
+    "Prayer potions",
+    "High healing food"
+  ],
+  "Enemies to defeat": [
+    "Khazard Ogre (level 55)",
+    "Khazard Scorpion (level 44)",
+    "Bouncer (level 132)",
+    "General Khazard (level 112)"
+  ],
+  "Walkthrough": [
+    {
+      "step": "Starting the Quest",
+      "substeps": [
+        "Talk to Lady Servil near the Fight Arena entrance (north-west of the camp, south-east of the Gnome Stronghold battlefield).",
+        "Agree to help rescue her family."
+      ]
+    },
+    {
+      "step": "Infiltrating the Prison",
+      "substeps": [
+        "Head east into the Fight Arena camp.",
+        "Enter the most northeastern house.",
+        "Open the chest and take the Khazard armour (helmet and platebody).",
+        "Equip the armour.",
+        "Go south into the prison building.",
+        "The guard will let you in because you are wearing the armour.",
+        "Talk to Jeremy Servil through his cell door. He'll tell you the guard has the keys."
+      ]
+    },
+    {
+      "step": "Getting the Keys",
+      "substeps": [
+        "Enter the southeast corner room of the prison building.",
+        "Talk to the Prison Guard. He mentions Khali brew makes him sleepy.",
+        "Go west to the tavern within the camp.",
+        "Take a Khali brew from the table.",
+        "Return to the Prison Guard and talk to him again.",
+        "He will take the brew, get drunk, and give you the cell keys."
+      ]
+    },
+    {
+      "step": "First Rescue and Capture",
+      "substeps": [
+        "Use the cell keys on Jeremy's cell door.",
+        "A cutscene will play where you and Jeremy attempt to escape but are forced into the arena.",
+        "Defeat the Khazard Ogre (level 55) to save Justin Servil.",
+        "After the fight, General Khazard will capture you."
+      ]
+    },
+    {
+      "step": "The Arena Fights",
+      "substeps": [
+        "You will appear in a jail cell. Talk to Hengrad.",
+        "You will be taken out to fight again.",
+        "Defeat the Khazard Scorpion (level 44).",
+        "Defeat Bouncer (level 132). Tip: Use the carcass on the west side of the arena scaffold as a safespot.",
+        "Defeat General Khazard (level 112)."
+      ]
+    },
+    {
+      "step": "Completing the Quest",
+      "substeps": [
+        "After defeating General Khazard, talk to one of the Servils.",
+        "Return to Lady Servil outside the camp to claim your reward."
+      ]
+    }
+  ]
+}

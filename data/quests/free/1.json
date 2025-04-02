@@ -1,0 +1,89 @@
+{
+  "id": 1,
+  "name": "Black Knights' Fortress",
+  "Start point": "Sir Amik Varze on the 3rd floor[UK]4th floor[US] of the White Knights' Castle in Falador.",
+  "Official difficulty": "Medium",
+  "Official length": "Short",
+  "Description": "The black knights are up to no good. You are hired by the white knights to spy on them and uncover their evil scheme.",
+  "Requirements": {
+    "Quest points": "12 Quest points",
+    "Items required": [
+      "Bronze medium helm",
+      "Iron chainmail",
+      "Cabbage (can be obtained during the quest)"
+    ]
+  },
+  "Recommended": [
+    "Combat level sufficient to survive attacks from level 33 Black Knights (optional, as fighting can be avoided)."
+  ],
+  "Enemies to defeat": "Black Knight (level 33) (optional, can be avoided)",
+  "Walkthrough": [
+    {
+      "step": "Starting the quest",
+      "substeps": [
+        "Talk to Sir Amik Varze on the 3rd floor[UK]4th floor[US] of the White Knights' Castle in Falador. Accept his request to spy on the Black Knights."
+      ]
+    },
+    {
+      "step": "Getting the Cabbage",
+      "substeps": [
+        "Go to the Monastery east of Ice Mountain.",
+        {
+          "image": "https://oldschool.runescape.wiki/images/thumb/Edgeville_Monastery.png/1280px-Edgeville_Monastery.png",
+          "caption": "The Monastery."
+        },
+        "Pick a Cabbage from the patch just north of the Monastery."
+      ]
+    },
+    {
+      "step": "Infiltrating the Fortress",
+      "substeps": [
+        "Travel to the Black Knights' Fortress, north of Ice Mountain.",
+        {
+          "image": "https://oldschool.runescape.wiki/images/thumb/Black_Knights%27_Fortress_%28location%29.png/1280px-Black_Knights%27_Fortress_%28location%29.png", 
+          "caption": "The Black Knights' Fortress."
+        },
+        "Equip the Bronze medium helm and Iron chainmail.",
+        "Enter the fortress through the sturdy door on the south side.",
+        "Push the odd-looking wall directly north of the entrance.",
+        "Climb up the ladder."
+      ]
+    },
+    {
+      "step": "Navigating to the Spy Point",
+      "substeps": [
+        "Climb the next ladder.",
+        "Climb the ladder again to reach the top floor.",
+        "Climb *down* the ladder to the south-east.",
+        "Open the door to the east.",
+        "Open the next door.",
+        "Climb *up* the ladder (into the cannon room).",
+        "Climb *down* the ladder on the east side (into the altar room).",
+        "Open the door (a Black Knight may attack; you can fight or run).",
+        "Climb the ladder in the south-west corner."
+      ]
+    },
+    {
+      "step": "Spying and Sabotage",
+      "substeps": [
+        "Click 'Listen-at grill' on the wall grill. You will learn the secret weapon requires a specific cabbage from Draynor Manor.",
+        "Go back down all the ladders to the ground floor entrance room.",
+        "Push the odd-looking wall again to exit the secret passage.",
+        "Attempt to open the door to the *east* on the ground floor.",
+        "Tell the guard you are brave enough to enter.",
+        "Enter the room (a Black Knight may attack; you can fight or ignore).",
+        "Climb up the ladder.",
+        "Walk east, then south, and push the odd-looking wall.",
+        "Use the Cabbage (the one from the Monastery) on the hole in the floor."
+      ]
+    },
+    {
+      "step": "Completing the quest",
+      "substeps": [
+        "Leave the fortress.",
+        "Return to Sir Amik Varze in Falador to claim your reward."
+      ]
+    }
+  ],
+  "Type": "Free"
+}

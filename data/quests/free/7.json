@@ -1,0 +1,82 @@
+{
+  "id": 7,
+  "name": "Goblin Diplomacy",
+  "Start point": "Bartender in the Rusty Anchor pub in Port Sarim.",
+  "Official difficulty": "Novice",
+  "Official length": "Short",
+  "Description": "There's a disturbance in the goblin village. Help the goblins solve their dispute so the world doesn't have to worry about rioting goblins.",
+  "Requirements": {
+    "Items required": [
+      "3 Goblin mail (obtainable during quest)",
+      "3 Redberries (obtainable during quest)",
+      "2 Onions (obtainable during quest)",
+      "2 Woad leaves (obtainable during quest)",
+      "Blue dye (obtainable during quest)",
+      "Orange dye (obtainable during quest)",
+      "Coins (at least 35)"
+    ]
+  },
+  "Recommended": [
+     "Weapon and armour to kill low-level Goblins (optional, mail can sometimes be picked up)",
+     "Teleports to Falador and Varrock"
+  ],
+  "Enemies to defeat": "None (optional: Goblins level 5 for faster mail acquisition)",
+  "Walkthrough": [
+    {
+      "step": "Starting the Quest",
+      "substeps": [
+        "Speak with the Bartender at the Rusty Anchor pub in Port Sarim. He will mention the goblins arguing over armour colour."
+      ]
+    },
+    {
+      "step": "Visiting the Goblin Village",
+      "substeps": [
+        "Travel north from Port Sarim, through Falador, and take the north-west path towards the Goblin Village (north of Doric's Anvil).",
+        "Talk to General Wartface or General Bentnoze. They will argue about wanting different coloured armour.",
+        "Agree to help them get new armour. They will eventually mention wanting Orange armour.",
+        "Obtain 3 Goblin mails. You can kill the Goblins (level 5) in the village until they drop three, or sometimes find spawns inside the buildings."
+      ]
+    },
+    {
+      "step": "Meeting Aggie the Witch",
+      "substeps": [
+        "Travel to Draynor Village.",
+        "Find Aggie the Witch in her home on the north side of the village.",
+        "Ask her to make dyes. She needs specific ingredients for Red, Yellow, and Blue dyes, and charges 5 coins per dye."
+      ]
+    },
+    {
+      "step": "Gathering Dye Ingredients",
+      "substeps": [
+        "Redberries (3): Buy from Wydin's Food Store in Port Sarim OR pick from the bushes south-east of Varrock's east bank.",
+        "Onions (2): Pick from the field north of Rimmington / north-west of Port Sarim.",
+        "Woad leaves (2): Go to Falador Park and speak to Wyson the Gardener. Pay him 20 coins to get 2 woad leaves."
+      ]
+    },
+    {
+      "step": "Making the Dyes and Coloured Armour",
+      "substeps": [
+        "Return to Aggie in Draynor Village with the ingredients and at least 15 coins.",
+        "Ask her to make Red dye (requires 3 redberries, 5 coins).",
+        "Ask her to make Yellow dye (requires 2 onions, 5 coins).",
+        "Ask her to make Blue dye (requires 2 woad leaves, 5 coins).",
+        "Open your inventory. Use the Red dye on the Yellow dye (or vice versa) to create Orange dye.",
+        "Use the Orange dye on one of the Goblin mails.",
+        "Use the Blue dye on another Goblin mail.",
+        "Leave the third Goblin mail brown."
+      ]
+    },
+    {
+      "step": "Completing the Quest",
+      "substeps": [
+        "Return to the Goblin Village.",
+        "Speak to General Wartface or General Bentnoze again.",
+        "They will try the Blue armour.",
+        "Speak to them again to give them the Orange armour.",
+        "Speak to them a final time. They will decide they preferred the original Brown armour. You'll hand over the last (brown) Goblin mail.",
+        "Quest Complete!"
+      ]
+    }
+  ],
+  "Type": "Free"
+}

@@ -1,0 +1,52 @@
+{
+  "id": 13,
+  "name": "Rune Mysteries",
+  "Start point": "Duke Horacio on the 1st floor[UK]2nd floor[US] of Lumbridge Castle.",
+  "Official difficulty": "Novice",
+  "Official length": "Short",
+  "Description": "The Duke of Lumbridge has discovered a strange talisman. He asks you to take it to the Wizards' Tower south of Draynor Village for research. This quest unlocks the Runecrafting skill.",
+  "Requirements": {
+    "Quest points": "None",
+    "Items required": []
+  },
+  "Recommended": [
+    "Fast travel to Draynor Village (Amulet of glory)",
+    "Fast travel to Varrock (Varrock teleport)"
+  ],
+  "Enemies to defeat": "None",
+  "Walkthrough": [
+    {
+      "step": "Starting the quest",
+      "substeps": [
+        "Speak to Duke Horacio on the 1st floor[UK]2nd floor[US] of Lumbridge Castle.",
+        "He will give you an Air talisman and ask you to take it to the Archmage Sedridor."
+      ]
+    },
+    {
+      "step": "The Wizards' Tower",
+      "substeps": [
+        "Travel to the Wizards' Tower, south of Draynor Village.",
+        "Go down the ladder to the basement.",
+        "Speak to Sedridor. He will take the Air talisman and give you a Research package."
+      ]
+    },
+    {
+      "step": "Varrock Rune Shop",
+      "substeps": [
+        "Travel to Varrock.",
+        "Go to the rune shop in the north-eastern part of Varrock (south of the east bank).",
+        "Speak to Aubury.",
+        "Give him the Research package. He will give you Research notes."
+      ]
+    },
+    {
+      "step": "Completing the quest",
+      "substeps": [
+        "Return to Sedridor in the basement of the Wizards' Tower.",
+        "Give him the Research notes.",
+        "Talk to him again to finish the quest."
+      ]
+    }
+  ],
+  "Type": "Free"
+}

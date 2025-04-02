@@ -1,0 +1,92 @@
+{
+  "id": 3,
+  "name": "Demon Slayer",
+  "Start point": "The gypsy in her tent at Varrock square.",
+  "Official difficulty": "Medium",
+  "Official length": "Medium",
+  "Description": "Wizards of the dark arts have freed the ancient demon Delrith. Find out how to imprison him again before its too late and he destroys Varrock.",
+  "Requirements": {
+    "Quest points": "None",
+    "Items required": [
+      "25 Bones",
+      "1 coin"
+    ]
+  },
+  "Recommended": [],
+  "Enemies to defeat": "Delrith (level 27)",
+  "Walkthrough": [
+    {
+      "step": "Starting the quest",
+      "substeps": [
+        "Talk to the Gypsy in her tent in Varrock square.",
+        "Pay her 1 coin.",
+        "Ask her about the magical incantation needed to defeat Delrith."
+      ]
+    },
+    {
+      "step": "Finding Sir Prysin",
+      "substeps": [
+        "Go to Varrock Castle.",
+        "Talk to Sir Prysin in the south-west room.",
+        "Ask him about Silverlight."
+      ]
+    },
+    {
+      "step": "Getting the First Key",
+      "substeps": [
+        "Go upstairs in Varrock Castle.",
+        "Talk to Captain Rovin.",
+        "Ask him for his key until he gives it to you."
+      ]
+    },
+    {
+      "step": "Getting the Second Key",
+      "substeps": [
+        "Go to the most north-east room on the ground floor[UK]1st floor[US] of Varrock Castle.",
+        "Go upstairs.",
+        "Take the Bucket from the room.",
+        "Go back downstairs.",
+        "Use the Bucket with the sink to get a Bucket of water.",
+        "Go to the room where Sir Prysin is.",
+        "Use the Bucket of water on the drain.",
+        "Go outside the castle to the Manhole just north-east of the western entrance.",
+        "Enter the Varrock Sewers.",
+        "Walk east and pick up the Rusty key from the floor."
+      ]
+    },
+    {
+      "step": "Getting the Third Key",
+      "substeps": [
+        "Ensure you have 25 bones.",
+        "Travel south to the Wizards' Tower.",
+        "Talk to Wizard Traiborn on the 1st floor[UK]2nd floor[US].",
+        "Give him the 25 bones to receive the third key."
+      ]
+    },
+    {
+      "step": "Obtaining Silverlight",
+      "substeps": [
+        "Return to Sir Prysin in Varrock Castle with all three keys.",
+        "He will give you the Silverlight sword."
+      ]
+    },
+    {
+      "step": "Defeating Delrith",
+      "substeps": [
+        "Wield the Silverlight sword.",
+        "Go south of Varrock, past the east gate, to the Dark Wizards' stone circle.",
+        "Attack Delrith.",
+        "Fight him until his health bar is empty.",
+        "A cutscene will play showing him weakened.",
+        "When prompted, choose the incantation: \"Carlem Aber Camerinthum Purchai Gabindo\"."
+      ]
+    },
+    {
+      "step": "Completing the quest",
+      "substeps": [
+        "Delrith will be banished. Congratulations, quest complete!"
+      ]
+    }
+  ],
+  "Type": "Free"
+}

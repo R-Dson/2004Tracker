@@ -1,0 +1,196 @@
+{
+  "id": 5,
+  "name": "Dragon Slayer",
+  "Start point": "Guildmaster in the Champions' Guild, west of Varrock.",
+  "Official difficulty": "Hard",
+  "Official length": "Long",
+  "Description": "Prove yourself a true hero. Kill the mighty dragon Elvarg of Crandor Island and earn the right to buy and wear the powerful rune plate mail body.",
+  "Requirements": {
+    "Quest points": "None specified, but Champions' Guild requires 32 Quest points to enter.",
+    "Skills": "Ability to defeat a level 83 (guide says 86) Dragon and various other monsters. Ability to withstand level 44 Lesser Demon attacks.",
+    "Items required": [
+      "6 Steel bars (or 12 steel nails + Hammer)",
+      "3 Planks",
+      "2,000 coins (for ship)",
+      "Unfired bowl",
+      "Lobster pot",
+      "Silk",
+      "Wizard's mind bomb",
+      "Anti-dragon shield (obtained during quest)",
+      "Combat equipment (weapon, armour, food)",
+      "Either 10,000 coins OR Runes for Telekinetic Grab (Law, Air)"
+    ]
+  },
+  "Recommended": [
+    "Combat level 40+",
+    "Prayer level 37+ (Protect from Melee)",
+    "Teleport runes (Varrock, Falador, Lumbridge)",
+    "Anti-poison potions (for Crandor spiders)",
+    "Good food (e.g., Lobsters, Swordfish)"
+  ],
+  "Enemies to defeat": [
+    "Various rats",
+    "Ghosts (level 19)",
+    "Skeletons (level 22)",
+    "Zombies (level 24)",
+    "Melzar the Mad (level 43)",
+    "Lesser Demon (level 82)",
+    "Wormbrain (level 2) (optional, can pay instead)",
+    "Elvarg (level 83 - guide states 86)"
+  ],
+  "Walkthrough": [
+    {
+      "step": "Starting the Quest",
+      "substeps": [
+        "Enter the Champions' Guild (requires 32 Quest Points).",
+        "Talk to the Guildmaster.",
+        "Ask him about Rune Plate Mail. He will tell you to talk to Oziach.",
+        "Travel to Oziach's house, north-west of Edgeville, near the Wilderness ditch."
+      ]
+    },
+    {
+      "step": "Oziach and the Map Pieces",
+      "substeps": [
+        "Talk to Oziach.",
+        "Ask him about buying a rune platebody.",
+        "Ask him about the anti-dragon shield.",
+        "Ask where you can find the map pieces. He will give you a Maze key."
+      ]
+    },
+    {
+      "step": "Map Piece 1: The Oracle",
+      "substeps": [
+        "Items needed: Unfired bowl, Lobster pot, Silk, Wizard's mind bomb.",
+        {
+          "image": "https://oldschool.runescape.wiki/images/thumb/Dragon_Slayer_-_Thalzar%27s_magic_room.png/800px-Dragon_Slayer_-_Thalzar%27s_magic_room.png",
+          "caption": "The magical room."
+        },
+        "Travel to the Oracle on Ice Mountain (west of Edgeville, above the Dwarven Mine entrance).",
+        "Speak to the Oracle. She will tell you about a door in the Dwarven Mine.",
+        "Enter the Dwarven Mine.",
+        "Go to the eastern part of the mine and open the magical door (requires the 4 items in inventory, which will be consumed).",
+        "Search the chest inside to receive the first map piece."
+      ]
+    },
+    {
+      "step": "Map Piece 2: Melzar's Maze",
+      "substeps": [
+        "Items needed: Maze key (from Oziach), combat equipment.",
+        "Go to Melzar's Maze, south of the Crafting Guild, north-west of Falador.",
+        "Use the Maze key on the door to enter.",
+        {
+          "image": "https://oldschool.runescape.wiki/images/Melzar%27s_Maze_map.png",
+          "caption": "The entrance to Melzar's Maze."
+        },
+        "Kill Giant rats (level 6) until one drops a Red key.",
+        "Use the Red key on the north-western door and climb the ladder.",
+        "Kill Ghosts (level 19) until one drops an Orange key.",
+        "Use the Orange key on the door second from the north on the eastern wall.",
+        "Kill Skeletons (level 22) until one drops a Yellow key.",
+        "Use the Yellow key on the most south-western door. Climb down the ladder.",
+        "Climb down the next ladder.",
+        "Kill Zombies (level 24) until one drops a Blue key.",
+        "Use the Blue key on the north-western door.",
+        "Kill Melzar the Mad (level 43) until he drops a Magenta key.",
+        "Use the Magenta key on the northern door.",
+        "Kill the Lesser Demon (level 82) until it drops a Green key.",
+        "Use the Green key on the western door.",
+        "Search the chest inside to receive the second map piece."
+      ]
+    },
+    {
+      "step": "Map Piece 3: Wormbrain",
+      "substeps": [
+        "Items needed: Either 10,000 coins OR combat equipment (Range/Magic) + runes for Telekinetic Grab.",
+        "Go to the Port Sarim Jail (south of the Port Sarim lodestone, east of the Falador farming patch).",
+        "Option A (Pay): Talk to Wormbrain (level 2) in the cell. Ask about the map piece. Agree to pay 10,000 coins. Talk to him again to pay and receive the third map piece.",
+        "Option B (Kill): Attack Wormbrain with Ranged or Magic from outside the cell. Once he is dead, cast Telekinetic Grab on the map piece he drops.",
+        "Use any of the map pieces on another one to combine them into Crandor map."
+      ]
+    },
+    {
+      "step": "The Anti-Dragon Shield",
+      "substeps": [
+        "Travel to Lumbridge Castle.",
+        "Go to the 1st floor[UK]2nd floor[US] and talk to Duke Horacio.",
+        "Ask him about a shield to protect you from dragon breath. He will give you the Anti-dragon shield.",
+        "Optional Tip: Drop the shield, ask the Duke for another, then pick up the first shield to have a spare."
+      ]
+    },
+    {
+      "step": "Preparing the Ship",
+      "substeps": [
+        "Items needed: 2,000 coins, Hammer, 3 Planks, 12 Steel nails (or 6 Steel bars to make nails at an anvil), Crandor map.",
+        "Go to the southern-most dock in Port Sarim (east of the food store).",
+        "Talk to Klarenk (labelled 'Captain' in guide). Ask to buy the ship (Lady Lumbridge). Pay him 2,000 coins.",
+        "Board the ship.",
+        "Go down the ladder.",
+        "Use a Plank on the hole in the ship's hull. Repeat until the hole is fixed (requires 3 Planks and 12 Nails)."
+      ]
+    },
+    {
+      "step": "Hiring Ned",
+      "substeps": [
+        "Items needed: Crandor map, Anti-dragon shield, combat equipment, food, potions.",
+        "Go to Draynor Village.",
+        "Talk to Ned in his house (north-east part of the village).",
+        "Ask him to navigate your ship to Crandor. He will agree and take your map.",
+        "Prepare for the trip and the fight: Ensure you have your Anti-dragon shield equipped, along with your best combat gear, plenty of food, and any potions (Combat, Prayer, Anti-poison recommended)."
+      ]
+    },
+    {
+      "step": "Voyage to Crandor",
+      "substeps": [
+        "Return to your ship, the Lady Lumbridge, at the Port Sarim dock.",
+        "Board the ship and go down the ladder.",
+        "Talk to Ned to set sail for Crandor."
+      ]
+    },
+    {
+      "step": "Navigating Crandor",
+      "substeps": [
+        "After the cutscene, you will arrive at Crandor. The ship will be wrecked.",
+        "Walk south off the dock and go up the hill.",
+        "Follow the path south-east, avoiding aggressive King Scorpions (level 32).",
+        "Continue north up another hill.",
+        "Run past the Lesser Demon (level 82) near the peak.",
+        "Enter the dungeon entrance (cave opening)."
+      ]
+    },
+    {
+      "step": "Elvarg's Lair",
+      "substeps": [
+        {
+          "image": "https://oldschool.runescape.wiki/images/thumb/Crandor_and_Karamja_Dungeon_map.png/320px-Crandor_and_Karamja_Dungeon_map.png",
+          "caption": "Karamja dungeon."
+        },
+        "Inside the cave, run past Skeletons (level 22 and level 45).",
+        "Go through the gate/door at the northern end.",
+        "Prepare for the fight: Drink any potions now. Ensure your Anti-dragon shield is equipped.",
+        "Walk north into the final chamber."
+      ]
+    },
+    {
+      "step": "Fighting Elvarg",
+      "substeps": [
+        "Attack Elvarg (level 83 - guide states 86).",
+        "Keep Protect from Melee prayer active if possible.",
+        "Keep your Anti-dragon shield equipped at all times to reduce dragonfire damage.",
+        "Eat food when your health gets low.",
+        "Defeat Elvarg."
+      ]
+    },
+    {
+      "step": "Completion and Escape",
+      "substeps": [
+        "After Elvarg is defeated, you will be teleported outside the lair entrance.",
+        "Run south, past the Lesser Demon again.",
+        "Find the 'secret' wall on the western side of the southern peninsula of Crandor.",
+        "Open the wall. This leads into the Karamja Volcano dungeon.",
+        "You can now either teleport out or navigate through the volcano dungeon to exit near Musa Point on Karamja.",
+        "Quest complete! Return to Oziach in Edgeville to gain the ability to purchase Rune platebodies and Green d'hide bodies."
+      ]
+    }
+  ],
+  "Type": "Free"
+}

@@ -1,0 +1,57 @@
+{
+  "id": 17,
+  "name": "Vampire Slayer",
+  "Start point": "Morgan in his house in Draynor Village.",
+  "Official difficulty": "Medium",
+  "Official length": "Short",
+  "Description": "Count Draynor is terrorizing the small village of Draynor. The townsfolk want you to kill this vampire.",
+  "Type": "Free",
+  "Requirements": {
+    "Items required": [
+      "Hammer",
+      "Beer (can be bought during the quest for 2 coins)"
+    ]
+  },
+  "Recommended": [
+    "Decent armor and weapon",
+    "Combat level sufficient to defeat Count Draynor (level 34)",
+    "Some food"
+  ],
+  "Enemies to defeat": "Count Draynor (level 34)",
+  "Walkthrough": [
+    {
+      "step": "Starting the quest",
+      "substeps": [
+        "Speak to Morgan in his house in Draynor Village. Agree to help.",
+        "Go upstairs in Morgan's house.",
+        "Search the cupboard to find Garlic."
+      ]
+    },
+    {
+      "step": "Consulting Dr. Harlow",
+      "substeps": [
+        "Travel to the Blue Moon Inn (formerly Jolly Boar Inn) located north-east of Varrock, just south of the east bank.",
+        "Speak to Dr Harlow inside the Inn.",
+        "Buy a Beer from the Bartender (cost: 2 coins).",
+        "Give the Beer to Dr Harlow. He will give you a Stake and tell you how to defeat the Count."
+      ]
+    },
+    {
+      "step": "Slaying the Vampire",
+      "substeps": [
+        "Ensure you have the Stake, a Hammer, and the Garlic in your inventory.",
+        "Go to Draynor Manor, north of Draynor Village.",
+        "Enter the Manor and go down the stairs into the basement.",
+        "Open the coffin in the centre of the basement room.",
+        "Count Draynor (level 34) will appear and attack.",
+        "Fight Count Draynor. When his health is very low, he will automatically be finished off with the stake."
+      ]
+    },
+    {
+      "step": "Completing the quest",
+      "substeps": [
+        "Once Count Draynor is defeated, the quest is automatically completed."
+      ]
+    }
+  ]
+}

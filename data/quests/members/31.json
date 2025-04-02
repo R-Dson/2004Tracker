@@ -1,0 +1,247 @@
+{
+  "id": 31,
+  "name": "Legends' Quest",
+  "Start point": "Radimus Erkle in the Legends' Guild.",
+  "Official difficulty": "Master",
+  "Official length": "Very Long",
+  "Description": "Accept the challenge of the Legends' Guild to map the Southern part of Karamja Island, make friends with the natives and bring back a prize to display in the Legends' Guild Main Hall.",
+  "Type": "Members",
+  "Requirements": {
+    "Quest points": "107 Quest points",
+    "Quests": [
+      "Hero's Quest",
+      "Family Crest",
+      "Underground Pass",
+      "Waterfall Quest",
+      "Shilo Village"
+    ],
+    "Skills": [
+      "50 Agility",
+      "50 Crafting",
+      "45 Herblore",
+      "52 Mining",
+      "56 Magic",
+      "42 Prayer",
+      "50 Smithing",
+      "50 Strength",
+      "50 Thieving",
+      "50 Woodcutting"
+    ],
+    "Items required": [
+      "Charcoal (2-3 recommended, can be made)",
+      "Papyrus (2-3 recommended, can be obtained during quest)",
+      "Lockpick",
+      "Pickaxe",
+      "Hatchet (Rune hatchet needed later)",
+      "Machete (can be obtained during quest)",
+      "2 Gold bars (more recommended for failures)",
+      "Hammer",
+      "Vial of water",
+      "Unpowered orb",
+      "Runes to cast any Charge Orb spell (e.g., 3 Cosmic, 30 Fire/Water/Earth/Air)",
+      "Runes for 'SMELL': 1 Soul, 1 Mind, 1 Earth, 2 Law",
+      "Sapphire",
+      "Emerald",
+      "Ruby",
+      "Diamond",
+      "Opal",
+      "Jade",
+      "Red topaz",
+      "Rope"
+    ]
+  },
+  "Recommended": [
+    "Combat level high enough to defeat multiple high-level demons and warriors (level 187 demon, level 106, 100, 92 warriors).",
+    "Armour and Weapon (Silverlight can be useful against demons)",
+    "Food (high-healing)",
+    "Prayer potions",
+    "Super combat potions (or equivalent stat-boosting potions)",
+    "Stat restore potions",
+    "Teleportation method (e.g., Amulet of glory, teleport runes)",
+    "Extra Gold bars (in case of failing to make the bowl)",
+    "Empty Vials (optional, for Holy Water)"
+  ],
+  "Enemies to defeat": [
+    "Ungadulu (Demon, level 187)",
+    "San Tojalon (level 106)",
+    "Irvig Senay (level 100)",
+    "Ranalph Devere (level 92)",
+    "Nechryael (Demon, level 187, second fight)",
+    "Nechryael (Demon, level 187, final fight)"
+  ],
+  "Walkthrough": [
+    {
+      "step": "Starting the Quest",
+      "substeps": [
+        "Talk to Radimus Erkle in his office at the Legends' Guild. Accept the quest.",
+        "Receive Radimus notes.",
+        "Search the cupboard in the office to take a Machete (or buy one in Shilo Village).",
+        "Take Papyrus from the table (or buy some).",
+        "Make Charcoal by using logs on a fire (or buy some)."
+      ]
+    },
+    {
+      "step": "Mapping the Jungle",
+      "substeps": [
+        "Travel south of Shilo Village to a Kharazi Jungle entrance.",
+        "Talk to a Forester outside the jungle.",
+        "Use your Hatchet, then Machete on the dense jungle wall to enter (requires Radimus notes).",
+        "Use Charcoal on Papyrus while having the Radimus notes to map the jungle. Map the Western, Central, and Eastern sections until the map is complete (you'll get a message).",
+        "Exit the jungle and show the completed Radimus notes (map) to the Forester to receive a Bull roarer."
+      ]
+    },
+    {
+      "step": "Meeting Gujuo and the First Cavern",
+      "substeps": [
+        "Re-enter the jungle.",
+        "Use the Bull roarer until Gujuo appears. Talk to him and agree to help rescue Ungadulu.",
+        "Locate three rocks in a triangle formation near the jungle walls.",
+        "Search the rocks and climb down into the cavern (may fail and take damage)."
+      ]
+    },
+    {
+      "step": "The Golden Bowl",
+      "substeps": [
+        "Investigate the octagonal fire wall and talk to Ungadulu inside. He needs Holy Water.",
+        "Return to the surface (climb back up).",
+        "Use the Bull roarer to summon Gujuo. He gives you a sketch for a special bowl.",
+        "Take at least 2 Gold bars and a Hammer to an anvil.",
+        "Use a Gold bar on the anvil to smith a Golden bowl (requires 50 Smithing, may fail and consume bars).",
+        "Return to the jungle with the Golden bowl, Bull roarer, Prayer potions (or high prayer), Lockpick, Pickaxe, the 'SMELL' runes (Soul, Mind, Earth, 2 Law), and the 7 gems (Sapphire, Emerald, Ruby, Diamond, Opal, Jade, Red topaz)."
+      ]
+    },
+    {
+      "step": "Blessing the Bowl and Getting Pure Water",
+      "substeps": [
+        "Use the Bull roarer to summon Gujuo.",
+        "Talk to Gujuo to bless the Golden bowl (requires 42 Prayer, may fail and drain Prayer).",
+        "Find the water pool within the jungle.",
+        "Use your Machete on the reeds near the pool to get a Hollow reed.",
+        "Use the Hollow reed on the water pool while having the Blessed golden bowl to fill it with Pure water."
+      ]
+    },
+    {
+      "step": "Freeing Ungadulu (and getting betrayed)",
+      "substeps": [
+        "Return to the cavern and use the Blessed golden bowl (filled with water) on the flames surrounding Ungadulu.",
+        "Search the desk inside the octagon to find a Shaman's tome. Read it.",
+        "Talk to Ungadulu. He will attack, drain some stats, and teleport you out of the octagon."
+      ]
+    },
+    {
+      "step": "Navigating the Deeper Cavern",
+      "substeps": [
+        "Search the north-east bookcase and enter the hidden passage.",
+        "Use your Lockpick on the Ancient Gate (requires 50 Thieving).",
+        "Use your Pickaxe to smash the three boulders (requires 52 Mining).",
+        "Push the next Ancient Gate (requires 50 Strength, may fail and drain Strength).",
+        "Navigate south through the passage (beware Death Wings, level 83).",
+        "Jump over the Jagged wall (requires 50 Agility).",
+        "Find and search the Marked Wall further west. Use the runes (Soul, Mind, Earth, Law, Law) on the wall in the order 'SMELL'.",
+        "Enter the next chamber with 7 pools and stalagmites."
+      ]
+    },
+    {
+      "step": "The Book of Binding",
+      "substeps": [
+        "Use each of the 7 gems (Sapphire, Emerald, Ruby, Diamond, Opal, Jade, Red topaz) on the stalagmites until you find the correct pool for each gem. The correct placement will show a message; incorrect does nothing.",
+        "Once all gems are placed correctly, the Book of Binding will appear. Take it and read it.",
+        "(Optional: Read the book further to learn about enchanting vials and making Holy Water, requiring empty Vials, Prayer, Magic, and the Blessed Bowl with Pure Water. This is generally not recommended.)"
+      ]
+    },
+    {
+      "step": "Fighting the First Demon",
+      "substeps": [
+        "Prepare for combat: equip weapon (Silverlight recommended), armour, bring food, Prayer potions, and stat boosts.",
+        "Return to Ungadulu's area.",
+        "Use the Book of Binding on Ungadulu. A level 187 demon (Nechryael) appears.",
+        "The demon will drain your prayer immediately. Drink a Prayer potion and activate Protect from Melee.",
+        "Defeat the demon.",
+        "Talk to the freed Ungadulu. He gives you Yommie tree seeds and protects you from the fire wall.",
+        "Try to refill your bowl at the nearby pool; it's now murky."
+      ]
+    },
+    {
+      "step": "The Bravery Potion",
+      "substeps": [
+        "Go back to the surface and use the Bull roarer to summon Gujuo. Ask about the murky water.",
+        "He tells you to make a Bravery potion using Snake weed and Ardrigal.",
+        "Find Snake weed by searching marshy jungle vines near water, south-west of Tai Bwo Wannai.",
+        "Find Ardrigal by searching palm trees, north-east of Tai Bwo Wannai.",
+        "Use the Snake weed on a Vial of water, then use the Ardrigal on the unfinished potion to create a Bravery Potion."
+      ]
+    },
+    {
+      "step": "The Second Dungeon Level",
+      "substeps": [
+        "Prepare for exploration and combat: bring the Bravery Potion, Rope, Lockpick, Pickaxe, Unpowered orb, Charge Orb runes, Hatchet, Machete, Radimus notes, armour, weapon, food, prayer potions.",
+        "Return to the cavern area where you found the Book of Binding.",
+        "Go to the Ancient Gate on the north wall. Use an Unpowered orb on the gate and cast any Charge Orb spell (requires 56 Magic).",
+        "Use the Rope on the winch inside.",
+        "Drink the Bravery Potion.",
+        "Climb down the winch."
+      ]
+    },
+    {
+      "step": "The Spirit Warriors and the Crystal Heart",
+      "substeps": [
+        "Pick up the blue hat (Viyeldi's Ghost appears, talk to him if you wish).",
+        "Climb down the rocks (Agility obstacle, may cause damage).",
+        "Kill the three warrior spirits wandering the cavern: San Tojalon (level 106), Irvig Senay (level 100), and Ranalph Devere (level 92) to obtain three crystal pieces.",
+        "Go to the north-east corner and use the crystal pieces on the lava furnace to create a Crystal heart.",
+        "Find and search the Mossy rock near the center of the cavern.",
+        "Use the Crystal heart on the Mossy rock.",
+        "Go to the south-east corner and use the glowing Crystal heart on the Symbol in the wall to pass through the Shimmering field."
+      ]
+    },
+    {
+      "step": "Dealing with the Second Demon",
+      "substeps": [
+        "Run west past Lesser Demons (level 82).",
+        "Attempt to push the boulder near the water's edge. A ghost (related to Viyeldi) appears.",
+        "Choose one of two paths:",
+        "  Path A (Kill Viyeldi): Accept the ghost's request. Equip the dagger he gives you. Go back to Viyeldi (where the blue hat was) and attack him. Return to the ghost, prepare for combat (potions), use the dagger on the ghost. Fight the second demon (level 187).",
+        "  Path B (Holy Force - Recommended): Take the dagger. *Do not attack Viyeldi*. Go all the way back up to Ungadulu (requires another Charge Orb spell). Use the dagger on Ungadulu to receive the Holy Force spell scroll. Return to the second dungeon level (requires *another* Charge Orb spell), go back to the ghost by the boulder, push the boulder, and use the Holy Force spell on the ghost. Fight the (weakened) second demon (level 187).",
+        "After defeating the demon (either path), push the boulderblocking the spring several times until it moves.",
+        "Use your Blessed golden bowl on the spring to refill it with Holy water.",
+        "Use the Holy water on your Yommie tree seeds to germinate them.",
+        "(Optional: Refill the bowl again if needed)."
+      ]
+    },
+    {
+      "step": "Growing the Totem Pole",
+      "substeps": [
+        "Return to the surface.",
+        "Use the Bull roarer to summon Gujuo. Tell him about the seeds.",
+        "Find Fertile soil (dark patches) in the jungle.",
+        "Use a Germinated yommie seed on the soil.",
+        "When the seedling becomes a Young yommie tree, use your Blessed golden bowl of Holy water on it.",
+        "Quickly use your Rune hatchet (or better) on the Adult yommie tree until you obtain a Yommi totem.",
+        "Use the Yommi totem on the ground to raise it, then pick it up."
+      ]
+    },
+    {
+      "step": "The Final Battle",
+      "substeps": [
+        "Prepare for the final fight: bring the Yommi totem, best combat gear (Silverlight optional), food, Prayer potions, Super combat potions.",
+        "Find a Dark totem pole in the jungle.",
+        "Use your stat-boosting potions.",
+        "Use your Yommi totem on the Dark totem.",
+        "If you took Path A (killed Viyeldi): Defeat the three warrior spirits (levels 106, 100, 92) again.",
+        "Fight the final demon (level 187). It will drain prayer; use potions and Protect from Magic.",
+        "After the demon is defeated, use your Yommi totem on the Dark totem again."
+      ]
+    },
+    {
+      "step": "Completing the Quest",
+      "substeps": [
+        "Use the Bull roarer one last time to summon Gujuo. He gives you a Gold totem.",
+        "Return to Radimus Erkle in the Legends' Guild office.",
+        "Give him the Gold totem and the completed Radimus notes (map).",
+        "Meet him in the Legends' Guild lobby and talk to him again.",
+        "Choose four skills to receive 7,650 experience each.",
+        "Quest complete!"
+      ]
+    }
+  ]
+}

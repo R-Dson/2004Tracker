@@ -1,0 +1,87 @@
+{
+  "id": 48,
+  "name": "Tribal Totem",
+  "Start point": "Kangai Mau in the Shrimp and Parrot pub in Brimhaven.",
+  "Official difficulty": "Intermediate",
+  "Official length": "Short",
+  "Description": "Lord Handelmort of Ardougne is a collector of exotic artifacts. A recent addition to his private collection is a strange looking totem from Karamja. The Rantuki tribe are not happy about the recent disappearance of their totem, and Kangai Mau wants your help retrieving it.",
+  "Type": "Members",
+  "Requirements": {
+    "Skills": "21 Thieving"
+  },
+  "Recommended": [
+    "Coins for travel (Ship from Ardougne to Brimhaven, potentially teleports)",
+    "Ardougne teleport",
+    "Draynor Village teleport or Amulet of glory for faster travel to Wizards' Tower"
+  ],
+  "Enemies to defeat": "None",
+  "Rewards": [
+    "1 Quest point",
+    "1,775 Thieving experience",
+    "5 Cooked swordfish"
+  ],
+  "Walkthrough": [
+    {
+      "step": "Starting the quest",
+      "substeps": [
+        "Travel to Brimhaven on Karamja.",
+        "Speak to Kangai Mau in the Shrimp and Parrot pub (north-east Brimhaven)."
+      ]
+    },
+    {
+      "step": "Investigating the Mansion",
+      "substeps": [
+        "Travel to East Ardougne.",
+        "Go to Lord Handelmort's mansion, west of the marketplace (look for the house with guard dogs in a fenced garden).",
+        "Speak to Horacio the Gardener outside the mansion.",
+        "Attempt to open the front door (it will be locked)."
+      ]
+    },
+    {
+      "step": "The Delivery Diversion",
+      "substeps": [
+        "Go to Wizard Cromperty's house (blue building with a telescope on top) in north-east Ardougne.",
+        "Speak to Wizard Cromperty and ask him to teleport you.",
+        "You will arrive in the RPDT Depot.",
+        "Search the south-eastern crate to obtain a Shipping label.",
+        "Use the Shipping label on the crate next to it (the one destined for the Wizards' Tower).",
+        "Speak to the RPDT employee and ask them to ship the crate."
+      ]
+    },
+    {
+      "step": "Finding the Code",
+      "substeps": [
+        "Travel to the Wizards' Tower (south of Draynor Village).",
+        "Go down the ladder to the basement.",
+        "Search the crate you sent earlier to find a Guide Book.",
+        "Read the Guide Book. Note the names mentioned (especially KURT and BRAD)."
+      ]
+    },
+    {
+      "step": "Infiltrating the Mansion",
+      "substeps": [
+        "Return to Wizard Cromperty in Ardougne.",
+        "Speak to him and ask to be teleported again.",
+        "You will arrive inside Lord Handelmort's mansion."
+      ]
+    },
+    {
+      "step": "Retrieving the Totem",
+      "substeps": [
+        "Attempt to pick the lock on the wooden door.",
+        "Enter the code `K U R T` when prompted.",
+        "Search the stairs to disable the trap.",
+        "Go upstairs.",
+        "Open the chest and search it to obtain the Totem pole."
+      ]
+    },
+    {
+      "step": "Completing the Quest",
+      "substeps": [
+        "Travel back to Brimhaven.",
+        "Speak to Kangai Mau in the Shrimp and Parrot pub.",
+        "Give him the Totem pole to complete the quest."
+      ]
+    }
+  ]
+}

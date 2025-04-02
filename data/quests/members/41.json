@@ -1,0 +1,193 @@
+{
+  "id": 41,
+  "name": "Shilo Village",
+  "Start point": "Mosol, deep in Karamja Jungle, east of a walled village.",
+  "Official difficulty": "Hard",
+  "Official length": "Not Specified",
+  "Description": "Rashiliyia, Queen of the Undead, has returned and brought a plague of Undead upon Shilo Village. Help Mosol find a way to solve the problem and gain access to the village.",
+  "Type": "Members",
+  "Requirements": {
+    "Quests": [
+      "Jungle Potion"
+    ],
+    "Skills": [
+      "32 Agility",
+      "20 Crafting"
+    ],
+    "Other": "Must be able to defeat level 60 Undead, and consecutively defeat level 86, 65, and 88 monsters.",
+    "Items required": [
+      "Spade",
+      "Rope",
+      "Lit candle (or Tinderbox and Candle)",
+      "Chisel",
+      "Hammer",
+      "Bronze bar"
+    ]
+  },
+  "Recommended": [
+    "Combat equipment (armour, weapon)",
+    "Food",
+    "Prayer potions (optional)"
+  ],
+  "Enemies to defeat": [
+    "Undead ones (level 60)",
+    "Zombie (level 86)",
+    "Skeleton (level 65)",
+    "Ghost (level 88)"
+  ],
+  "Walkthrough": [
+    {
+      "step": "Starting the Quest",
+      "substeps": [
+        "Find Mosol wandering east of the walled Shilo Village in the Karamja jungle.",
+        "Talk to Mosol. Ask what you can do.",
+        "He will give you a Wambum belt and ask you to find Trufitus."
+      ]
+    },
+    {
+      "step": "Consulting Trufitus",
+      "substeps": [
+        "Find Trufitus in his hut north of the walled village (where Jungle Potion started).",
+        "Talk to Trufitus, tell him Rashiliyia has returned.",
+        "Give him the Wambum belt.",
+        "Ask ALL available questions about the legend and the Temple of Ah-za Rhoon.",
+        "Tell him you will search the temple."
+      ]
+    },
+    {
+      "step": "Entering the Temple of Ah-za Rhoon",
+      "substeps": [
+        "Go east from Trufitus's hut until you see a river, then head south to find a log bridge.",
+        "Cross the log bridge (Agility check) and continue south to find a Mound of Earth.",
+        "Search the Mound of Earth.",
+        "Use your Spade on the Mound of Earth.",
+        "Use your Lit candle on the hole.",
+        "Use your Rope on the hole.",
+        "Search the hole again to climb down into the temple. (Beware of level 60 Undead ones inside)."
+      ]
+    },
+    {
+      "step": "Exploring the Temple",
+      "substeps": [
+        "Walk south slightly and find a cave-in. Search it and wriggle through.",
+        "Walk north to the northwest corner. Search the loose rocks to find a Tattered Scroll.",
+        "Walk southeast to a small room. Search the old sacks to find a Crumpled Scroll.",
+        "Walk north to find Ancient gallows. Search them to find Zadimus' Corpse."
+      ]
+    },
+    {
+      "step": "Leaving the Temple (First Time)",
+      "substeps": [
+        "Return to the first cave area (where you entered).",
+        "Attempt to craft the table into a raft (you will find there isn't enough wood).",
+        "Walk southeast to find a waterfall. Search it and climb up (Agility check, retry if you fall)."
+      ]
+    },
+    {
+      "step": "Seeking Trufitus's Guidance",
+      "substeps": [
+        "Return to Trufitus.",
+        "Use the Tattered Scroll, Crumpled Scroll, and Zadimus' Corpse on him.",
+        "He will instruct you to bury the corpse. Read both scrolls."
+      ]
+    },
+    {
+      "step": "Summoning Zadimus",
+      "substeps": [
+        "Go to the Tribal Statue near Trufitus's hut.",
+        "Use the Spade on the ground in front of the statue to bury Zadimus' Corpse.",
+        "Zadimus will appear. Talk to him to receive a Bone shard.",
+        "Return to Trufitus and give him the Bone shard. He will tell you about another tomb."
+      ]
+    },
+    {
+      "step": "Finding the Second Tomb",
+      "substeps": [
+        "Go southwest from Trufitus's hut.",
+        "Find some rocks near the river and climb them (Agility check).",
+        "Cross the bridge (Agility check, retry if you fail).",
+        "Head slightly north and search the pile of rocks to enter the tomb."
+      ]
+    },
+    {
+      "step": "Exploring the Second Tomb",
+      "substeps": [
+        "Head south inside the tomb and search the dolmen.",
+        "You will receive a Sword pommel, a Locating crystal, and Bervirius notes.",
+        "Go to the east room and climb the rocks to exit the tomb."
+      ]
+    },
+    {
+      "step": "Crafting the Amulet",
+      "substeps": [
+        "Return to Trufitus and give him the Sword pommel, Locating crystal, and Bervirius notes.",
+        "He will tell you to make a special necklace.",
+        "Go slightly northwest of Trufitus's hut to find an anvil (or use any anvil).",
+        "Make sure you have a Bronze bar, Hammer, and Chisel (buy from the General Store south of the anvil if needed).",
+        "Use the Bronze bar on the anvil to make Bronze wire.",
+        "Use the Chisel on the Sword pommel to get Bone beads.",
+        "Use the Bone beads on the Bronze wire to create Beads of the dead.",
+        "Show the Beads of the dead to Trufitus."
+      ]
+    },
+    {
+      "step": "Preparing for the Final Confrontation",
+      "substeps": [
+        "Gather your combat equipment (armour, weapon), food, and optionally prayer potions."
+      ]
+    },
+    {
+      "step": "Entering Rashiliyia's Tomb",
+      "substeps": [
+        "Go east from Trufitus's hut and cross the log bridge again.",
+        "Head north slightly and find a specific Palm tree (it will have a search option).",
+        "Search the Palm tree to reveal a hidden door.",
+        "Use the Chisel on the Bone shard (from Zadimus) to make a Bone key.",
+        "Equip the Beads of the dead amulet.",
+        "Use the Bone key on the hidden door to enter."
+      ]
+    },
+    {
+      "step": "Navigating Rashiliyia's Tomb",
+      "substeps": [
+        "Go south and open the gate.",
+        "Climb the rocks.",
+        "Go west to find another door.",
+        "Use 3 Bones (dropped by undead or brought with you) on the door to open it."
+      ]
+    },
+    {
+      "step": "Defeating Rashiliyia's Guardians",
+      "substeps": [
+        "Ensure you are wearing the Beads of the dead amulet and are prepared for combat.",
+        "Search the dolmen inside the room.",
+        "Defeat the Zombie (level 86).",
+        "Defeat the Skeleton (level 65) that appears next.",
+        "Defeat the Ghost (level 88) that appears last.",
+        "Do NOT leave the room during the fight, or you'll have to restart the sequence.",
+        "After defeating all three, search the dolmen again to take Rashiliyia's Corpse."
+      ]
+    },
+    {
+      "step": "Exiting Rashiliyia's Tomb",
+      "substeps": [
+        "Go back towards the entrance of this tomb.",
+        "Use the Bone key on the Tomb Exit door to leave."
+      ]
+    },
+    {
+      "step": "Laying Rashiliyia to Rest",
+      "substeps": [
+        "Return to the *second* tomb (the one where you found the Sword pommel, southwest of Trufitus, requiring climbing rocks and crossing a bridge). Enter it again by searching the rock pile.",
+        "Go south to the dolmen inside.",
+        "Use Rashiliyia's Corpse on the dolmen."
+      ]
+    },
+    {
+      "step": "Quest Complete",
+      "substeps": [
+        "A cutscene will play, and the quest will be complete! You can now enter Shilo Village."
+      ]
+    }
+  ]
+}

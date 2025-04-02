@@ -1,0 +1,88 @@
+{
+  "id": 15,
+  "name": "The Knight's Sword",
+  "Start point": "The Squire in the courtyard of the White Knights' Castle in Falador.",
+  "Official difficulty": "Intermediate",
+  "Official length": "Medium",
+  "Description": "Sir Vyvin's squire has lost Sir Vyvin's special sword, which was a gift from the Imcando dwarves. The squire asks you to find a replacement before Sir Vyvin finds out.",
+  "Requirements": {
+    "Skills": [
+      "10 Mining"
+    ],
+    "Items required": [
+      "Redberry pie",
+      "Pickaxe",
+      "2 Iron bars"
+    ]
+  },
+  "Recommended": [
+    "Food (if low combat level, for tanking Ice warriors and Ice giants)",
+    "Falador Teleport"
+  ],
+  "Enemies to defeat": "None",
+  "Walkthrough": [
+    {
+      "step": "Starting the Quest",
+      "substeps": [
+        "Speak to the Squire in the courtyard of the White Knights' Castle in Falador. He's usually near the south entrance.",
+        "Agree to help him find a replacement sword."
+      ]
+    },
+    {
+      "step": "Finding the Dwarf",
+      "substeps": [
+        "Travel to Varrock Palace and speak to Reldo in the library (north-west corner of the ground floor[UK]1st floor[US]).",
+        "Ask Reldo about Imcando dwarves. (Do NOT ask for a quest unless you want to start Shield of Arrav. If you accidentally start it, find the correct book in the library first before talking to Reldo again).",
+        "Reldo will tell you about Thurgo, who lives south of Port Sarim."
+      ]
+    },
+    {
+      "step": "Meeting Thurgo",
+      "substeps": [
+        "Make sure you have a Redberry pie. You can buy one from the Grand Exchange, or bake it yourself (requires 10 Cooking).",
+        "Travel south-west from Port Sarim, past the Rimmington mine, until you find a small hut near the cliff.",
+        "Speak to Thurgo inside the hut.",
+        "Give him the Redberry pie when prompted. He will agree to help but needs a picture of the original sword."
+      ]
+    },
+    {
+      "step": "Getting the Portrait",
+      "substeps": [
+        "Return to the White Knights' Castle in Falador.",
+        "Go up to the 2nd floor[UK]3rd floor[US].",
+        "Enter the room on the east side. Wait for Sir Vyvin to leave the room if he is there.",
+        "Search the cupboard to find a Portrait."
+      ]
+    },
+    {
+      "step": "Mining Blurite Ore",
+      "substeps": [
+        "Make sure you have a Pickaxe.",
+        "Return to Thurgo's hut south-west of Port Sarim.",
+        "Enter the Asgarnian Ice Dungeon, the cave entrance just north of Thurgo's hut.",
+        "Navigate through the cave (watch out for Muggers and Pirates near the entrance).",
+        "Follow the path south, then east, then north into the icy area.",
+        "Run past the Ice warriors (level 57) and Ice giants (level 53) to the northern end of the icy cavern.",
+        "Mine one Blurite ore from the rocks on the wall (requires 10 Mining).",
+        "Exit the cave."
+      ]
+    },
+    {
+      "step": "Forging the Sword",
+      "substeps": [
+        "Speak to Thurgo again.",
+        "Give him the Portrait (if you haven't already shown it).",
+        "Make sure you have 2 Iron bars and the Blurite ore in your inventory.",
+        "Thurgo will take the materials and forge a replica Knight's sword."
+      ]
+    },
+    {
+      "step": "Completing the Quest",
+      "substeps": [
+        "Take the replica sword back to the Squire in the White Knights' Castle courtyard in Falador.",
+        "Speak to the Squire to give him the sword and complete the quest."
+      ]
+    }
+  ],
+  "Type": "Free"
+}

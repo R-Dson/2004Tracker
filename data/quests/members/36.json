@@ -1,0 +1,87 @@
+{
+  "id": 36,
+  "name": "Observatory Quest",
+  "Start point": "The Observatory Professor in the observatory building located north of the Castle Wars arena, west of the Tree Gnome Village.",
+  "Official difficulty": "Medium",
+  "Official length": "Medium",
+  "Description": "Help the Observatory Professor fix his telescope by retrieving a lens mould and crafting a new lens.",
+  "Type": "Members",
+  "Requirements": {
+    "Skills": "10 Crafting",
+    "Items required": [
+      "Bronze bar",
+      "Molten glass",
+      "3 Planks"
+    ]
+  },
+  "Recommended": [
+    "Antipoison or Cure poison potion"
+  ],
+  "Enemies to defeat": [
+    "Goblin guard (level 42)",
+    "Poison Spider (optional/avoidable)"
+  ],
+  "Walkthrough": [
+    {
+      "step": "Starting the Quest",
+      "substeps": [
+        "Talk to the Observatory Professor in the observatory building north of the Castle Wars arena.",
+        "He will ask you to retrieve items to fix his telescope."
+      ]
+    },
+    {
+      "step": "Gathering Parts",
+      "substeps": [
+        "Ensure you have a Bronze bar, Molten glass, and 3 Planks.",
+        "Talk to the Professor again and give him the items.",
+        "He will ask you to find a Lens mould in the dungeon below."
+      ]
+    },
+    {
+      "step": "Finding the Key",
+      "substeps": [
+        "Climb down the ladder in the Professor's building.",
+        "Navigate the dungeon south, then east towards the most southeastern room.",
+        "Open the chest in this room and search it to find the Keep key. Be aware that opening other chests may spawn poison spiders.",
+        "Note: An Antipoison potion can be found near the ladder if needed."
+      ]
+    },
+    {
+      "step": "Finding the Mould",
+      "substeps": [
+        "Head back towards the dungeon entrance.",
+        "Locate a small room marked with a bed icon on the minimap (requires high detail settings).",
+        "Enter the room and defeat the Goblin guard (level 42).",
+        "Search the sacks (specifically the west ones) inside the room to find the Lens mould.",
+        "Exit the dungeon by climbing back up the ladder."
+      ]
+    },
+    {
+      "step": "Crafting the Lens",
+      "substeps": [
+        "Talk to the Professor. He will ask you to craft the lens.",
+        "Use the Molten glass on a furnace while having the Lens mould and Bronze bar in your inventory (requires 10 Crafting).",
+        "Talk to the Professor again with the finished Telescope lens."
+      ]
+    },
+    {
+      "step": "Using the Telescope",
+      "substeps": [
+        "The Professor will ask you to meet him in the observatory room within the dungeon.",
+        "Climb back down the ladder.",
+        "Navigate south through the dungeon. Look for three dead-end passages close together on the map; take the southernmost of these.",
+        "Climb up the ladder at the end of the passage.",
+        "Click on the Telescope to look through it and view a constellation."
+      ]
+    },
+    {
+      "step": "Completing the Quest",
+      "substeps": [
+        "After viewing the constellation, you will automatically speak to the Professor.",
+        "Quest Complete! You will receive your rewards.",
+        "Optional: Speak to the Assistant for a Jug of wine.",
+        "Optional: Visit the Spirit of Scorpious (northeast of the observatory, requires Ghostspeak amulet or Morytania legs 2+) to get an Unholy symbol mould."
+      ]
+    }
+  ]
+}

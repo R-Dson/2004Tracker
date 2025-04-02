@@ -1,0 +1,64 @@
+{
+  "id": 12,
+  "name": "Romeo & Juliet",
+  "Start point": "Juliet on the 1st floor[UK]2nd floor[US] of her house west of Varrock, south of the bank.",
+  "Official difficulty": "Novice",
+  "Official length": "Very Short",
+  "Description": "Romeo and Juliet are in love, but Juliet's father disapproves. Help Romeo by finding a way for them to be together, despite the obstacles.",
+  "Requirements": {
+    "Quest points": "None",
+    "Items required": [
+      "Cadaver berries (can be obtained during the quest)"
+    ]
+  },
+  "Recommended": "None",
+  "Enemies to defeat": "None",
+  "Walkthrough": [
+    {
+      "step": "Starting the quest",
+      "substeps": [
+        "Speak to Juliet on the balcony (1st floor[UK]2nd floor[US]) of her house, located west of Varrock square and south of the west bank. She asks you to deliver a message to Romeo."
+      ]
+    },
+    {
+      "step": "Finding Romeo",
+      "substeps": [
+        "Find Romeo wandering around Varrock square.",
+        "Speak to Romeo. He reads the message and asks you to seek help from Father Lawrence."
+      ]
+    },
+    {
+      "step": "Consulting Father Lawrence",
+      "substeps": [
+        "Go to the church in north-east Varrock.",
+        "Speak to Father Lawrence inside the church. He suggests using a Cadava potion to make Juliet appear dead and directs you to the Apothecary."
+      ]
+    },
+    {
+      "step": "Getting the Potion",
+      "substeps": [
+        "Ensure you have Cadava berries. If not, pick some from the bush located just east of the stone circle south-east of Varrock (near the entrance to the mine south of the city).",
+        "Go to the Apothecary's building in south-west Varrock (look for the potion icon).",
+        "Speak to the Apothecary. Give him the Cadava berries, and he will give you a Cadava potion."
+      ]
+    },
+    {
+      "step": "Delivering the Potion",
+      "substeps": [
+        "Return to Juliet's house.",
+        "Go upstairs and speak to Juliet again.",
+        "Give her the Cadava potion. She will ask you to inform Romeo that everything is ready."
+      ]
+    },
+    {
+      "step": "Completing the Quest",
+      "substeps": [
+        "Go back to Romeo in Varrock square.",
+        "Speak to Romeo to inform him Juliet has the potion. A cutscene will play.",
+        "Quest complete!"
+      ]
+    }
+  ],
+  "Reward": "5 Quest points",
+  "Type": "Free"
+}

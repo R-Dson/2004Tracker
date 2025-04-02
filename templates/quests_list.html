@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h3>Quest Guides</h3>
+    {# Table where first column is free quests, second column is members quests #}
+    <table class="quests-table">
+        <tr>
+            <th>Free Quests</th>
+            <th>Members Quests</th>
+        </tr>
+        {# Loop through the maximum length of either list to create rows #}
+        {% for i in range([quests_free|length, quests_members|length]|max) %}
+            <tr>
+                <td>
+                    <div class="QuestTdContent">
+                        {# Display free quest link if it exists for this index #}
+                        {% if i < quests_free|length %}
+                            <a href="{{ url_for('quest_detail', quest_id=quests_free[i].id) }}" class="quest-link">
+                                {{ quests_free[i].name }}
+                            </a>
+                        {% endif %}
+                    </div>
+                </td>
+                <td>
+                    <div class="QuestTdContent">
+                        {# Display members quest link if it exists for this index #}
+                        {% if i < quests_members|length %}
+                            <a href="{{ url_for('quest_detail', quest_id=quests_members[i].id) }}" class="quest-link">
+                                {{ quests_members[i].name }}
+                            </a>
+                        {% endif %}
+                    </div>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    {# Show message only if BOTH lists are empty #}
+    {% if not quests_free and not quests_members %}
+        <p class="no-quests">No quests found. Please check the data directory.</p>
+    {% endif %}
+</div>
+<p class="image-caption" style="font-size: .65em;">The data may be wrong.</p>
+{% endblock %}

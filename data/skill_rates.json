@@ -243,14 +243,14 @@
       {
         "min_level": 32,
         "max_level": 35,
-        "method": "Log balance (Coal Trucks). 4.5s per crossing. 800 crossings/h. https://www.youtube.com/watch?v=3ejq9-x_Bls. Alt method: Gnome Stronghold. 6228 xp/h. 50s per lap and 72 laps/h.",
-        "rate": 6800,
+        "method": "Monkeybars (Edgeville Dungeon). https://oldschool.runescape.wiki/w/Monkeybars_(Edgeville_Dungeon)",
+        "rate": 12500,
         "bonus_skills": []
       },
       {
         "min_level": 35,
         "max_level": 52,
-        "method": "Barbarian Outpost. Est 45s per lap. 80 laps/h.",
+        "method": "Barbarian Outpost. Est 45s per lap. 80 laps/h. Similar rate to Monkeybars but safer.",
         "rate": 12264,
         "bonus_skills": []
       },

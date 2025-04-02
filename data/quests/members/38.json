@@ -1,0 +1,83 @@
+{
+  "id": 38,
+  "name": "Scorpion Catcher",
+  "Start point": "Thormac the wizard on the 2nd floor[UK]3rd floor[US] of the Wizards' Tower, south of Draynor Village.",
+  "Official difficulty": "Medium",
+  "Official length": "Short",
+  "Description": "Thormac has lost his rare lesser kharid scorpions after leaving their cage door open. These scorpions have hidden in areas that are rather difficult to get into. You will have to overcome various challenges (and drink a lot) and get all the scorpions back. If you manage to help him Thormac will improve your battle staffs.",
+  "Type": "Members",
+  "Requirements": {
+    "Skills": "31 Prayer",
+    "Other": "Must be able to navigate deep into the Taverley Dungeon (past blue dragons and black demons)."
+  },
+  "Recommended": [
+    "Combat level sufficient to survive Taverley Dungeon monsters (level 48 Black Knights, level 53 Chaos Dwarves, level 70 Lesser Demons, level 74 Blue Dragons, level 82 Black Demons).",
+    "Armour, Weapon, Food",
+    "Antipoison potion",
+    "Dusty key (can be obtained during the quest)",
+    "About 300 coins (for the Bar Crawl)",
+    "Teleports to various bar locations (Varrock, Falador, Camelot/Seers', Ardougne, Tree Gnome Stronghold)"
+  ],
+  "Enemies to defeat": "Jail Guard (level 47) (if Dusty key is needed)",
+  "Walkthrough": [
+    {
+      "step": "Starting the Quest",
+      "substeps": [
+        "Speak to Thormac on the 2nd floor[UK]3rd floor[US] of the Wizards' Tower. Agree to help find his scorpions.",
+        "He will give you a Scorpion cage.",
+        "(Optional) Speak to the Seer in Seers' Village for hints on the scorpion locations."
+      ]
+    },
+    {
+      "step": "First Scorpion - Taverley Dungeon",
+      "substeps": [
+        "Prepare for the Taverley Dungeon: Bring combat equipment, food, antipoison, and the Scorpion cage. Bring a Dusty key if you have one.",
+        "Enter Taverley Dungeon.",
+        "If you need the Dusty key: Head north past the skeletons and ghosts, then west into the Black Knights' area. Find the jail cell in the north-west section. Kill the Jailer (level 47), pick up the Jail key, unlock the cell door, and talk to Velrak the explorer inside. He will give you the Dusty key.",
+        "From the dungeon entrance area, head south past the Chaos druids and poison spiders.",
+        "Continue past the Chaos Dwarves and Lesser Demons.",
+        "Use the Dusty key on the gate.",
+        "Run past the Blue Dragons and Baby blue dragons.",
+        "Continue past the Black Demons into the Poison Spider area.",
+        "Search the southern wall for a 'Push-wall' option (it's near the Scorpions).",
+        "Enter the hidden room and use the Scorpion cage on the Kharid scorpion."
+      ]
+    },
+    {
+      "step": "Second Scorpion - Barbarian Outpost (Bar Crawl)",
+      "substeps": [
+        "Go to the Barbarian Outpost Agility Course entrance, north-west of Baxtorian Falls.",
+        "Speak to the Barbarian guard at the gate. He will give you a Barcrawl card.",
+        "Visit the following bars and use the Barcrawl card on the bartender, then drink the drink they give you (costs vary):",
+        "  - The Flying Horse Inn (Ardougne, north)",
+        "  - Forester's Arms Pub (Seers' Village)",
+        "  - Jolly Boar Inn (North-east of Varrock, near the Wilderness)",
+        "  - Blue Moon Inn (Varrock centre)",
+        "  - Rising Sun Inn (Falador)",
+        "  - Rusty Anchor Inn (Port Sarim)",
+        "  - Dead Man's Chest (Brimhaven)",
+        "  - Dragon Inn (Yanille)",
+        "  - Karamja Wines, Spirits, and Beers (Musa Point, Karamja - near the banana plantation)",
+        "  - Blurberry Bar (Grand Tree, 2nd floor[UK]3rd floor[US])",
+        "Return to the Barbarian guard at the Outpost and show him the completed card.",
+        "Enter the building directly north of the gate. Use the Scorpion cage on the Kharid scorpion inside."
+      ]
+    },
+    {
+      "step": "Third Scorpion - Edgeville Monastery",
+      "substeps": [
+        "Ensure you have 31 Prayer.",
+        "Go to the Edgeville Monastery (between Edgeville and Ice Mountain).",
+        "Enter the monastery and climb the ladder to the 1st floor[UK]2nd floor[US].",
+        "Use the Scorpion cage on the Kharid scorpion wandering around."
+      ]
+    },
+    {
+      "step": "Completing the Quest",
+      "substeps": [
+        "With all three scorpions in cages, return to Thormac at the Wizards' Tower.",
+        "Speak to him to hand over the scorpions and claim your reward."
+      ]
+    }
+  ]
+}

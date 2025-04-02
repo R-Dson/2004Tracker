@@ -1,0 +1,79 @@
+{
+  "id": 26,
+  "name": "Fishing Contest",
+  "Start point": "One of the Dwarves guarding the tunnel entrances east or west of White Wolf Mountain.",
+  "Official difficulty": "Novice",
+  "Official length": "Short",
+  "Description": "The mountain Dwarves home would be an ideal way to get across White Wolf mountain safely. However the Dwarves aren't too fond of strangers. They will let you through if you can bring them a trophy. The trophy is the prize for the annual Hemenster fishing competition.",
+  "Type": "Members",
+  "Requirements": {
+    "Skills": "10 Fishing",
+    "Items required": [
+      "Garlic (can be obtained during the quest)",
+      "Spade (can be obtained during the quest)",
+      "Fishing rod (can be bought from any fishing shop)",
+      "5 coins"
+    ]
+  },
+  "Recommended": [],
+  "Enemies to defeat": "None",
+  "Walkthrough": [
+    {
+      "step": "Starting the Quest",
+      "substeps": [
+        "Speak to any dwarf guarding the underground pass entrances on either side of White Wolf Mountain (Vestri on the west, Austri on the east).",
+        "Ask to use the underground route.",
+        "Offer to become their friend.",
+        "Agree to win the Hemenster Fishing Contest trophy for them.",
+        "Receive a Competition pass."
+      ]
+    },
+    {
+      "step": "Getting Special Bait",
+      "substeps": [
+        "Ensure you have a Spade. If not, one can be found in Draynor Manor (east room, ground floor).",
+        "Head to McGrubor's Wood, north-west of Hemenster.",
+        "Push the Loose Railing on the north fence to enter.",
+        "Walk west within the woods until you find red vines on the ground.",
+        "Use your Spade on the red vines to dig up Red vine worms. Get at least one, preferably a few."
+      ]
+    },
+    {
+      "step": "Entering the Competition Area",
+      "substeps": [
+        "Go to the Hemenster Fishing Contest area, south-east of Seers' Village.",
+        "Speak to Morris at the entrance.",
+        "Show him the Competition pass to enter."
+      ]
+    },
+    {
+      "step": "Preparing to Cheat",
+      "substeps": [
+        "Ensure you have Garlic. If not, one can be found upstairs in the house just east of Morgan in Draynor Village.",
+        "Speak to Bonzo near the fishing spots.",
+        "Pay him 5 coins to enter the competition.",
+        "He will assign you a fishing spot (initially by the willow tree).",
+        "Optional: Speak to the Sinister Stranger nearby."
+      ]
+    },
+    {
+      "step": "Winning the Contest",
+      "substeps": [
+        "Go to the pipes near the Sinister Stranger's fishing spot.",
+        "Use the Garlic on the pipes.",
+        "Wait for the Sinister Stranger to complain about the smell.",
+        "Bonzo will reassign your fishing spot to the one by the pipes.",
+        "Use your Fishing rod with Red vine worms on the fishing spot by the pipes.",
+        "Catch a Raw giant carp.",
+        "Speak to Bonzo again to show him your catch and claim the Fishing trophy."
+      ]
+    },
+    {
+      "step": "Completing the Quest",
+      "substeps": [
+        "Return to the dwarf (Vestri or Austri) you started the quest with.",
+        "Give him the Fishing trophy to complete the quest."
+      ]
+    }
+  ]
+}

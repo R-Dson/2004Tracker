@@ -1,0 +1,61 @@
+{
+  "id": 22,
+  "name": "Druidic Ritual",
+  "Start point": "Kaqemeex in the stone circle north of Taverley.",
+  "Official difficulty": "Novice",
+  "Official length": "Short",
+  "Description": "Help the druids cleanse their former altar of the evil from the dark wizards. If you are successful you will be rewarded with the knowledge of herblore.",
+  "Type": "Members",
+  "Requirements": {
+    "Items required": [
+      "Raw rat meat",
+      "Raw bear meat",
+      "Raw chicken",
+      "Raw beef"
+    ]
+  },
+  "Recommended": [
+    "A weapon to defeat level 19 monsters.",
+    "Collecting the required meats before starting the quest."
+  ],
+  "Enemies to defeat": [
+    "Suit of armour (level 19) x2"
+  ],
+  "Walkthrough": [
+    {
+      "step": "Starting the Quest",
+      "substeps": [
+        "Talk to Kaqemeex in the stone circle north of Taverley. He will ask you to speak with Sanfew."
+      ]
+    },
+    {
+      "step": "Consulting Sanfew",
+      "substeps": [
+        "Go to the Herblore Shop in Taverley.",
+        "Climb the stairs to the 2nd floor[UK]/3rd floor[US].",
+        "Talk to Sanfew. He will tell you he needs four different types of raw meat (rat, bear, chicken, beef) dipped into the Cauldron of Thunder."
+      ]
+    },
+    {
+      "step": "Enchanting the Meats",
+      "substeps": [
+        "Ensure you have Raw rat meat, Raw bear meat, Raw chicken, and Raw beef. (Can be collected before or during the quest).",
+        "Go to the Taverley Dungeon entrance, south-west of Taverley, surrounded by dead trees.",
+        "Enter the dungeon and head north until you reach a gate guarded by suits of armour.",
+        "Attempt to open the gate. A Suit of armour (level 19) will attack. Defeat it.",
+        "Attempt to open the gate again. A second Suit of armour (level 19) may attack. Defeat it.",
+        "Open the gate and enter the room.",
+        "Use each of the four raw meats on the Cauldron of Thunder. They will turn blue (enchanted)."
+      ]
+    },
+    {
+      "step": "Completing the Ritual",
+      "substeps": [
+        "Return to Sanfew on the upper floor of the Taverley Herblore Shop.",
+        "Talk to Sanfew with the enchanted meats in your inventory.",
+        "Return to Kaqemeex at the stone circle north of Taverley.",
+        "Talk to Kaqemeex to complete the quest and receive your reward."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container quest-detail" data-quest-id="{{ quest.id }}">
+    <h1 class="quest-title">{{ quest.name }}</h1>
+    
+    <div class="quest-meta">
+        <p><strong>Difficulty:</strong> {{ quest['Official difficulty'] }}</p>
+        <p><strong>Length:</strong> {{ quest['Official length'] }}</p>
+    </div>
+    
+    <div class="quest-section">
+        <h3>Description</h3>
+        <p class="quest-text">{{ quest.Description }}</p>
+    </div>
+
+    <div class="quest-section">
+        <h3>Requirements</h3>
+        {% if quest.Requirements %}
+        <ul class="checklist">
+            {% for key in quest.Requirements %}
+                {% for item in quest.Requirements[key] %}
+                <li>
+                    <label>
+                        <input type="checkbox" class="requirement-checkbox" data-item="{{ item }}">
+                        {{ item }}
+                    </label>
+                </li>
+                {% endfor %}
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p>None</p>
+        {% endif %}
+    </div>
+
+    <div class="quest-section">
+        <h3>Enemies to Defeat</h3>
+        <p>{{ quest['Enemies to defeat'] }}</p>
+    </div>
+
+    {% if quest.Recommended %}
+    <div class="quest-section">
+        <h3>Recommended</h3>
+        <ul class="checklist">
+            {% for item in quest.Recommended %}
+            <li>
+                <label>
+                    <input type="checkbox" class="recommended-checkbox" data-item="{{ item }}">
+                    {{ item }}
+                </label>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+
+    <div class="quest-walkthrough">
+        <h3>Walkthrough</h3>
+        {% for step in quest.Walkthrough %}
+        <div class="step" data-step="{{ loop.index0 }}">
+            <label class="step-header">
+                <input type="checkbox" class="step-checkbox" data-step="{{ loop.index0 }}">
+                {{ step.step }}
+            </label>
+            <div class="step-content">
+                {% for item in step.substeps %}
+                    {% if item is mapping and item.image %}
+                        <div class="step-image">
+                            <img src="{{ item.image }}" 
+                                 alt="Step illustration" class="guide-image">
+                            {% if item.caption %}
+                            <p class="image-caption">
+                                {{ item.caption }}
+                                <span class="image-source">
+                                    <a href="{% if 'oldschool.runescape.wiki' in item.image %}https://oldschool.runescape.wiki{% else %}{{ item.image.split('?')[0] }}{% endif %}" 
+                                       target="_blank">
+                                        Source
+                                    </a>
+                                </span>
+                            </p>
+                            {% endif %}
+                        </div>
+                    {% else %}
+                        <div class="substep">
+                            <label>
+                                <input type="checkbox" class="substep-checkbox" 
+                                       data-step="{{ loop.index0 }}"
+                                       data-parent-step="{{ loop.index0 }}">
+                                {{ item }}
+                            </label>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='quest_guide.js') }}"></script>
+{% endblock %}

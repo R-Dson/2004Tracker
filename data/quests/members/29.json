@@ -1,0 +1,78 @@
+{
+  "id": 29,
+  "name": "Hero's Quest",
+  "Start point": "Achetties outside the Hero's Guild, north of Taverley.",
+  "Official difficulty": "Experienced",
+  "Official length": "Long",
+  "Description": "Prove you are worthy to enter the Hero's Guild by obtaining a Firebird's Feather, Master Thieves' Armband, and Cooked Lava Eel.",
+  "Type": "Members",
+  "Requirements": {
+    "Quests": [
+      "Shield of Arrav",
+      "Druidic Ritual",
+      "Merlin's Crystal",
+      "Lost City"
+    ],
+    "Quest points": 55,
+    "Skills": {
+      "Mining": 50,
+      "Fishing": 53,
+      "Cooking": 53,
+      "Herblore": 25
+    },
+    "Items required": [
+      "Harralander",
+      "Vial of water",
+      "Fishing bait",
+      "2000+ coins",
+      "Gang membership (Phoenix or Black Arm)",
+      "Partner from opposite gang"
+    ]
+  },
+  "Recommended": [
+    "Combat level for Ice Queen (102)",
+    "Anti-dragon shield",
+    "Food/potions",
+    "Pickaxe",
+    "Teleports"
+  ],
+  "Enemies to defeat": [
+    "Ice Queen (level 102)",
+    "Grip (level 26)",
+    "Jailer (level 47)"
+  ],
+  "Walkthrough": [
+    {
+      "step": "Firebird's Feather",
+      "substeps": [
+        "Mine through White Wolf Mountain rockslide",
+        "Navigate ice caves to defeat Ice Queen for Ice Gloves",
+        "Use gloves to collect feather from Entrana Firebird"
+      ]
+    },
+    {
+      "step": "Master Thieves' Armband",
+      "substeps": [
+        "Coordinate with opposite gang member",
+        "Black Arm: Steal candlesticks from Brimhaven mansion",
+        "Phoenix: Shoot Grip through window",
+        "Exchange items between gangs"
+      ]
+    },
+    {
+      "step": "Cooked Lava Eel",
+      "substeps": [
+        "Create oily fishing rod with Blamish oil",
+        "Navigate Taverley Dungeon to lava fishing spot",
+        "Catch and cook lava eel (53 Cooking)"
+      ]
+    },
+    {
+      "step": "Completion",
+      "substeps": [
+        "Return all items to Achetties",
+        "Gain access to Hero's Guild"
+      ]
+    }
+  ]
+}

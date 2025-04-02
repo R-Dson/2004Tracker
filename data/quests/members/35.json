@@ -1,0 +1,102 @@
+{
+  "id": 35,
+  "name": "Murder Mystery",
+  "Start point": "Talk to the guard near the gate of the Sinclair Mansion North of Seer's Village.",
+  "Official difficulty": "Novice",
+  "Official length": "Short",
+  "Description": "Lord Sinclair was found murdered in his mansion. There are a lot of guards there that are working on the case, but they're confused about the crime. You must help these guards find out the culprit who murdered Lord Sinclair.",
+  "Type": "Members",
+  "Requirements": {
+    "Items required": [
+      "Pot"
+    ]
+  },
+  "Recommended": [],
+  "Enemies to defeat": "None",
+  "Walkthrough": [
+    {
+      "step": "Starting the quest",
+      "substeps": [
+        "Talk to the guard at the gate of the Sinclair Mansion, north of Seer's Village.",
+        "Agree to help find the murderer."
+      ]
+    },
+    {
+      "step": "Initial Investigation",
+      "substeps": [
+        "Enter the mansion and go to the easternmost room on the ground floor (the dining room/evidence room).",
+        "Pick up the Pungent pot.",
+        "Optionally: Pick up the Criminal's dagger and investigate the smashed window to get the Criminal's thread."
+      ]
+    },
+    {
+      "step": "Gathering Information",
+      "substeps": [
+        "Talk to one of the Gossips standing outside the mansion until they mention the Sinclairs buying poison.",
+        "Go south from the mansion, slightly east of the Seer's Village bank, and find the Poison Salesman.",
+        "Talk to the Poison Salesman. Ask about the sale to the Sinclair family.",
+        "Show the Pungent pot to the salesman. He will identify the smell as his poison and tell you he sold it to Anna, Bob, Carol, David, Elizabeth, and Frank."
+      ]
+    },
+    {
+      "step": "Questioning the Suspects",
+      "substeps": [
+        "Return to the Sinclair Mansion.",
+        "Speak to each of the six children (Anna, Bob, Carol, David, Elizabeth, Frank) located throughout the mansion.",
+        "Ask each one what they used their poison for."
+      ]
+    },
+    {
+      "step": "Checking Alibis",
+      "substeps": [
+        "Investigate the specific locations where each child claimed to use the poison:",
+        "Anna: Compost heap (outside, north-west)",
+        "Bob: Fountain (outside, centre)",
+        "Carol: Kitchen sink (ground floor, west side)",
+        "David: Beehive (outside, south-west)",
+        "Elizabeth: Drain (outside, south-east)",
+        "Frank: Spider nest in the small shed (outside, north-east, need Silverlight or Darklight if killing the spiders)",
+        "Identify which location *was not* actually treated with poison. The child associated with this location is your primary suspect."
+      ]
+    },
+    {
+      "step": "Gathering Physical Evidence",
+      "substeps": [
+        "If you haven't already, go to the evidence room (easternmost room, ground floor).",
+        "Pick up the Criminal's dagger.",
+        "Investigate the smashed window to obtain the Criminal's thread. Note the colour of the thread.",
+        "Find the barrel belonging to the suspect whose clothing matches the thread colour:",
+        "Anna (Grey): Upstairs, south-west room",
+        "Bob (Yellow): Upstairs, north-west room",
+        "Carol (Green): Upstairs, north-east room",
+        "David (Orange): Ground floor, north-west room (servants' quarters)",
+        "Elizabeth (Blue): Upstairs, south-east room",
+        "Frank (Red): Ground floor, south-west room (servants' quarters)",
+        "Search the correct barrel to find a specific item belonging to the suspect (e.g., Locket, Letter, Necklace, Map, Scroll, Note)."
+      ]
+    },
+    {
+      "step": "Fingerprinting",
+      "substeps": [
+        "Go to the room just west of the kitchen (pantry).",
+        "Search the sacks to find Flypaper (obtain at least two).",
+        "Go to the kitchen.",
+        "Use your empty Pot on the Barrel of flour to get a Pot of flour.",
+        "Use the Pot of flour on the Criminal's dagger.",
+        "Use the flour-dusted dagger on a piece of Flypaper. You receive the Unknown print.",
+        "Use the Pot of flour on the item you found in the suspect's barrel.",
+        "Use the flour-dusted item on another piece of Flypaper. You receive the Culprit's print.",
+        "Use the Unknown print on the Culprit's print to confirm they match."
+      ]
+    },
+    {
+      "step": "Accusation and Completion",
+      "substeps": [
+        "Return to the guard at the mansion entrance.",
+        "Tell him you know who the murderer is and have evidence.",
+        "Hand over the evidence (matched prints, thread, dagger, pot) when prompted.",
+        "The guard will thank you and place the culprit under house arrest."
+      ]
+    }
+  ]
+}

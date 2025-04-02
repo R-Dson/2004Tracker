@@ -1,0 +1,109 @@
+{
+  "id": 37,
+  "name": "Plague City",
+  "Start point": "Edmond, north of the Paladin Tower in northwest East Ardougne.",
+  "Official difficulty": "Novice",
+  "Official length": "Medium",
+  "Description": "A shadow of disease has overcast West Ardougne. Edmond's daughter Elena has gone missing there whilst trying to help the plague victims. See if you can find out what's going on and rescue her.",
+  "Type": "Members",
+  "Requirements": {
+    "Items required": [
+      "4 Buckets of water",
+      "Rope (can be bought during quest)",
+      "Bucket of milk",
+      "Chocolate bar (can be bought during quest)",
+      "Spade",
+      "Dwellberries (can be obtained during quest)",
+      "Pestle and mortar (can be bought during quest)",
+      "Snape grass (can be obtained during quest)"
+    ]
+  },
+  "Recommended": [
+    "Stamina potions (optional)"
+  ],
+  "Enemies to defeat": "None",
+  "Walkthrough": [
+    {
+      "step": "Starting the Quest",
+      "substeps": [
+        "Talk to Edmond, north of the Paladin Tower in northwest East Ardougne.",
+        "Talk to his wife, Alrena, in the house just east of Edmond.",
+        "Give Alrena Dwellberries (if you have them) to get a Gas mask. If not, get some from McGrubor's Wood (squeeze through the railings north of the wood, requires Rope).",
+        "Take the Picture from the table inside Edmond and Alrena's house."
+      ]
+    },
+    {
+      "step": "Entering the Sewer",
+      "substeps": [
+        "Go back outside to the garden west of the house.",
+        "Talk to Edmond.",
+        "Use 4 Buckets of water on the Mud patch.",
+        "Use a Spade on the wet Mud patch. You and Edmond will fall into the sewer."
+      ]
+    },
+    {
+      "step": "Reaching West Ardougne",
+      "substeps": [
+        "Walk south-west in the sewer to find a Sewer Pipe.",
+        "Use your Rope on the Sewer Pipe.",
+        "Talk to Edmond.",
+        "Wear your Gas mask.",
+        "Search the Sewer Pipe to enter West Ardougne."
+      ]
+    },
+    {
+      "step": "Finding Elena's Location",
+      "substeps": [
+        "Find and talk to Jethick (wanders West Ardougne). Make sure you have Elena's Picture.",
+        "Agree to return his book.",
+        "Go north to a house with civilians inside.",
+        "Try to open the door. Mention the book Jethick gave you to gain entry.",
+        "Talk to the people inside. Learn Elena was kidnapped.",
+        "Talk to Milli upstairs. She tells you Elena is in a plague house in the south-east corner."
+      ]
+    },
+    {
+      "step": "Getting Access to the Plague House",
+      "substeps": [
+        "Find the boarded-up building in the south-east corner.",
+        "Try to open the west door. Talk to the Mourner. Ask how to get in.",
+        "Go north to the large civic office building.",
+        "Talk to the Clerk. Insist it's urgent to see Bravek.",
+        "Enter the office and talk to Bravek.",
+        "Ask about the cure for his headache. He gives you a Scruffy note."
+      ]
+    },
+    {
+      "step": "Curing Bravek",
+      "substeps": [
+        "Obtain the ingredients if you don't have them: Bucket of milk, Chocolate bar, Pestle and mortar, Snape grass.",
+        "Use the Pestle and mortar on the Chocolate bar to get Chocolate dust.",
+        "Use the Chocolate dust on the Bucket of milk.",
+        "Use the Snape grass on the Choc-icey milk to make a Hangover cure.",
+        "Give the Hangover cure to Bravek.",
+        "Tell Bravek the mourners won't listen. He gives you a Warrant."
+      ]
+    },
+    {
+      "step": "Rescuing Elena",
+      "substeps": [
+        "Return to the plague house in the south-east.",
+        "Use the Warrant on the west door.",
+        "Wait for the message \"You wait until the mourners back is turned...\" then quickly open the door to sneak inside.",
+        "Go down the Spooky Stairs.",
+        "Try to open the cell door. Elena tells you the key is nearby.",
+        "Go back upstairs and search the Barrel to find a Small key.",
+        "Go back downstairs and use the Small key on the cell door.",
+        "Talk to Elena."
+      ]
+    },
+    {
+      "step": "Completing the Quest",
+      "substeps": [
+        "Leave the plague house and return to the sewer entrance (the manhole).",
+        "Enter the sewer and talk to Edmond.",
+        "Quest Complete! Reward: 1 Quest point, 2,425 Mining XP, and a Magic Scroll (unlocking Ardougne Teleport)."
+      ]
+    }
+  ]
+}

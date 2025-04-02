@@ -1,0 +1,1 @@
+The quest data in these guides are based on the data found on [2004hq](https://2004hq.com/?p=questlist).

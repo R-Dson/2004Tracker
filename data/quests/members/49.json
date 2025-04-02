@@ -1,0 +1,173 @@
+{
+  "id": 49,
+  "name": "Watchtower",
+  "Start point": "Watchtower Wizard on the top floor of the Watchtower north of Yanille.",
+  "Official difficulty": "Hard",
+  "Official length": "Long",
+  "Description": "The Watchtower Wizard needs your help to retrieve four power crystals stolen by the Ogres of Gu'Tanoth. You'll need to infiltrate their city, deal with various ogres, learn the Scavid language, and brew a special potion.",
+  "Type": "Members",
+  "Requirements": {
+    "Skills": [
+      "40 Mining",
+      "30 Agility",
+      "15 Thieving",
+      "14 Magic",
+      "14 Herblore"
+    ],
+    "Items required": [
+      "20+ Coins (more recommended if low Agility)",
+      "1 Gold bar",
+      "1 Lit candle (can be obtained during quest)",
+      "1 Death rune",
+      "Pickaxe",
+      "Dragon bones",
+      "Bat bones (can be obtained during quest)",
+      "1 Jangerberry (can be obtained during quest)",
+      "2 Ropes",
+      "Guam leaf",
+      "Vial of water",
+      "Pestle and mortar"
+    ]
+  },
+  "Recommended": [
+    "Good combat level",
+    "Food",
+    "Armour",
+    "Weapon",
+    "Anti-dragon shield"
+  ],
+  "Enemies to defeat": "Gorad (level 56)",
+  "Walkthrough": [
+    {
+      "step": "Starting the Quest",
+      "substeps": [
+        "Go to the Watchtower north of Yanille (location #1).",
+        "Climb the 'climbing rocks' on the north outside wall (guards attack if ladder is used initially).",
+        "Climb the ladder inside to the top floor.",
+        "Speak to the Watchtower Wizard."
+      ]
+    },
+    {
+      "step": "Gathering Clues and Supplies",
+      "substeps": [
+        "Go down two ladders to the ground floor.",
+        "Search the bushes around the Watchtower until you find fingernails, an eye patch, a dagger, and some armour.",
+        "Return to the Watchtower Wizard (you can use the ladder now) and talk to him.",
+        "Go down to the ground floor. Take the lit candle from the table if you don't have one.",
+        "Optional: If you need bat bones, enter the dungeon east of the Watchtower (location #2), cut the webs, go downstairs, and kill a bat."
+      ]
+    },
+    {
+      "step": "Helping the Ogres (Part 1)",
+      "substeps": [
+        "Exit Yanille via the west gate to the ogre settlement (location #3).",
+        "Speak with Og. He'll give you a key and ask you to retrieve his stolen gold bar from Toban.",
+        "Go south of Og to a small island (location #4).",
+        "Use a rope on the branch of the 'long branched tree' (location #5) to swing across.",
+        "Speak to Grew. He asks for Gorad's tooth.",
+        "Pick a Jangerberry from the island before swinging back."
+      ]
+    },
+    {
+      "step": "Helping the Ogres (Part 2)",
+      "substeps": [
+        "Go to the cave entrance south-west of the small island south of Yanille (location #7) to access the island (location #6). You cannot use the bridge.",
+        "Kill Gorad (level 56) on the island. His tooth will appear in your inventory.",
+        "Speak to Toban on the same island. Give him the Dragon bones to receive an Ogre statue part.",
+        "Use Og's key to open Toban's chest on the island and retrieve Og's gold bar."
+      ]
+    },
+    {
+      "step": "Getting the Ogre Statue",
+      "substeps": [
+        "Return to the first island (location #4).",
+        "Use your second rope on the 'long branched tree' branch (location #5) and swing across.",
+        "Speak to Grew and give him Gorad's tooth to receive another Ogre statue part.",
+        "Swing back and return to Og (location #3).",
+        "Give Og his gold bar to receive the final Ogre statue part. (One of the Ogres - Og, Grew, or Toban - will also give you the first crystal)."
+      ]
+    },
+    {
+      "step": "Entering Gu'Tanoth (Ogre City)",
+      "substeps": [
+        "Return to the Watchtower Wizard (location #1) and give him the three statue parts. He will give you the assembled Ogre statue.",
+        "Go south of Yanille, follow the road up the hill, and take the western path towards Gu'Tanoth.",
+        "Talk to the Ogre guard (location #9). He will throw you down the hill.",
+        "Go back up and use the Ogre statue on the guard. He will let you enter."
+      ]
+    },
+    {
+      "step": "Navigating Gu'Tanoth",
+      "substeps": [
+        "Find the Rock Cake stall southwest of the market area (location #10). Steal a rock cake (do not eat it).",
+        "Leave the market area and follow the path south to the battlement guarded by two Ogres (location #11).",
+        "Attempt to climb the battlement. Give the rock cake to the guard when prompted.",
+        "Climb over the battlement and cross the bridge.",
+        "Approach the next bridge obstacle (location #12). Click the rock to jump.",
+        "Pay the guard 20gp to jump. If you fail the jump, you must pay again.",
+        "Cross the bridge and talk to one of the city guards (location #13).",
+        "They will give you a riddle. Use a Death rune on the guard to answer correctly and receive a Scavid map."
+      ]
+    },
+    {
+      "step": "Learning the Scavid Language",
+      "substeps": [
+        "Exit the city and follow the path east to a cave (location #A).",
+        "Ensure you have the Scavid map and a lit candle. Enter the cave.",
+        "Talk to the scared Scavid. Begin learning the language.",
+        "Exit the cave. Find the other Scavid caves around the Ogre city (locations #B, C, D, E).",
+        "Enter each cave and talk to the Scavids, giving the correct responses (based on the language you are learning).",
+        "Once you have spoken correctly to all Scavids in caves B, C, D, and E, return to the scared Scavid in cave A and talk to them again."
+      ]
+    },
+    {
+      "step": "Retrieving the Second Crystal",
+      "substeps": [
+        "Follow the path north from the city gate until you see two Ogre guards (location #14).",
+        "Talk to a guard. Use the Gold bar on him to pass.",
+        "Follow the road, cross the bridge, and enter the cave (location #15).",
+        "Talk to the Mad Scavid inside. Give the correct responses.",
+        "He will give you the second crystal.",
+        "Take 2 Nightshades which respawn in this cave."
+      ]
+    },
+    {
+      "step": "Preparing the Shaman Potion",
+      "substeps": [
+        "Go to the market area in Gu'Tanoth.",
+        "Use one Nightshade on the guard in front of a cave entrance (location #16).",
+        "Enter the cave (Requires Anti-dragon shield!). Avoid or be prepared for Ogre Shamans, Guards, and Blue Dragons.",
+        "Go north inside the cave and exit.",
+        "Return to the Watchtower Wizard. He will tell you how to make a potion.",
+        "Create the potion: Use the Guam leaf on the Vial of water. Use the Jangerberry on the vial. Use the Pestle and mortar on the Bat bones, then add the ground bones to the vial.",
+        "Take the potion back to the Watchtower Wizard to have it enchanted."
+      ]
+    },
+    {
+      "step": "Retrieving the Third Crystal",
+      "substeps": [
+        "Return to the market cave entrance (location #16).",
+        "Use your second Nightshade on the guard.",
+        "Enter the cave (with Anti-dragon shield).",
+        "Use the enchanted potion on each Ogre Shaman in the cave. They will disappear.",
+        "The last Shaman will drop the third crystal when the potion is used on it."
+      ]
+    },
+    {
+      "step": "Retrieving the Fourth Crystal",
+      "substeps": [
+        "Go to the large rock in the middle of the same cave (location #16).",
+        "Use your Pickaxe on the rock to mine it.",
+        "You will receive the fourth and final crystal."
+      ]
+    },
+    {
+      "step": "Completing the Quest",
+      "substeps": [
+        "Return to the Watchtower Wizard with all four crystals.",
+        "Talk to him.",
+        "Flip the switch on the west wall of the top floor."
+      ]
+    }
+  ]
+}

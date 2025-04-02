@@ -1,0 +1,88 @@
+{
+  "id": 47,
+  "name": "Tree Gnome Village",
+  "Start point": "King Bolren next to the Spirit Tree in the Tree Gnome Stronghold.",
+  "Official difficulty": "Medium",
+  "Official length": "Medium",
+  "Description": "Help the Gnome Kingdom retrieve orbs of protection from the evil Khazard forces to save the Tree Gnome Village.",
+  "Type": "Members",
+  "Requirements": {
+    "Items required": [
+      "6 Logs"
+    ],
+    "Skills/Other required": [
+      "Ability to defeat a level 112 Khazard warlord"
+    ]
+  },
+  "Recommended": [
+    "Food (especially for the final fight)",
+    "Combat equipment"
+  ],
+  "Enemies to defeat": [
+    "Khazard Commander (level 48) x2",
+    "Khazard Warlord (level 112)"
+  ],
+  "Walkthrough": [
+    {
+      "step": "Starting the Quest",
+      "substeps": [
+        "Enter the Tree Gnome Stronghold maze and find Elkoy near the north-west corner. He will guide you through the maze.",
+        "Once through the maze, talk to King Bolren near the Spirit Tree.",
+        "Agree to help retrieve the Orb of Protection. Elkoy will lead you to the battlefield."
+      ]
+    },
+    {
+      "step": "Helping Commander Montai",
+      "substeps": [
+        "Talk to Commander Montai on the battlefield.",
+        "Give him the 6 Logs when he asks for them.",
+        "Talk to him again to receive the task of finding coordinates from his trackers."
+      ]
+    },
+    {
+      "step": "Finding the Trackers",
+      "substeps": [
+        "Head north into the Khazard camp. Find the 1st tracker in an oblong building in the north-east part. Learn the Y-coordinate is 5.",
+        "Head west from the first tracker, staying north of the long building. Find the 2nd tracker along the wall. Learn the Height coordinate is 4.",
+        "Head south along the outskirts of the camp. Find the 3rd tracker and solve his riddle to learn the X-coordinate is 3."
+      ]
+    },
+    {
+      "step": "Retrieving the First Orb",
+      "substeps": [
+        "Return to the gnome camp and go to the Ballista.",
+        "Operate the Ballista using the coordinates: Height=4, X=3, Y=5.",
+        "Go to the north-west building in the Khazard camp and climb over the crumbled wall.",
+        "Defeat the level 48 Khazard Commander downstairs.",
+        "Go upstairs and defeat the second level 48 Khazard Commander.",
+        "Open the chest on the 2nd floor to get the Orb of Protection."
+      ]
+    },
+    {
+      "step": "The Warlord",
+      "substeps": [
+        "Return to Elkoy at the maze entrance (he will guide you back in).",
+        "Speak to King Bolren. He will tell you the other two orbs have been stolen.",
+        "Elkoy will guide you out of the maze.",
+        "Travel north past the Khazard camp, then north-west, past level 64 wolves.",
+        "Locate the level 112 Khazard Warlord."
+      ]
+    },
+    {
+      "step": "Defeating the Warlord",
+      "substeps": [
+        "Attack the Khazard Warlord. You may need to run away to eat food if your health gets low.",
+        "Using Ranged or Magic can be effective as he may be unable to reach you in certain spots.",
+        "Defeat the Warlord. He will drop the two remaining Orbs of Protection."
+      ]
+    },
+    {
+      "step": "Completing the Quest",
+      "substeps": [
+        "Pick up the Orbs.",
+        "Return to Elkoy at the maze entrance (he will guide you back in).",
+        "Speak to King Bolren to give him the orbs and claim your reward."
+      ]
+    }
+  ]
+}

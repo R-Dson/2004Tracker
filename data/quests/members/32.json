@@ -1,0 +1,96 @@
+{
+  "id": 32,
+  "name": "Lost City",
+  "Start point": "Speak to the Adventurers by the campfire in the Lumbridge Swamp (south of Lumbridge/Draynor Forest).",
+  "Official difficulty": "Experienced",
+  "Official length": "Medium",
+  "Description": "Legends tell of a magical lost city hidden in the swamps. Many adventurers have tried to find this city, but it is proving difficult. Can you unlock the secrets of the city of Zanaris?",
+  "Type": "Members",
+  "Requirements": {
+    "Skills": [
+      "Level 31 Crafting",
+      "Level 36 Woodcutting"
+    ],
+    "Quests": [],
+    "Other": "Must be able to defeat a Tree spirit (level 101).",
+    "Items required": [
+      "Hatchet (any type)",
+      "Knife"
+    ]
+  },
+  "Recommended": [
+    "Good food (e.g., lobsters or better)",
+    "Method of teleportation (runes or jewellery)",
+    "Prayer potions (if using melee)",
+    "Runes for combat spells (if using magic)",
+    "Bowstring, unfinished shortbow/longbow, arrows (if using ranged)",
+    "Items allowed on Entrana (e.g., robes, monk robes, capes, boots, gloves, jewellery, potions, runes, food)"
+  ],
+  "Enemies to defeat": "Tree spirit (level 101)",
+  "Walkthrough": [
+    {
+      "step": "Starting the Quest",
+      "substeps": [
+        "Head to the Lumbridge Swamp, south of the forest between Lumbridge and Draynor Village.",
+        "Find the group of adventurers around a campfire.",
+        "Speak to the Warrior.",
+        "Ask him what they are doing there ('What are you camped out here for?').",
+        "Ask about the Leprechaun ('A leprechaun?').",
+        "Agree to look for the tree ('Ok, I'll look for the tree')."
+      ]
+    },
+    {
+      "step": "Finding the Leprechaun",
+      "substeps": [
+        "Walk directly west from the campfire into the trees.",
+        "Look for a tree that has the option 'Chop Tree' instead of 'Chop down Tree'.",
+        "Attempt to chop this Dramen tree.",
+        "A leprechaun named Shamus will appear and run away.",
+        "Speak to Shamus.",
+        "Ask him how to get into Zanaris ('How do I get into Zanaris?'). He will tell you about the Dramen staff."
+      ]
+    },
+    {
+      "step": "Preparing for and Travelling to Entrana",
+      "substeps": [
+        "Bank all weapons and armour.",
+        "Gather required items: Knife, Hatchet.",
+        "Gather recommended items: Food, teleport method, combat supplies (prayer potions, runes, or bow materials as needed). Remember you cannot bring standard weapons or armour.",
+        "Go to Port Sarim.",
+        "Speak to any Monk of Entrana on the docks.",
+        "Select the travel option to Entrana. You will be searched; ensure you have no forbidden items."
+      ]
+    },
+    {
+      "step": "Finding the Dramen Tree",
+      "substeps": [
+        "Once on Entrana, head north-east and cross the bridge.",
+        "Continue west to find a ladder leading down into the Entrana Dungeon.",
+        "Speak to the Cave monk (optional) who warns you about the dungeon and the one-way exit to the Wilderness.",
+        "Climb down the ladder.",
+        "You may need to kill Zombies (level 25) in the first area until one drops a Bronze axe if you didn't bring your own hatchet (though bringing one is recommended).",
+        "Run south past the Greater demons (level 92) into the chamber containing the Dramen tree."
+      ]
+    },
+    {
+      "step": "Defeating the Tree Spirit",
+      "substeps": [
+        "Attempt to chop the Dramen tree.",
+        "A Tree spirit (level 101) will appear and attack you.",
+        "Defeat the Tree spirit. Strategies:",
+        "Melee: Equip the best weapon you could bring (e.g. the bronze axe from zombies, or just fists). Use Protect from Melee prayer and drink prayer potions as needed.",
+        "Ranged/Magic: There is a safespot in the room. Lure the spirit and attack from safety.",
+        "Crafting: If you brought hides and thread, craft leather armour. If you brought snail shells, craft a snelmn."
+      ]
+    },
+    {
+      "step": "Crafting the Staff and Finishing",
+      "substeps": [
+        "Once the Tree spirit is defeated, chop the Dramen tree to obtain a Dramen branch.",
+        "Use your Knife on the Dramen branch to craft a Dramen staff.",
+        "You can now either teleport out or use the 'Magic door' in the Greater demon room to the north, which teleports you to level 32 Wilderness.",
+        "To enter Zanaris, wield the Dramen staff and open the door of the small shed in Lumbridge Swamp (near the starting campfire)."
+      ]
+    }
+  ]
+}

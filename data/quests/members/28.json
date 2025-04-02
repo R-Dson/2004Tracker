@@ -1,0 +1,66 @@
+{
+  "id": 28,
+  "name": "Hazeel Cult",
+  "Start point": "Ceril Carnillean in the Carnillean Mansion, west Ardougne.",
+  "Official difficulty": "Novice",
+  "Official length": "Short",
+  "Description": "Ceril Carnillean suspects his brother, Clivet, is involved in a cult trying to resurrect the ancient Mahjarrat Hazeel. He asks for your help investigating Clivet's activities in the sewers below. You must choose whether to help Ceril stop the cult or aid Clivet in bringing Hazeel back.",
+  "Type": "Members",
+  "Requirements": {
+    "Items required": "None"
+  },
+  "Recommended": [
+    "Combat level sufficient to defeat a level 13 enemy (if siding with Ceril)"
+  ],
+  "Enemies to defeat": "Alomone (level 13) (Only if siding with Ceril)",
+  "Rewards": [
+    "1 Quest point",
+    "2,000 coins",
+    "Access to Ardougne Rat Pits",
+    "Siding with Clivet: Hazeel mark, 1,000 Thieving experience",
+    "Siding with Ceril: 1,000 Attack experience"
+  ],
+  "Walkthrough": [
+    {
+      "step": "Starting the Quest",
+      "substeps": [
+        "Talk to Ceril Carnillean on the ground floor[UK]1st floor[US] of the Carnillean Mansion in west Ardougne.",
+        "Agree to investigate his brother Clivet's activities"
+      ]
+    },
+    {
+      "step": "Meeting Clivet and Choosing a Side",
+      "substeps": [
+        "Find cave entrance south of mansion marked by dungeon icon",
+        "Talk to Clivet in the sewer cave",
+        "Choose to help Clivet (cult) or refuse to help (side with Ceril)"
+      ]
+    },
+    {
+      "step": "Path 1: Helping Clivet (Cult)",
+      "substeps": [
+        "Poison Carnillean family's food in mansion basement",
+        "Manipulate 5 sewer valves (1 left, 4 right)",
+        "Retrieve Hazeel's scroll from mansion using Hazeel mark",
+        "Complete resurrection ritual with Alomone"
+      ]
+    },
+    {
+      "step": "Path 2: Helping Ceril (Anti-Cult)",
+      "substeps": [
+        "Set sewer valves to flood cult chamber (1 left, 4 right)",
+        "Defeat Alomone (level 13) in ritual chamber",
+        "Expose corrupt butler by finding poison evidence",
+        "Return to Ceril with proof"
+      ]
+    },
+    {
+      "step": "Final Steps",
+      "substeps": [
+        "Complete chosen path's objectives",
+        "Return to quest giver for reward",
+        "Gain access to Ardougne Rat Pits"
+      ]
+    }
+  ]
+}

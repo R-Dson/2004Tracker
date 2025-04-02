@@ -1,0 +1,132 @@
+{
+  "id": 20,
+  "name": "Biohazard",
+  "Start point": "Elena, east of her parents' house in East Ardougne.",
+  "Official difficulty": "Easy/Medium",
+  "Official length": "Medium",
+  "Description": "Second part of an ongoing adventure. Help Elena discover the truth about the infamous Ardougne plague. Smuggle test samples across Ardougne to Elena's old mentor.",
+  "Type": "Members",
+  "Requirements": {
+    "Quests": "Completion of Plague City.",
+    "Items required": [
+      "Priest gown",
+      "Priest robe (Top)"
+    ]
+  },
+  "Recommended": [
+    "Stamina potions for travel (optional)"
+  ],
+  "Enemies to defeat": "Mourner (level 13) x2",
+  "Walkthrough": [
+    {
+      "step": "Starting the Quest",
+      "substeps": [
+        "Talk to Elena in her house in East Ardougne (east of the general store)."
+      ]
+    },
+    {
+      "step": "Contacting Jerico",
+      "substeps": [
+        "Go to the house south of the East Ardougne bank.",
+        "Talk to Jerico.",
+        "Pick up a Pigeon cage from the table.",
+        "Search the cupboards in Jerico's house to find Bird feed."
+      ]
+    },
+    {
+      "step": "Contacting Omart & Distraction",
+      "substeps": [
+        "Go to Omart's house in the south-west corner of West Ardougne (west of the Carnillean house).",
+        "Talk to Omart.",
+        "Go to the watchtower directly north of Omart.",
+        "Use the Bird feed on the watchtower.",
+        "Use the Pigeon cage (ensure it's the cage, not the feed).",
+        "Return and talk to Omart.",
+        "Click the 'Rope' option on the wall next to Omart to cross into East Ardougne."
+      ]
+    },
+    {
+      "step": "Infiltrating the Mourner HQ",
+      "substeps": [
+        "Go to the gated building in the north-east corner of West Ardougne.",
+        "Pick up a Rotten apple from the barrel just north-west of the building.",
+        "Climb over the fence into the compound.",
+        "Use the Rotten apple on the Cauldron.",
+        "Attempt to open the door to the building. A mourner will speak to you.",
+        "Go south-west to Nurse Sarah's house (south of the northern bank).",
+        "Search the cupboard inside to find a Doctor's gown.",
+        "Equip the Doctor's gown.",
+        "Return to the Mourner HQ building."
+      ]
+    },
+    {
+      "step": "Retrieving the Distillator",
+      "substeps": [
+        "Open the door to the Mourner HQ (with the Doctor's gown equipped).",
+        "Enter the building and open the next door.",
+        "Climb the staircase.",
+        "Open the door.",
+        "Talk to the Mourner (any dialogue choice works). Kill the level 13 Mourner that attacks.",
+        "Repeat for the second Mourner in the other room to get a key.",
+        "Use the key on the gate.",
+        "Search the crates inside the gated area until you find the Distillator."
+      ]
+    },
+    {
+      "step": "Returning to East Ardougne",
+      "substeps": [
+        "Leave the Mourner HQ.",
+        "Go to the south-east corner of West Ardougne.",
+        "Talk to Kilron and ask him to take you back to East Ardougne."
+      ]
+    },
+    {
+      "step": "Preparing the Smuggling",
+      "substeps": [
+        "Go back to Elena's house and talk to her. She will give you three liquid samples (vials) and Touch paper.",
+        "Warning: Do NOT teleport while carrying the vials, as they will break. You can bank them if needed.",
+        "Travel towards Rimmington (or Port Sarim).",
+        "Talk to the Chemist in his house west of Rimmington.",
+        "Tell him you are friends with Elena and need the paper for Guidor. (Do NOT mention the plague). He will give you Touch paper if Elena didn't already."
+      ]
+    },
+    {
+      "step": "Smuggling the Vials",
+      "substeps": [
+        "Find the three children near the Rimmington general store:",
+        "Give Sulphuric broline to Hops.",
+        "Give Liquid honey to Chancy.",
+        "Give Ethenea to Da Vinci.",
+        "Travel to Varrock. You will be stopped and searched at the gate between Falador/Barbarian Village and Varrock.",
+        "Go to the Dancing Donkey Inn in south-east Varrock.",
+        "Talk to each of the children inside the inn to retrieve the three vials."
+      ]
+    },
+    {
+      "step": "Meeting Guidor",
+      "substeps": [
+        "Go to Guidor's house, just south-east of the Dancing Donkey Inn.",
+        "Talk to Alrena (Guidor's wife).",
+        "Equip the Priest gown and Priest robe (top).",
+        "Talk to Alrena again. She will let you see Guidor.",
+        "Talk to Guidor. Tell him Elena sent you and give him the vials and touch paper.",
+        "Listen to Guidor reveal the truth about the 'plague'."
+      ]
+    },
+    {
+      "step": "Reporting Back",
+      "substeps": [
+        "Return to Ardougne (you can now teleport).",
+        "Talk to Elena in her house and tell her what Guidor discovered."
+      ]
+    },
+    {
+      "step": "Completing the Quest",
+      "substeps": [
+        "Go to Ardougne Castle (south part of East Ardougne).",
+        "Go up to the 1st floor[UK]2nd floor[US].",
+        "Talk to King Lathas to finish the quest and claim your reward."
+      ]
+    }
+  ]
+}

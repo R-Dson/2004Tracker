@@ -1,0 +1,109 @@
+{
+  "id": 44,
+  "name": "The Grand Tree",
+  "Start point": "King Narnode Shareen in the Grand Tree, Gnome Stronghold.",
+  "Official difficulty": "Experienced",
+  "Official length": "Long",
+  "Description": "The Grand Tree, which shelters the majority of RuneScape's small gnome population, is dying. Is it human sabotage or an inside job? Help King Shareem to find the true cause and save the tree gnomes from an uncertain fate.",
+  "Type": "Members",
+  "Requirements": {
+    "Skills required": [
+      "Agility 25 Agility",
+      "Ability to defeat a level 172 Black demon"
+    ],
+    "Items required": [
+      "30 coins (for boat trip to Karamja, unless using other methods)"
+    ]
+  },
+  "Recommended": [
+    "Food",
+    "Prayer potions",
+    "Combat equipment (Melee, Ranged, or Magic)",
+    "Teleport method to Ardougne or Gnome Stronghold"
+  ],
+  "Enemies to defeat": "Black demon (level 172)",
+  "Walkthrough": [
+    {
+      "step": "Starting the quest",
+      "substeps": [
+        "Talk to King Narnode Shareen on the 1st floor[UK]2nd floor[US] of the Grand Tree in the Gnome Stronghold.",
+        "Receive a Translation book and a Bark sample."
+      ]
+    },
+    {
+      "step": "Visiting Hazelmere",
+      "substeps": [
+        "Travel to Hazelmere's house, located on a peninsula east of Yanille and south-east of Ardougne.",
+        "Enter the house and climb the ladder.",
+        "Talk to Hazelmere. He will translate the bark sample."
+      ]
+    },
+    {
+      "step": "Reporting to the King",
+      "substeps": [
+        "Return to King Narnode Shareen.",
+        "Talk to him and select the translated message: 'A man came to me with the King's seal, I gave human Daconia rock, and Daconia rocks will kill trees.' (You may need to select 'None of the above' several times first)."
+      ]
+    },
+    {
+      "step": "Investigating Glough",
+      "substeps": [
+        "Talk to Glough in his tree house just south-east of the Grand Tree.",
+        "Return to the King.",
+        "Ask the King to see the prisoner. He will grant permission.",
+        "Go to the top floor of the Grand Tree and talk to Charlie the prisoner.",
+        "Go back to Glough's house.",
+        "Search the Cupboard to find Glough's journal.",
+        "Take the journal back to the King."
+      ]
+    },
+    {
+      "step": "Imprisonment and Karamja",
+      "substeps": [
+        "Talk to Glough again. He will have you arrested.",
+        "Talk to Charlie in the prison cell. He will tell you a password for the Karamja shipyard.",
+        "The King will release you.",
+        "Travel to Karamja (e.g., via glider from the top of the Grand Tree, boat from Brimhaven for 30 coins, or other methods).",
+        "Go to the shipyard west of the glider landing spot.",
+        "Attempt to open the gate. Give the Shipyard worker the password: 'Ka', 'Lu', 'Min'.",
+        "Talk to the Foreman and answer his questions:",
+        "- How is Glough's wife? (She is no longer with us)",
+        "- What's Glough's favourite food? (Wormhole)",
+        "- What is his new girlfriend called? (Anita)",
+        "Receive Glough's invasion plans."
+      ]
+    },
+    {
+      "step": "Returning and Gathering More Evidence",
+      "substeps": [
+        "Return to the Gnome Stronghold. You cannot use the glider back or walk through the main gate. Use the Spirit Tree in the Tree Gnome Village.",
+        "Talk to the King. He still doesn't believe you.",
+        "Talk to Charlie at the top of the Grand Tree again.",
+        "Go to Anita's house, north-west of the Grand Tree, near the swamp.",
+        "Talk to Anita. She will give you Glough's key.",
+        "Go to Glough's house and use the key on the Chest to get invasion plans.",
+        "Take the plans to the King. He gives you four Twigs (Tuzo)."
+      ]
+    },
+    {
+      "step": "Confrontation",
+      "substeps": [
+        "Go back to Glough's house and climb the tree ladder to the upper level (requires 25 Agility).",
+        "Use the Twigs on the Formation puzzle stand in the following order from left to right: T, U, Z, O.",
+        "Open the Formation. You will fall down a trapdoor.",
+        "Prepare for combat.",
+        "A cutscene will play, and a level 172 Black demon will attack. Defeat it.",
+        "(Optional Ranged Tactic: Lure the demon west towards the mithril rocks and safespot it.)"
+      ]
+    },
+    {
+      "step": "Completing the Quest",
+      "substeps": [
+        "After defeating the demon, walk down the tunnel until you see the King.",
+        "Talk to the King.",
+        "Search the roots in the area until you find the Daconia rock.",
+        "Give the Daconia rock to the King to complete the quest."
+      ]
+    }
+  ]
+}
