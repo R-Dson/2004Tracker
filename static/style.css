@@ -27,7 +27,12 @@
 .quest-section {
     margin: 15px 0;
     background: rgba(0,0,0,0.1);
-    border-radius: 5px;
+
+}
+
+.quest-text, .checklist {
+  border-left: 2px solid #3b3b3b98;
+  padding-left: 10px;
 }
  
 .checklist {
