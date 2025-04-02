@@ -22,6 +22,10 @@
       "substeps": [
         "Speak to Reldo in the Varrock Palace Library (north wing of the palace). Ask him for a quest.",
         "He will mention the Shield of Arrav. Search the bookcases in the library to find 'The Shield of Arrav' book.",
+        {
+          "image": "https://oldschool.runescape.wiki/images/thumb/Varrock_palace_library.png/1024px-Varrock_palace_library.png",
+          "caption": "The Varrock Palace Library."
+        },
         "Read the book, then speak to Reldo again.",
         "Reldo suggests talking to Baraek.",
         "Find Baraek, the fur trader in Varrock Centre square.",
@@ -37,7 +41,7 @@
       ]
     },
     {
-      "step": "Phoenix Gang Member Steps (Partner 1)",
+      "step": "Phoenix Gang Member Steps (Player 1)",
       "substeps": [
         "Go to the Blue Moon Inn, located east of Varrock Centre square.",
         "Attack and kill Johnny the Beard (level 2). Pick up the Intelligence report he drops.",
@@ -52,7 +56,7 @@
       ]
     },
     {
-      "step": "Black Arm Gang Member Steps (Partner 2)",
+      "step": "Black Arm Gang Member Steps (Player 2)",
       "substeps": [
         "Go to the Black Arm Gang HQ.",
         "Speak to Katrine. Ask to join the gang.",

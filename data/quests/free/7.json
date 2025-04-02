@@ -32,6 +32,10 @@
       "step": "Visiting the Goblin Village",
       "substeps": [
         "Travel north from Port Sarim, through Falador, and take the north-west path towards the Goblin Village (north of Doric's Anvil).",
+        {
+          "image": "https://oldschool.runescape.wiki/images/thumb/Goblin_Village.png/1024px-Goblin_Village.png",
+          "caption": "The Goblin Village."
+        },
         "Talk to General Wartface or General Bentnoze. They will argue about wanting different coloured armour.",
         "Agree to help them get new armour. They will eventually mention wanting Orange armour.",
         "Obtain 3 Goblin mails. You can kill the Goblins (level 5) in the village until they drop three, or sometimes find spawns inside the buildings."

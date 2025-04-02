@@ -36,7 +36,17 @@
 
     <div class="quest-section">
         <h3>Enemies to Defeat</h3>
-        <p>{{ quest['Enemies to defeat'] }}</p>
+        {% if quest['Enemies to defeat'] is string %}
+            <p>{{ quest['Enemies to defeat'] }}</p>
+        {% elif quest['Enemies to defeat'] is iterable %}
+            <div class="enemies-list">
+                {% for enemy in quest['Enemies to defeat'] %}
+                <div class="enemy-item">{{ enemy }}</div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p>None</p>
+        {% endif %}
     </div>
 
     {% if quest.Recommended %}

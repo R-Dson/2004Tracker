@@ -6,8 +6,6 @@
   "Official length": "Short",
   "Description": "Father Aereck, the priest in Lumbridge chapel, is having problems with a ghost in the graveyard. He needs your help.",
   "Requirements": {
-    "Skills": "None",
-    "Items required": "None"
   },
   "Recommended": [
     "Combat level sufficient to defeat a level 13 Skeleton (optional, fighting can be avoided)."
@@ -17,7 +15,11 @@
     {
       "step": "Starting the quest",
       "substeps": [
-        "Speak to Father Aereck in the Lumbridge Chapel. He will ask you to talk to Father Urhney."
+        "Speak to Father Aereck in the Lumbridge Chapel. He will ask you to talk to Father Urhney.",
+        {
+          "image": "https://oldschool.runescape.wiki/images/thumb/Lumbridge_church.png/800px-Lumbridge_church.png",
+          "caption": "The Lumbridge Chapel."
+        }
       ]
     },
     {
@@ -31,6 +33,10 @@
     {
       "step": "Speaking to the Ghost",
       "substeps": [
+        {
+          "image": "https://oldschool.runescape.wiki/images/archive/20180410221010%21The_Restless_Ghost.png",
+          "caption": "A player speaking with the ghost."
+        },
         "Return to the Lumbridge graveyard, located behind the church.",
         "Equip the Amulet of ghostspeak.",
         "Open the stone coffin inside the small crypt building.",
@@ -41,6 +47,10 @@
       "step": "Retrieving the Skull",
       "substeps": [
         "Travel south from Lumbridge, across the bridge, to the Wizards' Tower.",
+        {
+          "image": "https://oldschool.runescape.wiki/images/archive/20221109045627%21Wizards%27_Tower.png",
+          "caption": "The Wizards' Tower."
+        },
         "Enter the tower and climb down the ladder to the basement.",
         "Search the altar at the end of the room. You will find the Ghost's skull.",
         "A level 13 Skeleton will appear and attack. You can either kill it or quickly run out of the basement with the skull."

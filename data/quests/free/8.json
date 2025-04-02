@@ -23,6 +23,10 @@
       "step": "Starting the quest",
       "substeps": [
         "Talk to Wizard Mizgog on the 2nd floor[UK]3rd floor[US] of the Wizards' Tower.",
+        {
+          "image": "https://oldschool.runescape.wiki/images/Imp_Catcher.png",
+          "caption": "The quest start location."
+        },
         "Agree to help him retrieve his four stolen beads: black, red, white, and yellow."
       ]
     },

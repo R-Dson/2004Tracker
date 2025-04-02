@@ -33,7 +33,11 @@
         "Travel to the Blue Moon Inn (formerly Jolly Boar Inn) located north-east of Varrock, just south of the east bank.",
         "Speak to Dr Harlow inside the Inn.",
         "Buy a Beer from the Bartender (cost: 2 coins).",
-        "Give the Beer to Dr Harlow. He will give you a Stake and tell you how to defeat the Count."
+        "Give the Beer to Dr Harlow. He will give you a Stake and tell you how to defeat the Count.",
+        {
+          "image": "https://oldschool.runescape.wiki/images/archive/20220811004657%21Blue_Moon_Inn.png",
+          "caption": "The Blue Moon Inn."
+        }
       ]
     },
     {
@@ -42,6 +46,10 @@
         "Ensure you have the Stake, a Hammer, and the Garlic in your inventory.",
         "Go to Draynor Manor, north of Draynor Village.",
         "Enter the Manor and go down the stairs into the basement.",
+        {
+          "image": "https://oldschool.runescape.wiki/images/thumb/Vampyre_Slayer.png/1024px-Vampyre_Slayer.png",
+          "caption": "A player fighting Count Draynor."
+        },
         "Open the coffin in the centre of the basement room.",
         "Count Draynor (level 34) will appear and attack.",
         "Fight Count Draynor. When his health is very low, he will automatically be finished off with the stake."

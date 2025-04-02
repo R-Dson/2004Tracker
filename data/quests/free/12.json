@@ -6,12 +6,10 @@
   "Official length": "Very Short",
   "Description": "Romeo and Juliet are in love, but Juliet's father disapproves. Help Romeo by finding a way for them to be together, despite the obstacles.",
   "Requirements": {
-    "Quest points": "None",
     "Items required": [
       "Cadaver berries (can be obtained during the quest)"
     ]
   },
-  "Recommended": "None",
   "Enemies to defeat": "None",
   "Walkthrough": [
     {
@@ -24,7 +22,11 @@
       "step": "Finding Romeo",
       "substeps": [
         "Find Romeo wandering around Varrock square.",
-        "Speak to Romeo. He reads the message and asks you to seek help from Father Lawrence."
+        "Speak to Romeo. He reads the message and asks you to seek help from Father Lawrence.",
+        {
+          "image": "https://oldschool.runescape.wiki/images/archive/20150629002524%21Varrock_Square.png",
+          "caption": "The Varrock square."
+        }
       ]
     },
     {

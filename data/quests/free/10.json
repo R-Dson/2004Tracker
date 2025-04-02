@@ -31,6 +31,10 @@
       "substeps": [
         "Speak to Hassan in the Al Kharid palace.",
         "Speak to Osman, the palace spy master, located just outside the palace entrance to the north-west.",
+        {
+          "image": "https://oldschool.runescape.wiki/images/archive/20190915171456%21Al_Kharid.png",
+          "caption": "Osman outside the Al Kharid palace."
+        },
         "Osman will tell you to speak to Leela, his daughter, in Draynor Village."
       ]
     },
@@ -63,11 +67,16 @@
       "substeps": [
         "Ensure you have the Pink skirt, Wig, Skin paste, Bronze key, Rope, and 3 Beers.",
         "Go back to the jail building near Draynor Village.",
+        {
+          "image": "https://oldschool.runescape.wiki/images/Prince_Ali_Rescue.png",
+          "caption": "Prince Ali in his jail cell."
+        },
         "Talk to the Guard outside the jail cell. Offer him a beer.",
         "Keep talking to him until you've given him all 3 beers and he passes out drunk.",
         "Use the Rope on Lady Keli to tie her up.",
         "Use the Bronze key on the jail door to unlock it.",
         "Speak to Prince Ali. He will automatically take the disguise items (Wig, Skirt, Skin Paste) and escape."
+        
       ]
     },
     {

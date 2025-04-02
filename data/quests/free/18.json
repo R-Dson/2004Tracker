@@ -23,7 +23,11 @@
       "step": "Starting the quest",
       "substeps": [
         "Speak to Hetty in her house in the south-east corner of Rimmington.",
-        "Agree to help her make a potion. She will ask you to find four ingredients: an onion, a rat's tail, an eye of newt, and burnt meat."
+        "Agree to help her make a potion. She will ask you to find four ingredients: an onion, a rat's tail, an eye of newt, and burnt meat.",
+        {
+          "image": "https://oldschool.runescape.wiki/images/Witch%27s_Potion_-_Hetty%27s_Cauldron.png",
+          "caption": "Hetty's house with the couldron."
+        }
       ]
     },
     {

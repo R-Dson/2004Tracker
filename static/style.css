@@ -506,6 +506,19 @@ h4 {
   background-image: url('/static/img/edge_h2.jpg');
 }
 
+/* Enemy list styling */
+.enemies-list {
+  margin: 10px 0;
+  padding-left: 20px;
+}
+
+.enemy-item {
+  padding: 3px 0;
+  margin-left: 20px;
+  text-indent: -20px;
+  line-height: 1.4;
+}
+
 .horizontal-edge-top,
 .horizontal-edge-bottom {
   position: absolute;

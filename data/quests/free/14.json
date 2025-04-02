@@ -6,7 +6,6 @@
   "Official length": "Very Short",
   "Description": "Farmer Fred's sheep are getting mighty woolly. He will pay you to shear them.",
   "Requirements": {
-    "Quest points": "None",
     "Items required": [
       "Shears (can be obtained during the quest for 1 coin)"
     ]
@@ -26,7 +25,11 @@
       "substeps": [
         "Obtain a pair of Shears. If you don't have any, you can buy them from the Lumbridge General Store for 1 coin.",
         "Go to the sheep pen just east of Fred's house.",
-        "Use the Shears on 20 sheep to collect 20 pieces of Wool. Note: Black sheep cannot be sheared for this quest."
+        "Use the Shears on 20 sheep to collect 20 pieces of Wool. Note: Black sheep cannot be sheared for this quest.",
+        {
+          "image": "https://oldschool.runescape.wiki/images/Sheep_Shearer.png",
+          "caption": "The sheep pen."
+        }
       ]
     },
     {
@@ -35,7 +38,11 @@
         "Go to Lumbridge Castle.",
         "Climb the stairs to the 1st floor[UK]2nd floor[US].",
         "Find the spinning wheel in the western room.",
-        "Use the Wool on the spinning wheel to create 20 Balls of wool."
+        "Use the Wool on the spinning wheel to create 20 Balls of wool.",
+        {
+          "image": "https://oldschool.runescape.wiki/images/Sheep_Shearer_-_Spinning_wheel.png",
+          "caption": "The spinning wheel."
+        }
       ]
     },
     {

@@ -6,8 +6,6 @@
   "Official length": "Short",
   "Description": "The Duke of Lumbridge has discovered a strange talisman. He asks you to take it to the Wizards' Tower south of Draynor Village for research. This quest unlocks the Runecrafting skill.",
   "Requirements": {
-    "Quest points": "None",
-    "Items required": []
   },
   "Recommended": [
     "Fast travel to Draynor Village (Amulet of glory)",
@@ -27,7 +25,11 @@
       "substeps": [
         "Travel to the Wizards' Tower, south of Draynor Village.",
         "Go down the ladder to the basement.",
-        "Speak to Sedridor. He will take the Air talisman and give you a Research package."
+        "Speak to Sedridor. He will take the Air talisman and give you a Research package.",
+        {
+          "image": "https://oldschool.runescape.wiki/images/Rune_Mysteries.png",
+          "caption": "A player spearking with Sedridor."
+        }
       ]
     },
     {
@@ -35,6 +37,10 @@
       "substeps": [
         "Travel to Varrock.",
         "Go to the rune shop in the north-eastern part of Varrock (south of the east bank).",
+        {
+          "image": "https://oldschool.runescape.wiki/images/archive/20180513203447%21Aubury%27s_Rune_Shop..png",
+          "caption": "Outside the Varrock Rune Shop."
+        },
         "Speak to Aubury.",
         "Give him the Research package. He will give you Research notes."
       ]

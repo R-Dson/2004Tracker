@@ -5,7 +5,6 @@
   "Official difficulty": "Experienced",
   "Official length": "Long",
   "Description": "Prove you are worthy to enter the Hero's Guild by obtaining a Firebird's Feather, Master Thieves' Armband, and Cooked Lava Eel.",
-  "Type": "Members",
   "Requirements": {
     "Quests": [
       "Shield of Arrav",
@@ -13,13 +12,13 @@
       "Merlin's Crystal",
       "Lost City"
     ],
-    "Quest points": 55,
-    "Skills": {
-      "Mining": 50,
-      "Fishing": 53,
-      "Cooking": 53,
-      "Herblore": 25
-    },
+    "Quest points": "55 Quest points",
+    "Skills": [
+      "Mining 50",
+      "Fishing 53",
+      "Cooking 53",
+      "Herblore 25"
+    ],
     "Items required": [
       "Harralander",
       "Vial of water",
@@ -29,6 +28,7 @@
       "Partner from opposite gang"
     ]
   },
+  "Type": "Members",
   "Recommended": [
     "Combat level for Ice Queen (102)",
     "Anti-dragon shield",

@@ -19,6 +19,10 @@
       "step": "Starting the Quest",
       "substeps": [
         "Talk to Redbeard Frank in The Rusty Anchor pub in Port Sarim.",
+        {
+          "image": "https://oldschool.runescape.wiki/images/The_Rusty_Anchor.png",
+          "caption": "The Rusty Anchor Inn."
+        },
         "Agree to get him some Karamjan Rum."
       ]
     },
@@ -28,6 +32,10 @@
         "Items needed: 60 coins.",
         "Take the boat from the southern Port Sarim dock to Musa Point, Karamja (costs 30 coins).",
         "Go west to the Karamja Wines, Spirits, and Beers bar.",
+        {
+          "image": "https://oldschool.runescape.wiki/images/thumb/Musa_Point.png/1024px-Musa_Point.png",
+          "caption": "Karamja Wines, Spirits, and Beers."
+        },
         "Buy Karamjan Rum for 30 coins from Zambo.",
         "Go north-east and speak to Luthas at the banana plantation house. Ask for a job.",
         "Pick 10 Bananas from the plantation trees just west of Luthas.",
@@ -64,6 +72,10 @@
       "substeps": [
         "Travel to Varrock.",
         "Go to the Blue Moon Inn (south of the Varrock Square, behind the general store).",
+        {
+          "image": "https://oldschool.runescape.wiki/images/archive/20220811004657%21Blue_Moon_Inn.png",
+          "caption": "The Blue Moon Inn."
+        },
         "Go upstairs (1st floor[UK]/2nd floor[US]).",
         "Enter the westernmost room.",
         "Use the Chest key on the Chest.",
@@ -79,6 +91,10 @@
         "Go to Falador Park (centre of Falador).",
         "Find the statue of Saradomin in the centre of the park.",
         "Locate the patch of flowers just west of the statue, surrounded by a dirt path.",
+        {
+          "image": "https://oldschool.runescape.wiki/images/archive/20191231233246%21Pirate%27s_Treasure_-_Buried_treasure_location.png",
+          "caption": "The flower patch."
+        },
         "Use your Spade on this flower patch.",
         "The Gardener (level 4) will appear and attack you. Kill him.",
         "Use the Spade on the flower patch again."
