@@ -31,6 +31,10 @@
       "substeps": [
         "Go down to the ground floor[UK]1st floor[US] and enter the room with the ladder in the north-west corner.",
         "Climb down the ladder into the basement.",
+        {
+          "image": "https://oldschool.runescape.wiki/images/Ernest_the_Chicken_-_Oil_can_map.png",
+          "caption": "The Oil can in the basement."
+        },
         "Follow this lever sequence precisely:",
         "Pull Lever A (Down).",
         "Pull Lever B (Down).",
