@@ -221,7 +221,8 @@ a:hover {
 }
 
 body {
-  font-family: 'RuneScape', Arial, Helvetica, sans-serif;
+  /*font-family: 'RuneScape', Arial, Helvetica, sans-serif;*/
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 24px;
   font-smooth: never;
   -webkit-font-smoothing: none;
@@ -392,7 +393,6 @@ body {
   color: rgb(255, 255, 255);
   padding: 2px 8px;
   cursor: pointer;
-  font-family: 'RuneScape', Arial, sans-serif;
   font-size: 0.9rem;
 }
 
