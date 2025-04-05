@@ -1,243 +1,275 @@
 {% extends 'base.html' %}
 {% block title %}Hiscores{% endblock %}
 {% block content %}
-  {% if username %}
-    <h2>{{ username }}'s progress</h2>
-    <div class="update-section">
-      <button id="updateButton" class="button updateButton" onclick="updateHiscore('{{ username }}')">Update Hiscore</button>
-      <span id="updateStatus" style="display: none; margin-left: 10px;"></span>
-      <button id="toggleMembersSkills" class="button updateButton" onclick="toggleMembersSkills()" style="margin-left: 10px;">Hide members skills</button>
-      <div id="refreshPopup" style="display: none; position: fixed; top: 20px; right: 20px; 
+{% if username %}
+<h2>{{ username }}'s progress</h2>
+<div class="update-section">
+  <button id="updateButton" class="button updateButton" onclick="updateHiscore('{{ username }}')">Update
+    Hiscore</button>
+  <span id="updateStatus" style="display: none; margin-left: 10px;"></span>
+  <button id="toggleMembersSkills" class="button updateButton" onclick="toggleMembersSkills()"
+    style="margin-left: 10px;">Hide members skills</button>
+  <div id="refreshPopup" style="display: none; position: fixed; top: 20px; right: 20px; 
            background-color: #0f0b08; border: 1px solid #3c3c3c; padding: 15px; color: white;
            box-shadow: 0 2px 4px rgba(0,0,0,0.2); border-radius: 4px; z-index: 1000;">
-        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;">
-          <span style="font-weight: bold;">Update Complete</span>
-          <button onclick="closePopup()" 
-                  style="border: none; background: none; cursor: pointer; font-size: 36px; color: white;">&times;</button>
-        </div>
-        <p style="margin: 0; color: #d3d3d3;">You may need to refresh the page to see all changes.<br>You may be refresh limited if you see no changes.</p>
-      </div>
-
+    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;">
+      <span style="font-weight: bold;">Update Complete</span>
+      <button onclick="closePopup()"
+        style="border: none; background: none; cursor: pointer; font-size: 36px; color: white;">&times;</button>
     </div>
-    <script>
-      // List of members-only skills
-      const membersSkills = ['Agility', 'Fletching', 'Herblore', 'Thieving'];
-      let membersSkillsVisible = true;
-      let showingLevels = false;
+    <p style="margin: 0; color: #d3d3d3;">You may need to refresh the page to see all changes.<br>You may be refresh
+      limited if you see no changes.</p>
+  </div>
 
-      function toggleXpLevels() {
-        showingLevels = !showingLevels;
-        const button = document.getElementById('toggleXpLevels');
-        button.textContent = showingLevels ? 'Show Experience' : 'Show Levels';
+</div>
 
-        const cells = document.querySelectorAll('.data-table td[title*="Levels Gained"]');
-        cells.forEach(cell => {
-          if (!cell.hasAttribute('data-xp')) {
-            cell.setAttribute('data-xp', cell.textContent);
-          }
-          const level = cell.title.match(/Levels Gained: (-?\d+)/)?.[1] || '-';
-          cell.textContent = showingLevels ? level : cell.getAttribute('data-xp');
-        });
+<div style="margin-top: 20px;">
+  <div>
+    <div style="display: flex; align-items: center;">
+      <h4 style="margin: 0;">Experience Gained</h4>
+      <button id="toggleXpLevels" class="button updateButton" onclick="toggleXpLevels()" style="margin-left: 10px;">Show
+        Levels</button>
+    </div>
+    <div class="nav-container" style="font-size: 1.3rem; margin-top: 15px;">
+      <p style="font-size: 0.8em;">The daily experience is between the first manual update of the day (UTC) and the
+        latest.<br>Front-page users in each skill are updated daily at 00:01.</p>
+    </div>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Skill</th>
+          <th>Monthly</th>
+          <th>Weekly</th>
+          <th>Daily</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for skill, progress in progress_by_skill.items() %}
+        <tr>
+          <td>{{ skill }}</td>
+          <td
+            class="{% if progress.monthly is not none and progress.monthly > 0 %}positive{% elif progress.monthly is not none and progress.monthly < 0 %}negative{% endif %}"
+            title="{% if progress.monthly is not none %}Levels Gained: {{ progress.monthly }}{% endif %}">{{
+            '{:,}'.format(progress.monthly_xp).replace(',', ' ') if progress.monthly_xp is not none and
+            progress.monthly_xp < 1000 else ('{:,}'.format(progress.monthly_xp//1000).replace(',', ' ' ) + 'k' if
+              progress.monthly_xp is not none else '-' ) }}</td>
+          <td
+            class="{% if progress.weekly is not none and progress.weekly > 0 %}positive{% elif progress.weekly is not none and progress.weekly < 0 %}negative{% endif %}"
+            title="{% if progress.weekly is not none %}Levels Gained: {{ progress.weekly }}{% endif %}">{{
+            '{:,}'.format(progress.weekly_xp).replace(',', ' ') if progress.weekly_xp is not none and progress.weekly_xp
+            < 1000 else ('{:,}'.format(progress.weekly_xp//1000).replace(',', ' ' ) + 'k' if progress.weekly_xp is not
+              none else '-' ) }}</td>
+          <td
+            class="{% if progress.daily is not none and progress.daily > 0 %}positive{% elif progress.daily is not none and progress.daily < 0 %}negative{% endif %}"
+            title="{% if progress.daily is not none %}Levels Gained: {{ progress.daily }}{% endif %}">{{
+            '{:,}'.format(progress.daily_xp).replace(',', ' ') if progress.daily_xp is not none and progress.daily_xp <
+              1000 else ('{:,}'.format(progress.daily_xp//1000).replace(',', ' ' ) + 'k' if progress.daily_xp is not
+              none else '-' ) }}</td> {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% if ehp_data %}
+  <div style="padding-top: 10px;">
+    <h3>Efficient Hours Played</h3>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Skill</th>
+          <th>EHP</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Total</strong></td>
+          <td><strong>{{ total_ehp }}</strong></td>
+        </tr>
+        {% for skill, value in ehp_data.items() %}
+        <tr title="XP: {% for entry in hiscores_latest %}{% if entry.skill == skill %}{{ " {:,}".format(entry.xp) }}{%
+          endif %}{% endfor %}">
+          <td>{{ skill }}</td>
+          <td>{{ value }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% endif %}
+  <div style="margin-top: 20px;">
+    <h4>Rank Progress</h4>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Skill</th>
+          <th>Current Rank</th>
+          <th>Monthly Change</th>
+          <th>Weekly Change</th>
+          <th>Daily Change</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for entry in hiscores_latest %}
+        {% set progress = rank_progress.get(entry.skill, {}) %}
+        <tr title="Level: {{ entry.level }}">
+          <td>{{ entry.skill }}</td>
+          <td>{{ entry.rank }}</td>
+          <td
+            class="{% if progress.monthly is not none and progress.monthly > 0 %}positive{% elif progress.monthly is not none and progress.monthly < 0 %}negative{% endif %}">
+            {{ progress.monthly if progress.monthly is not none else '-' }}</td>
+          <td
+            class="{% if progress.weekly is not none and progress.weekly > 0 %}positive{% elif progress.weekly is not none and progress.weekly < 0 %}negative{% endif %}">
+            {{ progress.weekly if progress.weekly is not none else '-' }}</td>
+          <td
+            class="{% if progress.daily is not none and progress.daily > 0 %}positive{% elif progress.daily is not none and progress.daily < 0 %}negative{% endif %}">
+            {{ progress.daily if progress.daily is not none else '-' }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% else %}
+<p>No username provided.</p>
+{% endif %}
+
+<script>
+  // List of members-only skills
+  const membersSkills = ['Agility', 'Fletching', 'Herblore', 'Thieving'];
+  let membersSkillsVisible = true;
+  let showingLevels = false;
+
+  function toggleXpLevels() {
+    showingLevels = !showingLevels;
+    const button = document.getElementById('toggleXpLevels');
+    button.textContent = showingLevels ? 'Show Experience' : 'Show Levels';
+
+    const cells = document.querySelectorAll('.data-table td[title*="Levels Gained"]');
+    cells.forEach(cell => {
+      if (!cell.hasAttribute('data-xp')) {
+        cell.setAttribute('data-xp', cell.textContent);
       }
+      const level = cell.title.match(/Levels Gained: (-?\d+)/)?.[1] || '-';
+      cell.textContent = showingLevels ? level : cell.getAttribute('data-xp');
+    });
+  }
 
-      function toggleMembersSkills() {
-        const button = document.getElementById('toggleMembersSkills');
-        membersSkillsVisible = !membersSkillsVisible;
-        
-        // Update button text
-        button.textContent = membersSkillsVisible ? 'Hide members skills' : 'Show members skills';
-        
-        // Get all tables
-        const tables = document.querySelectorAll('.data-table');
-        
-        tables.forEach(table => {
-          const rows = table.getElementsByTagName('tr');
-          
-          // Skip header row, start from index 1
-          for (let i = 1; i < rows.length; i++) {
-            const skillCell = rows[i].cells[0];
-            if (skillCell) {
-              const skillName = skillCell.textContent.trim();
-              if (membersSkills.includes(skillName)) {
-                rows[i].style.display = membersSkillsVisible ? '' : 'none';
-              }
-            }
-          }
-        });
-      }
+  function toggleMembersSkills() {
+    const button = document.getElementById('toggleMembersSkills');
+    membersSkillsVisible = !membersSkillsVisible;
 
-      async function updateHiscore(username) {
-        const button = document.getElementById('updateButton');
-        const status = document.getElementById('updateStatus');
-        button.disabled = true;
-        status.textContent = 'Updating...';
-        status.style.display = 'inline';
-        
-        try {
-          const response = await fetch('/fetch', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ username: username })
-          });
-          
-          if (!response.ok) {
-            throw new Error('Failed to update');
+    // Update button text
+    button.textContent = membersSkillsVisible ? 'Hide members skills' : 'Show members skills';
+
+    // Get all tables
+    const tables = document.querySelectorAll('.data-table');
+
+    tables.forEach(table => {
+      const rows = table.getElementsByTagName('tr');
+
+      // Skip header row, start from index 1
+      for (let i = 1; i < rows.length; i++) {
+        const skillCell = rows[i].cells[0];
+        if (skillCell) {
+          const skillName = skillCell.textContent.trim();
+          if (membersSkills.includes(skillName)) {
+            rows[i].style.display = membersSkillsVisible ? '' : 'none';
           }
-          
-          // Replace the current page content with the updated content
-          const html = await response.text();
-          
-          // Create a temporary div to parse the HTML
-          const temp = document.createElement('div');
-          temp.innerHTML = html;
-          
-          // Find the content section in both current and new page
-          // Only update the tables section (everything after the graphs)
-          const newTables = temp.querySelectorAll('.data-table');
-          const currentTables = document.querySelectorAll('.data-table');
-          newTables.forEach((newTable, index) => {
-            currentTables[index].innerHTML = newTable.innerHTML;
-          });
-          
-          button.disabled = false;
-          status.style.display = 'none';
-          showPopup();
-        } catch (error) {
-          status.textContent = 'Update failed. Please try again.';
-          button.disabled = false;
         }
       }
-      
-      function showPopup() {
-        document.getElementById('refreshPopup').style.display = 'block';
+    });
+  }
+
+  async function updateHiscore(username) {
+    const button = document.getElementById('updateButton');
+    const status = document.getElementById('updateStatus');
+    button.disabled = true;
+    status.textContent = 'Updating...';
+    status.style.display = 'inline';
+
+    try {
+      const response = await fetch('/fetch', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username: username })
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to update');
       }
-      function closePopup() {
-        document.getElementById('refreshPopup').style.display = 'none';
-      }
-    </script>
+
+      // Replace the current page content with the updated content
+      const html = await response.text();
+
+      // Create a temporary div to parse the HTML
+      const temp = document.createElement('div');
+      temp.innerHTML = html;
+
+      // Find the content section in both current and new page
+      // Only update the tables section (everything after the graphs)
+      const newTables = temp.querySelectorAll('.data-table');
+      const currentTables = document.querySelectorAll('.data-table');
+      newTables.forEach((newTable, index) => {
+        currentTables[index].innerHTML = newTable.innerHTML;
+      });
+
+      button.disabled = false;
+      status.style.display = 'none';
+      showPopup();
+    } catch (error) {
+      status.textContent = 'Update failed. Please try again.';
+      button.disabled = false;
+    }
+  }
+
+  function showPopup() {
+    document.getElementById('refreshPopup').style.display = 'block';
+  }
+  function closePopup() {
+    document.getElementById('refreshPopup').style.display = 'none';
+  }
+</script>
 {% if graphs %}
 <style>
-    .graph-container {
-        margin: 20px 0;
-        padding: 15px;
-        border-radius: 8px;
-        background-color: rgba(30, 30, 30, 0.4);
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-    
-    .graph-wrapper {
-        margin-bottom: 25px;
-    }
-    
-    .graph-wrapper:last-child {
-        margin-bottom: 0;
-    }
-    
-    /* Override some Plotly styling */
-    .js-plotly-plot .plotly .modebar {
-        opacity: 0.3;
-        transition: opacity 0.3s;
-    }
-    
-    .js-plotly-plot .plotly .modebar:hover {
-        opacity: 1;
-    }
-    
-    .js-plotly-plot .plotly .main-svg {
-        border-radius: 4px;
-    }
+  .graph-container {
+    margin: 20px 0;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: rgba(30, 30, 30, 0.4);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .graph-wrapper {
+    margin-bottom: 25px;
+  }
+
+  .graph-wrapper:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Override some Plotly styling */
+  .js-plotly-plot .plotly .modebar {
+    opacity: 0.3;
+    transition: opacity 0.3s;
+  }
+
+  .js-plotly-plot .plotly .modebar:hover {
+    opacity: 1;
+  }
+
+  .js-plotly-plot .plotly .main-svg {
+    border-radius: 4px;
+  }
 </style>
 
 <div class="graph-container">
-    {% for graph in graphs %}
-    <div class="graph-wrapper">
-        {{ graph|safe }}
-    </div>
-    {% endfor %}
+  {% for graph in graphs %}
+  <div class="graph-wrapper">
+    {{ graph|safe }}
+  </div>
+  {% endfor %}
 </div>
 {% else %}
-      <p>No graphs available.</p>
-      {% endif %}
-      <div style="margin-top: 20px;">
-         {% if ehp_data %}
-         <div>
-            <h3>Efficient Hours Played</h3>
-            <table class="data-table">
-               <thead>
-                  <tr>
-                     <th>Skill</th>
-                     <th>EHP</th>
-                  </tr>
-               </thead>
-               <tbody>
-                  <tr>
-                     <td><strong>Total</strong></td>
-                     <td><strong>{{ total_ehp }}</strong></td>
-                  </tr>
-                  {% for skill, value in ehp_data.items() %}
-                  <tr title="XP: {% for entry in hiscores_latest %}{% if entry.skill == skill %}{{ "{:,}".format(entry.xp) }}{% endif %}{% endfor %}">
-                     <td>{{ skill }}</td>
-                     <td>{{ value }}</td>
-                  </tr>
-                  {% endfor %}
-               </tbody>
-            </table>
-         </div>
-         {% endif %}
-         <div>
-            <div style="display: flex; align-items: center;">
-                <h4 style="margin: 0;">Experience Gained</h4>
-                <button id="toggleXpLevels" class="button updateButton" onclick="toggleXpLevels()" style="margin-left: 10px;">Show Levels</button>
-             </div>
-             <div class="nav-container" style="font-size: 1.3rem; margin-top: 15px;">
-              <p>The daily experience is between the first manual update of the day (UTC) and the latest.</p>
-             </div>
-            <table class="data-table">
-              <thead>
-                  <tr>
-                     <th>Skill</th>
-                     <th>Monthly</th>
-                     <th>Weekly</th>
-                     <th>Daily</th>
-                  </tr>
-               </thead>
-               <tbody>
-               {% for skill, progress in progress_by_skill.items() %}
-                  <tr>
-                     <td>{{ skill }}</td>
-                     <td class="{% if progress.monthly is not none and progress.monthly > 0 %}positive{% elif progress.monthly is not none and progress.monthly < 0 %}negative{% endif %}" title="{% if progress.monthly is not none %}Levels Gained: {{ progress.monthly }}{% endif %}">{{ '{:,}'.format(progress.monthly_xp).replace(',', ' ') if progress.monthly_xp is not none and progress.monthly_xp < 1000 else ('{:,}'.format(progress.monthly_xp//1000).replace(',', ' ') + 'k' if progress.monthly_xp is not none else '-') }}</td>
-                     <td class="{% if progress.weekly is not none and progress.weekly > 0 %}positive{% elif progress.weekly is not none and progress.weekly < 0 %}negative{% endif %}" title="{% if progress.weekly is not none %}Levels Gained: {{ progress.weekly }}{% endif %}">{{ '{:,}'.format(progress.weekly_xp).replace(',', ' ') if progress.weekly_xp is not none and progress.weekly_xp < 1000 else ('{:,}'.format(progress.weekly_xp//1000).replace(',', ' ') + 'k' if progress.weekly_xp is not none else '-') }}</td>
-                     <td class="{% if progress.daily is not none and progress.daily > 0 %}positive{% elif progress.daily is not none and progress.daily < 0 %}negative{% endif %}" title="{% if progress.daily is not none %}Levels Gained: {{ progress.daily }}{% endif %}">{{ '{:,}'.format(progress.daily_xp).replace(',', ' ') if progress.daily_xp is not none and progress.daily_xp < 1000 else ('{:,}'.format(progress.daily_xp//1000).replace(',', ' ') + 'k' if progress.daily_xp is not none else '-') }}</td>               {% endfor %}
-                </tbody>
-             </table>
-          </div>
-          <div style="margin-top: 20px;">
-             <h4>Rank Progress</h4>
-             <table class="data-table">
-                <thead>
-                   <tr>
-                      <th>Skill</th>
-                      <th>Current Rank</th>
-                      <th>Monthly Change</th>
-                      <th>Weekly Change</th>
-                      <th>Daily Change</th>
-                   </tr>
-                </thead>
-                <tbody>
-                {% for entry in hiscores_latest %}
-                   {% set progress = rank_progress.get(entry.skill, {}) %}
-                   <tr title="Level: {{ entry.level }}">
-                      <td>{{ entry.skill }}</td>
-                      <td>{{ entry.rank }}</td>
-                      <td class="{% if progress.monthly is not none and progress.monthly > 0 %}positive{% elif progress.monthly is not none and progress.monthly < 0 %}negative{% endif %}">{{ progress.monthly if progress.monthly is not none else '-' }}</td>
-                      <td class="{% if progress.weekly is not none and progress.weekly > 0 %}positive{% elif progress.weekly is not none and progress.weekly < 0 %}negative{% endif %}">{{ progress.weekly if progress.weekly is not none else '-' }}</td>
-                      <td class="{% if progress.daily is not none and progress.daily > 0 %}positive{% elif progress.daily is not none and progress.daily < 0 %}negative{% endif %}">{{ progress.daily if progress.daily is not none else '-' }}</td>                   </tr>
-                {% endfor %}
-               </tbody>
-            </table>
-         </div>
-      </div>
-  {% else %}
-    <p>No username provided.</p>
-  {% endif %}
+
+<p>No graphs available.</p>
+{% endif %}
+
 {% endblock %}
