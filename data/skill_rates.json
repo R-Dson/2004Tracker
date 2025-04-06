@@ -766,15 +766,22 @@
       {
         "min_level": 15,
         "max_level": 60,
-        "method": "Average rate. 2-tick Oak trees at southern Falador using two rats. Estimated xp/h.",
+        "method": "2-tick Oak trees at southern Falador using two rats, or 3-tick farmer willows next to Lumbridge. While attacked by farmer, every 6-tick cycle, perform: tick 1 click tree, tick 5 cut log, tick 6 click ground or drop log.",
         "rate": 40000,
         "bonus_skills": []
       },
       {
         "min_level": 60,
-        "max_level": 99,
-        "method": "Average rate. 2-tick Oak trees at southern Falador using two rats. Estimated xp/h.",
+        "max_level": 80,
+        "method": "2-tick Oak trees at southern Falador using two rats, or 3-tick farmer willows next to Lumbridge. While attacked by farmer, every 6-tick cycle, perform: tick 1 click tree, tick 5 cut log, tick 6 click ground or drop log.",
         "rate": 65000,
+        "bonus_skills": []
+      },
+      {
+        "min_level": 80,
+        "max_level": 99,
+        "method": "2-tick Oak trees at southern Falador using two rats, or 3-tick farmer willows next to Lumbridge. While attacked by farmer, every 6-tick cycle, perform: tick 1 click tree, tick 5 cut log, tick 6 click ground or drop log.",
+        "rate": 72000,
         "bonus_skills": []
       }
     ],
