@@ -24,7 +24,7 @@ max_requests = 1000
 max_requests_jitter = 50
 
 # Process naming
-proc_name = "2004progress"
+proc_name = "2004tracker"
 
 # SSL is handled by Cloudflare
 forwarded_allow_ips = "127.0.0.1"  # Only trust local forwarded headers
