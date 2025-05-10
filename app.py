@@ -24,7 +24,7 @@ def format_rate(value):
         value = int(float(value))
     except (TypeError, ValueError):
         return str(value)
-        
+
     if value >= 1000:
         return f"{value/1000:.0f}k"
     return str(value)
@@ -98,12 +98,12 @@ class HiscoresData(db.Model):
 
     def __repr__(self):
         return f"HiscoresData('{self.timestamp}', '{self.skill}', '{self.rank}', '{self.level}', '{self.xp}')"
-        
+
 class LastUpdate(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     update_type = db.Column(db.String(50), unique=True, nullable=False)
     last_update = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
-    
+
     __table_args__ = (db.Index('idx_update_type', 'update_type'),)
 
 class SkillEHPLeaderboard(db.Model):
@@ -113,13 +113,13 @@ class SkillEHPLeaderboard(db.Model):
     skill = db.Column(db.String(30), nullable=False)  # 'Overall' or skill name
     ehp = db.Column(db.Float, nullable=False)
     last_updated = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
-    
+
     # Indexes and constraints
     __table_args__ = (
         db.Index('idx_skill_ehp', 'skill', 'ehp', 'username'),
         db.UniqueConstraint('user_id', 'skill', name='uix_user_skill')
     )
-    
+
     user = db.relationship('User', backref='ehp_entries', lazy=True)
 
 class SkillXPLeaderboard(db.Model):
@@ -171,7 +171,7 @@ def GetTodaysTopXpGainers():
     """Calculates and returns the top 5 users based on 'Overall' XP gained today."""
     try:
         today_start = datetime.utcnow().replace(hour=0, minute=0, second=0, microsecond=0)
-        
+
         # Fetch all 'Overall' records created today, including username
         todays_data = HiscoresData.query \
             .join(User) \
@@ -215,7 +215,7 @@ def GetTodaysTopXpGainers():
 
         # Sort by gain descending and take top 5
         top_gainers = sorted(gains_list, key=lambda x: x['xp_gain'], reverse=True)[:10]
-        
+
         return top_gainers
 
     except Exception as e:
@@ -231,15 +231,15 @@ def ValidateUsername(username):
     """Validate username for security and format requirements"""
     if not username:
         return False, "Please provide username"
-    
+
     # Check length (RuneScape usernames are limited to 12 characters)
     if len(username) > 13:
         return False, "Username must be 12 characters or less"
-    
+
     # Check for valid characters (only letters, numbers, spaces and underscores allowed)
     if not re.match("^[a-zA-Z0-9_ ]*$", username):
         return False, "Username can only contain letters, numbers, spaces and underscores"
-    
+
     return True, None
 
 def check_rate_limit(username):
@@ -250,11 +250,11 @@ def check_rate_limit(username):
         rate_limits[username] = timestamps
 
     is_rate_limited = len(timestamps) >= 5
-    
+
     if not is_rate_limited:
         timestamps.append(now)
         rate_limits[username] = timestamps
-        
+
     return is_rate_limited, timestamps
 
 def get_or_create_user(username):
@@ -323,10 +323,10 @@ def handle_update_request(username):
 
     data = fetch_hiscores(username)
     was_updated, error = update_user_data(username, user, data, force=force_update)
-    
+
     if error:
         return None, error
-        
+
     return was_updated, None
 
 @app.route('/api/update', methods=['POST'])
@@ -352,11 +352,11 @@ def update_top_ehp_player():
     with ehp_update_lock:
         now = datetime.utcnow()
         last_update = LastUpdate.query.filter_by(update_type='top_ehp').first()
-        
+
         if last_update and (now - last_update.last_update).total_seconds() < 86400:  # 24 hours
             time_remaining = 86400 - (now - last_update.last_update).total_seconds()
             db.session.rollback()  # Ensure we don't hold locks
-            
+
             return jsonify({
                 'error': 'Rate limit exceeded',
                 'message': f'Please wait {int(time_remaining/3600)} hours and {int((time_remaining%3600)/60)} minutes before updating again'
@@ -366,35 +366,35 @@ def update_top_ehp_player():
         current_players = db.session.query(SkillEHPLeaderboard.username).distinct().all()
         if not current_players:
             return jsonify({'error': 'No players found in EHP leaderboard'}), 404
-            
+
         # Update or create last update timestamp
         if last_update:
             last_update.last_update = now
         else:
             last_update = LastUpdate(update_type='top_ehp', last_update=now)
             db.session.add(last_update)
-        
+
         # Extract usernames from query result
         usernames = [player[0] for player in current_players]
-        
+
         # Delete all current leaderboard entries
         db.session.query(SkillEHPLeaderboard).delete()
         db.session.commit()
-        
+
         # Update each player and rebuild their leaderboard entries
         results = []
-        
+
     for username in usernames:
         # Update player's hiscores
         was_updated, error = handle_update_request(username)
-        
+
         results.append({
             'username': username,
             'updated': was_updated if not error else False,
             'error': error
         })
-        
-        
+
+
     return jsonify({
         'status': 'success',
         'players_processed': len(usernames),
@@ -441,7 +441,7 @@ def process_xp_leaderboard_entry(skill, user_id, username, xp_gain, period_type,
         skill=skill,
         period_type=period_type
     ).first()
-    
+
     # Only update if new XP is higher than existing
     if existing:
         if xp_gain > existing.xp_gain:
@@ -487,12 +487,12 @@ def fetch_hiscores_route():
     if error:
         app.logger.warning(f"Invalid username attempt: {username}")
         return jsonify({'error': error}), 400
-    
+
     user = get_or_create_user(username)
     if not user:
         if request.method == 'GET':
             # For GET requests, just show empty data
-            return render_template('fetch.html', 
+            return render_template('fetch.html',
                 username=username,
                 graphs=[],
                 ehp_data={},
@@ -512,11 +512,11 @@ def fetch_hiscores_route():
 
     if df.empty:
         df['timestamp'] = pd.to_datetime(df['timestamp'])
- 
+
     # Only check rate limits and fetch new data for POST requests
     if request.method == 'GET':
         return process_and_render_data(username, database_hiscores_data, df)
-    
+
     was_updated, error = handle_update_request(username)
     if error:
         if error == "Rate limit exceeded":
@@ -532,7 +532,7 @@ def update_ehp_leaderboard(username, user_id, ehp_data, total_ehp):
     """Update the EHP leaderboard for a user's overall and skill-specific EHP"""
     # Update overall EHP
     process_leaderboard_entry('Overall', user_id, username, total_ehp)
-    
+
     # Update individual skills
     for skill, ehp in ehp_data.items():
         process_leaderboard_entry(skill, user_id, username, ehp)
@@ -542,22 +542,31 @@ def process_leaderboard_entry(skill, user_id, username, ehp):
     # Skip if EHP is 0 or less
     if ehp <= 1e-4:
         return
-        
+
     # Check if user already has an entry
     existing = SkillEHPLeaderboard.query.filter_by(
         user_id=user_id,
         skill=skill
     ).first()
-    
+
     # Get current top 10
     current_top = SkillEHPLeaderboard.query.filter_by(skill=skill)\
         .order_by(SkillEHPLeaderboard.ehp.desc())\
         .limit(10).all()
-    
-    if len(current_top) < 10 or ehp > current_top[-1].ehp or existing:
+
+    top_list = 10
+    if skill == 'Overall':
+        top_list = 50
+
+    if len(current_top) < top_list or ehp > current_top[-1].ehp or existing:
         if existing:
-            existing.ehp = ehp
-            existing.last_updated = datetime.utcnow()
+            # probably banned
+            if ehp < existing.ehp:
+                db.session.delete(existing)
+                db.session.commit()
+            else:
+                existing.ehp = ehp
+                existing.last_updated = datetime.utcnow()
         else:
             new_entry = SkillEHPLeaderboard(
                 user_id=user_id,
@@ -566,13 +575,13 @@ def process_leaderboard_entry(skill, user_id, username, ehp):
                 ehp=ehp
             )
             db.session.add(new_entry)
-            
-        # Remove lowest entry if we're over 10 and this is a new entry
-        if len(current_top) >= 10 and not existing:
-            lowest = current_top[-1]
-            if lowest.ehp < ehp:  # Only remove if new entry has higher EHP
-                db.session.delete(lowest)
-        
+
+            # Remove lowest entry if we're over 10 and this is a new entry
+            if len(current_top) >= 10:
+                lowest = current_top[-1]
+                if lowest.ehp < ehp:  # Only remove if new entry has higher EHP
+                    db.session.delete(lowest)
+
         db.session.commit()
 
 @app.route('/ehp-leaderboard')
@@ -593,14 +602,14 @@ def ehp_leaderboard():
         # Skip unwanted skills
         if skill in ['Farming', 'Construction', 'Hunter']:
             continue
-            
+
         leaders = SkillEHPLeaderboard.query\
             .filter_by(skill=skill)\
             .order_by(SkillEHPLeaderboard.ehp.desc())\
             .limit(10)\
             .all()
         leaderboards[skill] = leaders
-    
+
     return render_template('ehp_leaderboard.html', leaderboards=leaderboards)
 
 @app.route('/records')
@@ -610,7 +619,7 @@ def records():
     skills = ['Overall'] + sorted(filtered_skills)
     periods = ['daily', 'weekly', 'monthly']
     leaderboards = {}
-    
+
     for period in periods:
         period_boards = {}
         for skill in skills:
@@ -622,8 +631,8 @@ def records():
             if leaders:  # Only add if there are entries
                 period_boards[skill] = leaders
         leaderboards[period] = period_boards
-    
-    return render_template('records.html', 
+
+    return render_template('records.html',
                          leaderboards=leaderboards,
                          periods=periods,
                          skills=skills)
@@ -634,14 +643,14 @@ def process_and_render_data(username, database_hiscores_data, df):
     df_overall = df_overall.sort_values('timestamp')
     df_skills = df[df['skill'] != 'Overall'].copy()
     df_skills = df_skills[df_skills['level'] > 1]
-    
+
     # Filter out unwanted skills
     df_skills = df_skills[
         ~df_skills['skill'].isin(['Farming', 'Construction', 'Hunter'])
     ]
-    
+
     df_skills = df_skills.sort_values(['skill', 'timestamp'])
-    
+
     # Get first occurrence of each level for each skill
     df_first_levels = df_skills.loc[
         df_skills.groupby(['skill', 'level'])['timestamp'].idxmin()
@@ -650,7 +659,7 @@ def process_and_render_data(username, database_hiscores_data, df):
     # Get the most recent points
     df_latest = df_skills.loc[df_skills.groupby('skill')['timestamp'].idxmax()]
 
-    df_skills = pd.concat([df_first_levels, df_latest]).drop_duplicates(['skill', 'timestamp']).reset_index(drop=True)    
+    df_skills = pd.concat([df_first_levels, df_latest]).drop_duplicates(['skill', 'timestamp']).reset_index(drop=True)
     df_skills = df_skills.sort_values(['skill', 'timestamp'])
 
     graphs = []
@@ -658,9 +667,9 @@ def process_and_render_data(username, database_hiscores_data, df):
     if not df_overall.empty:
         # For the overall level graph
         fig_overall = px.line(
-            df_overall, 
-            x='timestamp', 
-            y='level', 
+            df_overall,
+            x='timestamp',
+            y='level',
             markers=True,
             title=f'Total Level Progression for {username}',
             labels={'timestamp': 'Date', 'level': 'Level'},
@@ -669,8 +678,8 @@ def process_and_render_data(username, database_hiscores_data, df):
 
         # Update y-axis settings
         fig_overall.update_yaxes(
-            rangemode="nonnegative", 
-            dtick=50, 
+            rangemode="nonnegative",
+            dtick=50,
             tickformat='d',
             gridcolor='rgba(255, 255, 255, 0.1)',
             linecolor='rgba(255, 255, 255, 0.5)',
@@ -734,27 +743,27 @@ def process_and_render_data(username, database_hiscores_data, df):
         if not df_skills.empty:
             # Create skills figure
             fig_skills = px.line(
-                df_skills, 
-                x='timestamp', 
-                y='level', 
-                color='skill', 
+                df_skills,
+                x='timestamp',
+                y='level',
+                color='skill',
                 markers=True,
                 title=f'Skill Level Progression for {username}',
                 labels={'timestamp': 'Date', 'level': 'Level', 'skill': 'Skill'},
                 color_discrete_sequence=px.colors.qualitative.Vivid  # More vibrant color scheme
             )
-            
+
             # Update y-axis settings
             fig_skills.update_yaxes(
-                rangemode="nonnegative", 
-                dtick=10, 
+                rangemode="nonnegative",
+                dtick=10,
                 tickformat='d',
                 gridcolor='rgba(255, 255, 255, 0.1)',
                 linecolor='rgba(255, 255, 255, 0.5)',
                 linewidth=0.5,
                 title_font=dict(size=14)
             )
-            
+
             # Update x-axis settings
             fig_skills.update_xaxes(
                 tickformat="%b %d\n%Y",
@@ -763,14 +772,14 @@ def process_and_render_data(username, database_hiscores_data, df):
                 linewidth=0.5,
                 title_font=dict(size=14)
             )
-            
+
             # Update traces (lines and markers)
             fig_skills.update_traces(
                 marker=dict(size=6),
                 line=dict(width=1.5),
                 hovertemplate='<b>%{fullData.name}</b><br>Date: %{x|%b %d, %Y}<br>Level: %{y}<extra></extra>'
             )
-            
+
             # Update overall layout
             fig_skills.update_layout(
                 plot_bgcolor='rgba(0,0,0,0)',
@@ -803,7 +812,7 @@ def process_and_render_data(username, database_hiscores_data, df):
                     bordercolor="#555"
                 )
             )
-            
+
             # Add to graphs list
             fig_skills.update_xaxes(tickformat="%Y-%m-%d %H:00")
             graphs.append(plotly.offline.plot(fig_skills, output_type='div'))
@@ -830,7 +839,7 @@ def process_and_render_data(username, database_hiscores_data, df):
         # Skip unwanted skills
         if skill in ['Farming', 'Construction', 'Hunter']:
             continue
-            
+
         if skill != 'Overall':
             hiscores_latest.append({
                 "skill": latest_records[skill].skill,
@@ -849,10 +858,10 @@ def process_and_render_data(username, database_hiscores_data, df):
     yesterday_midnight = today_midnight - timedelta(days=1)
     week_boundary = now - timedelta(days=7)
     month_boundary = now - timedelta(days=30)
-    
+
     level_progress = compute_progress_by_skill(df, today_midnight, yesterday_midnight, week_boundary, month_boundary, now)
     rank_progress = compute_rank_progress_by_skill(df, today_midnight, yesterday_midnight, week_boundary, month_boundary, now)
-    
+
     # Update XP leaderboard
     update_xp_leaderboard(username, level_progress, {
         'daily': yesterday_midnight,
@@ -888,7 +897,7 @@ def compare_hiscores_data(fetched_data, existing_data_list):
 
     if fetched_overall_xp is None:
         return False # Should not happen, but handle just in case
-    
+
     if existing_overall_xp is None:
         return True # No existing overall xp, so update
 
@@ -916,7 +925,7 @@ def compute_progress_by_skill(df, today_midnight, yesterday_midnight, week_bound
         skill_data = df[df['skill'] == skill]
         if not skill_data.empty:
             earliest_timestamps[skill] = skill_data['timestamp'].min()
-    
+
     if 'Overall' in skills:
         # Remove and add Overall first
         skills.remove('Overall')
@@ -926,17 +935,17 @@ def compute_progress_by_skill(df, today_midnight, yesterday_midnight, week_bound
         earliest_timestamp = earliest_timestamps.get(skill)
         if earliest_timestamp is None:
             continue
-            
+
         # Get data for this skill sorted by timestamp
         df_skill = df[df['skill'] == skill].sort_values('timestamp')
-        
+
         # Daily progress - find first non-zero XP in the period
         # Get all data points from today
         today = now.date()
         df_daily_skill = df_skill[df_skill['timestamp'].dt.date == today]
         daily = None
         daily_xp = None
-        
+
         # Skip if no data points in period or only one data point (need at least 2 for gain calculation)
         if len(df_daily_skill) <= 1:
             daily = 0
@@ -947,7 +956,7 @@ def compute_progress_by_skill(df, today_midnight, yesterday_midnight, week_bound
             last_today = df_daily_skill.iloc[-1]
             daily = last_today['level'] - first_today['level']
             daily_xp = last_today['xp'] - first_today['xp']
-        
+
         # Weekly progress - find first non-zero XP in the period
         df_weekly_skill = df_skill[(df_skill['timestamp'] >= week_boundary) & (df_skill['timestamp'] <= now)]
         weekly = None
@@ -962,12 +971,12 @@ def compute_progress_by_skill(df, today_midnight, yesterday_midnight, week_bound
             last_week = df_weekly_skill.iloc[-1]
             weekly = last_week['level'] - first_week['level']
             weekly_xp = last_week['xp'] - first_week['xp']
-        
+
         # Monthly progress - find first non-zero XP in the period
         df_monthly_skill = df_skill[(df_skill['timestamp'] >= month_boundary) & (df_skill['timestamp'] <= now)]
         monthly = None
         monthly_xp = None
-        
+
         if len(df_monthly_skill) <= 1:
             monthly = 0
             monthly_xp = 0
@@ -995,13 +1004,13 @@ def compute_rank_progress_by_skill(df, today_midnight, yesterday_midnight, week_
         daily = None
         if not df_daily_skill.empty:
             daily = df_daily_skill.iloc[0]['rank'] - df_daily_skill.iloc[-1]['rank']
-            
+
         # Weekly progress
         df_weekly_skill = df_skill[(df_skill['timestamp'] >= week_boundary) & (df_skill['timestamp'] <= now)]
         weekly = None
         if not df_weekly_skill.empty:
             weekly = df_weekly_skill.iloc[0]['rank'] - df_weekly_skill.iloc[-1]['rank']
-            
+
         # Monthly progress
         df_monthly_skill = df_skill[(df_skill['timestamp'] >= month_boundary) & (df_skill['timestamp'] <= now)]
         monthly = None
@@ -1030,7 +1039,7 @@ def quests_list():
                         })
                 except (ValueError, json.JSONDecodeError) as e:
                     app.logger.error(f"Error loading quest {filename}: {e}")
-    
+
     if os.path.exists(QUESTS_DIR_MEMBERS):
         for filename in os.listdir(QUESTS_DIR_MEMBERS):
             if filename.endswith('.json'):
@@ -1046,7 +1055,7 @@ def quests_list():
                     app.logger.error(f"Error loading quest {filename}: {e}")
     quests_free.sort(key=lambda x: x['name'])
     quests_members.sort(key=lambda x: x['name'])
-    
+
     return render_template('quests_list.html', quests_free=quests_free, quests_members=quests_members)
 
 @app.route('/quest/<int:quest_id>')
@@ -1058,7 +1067,7 @@ def quest_detail(quest_id):
         quest_file = os.path.join(QUESTS_DIR_MEMBERS, f'{quest_id}.json')
     if not os.path.exists(quest_file):
         return jsonify({'error': 'No Quest found.'}), 404
-    
+
     try:
         with open(quest_file) as f:
             quest_data = json.load(f)
@@ -1080,11 +1089,10 @@ def rates():
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()
-    # export FLASK_ENV=development
+    # export flask_env=development
     if app.config['ENV'] == 'development':
         app.run(host='0.0.0.0', port=5002, debug=True)
     else:
         # In production, use Gunicorn
         app.logger.info('Production mode - use Gunicorn to run the application')
         exit(1)
-
