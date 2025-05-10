@@ -593,7 +593,7 @@ def ehp_leaderboard():
     leaders = SkillEHPLeaderboard.query\
         .filter_by(skill='Overall')\
         .order_by(SkillEHPLeaderboard.ehp.desc())\
-        .limit(10)\
+        .limit(50)\
         .all()
     leaderboards['Overall'] = leaders
 
