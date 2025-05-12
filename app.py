@@ -643,30 +643,53 @@ def records():
 def process_and_render_data(username, database_hiscores_data, df):
     """Helper function to process and render the hiscores data"""
     df_overall = df[df['skill'] == 'Overall'].copy()
-    df_overall['date'] = df_overall['timestamp'].dt.date  # Extract date for deduplication
-    df_overall = df_overall.sort_values(['skill', 'timestamp'])
+    df_overall = df_overall.sort_values('timestamp')
 
-    # Deduplicate by date (keep latest) and XP (keep earliest)
-    df_overall = df_overall.drop_duplicates(subset=['skill', 'date'], keep='last')  # Same day: keep latest
-    df_overall = df_overall.drop_duplicates(subset=['skill', 'xp'], keep='first')   # Same XP: keep earliest
-
-    # Sort again after deduplication
-    df_overall = df_overall.sort_values(['skill', 'timestamp'])
-
-    df_skills = df[df['skill'] != 'Overall'].copy()
-    df_skills = df_skills[df_skills['xp'] > 0]
-
-    # Filter out unwanted skills
-    df_skills = df_skills[
-        ~df_skills['skill'].isin(['Farming', 'Construction', 'Hunter'])
+    # Resolve duplicates for "Overall" skill
+    df_overall = df_overall.loc[
+        df_overall.groupby(['skill', 'timestamp'])['timestamp'].idxmax()
     ]
 
-    # Deduplicate by date (keep latest) and XP (keep earliest)
-    df_skills['date'] = df_skills['timestamp'].dt.date  # Extract date for deduplication
-    df_skills = df_skills.sort_values(['skill', 'timestamp'])
-    df_skills = df_skills.drop_duplicates(subset=['skill', 'date'], keep='last')  # Same day: keep latest
-    df_skills = df_skills.drop_duplicates(subset=['skill', 'xp'], keep='first')   # Same XP: keep earliest
-    df_skills = df_skills.sort_values(['skill', 'timestamp'])
+    # Process df_skills
+    df_skills = df[df['skill'] != 'Overall'].copy()
+    df_skills = df_skills[df_skills['xp'] > 0]
+    df_skills = df_skills[~df_skills['skill'].isin(['Farming', 'Construction', 'Hunter'])]
+    df_skills = df_skills.sort_values('timestamp')
+
+    # Resolve duplicates for skills:
+    # 1. Keep latest for same day (date)
+    df_skills = df_skills.loc[
+        df_skills.groupby(['skill', df_skills['timestamp'].dt.date])['timestamp'].idxmax()
+    ]
+
+    # 2. Keep earliest for same XP (to avoid overwriting with same XP)
+    df_skills = df_skills.loc[
+        df_skills.groupby(['skill', 'xp'])['timestamp'].idxmin()
+    ]
+
+    # Final sort
+    df_overall = df_overall.sort_values('timestamp')
+    df_skills = df_skills.sort_values('timestamp')
+
+    # Add today's data point to df_overall
+    if not df_overall.empty:
+        latest_xp_overall = df_overall.iloc[-1]['xp']
+        new_row_overall = {
+            'skill': 'Overall',
+            'xp': latest_xp_overall,
+            'timestamp': pd.Timestamp.today()
+        }
+        df_overall = pd.concat([df_overall, pd.DataFrame([new_row_overall])], ignore_index=True)
+
+    # Add today's data point to df_skills
+    if not df_skills.empty:
+        new_row_skills = dict()
+        for skill in df_skills.iloc:
+            copy_skill = skill.copy()
+            copy_skill['timestamp'] = pd.Timestamp.today()
+            new_row_skills[skill['skill']] = copy_skill
+        for skill in new_row_skills:
+            df_skills = pd.concat([df_skills, pd.DataFrame([new_row_skills[skill]])], ignore_index=True)
 
     graphs = []
 
