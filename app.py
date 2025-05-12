@@ -1,19 +1,22 @@
-import os
+import functools
 import json
-from flask import Flask, render_template, jsonify, request
-from data_fetcher import fetch_hiscores, compute_ehp, VALID_SKILLS
-from flask_sqlalchemy import SQLAlchemy
+import logging
+import logging.handlers
+import os
+import re
 from datetime import datetime, timedelta
+from threading import Lock
+
 import pandas as pd
 import plotly.express as px
 import plotly.offline
-from threading import Lock
-import logging.handlers
-import logging
-from config import Config
-import functools
+from flask import Flask, jsonify, render_template, request
+from flask_sqlalchemy import SQLAlchemy
 from werkzeug.middleware.proxy_fix import ProxyFix
-import re
+
+from config import Config
+from data_fetcher import VALID_SKILLS, compute_ehp, fetch_hiscores
+
 
 def format_rate(value):
     """Format large numbers as 'k' format"""
@@ -642,7 +645,7 @@ def process_and_render_data(username, database_hiscores_data, df):
     df_overall = df[df['skill'] == 'Overall'].copy()
     df_overall = df_overall.sort_values('timestamp')
     df_skills = df[df['skill'] != 'Overall'].copy()
-    df_skills = df_skills[df_skills['level'] > 1]
+    df_skills = df_skills[df_skills['xp'] > 0]  # Filter out zero XP
 
     # Filter out unwanted skills
     df_skills = df_skills[
@@ -651,40 +654,40 @@ def process_and_render_data(username, database_hiscores_data, df):
 
     df_skills = df_skills.sort_values(['skill', 'timestamp'])
 
-    # Get first occurrence of each level for each skill
-    df_first_levels = df_skills.loc[
-        df_skills.groupby(['skill', 'level'])['timestamp'].idxmin()
+    # Get first occurrence of each XP for each skill
+    df_first_xp = df_skills.loc[
+        df_skills.groupby(['skill', 'xp'])['timestamp'].idxmin()
     ]
 
-    # Get the most recent points
-    df_latest = df_skills.loc[df_skills.groupby('skill')['timestamp'].idxmax()]
+    # Get the most recent XP
+    df_latest_xp = df_skills.loc[df_skills.groupby('skill')['timestamp'].idxmax()]
 
-    df_skills = pd.concat([df_first_levels, df_latest]).drop_duplicates(['skill', 'timestamp']).reset_index(drop=True)
+    df_skills = pd.concat([df_first_xp, df_latest_xp]).drop_duplicates(['skill', 'timestamp']).reset_index(drop=True)
     df_skills = df_skills.sort_values(['skill', 'timestamp'])
 
     graphs = []
 
     if not df_overall.empty:
-        # For the overall level graph
+        # For the overall XP graph
         fig_overall = px.line(
             df_overall,
             x='timestamp',
-            y='level',
+            y='xp',
             markers=True,
-            title=f'Total Level Progression for {username}',
-            labels={'timestamp': 'Date', 'level': 'Level'},
-            color_discrete_sequence=['#FF6B6B']  # A nicer red color
+            title=f'Total XP Progression for {username}',
+            labels={'timestamp': 'Date', 'xp': 'XP'},
+            color_discrete_sequence=['#FF6B6B']
         )
 
         # Update y-axis settings
         fig_overall.update_yaxes(
             rangemode="nonnegative",
-            dtick=50,
-            tickformat='d',
+            #dtick=100000,
+            #tickformat=',d',
             gridcolor='rgba(255, 255, 255, 0.1)',
             linecolor='rgba(255, 255, 255, 0.5)',
             linewidth=0.5,
-            title_font=dict(size=14)
+            title_font=dict(size=16)
         )
 
         # Update x-axis settings
@@ -693,26 +696,26 @@ def process_and_render_data(username, database_hiscores_data, df):
             gridcolor='rgba(255, 255, 255, 0.1)',
             linecolor='rgba(255, 255, 255, 0.5)',
             linewidth=0.5,
-            title_font=dict(size=14)
+            title_font=dict(size=16)
         )
 
-        # Update traces (lines and markers)
+        # Update traces
         fig_overall.update_traces(
             marker=dict(size=6),
             line=dict(width=2),
-            hovertemplate='<b>Total Level</b><br>Date: %{x|%b %d, %Y}<br>Level: %{y}<extra></extra>'
+            hovertemplate='<b>Total XP</b><br>Date: %{x|%b %d, %Y}<br>XP: %{y:,.0f}<extra></extra>'
         )
 
-        # Update overall layout
+        # Update layout
         fig_overall.update_layout(
             plot_bgcolor='rgba(0,0,0,0)',
             paper_bgcolor='rgba(0,0,0,0)',
-            height=300,
-            margin=dict(l=00, r=50, t=25, b=00),
+            height=350,
+            margin=dict(l=00, r=10, t=25, b=00),
             font_color='#F0F0F0',
             font_family="Arial",
             title=dict(
-                text=f'Total Level Progression for {username}',
+                text=f'Total XP Progression for {username}',
                 font=dict(size=18),
                 x=0.5,
                 xanchor='center'
@@ -736,32 +739,31 @@ def process_and_render_data(username, database_hiscores_data, df):
             )
         )
 
-        # Add to graphs list
         graphs.append(plotly.offline.plot(fig_overall, output_type='div'))
 
-        # For the skills graph (if data exists)
+        # For the skills XP graph (if data exists)
         if not df_skills.empty:
             # Create skills figure
             fig_skills = px.line(
                 df_skills,
                 x='timestamp',
-                y='level',
+                y='xp',
                 color='skill',
                 markers=True,
-                title=f'Skill Level Progression for {username}',
-                labels={'timestamp': 'Date', 'level': 'Level', 'skill': 'Skill'},
-                color_discrete_sequence=px.colors.qualitative.Vivid  # More vibrant color scheme
+                title=f'Skill XP Progression for {username}',
+                labels={'timestamp': 'Date', 'xp': 'XP', 'skill': 'Skill'},
+                color_discrete_sequence=px.colors.qualitative.Light24_r
             )
 
             # Update y-axis settings
             fig_skills.update_yaxes(
                 rangemode="nonnegative",
-                dtick=10,
-                tickformat='d',
+                #dtick=10000,
+                #tickformat=',d',
                 gridcolor='rgba(255, 255, 255, 0.1)',
                 linecolor='rgba(255, 255, 255, 0.5)',
                 linewidth=0.5,
-                title_font=dict(size=14)
+                title_font=dict(size=16)
             )
 
             # Update x-axis settings
@@ -770,26 +772,26 @@ def process_and_render_data(username, database_hiscores_data, df):
                 gridcolor='rgba(255, 255, 255, 0.1)',
                 linecolor='rgba(255, 255, 255, 0.5)',
                 linewidth=0.5,
-                title_font=dict(size=14)
+                title_font=dict(size=16)
             )
 
-            # Update traces (lines and markers)
+            # Update traces
             fig_skills.update_traces(
                 marker=dict(size=6),
                 line=dict(width=1.5),
-                hovertemplate='<b>%{fullData.name}</b><br>Date: %{x|%b %d, %Y}<br>Level: %{y}<extra></extra>'
+                hovertemplate='<b>%{fullData.name}</b><br>Date: %{x|%b %d, %Y}<br>XP: %{y:,.0f}<extra></extra>'
             )
 
-            # Update overall layout
+            # Update layout
             fig_skills.update_layout(
                 plot_bgcolor='rgba(0,0,0,0)',
                 paper_bgcolor='rgba(0,0,0,0)',
                 height=500,
-                margin=dict(l=0, r=0, t=25, b=00),
+                margin=dict(l=00, r=10, t=25, b=00),
                 font_color='#F0F0F0',
                 font_family="Arial",
                 title=dict(
-                    text=f'Skill Level Progression for {username}',
+                    text=f'Skill XP Progression for {username}',
                     font=dict(size=18),
                     x=0.5,
                     xanchor='center'
@@ -813,8 +815,7 @@ def process_and_render_data(username, database_hiscores_data, df):
                 )
             )
 
-            # Add to graphs list
-            fig_skills.update_xaxes(tickformat="%Y-%m-%d %H:00")
+            #fig_skills.update_xaxes(tickformat="%Y-%m-%d")
             graphs.append(plotly.offline.plot(fig_skills, output_type='div'))
 
     # Compute progress data per skill
@@ -1077,7 +1078,7 @@ def quest_detail(quest_id):
             return render_template('quest_detail.html', quest=quest_data)
     except json.JSONDecodeError as e:
         app.logger.error(f"Error loading quest {quest_id}: {e}")
-        return jsonify({f'error': 'Error reading file. Error: {e}'}), 500
+        return jsonify({'error': 'Error reading file. Error: {e}'}), 500
 
 @app.route('/rates')
 def rates():
