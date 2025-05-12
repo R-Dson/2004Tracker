@@ -643,26 +643,29 @@ def records():
 def process_and_render_data(username, database_hiscores_data, df):
     """Helper function to process and render the hiscores data"""
     df_overall = df[df['skill'] == 'Overall'].copy()
-    df_overall = df_overall.sort_values('timestamp')
+    df_overall['date'] = df_overall['timestamp'].dt.date  # Extract date for deduplication
+    df_overall = df_overall.sort_values(['skill', 'timestamp'])
+
+    # Deduplicate by date (keep latest) and XP (keep earliest)
+    df_overall = df_overall.drop_duplicates(subset=['skill', 'date'], keep='last')  # Same day: keep latest
+    df_overall = df_overall.drop_duplicates(subset=['skill', 'xp'], keep='first')   # Same XP: keep earliest
+
+    # Sort again after deduplication
+    df_overall = df_overall.sort_values(['skill', 'timestamp'])
+
     df_skills = df[df['skill'] != 'Overall'].copy()
-    df_skills = df_skills[df_skills['xp'] > 0]  # Filter out zero XP
+    df_skills = df_skills[df_skills['xp'] > 0]
 
     # Filter out unwanted skills
     df_skills = df_skills[
         ~df_skills['skill'].isin(['Farming', 'Construction', 'Hunter'])
     ]
 
+    # Deduplicate by date (keep latest) and XP (keep earliest)
+    df_skills['date'] = df_skills['timestamp'].dt.date  # Extract date for deduplication
     df_skills = df_skills.sort_values(['skill', 'timestamp'])
-
-    # Get first occurrence of each XP for each skill
-    df_first_xp = df_skills.loc[
-        df_skills.groupby(['skill', 'xp'])['timestamp'].idxmin()
-    ]
-
-    # Get the most recent XP
-    df_latest_xp = df_skills.loc[df_skills.groupby('skill')['timestamp'].idxmax()]
-
-    df_skills = pd.concat([df_first_xp, df_latest_xp]).drop_duplicates(['skill', 'timestamp']).reset_index(drop=True)
+    df_skills = df_skills.drop_duplicates(subset=['skill', 'date'], keep='last')  # Same day: keep latest
+    df_skills = df_skills.drop_duplicates(subset=['skill', 'xp'], keep='first')   # Same XP: keep earliest
     df_skills = df_skills.sort_values(['skill', 'timestamp'])
 
     graphs = []
