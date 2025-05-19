@@ -610,13 +610,13 @@
     "Thieving": [
       {
         "min_level": 1,
-        "max_level": 25,
+        "max_level": 23,
         "method": "Questing (Hazeel cult + Fight arena + Tribal Totem + Biohazard)",
-        "rate": 7500,
+        "rate": 6700,
         "bonus_skills": []
       },
       {
-        "min_level": 25,
+        "min_level": 23,
         "max_level": 39,
         "method": "Axe hut door and ardy sewer gate",
         "rate": 15000,
