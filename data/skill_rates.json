@@ -611,7 +611,7 @@
       {
         "min_level": 1,
         "max_level": 25,
-        "method": "Questing",
+        "method": "Questing (Hazeel cult + Fight arena + Tribal Totem + Biohazard)",
         "rate": 7500,
         "bonus_skills": []
       },
