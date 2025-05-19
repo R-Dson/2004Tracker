@@ -3,14 +3,7 @@
 <div class="leaderboard-container">
     <h3 style="margin-bottom: 2rem;">XP Records</h3>
     <div class="toc-section" style="margin-bottom: 2rem;">
-        <div class="period-buttons" style="margin-bottom: 1rem;">
-            {% for period in periods %}
-            <button class="button period-button{% if loop.first %} active{% endif %}" data-period="{{ period }}">{{ period|capitalize }}</button>
-            {% endfor %}
-            <div style="clear: both;"></div>
-        </div>
-        {% for period in periods %}
-        <div class="skills-nav" data-period="{{ period }}"{% if period == 'daily' %} style="display: none;"{% endif %}>
+        <div class="skills-nav">
             <div class="skills-header" style="cursor: pointer; padding: 0.5rem; font-size: 1.2rem; font-weight: bold; background: #16120E;">
                 Quick Navigation
             </div>
@@ -18,73 +11,164 @@
                 {% for skill in skills %}
                     {% if skill not in ['Farming', 'Construction', 'Hunter'] %}
                     <li style="padding: 0.25rem 0;">
-                        <a href="#{{ period }}-{{ skill|lower }}" onclick="smoothScroll(event, '{{ period }}-{{ skill|lower }}')">{{ skill }}</a>
+                        <a href="#{{ skill|lower }}" onclick="smoothScroll(event, '{{ skill|lower }}')">{{ skill }}</a>
                     </li>
                     {% endif %}
                 {% endfor %}
             </ul>
         </div>
-        {% endfor %}
-        <div id="DailyNoteContainer" class="nav-container" style="font-size: 1.3rem; margin-top: 15px; display: none;">
+        <div id="DailyNoteContainer" class="nav-container" style="font-size: 1.3rem; margin-top: 15px;">
             <p style="font-size: 0.8em;">The daily experience is between the first manual update of the day and the latest.<br>Front-page users in each skill are updated daily at 00:01.</p>
         </div>
     </div>
-    {% for period in periods %}
-    <div class="period-section">
-        <h3>{{ period|capitalize }} XP Record</h3>
-        {% for skill in skills %}
-            {% if skill not in ['Farming', 'Construction', 'Hunter'] %}
-            {% if skill in leaderboards[period] and leaderboards[period][skill]|length > 0 %}
-            <div class="skill-section" id="{{ period }}-{{ skill|lower }}">
-                <h4>{{ skill }}</h4>
+
+    {% for skill in skills %}
+        {% if skill not in ['Farming', 'Construction', 'Hunter'] %}
+        <div class="skill-section" id="{{ skill|lower }}">
+            <h4>{{ skill }}</h4>
+            <div class="table-nav">
+                <button onclick="scrollToPeriod('{{ skill|lower }}', 'daily')" class="period-nav-btn">Daily</button>
+                <button onclick="scrollToPeriod('{{ skill|lower }}', 'weekly')" class="period-nav-btn">Weekly</button>
+                <button onclick="scrollToPeriod('{{ skill|lower }}', 'monthly')" class="period-nav-btn">Monthly</button>
+            </div>
+            <div class="table-container">
                 <table class="data-table leaderboard-table">
                     <thead>
                         <tr>
-                            <th style="width: 12%;">Rank</th>
+                            <th colspan="4" class="period-header daily">Daily Records</th>
+                            <th colspan="4" class="period-header weekly">Weekly Records</th>
+                            <th colspan="4" class="period-header monthly">Monthly Records</th>
+                        </tr>
+                        <tr>
+                            {% for period in periods %}
+                            <th style="width: 8%;">Rank</th>
                             <th>Player</th>
-                            <th style="width: 13%;">XP Gained</th>
-                            <th style="width: 17%;">Date</th>
+                            <th style="width: 10%;">XP</th>
+                            <th style="width: 12%;">Date</th>
+                            {% endfor %}
                         </tr>
                     </thead>
                     <tbody>
-                        {% for entry in leaderboards[period][skill] %}
+                        {% set max_rows = [leaderboards['daily'][skill]|length if skill in leaderboards['daily'] else 0,
+                                         leaderboards['weekly'][skill]|length if skill in leaderboards['weekly'] else 0,
+                                         leaderboards['monthly'][skill]|length if skill in leaderboards['monthly'] else 0]|max %}
+                        
+                        {% for i in range(max_rows) %}
                         <tr>
-                            <td>{{ loop.index }}</td>
-                            <td><a href="/fetch?username={{ entry.username }}">{{ entry.username }}</a></td>
-                            <td>{{ '{:,}'.format(entry.xp_gain).replace(',', ' ') if entry.xp_gain < 1000 else ('{:,}'.format(entry.xp_gain//1000).replace(',', ' ') + 'k') if entry.xp_gain < 1000000 else ('{:.2f}'.format(entry.xp_gain/1000000).replace('.00', '') + 'm') }}</td>
-                            <td style="font-size: 1rem;">{{ entry.last_updated.strftime('%Y-%m-%d') }}</td>
+                            {% for period in periods %}
+                                {% if skill in leaderboards[period] and i < leaderboards[period][skill]|length %}
+                                    {% set entry = leaderboards[period][skill][i] %}
+                                    <td>{{ i + 1 }}</td>
+                                    <td><a href="/fetch?username={{ entry.username }}">{{ entry.username }}</a></td>
+                                    <td>{{ '{:,}'.format(entry.xp_gain).replace(',', ' ') if entry.xp_gain < 1000 else ('{:,}'.format(entry.xp_gain//1000).replace(',', ' ') + 'k') if entry.xp_gain < 1000000 else ('{:.2f}'.format(entry.xp_gain/1000000).replace('.00', '') + 'm') }}</td>
+                                    <td>{{ entry.last_updated.strftime('%Y-%m-%d') }}</td>
+                                {% else %}
+                                    <td colspan="4" class="empty-cell">No entry</td>
+                                {% endif %}
+                            {% endfor %}
                         </tr>
                         {% endfor %}
                     </tbody>
                 </table>
             </div>
-            {% else %}
-            <div class="skill-section" id="{{ period }}-{{ skill|lower }}">
-                <h4>{{ skill }}</h4>
-                <div></div>
-                <table class="data-table leaderboard-table">
-                    <thead>
-                        <tr>
-                            <th>Record</th>
-                            <th>Player</th>
-                            <th>XP Gained</th>
-                            <th style="width: 13%;">Date</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td colspan="4">No entries yet</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            {% endif %}
-            {% endif %}
-        {% endfor %}
-    </div>
+        </div>
+        {% endif %}
     {% endfor %}
 </div>
 <button onclick="scrollToTop()" class="back-to-top">Back to Top</button>
+
+<style>
+.skill-section {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background: #16120E;
+    border-radius: 4px;
+}
+
+.skill-section h4 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+.table-container {
+    overflow-x: auto;
+    margin: 0 -1rem;
+    padding: 0 1rem;
+    width: 100%;
+}
+
+.data-table.leaderboard-table {
+    width: max-content;
+    min-width: 100%;
+}
+
+.period-header {
+    text-align: center;
+    padding: 0.5rem;
+    color: #fff;
+    font-weight: bold;
+}
+
+.period-header.daily {
+    background: #2a221c;
+}
+
+.period-header.weekly {
+    background: #2a221c;
+}
+
+.period-header.monthly {
+    background: #2a221c;
+}
+
+.empty-cell {
+    text-align: center;
+    color: #666;
+    font-style: italic;
+}
+
+/* Add subtle separators between periods */
+.period-header.daily,
+.period-header.weekly {
+    border-right: 2px solid #3a2e26;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .table-container {
+        margin: 0;
+        padding: 0;
+    }
+}
+
+.table-nav {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    justify-content: center;
+}
+
+.period-nav-btn {
+    padding: 0.5rem 1rem;
+    background: #2a221c;
+    border: 1px solid #3a2e26;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.period-nav-btn:hover {
+    background: #3a2e26;
+}
+
+.period-nav-btn.active {
+    background: #4a3e36;
+    border-color: #5a4e46;
+}
+</style>
+
 <script>
 function scrollToTop() {
     window.scrollTo({
@@ -97,53 +181,7 @@ document.addEventListener('scroll', function() {
     document.querySelector('.back-to-top').style.display = window.scrollY > 200 ? 'block' : 'none';
 });
 
-// Period switching functionality
 document.addEventListener('DOMContentLoaded', function() {
-    const periodButtons = document.querySelectorAll('.period-button');
-    const periodSections = document.querySelectorAll('.period-section');
-    const skillsNavs = document.querySelectorAll('.skills-nav');
-    const dailyNoteContainer = document.getElementById('DailyNoteContainer'); // Get the note container
-
-    // Function to update visibility based on selected period
-    function updateVisibility(selectedPeriod) {
-        // Show selected period section and hide others
-        periodSections.forEach(section =>
-            section.style.display = section.querySelector('h3').textContent.toLowerCase().includes(selectedPeriod) ? 'block' : 'none');
-
-        // Show selected skills navigation and hide others
-        skillsNavs.forEach(nav =>
-            nav.style.display = nav.getAttribute('data-period') === selectedPeriod ? 'block' : 'none');
-
-        // Show/hide the daily note
-        if (dailyNoteContainer) {
-            dailyNoteContainer.style.display = selectedPeriod === 'daily' ? 'block' : 'none';
-        }
-    }
-
-    // Initial setup: Hide sections/navs not matching the initially active button
-    let initiallyActivePeriod = '{{ periods[0] }}'; // Default to the first period from Jinja
-    periodButtons.forEach(button => {
-        if (button.classList.contains('active')) {
-            initiallyActivePeriod = button.getAttribute('data-period');
-        }
-    });
-    updateVisibility(initiallyActivePeriod); // Call updateVisibility for initial state
-
-
-    // Add click event listeners to period buttons
-    periodButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const selectedPeriod = this.getAttribute('data-period');
-
-            // Update active button state
-            periodButtons.forEach(btn => btn.classList.remove('active'));
-            this.classList.add('active');
-
-            // Update visibility of sections, navs, and the note
-            updateVisibility(selectedPeriod);
-        });
-    });
-
     // Skills list toggle functionality
     const skillHeaders = document.querySelectorAll('.skills-header');
     skillHeaders.forEach(header => {
@@ -168,5 +206,42 @@ function smoothScroll(e, targetId) {
         block: 'start'
     });
 }
+
+function scrollToPeriod(skillId, period) {
+    const table = document.querySelector(`#${skillId} .table-container`);
+    const headers = table.querySelectorAll('.period-header');
+    
+    let targetHeader;
+    if (period === 'daily') {
+        targetHeader = headers[0];
+    } else if (period === 'weekly') {
+        targetHeader = headers[1];
+    } else if (period === 'monthly') {
+        targetHeader = headers[2];
+    }
+
+    if (targetHeader) {
+        const scrollPosition = targetHeader.offsetLeft;
+        table.scrollTo({
+            left: scrollPosition,
+            behavior: 'smooth'
+        });
+
+        // Update active button state
+        const buttons = document.querySelectorAll(`#${skillId} .period-nav-btn`);
+        buttons.forEach(btn => btn.classList.remove('active'));
+        event.target.classList.add('active');
+    }
+}
+
+// Initialize active state for first button in each table
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.skill-section').forEach(section => {
+        const firstButton = section.querySelector('.period-nav-btn');
+        if (firstButton) {
+            firstButton.classList.add('active');
+        }
+    });
+});
 </script>
 {% endblock %}
