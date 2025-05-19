@@ -28,6 +28,8 @@ def format_rate(value):
     except (TypeError, ValueError):
         return str(value)
 
+    if value >= 1000000:
+        return f"{value/1000000:.0f}m"
     if value >= 1000:
         return f"{value/1000:.0f}k"
     return str(value)

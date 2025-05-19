@@ -52,19 +52,20 @@
             title="{% if progress.monthly is not none %}Levels Gained: {{ progress.monthly }}{% endif %}">{{
             '{:,}'.format(progress.monthly_xp).replace(',', ' ') if progress.monthly_xp is not none and
             progress.monthly_xp < 1000 else ('{:,}'.format(progress.monthly_xp//1000).replace(',', ' ' ) + 'k' if
-              progress.monthly_xp is not none else '-' ) }}</td>
+            progress.monthly_xp < 1000000 else ('{:.2f}'.format(progress.monthly_xp/1000000).replace('.00', '') + 'm' if
+              progress.monthly_xp is not none else '-' ) ) }}</td>
           <td
             class="{% if progress.weekly is not none and progress.weekly > 0 %}positive{% elif progress.weekly is not none and progress.weekly < 0 %}negative{% endif %}"
             title="{% if progress.weekly is not none %}Levels Gained: {{ progress.weekly }}{% endif %}">{{
             '{:,}'.format(progress.weekly_xp).replace(',', ' ') if progress.weekly_xp is not none and progress.weekly_xp
-            < 1000 else ('{:,}'.format(progress.weekly_xp//1000).replace(',', ' ' ) + 'k' if progress.weekly_xp is not
-              none else '-' ) }}</td>
+            < 1000 else ('{:,}'.format(progress.weekly_xp//1000).replace(',', ' ' ) + 'k' if progress.weekly_xp < 1000000 else ('{:.2f}'.format(progress.weekly_xp/1000000).replace('.00', '') + 'm' if
+              progress.weekly_xp is not none else '-' ) ) }}</td>
           <td
             class="{% if progress.daily is not none and progress.daily > 0 %}positive{% elif progress.daily is not none and progress.daily < 0 %}negative{% endif %}"
             title="{% if progress.daily is not none %}Levels Gained: {{ progress.daily }}{% endif %}">{{
             '{:,}'.format(progress.daily_xp).replace(',', ' ') if progress.daily_xp is not none and progress.daily_xp <
-              1000 else ('{:,}'.format(progress.daily_xp//1000).replace(',', ' ' ) + 'k' if progress.daily_xp is not
-              none else '-' ) }}</td> {% endfor %}
+              1000 else ('{:,}'.format(progress.daily_xp//1000).replace(',', ' ' ) + 'k' if progress.daily_xp < 1000000 else ('{:.2f}'.format(progress.daily_xp/1000000).replace('.00', '') + 'm' if
+              progress.daily_xp is not none else '-' ) ) }}</td> {% endfor %}
       </tbody>
     </table>
   </div>
