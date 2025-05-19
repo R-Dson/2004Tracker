@@ -632,29 +632,29 @@
       {
         "min_level": 55,
         "max_level": 75,
-        "method": "Knight of Ardougne.",
-        "rate": 40000,
+        "method": "Knight of Ardougne. Effective rate based on 40k/hr thieving and 4000 ticks of another skill during stuns.",
+        "rate": 120000,
         "bonus_skills": []
       },
       {
         "min_level": 75,
         "max_level": 90,
-        "method": "Knight of Ardougne.",
-        "rate": 75000,
+        "method": "Knight of Ardougne. Effective rate based on 75k/hr thieving and 3500 ticks of another skill during stuns.",
+        "rate": 180000,
         "bonus_skills": []
       },
       {
         "min_level": 90,
         "max_level": 95,
-        "method": "Knight of Ardougne.",
-        "rate": 120000,
+        "method": "Knight of Ardougne. Effective rate based on 120k/hr thieving and 2400 ticks of another skill during stuns.",
+        "rate": 200000,
         "bonus_skills": []
       },
       {
         "min_level": 95,
         "max_level": 99,
-        "method": "Knight of Ardougne.",
-        "rate": 170000,
+        "method": "Knight of Ardougne. Effective rate based on 160k/hr thieving and 2000 ticks of another skill during stuns.",
+        "rate": 240000,
         "bonus_skills": []
       }
     ],
