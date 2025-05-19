@@ -200,20 +200,7 @@
       },
       {
         "min_level": 40,
-        "max_level": 95,
-        "method": "Hill Giants/Moss Giants. Estimated xp/h.",
-        "rate": 30000,
-        "bonus_skills": [
-          {
-            "skill": "Prayer",
-            "method": "Big bone drops",
-            "rate": 1875
-          }
-        ]
-      },
-      {
-        "min_level": 95,
-        "max_level": 99,
+        "max_level": 60,
         "method": "Moss Giants. Estimated xp/h.",
         "rate": 35000,
         "bonus_skills": [
@@ -221,6 +208,32 @@
             "skill": "Prayer",
             "method": "Big bone drops",
             "rate": 2187
+          }
+        ]
+      },
+      {
+        "min_level": 60,
+        "max_level": 90,
+        "method": "Moss Giants. Estimated xp/h.",
+        "rate": 40000,
+        "bonus_skills": [
+          {
+            "skill": "Prayer",
+            "method": "Big bone drops",
+            "rate": 2500
+          }
+        ]
+      },
+      {
+        "min_level": 90,
+        "max_level": 99,
+        "method": "Moss Giants. Estimated xp/h.",
+        "rate": 60000,
+        "bonus_skills": [
+          {
+            "skill": "Prayer",
+            "method": "Big bone drops",
+            "rate": 3750
           }
         ]
       }
@@ -386,8 +399,8 @@
       {
         "min_level": 60,
         "max_level": 99,
-        "method": "Power mining iron ore. Estimated xp/h.",
-        "rate": 37500,
+        "method": "4t iron at legends guild mine",
+        "rate": 48000,
         "bonus_skills": []
       }
     ],
@@ -416,7 +429,7 @@
       {
         "min_level": 11,
         "max_level": 14,
-        "method": "Leather vanraces.",
+        "method": "Leather vambraces.",
         "rate": 30800,
         "bonus_skills": []
       },
@@ -477,16 +490,9 @@
     "Runecrafting": [
       {
         "min_level": 1,
-        "max_level": 54,
-        "method": "Air runes with runners. Estimated xp/h.",
-        "rate": 20000,
-        "bonus_skills": []
-      },
-      {
-        "min_level": 54,
         "max_level": 99,
-        "method": "Law runes with runners. Estimated xp/h.",
-        "rate": 25000,
+        "method": "Fire runes",
+        "rate": 18000,
         "bonus_skills": []
       }
     ],
@@ -568,132 +574,87 @@
       {
         "min_level": 15,
         "max_level": 25,
-        "method": "Raw trout.",
+        "method": "4t fly fishing.",
         "rate": 15000,
         "bonus_skills": []
       },
       {
         "min_level": 25,
         "max_level": 50,
-        "method": "Raw trout and raw salmon.",
+        "method": "4t fly fishing.",
         "rate": 20000,
-        "bonus_skills": [
-          {
-            "skill": "Cooking",
-            "method": "Cook caught fish and then use them to 3t",
-            "rate": 28000
-          }
-        ]
+        "bonus_skills": []
       },
       {
         "min_level": 50,
         "max_level": 75,
-        "method": "Raw trout and raw salmon.",
-        "rate": 30000,
-        "bonus_skills": [
-          {
-            "skill": "Cooking",
-            "method": "Cook caught fish and then use them to 3t",
-            "rate": 42000
-          }
-        ]
+        "method": "4t fly fishing.",
+        "rate": 40000,
+        "bonus_skills": []
       },
       {
         "min_level": 75,
         "max_level": 95,
-        "method": "Raw trout and raw salmon.",
-        "rate": 40000,
-        "bonus_skills": [
-          {
-            "skill": "Cooking",
-            "method": "Cook caught fish and then use them to 3t",
-            "rate": 55000
-          }
-        ]
+        "method": "4t fly fishing.",
+        "rate": 55000,
+        "bonus_skills": []
       },
       {
         "min_level": 95,
         "max_level": 99,
-        "method": "Raw trout and raw salmon.",
-        "rate": 50000,
-        "bonus_skills": [
-          {
-            "skill": "Cooking",
-            "method": "Cook caught fish and then use them to 3t",
-            "rate": 70000
-          }
-        ]
+        "method": "4t fly fishing.",
+        "rate": 68000,
+        "bonus_skills": []
       }
     ],
     "Thieving": [
       {
         "min_level": 1,
-        "max_level": 10,
-        "method": "Biohazard. 30 min to complete. https://web.archive.org/web/20060220020108/http://www.zybez.net/skills.php?id=5#S8",
-        "rate": 2500,
+        "max_level": 23,
+        "method": "Questing (Hazeel cult + Fight arena + Tribal Totem + Biohazard)",
+        "rate": 6700,
         "bonus_skills": []
       },
       {
-        "min_level": 10,
-        "max_level": 16,
-        "method": "Hazeel Cult. 30 min to complete.",
-        "rate": 3000,
-        "bonus_skills": []
-      },
-      {
-        "min_level": 16,
-        "max_level": 20,
-        "method": "Fight Arena. 30 min to complete.",
-        "rate": 4350,
-        "bonus_skills": []
-      },
-      {
-        "min_level": 20,
-        "max_level": 25,
-        "method": "Silk stall. Est. xp/h. The following is from https://web.archive.org/web/20060220020108/http://www.zybez.net/skills.php?id=5#S8",
+        "min_level": 23,
+        "max_level": 39,
+        "method": "Axe hut door and ardy sewer gate",
         "rate": 15000,
         "bonus_skills": []
       },
       {
-        "min_level": 25,
-        "max_level": 35,
-        "method": "Warrior. Est. xp/h.",
-        "rate": 20000,
-        "bonus_skills": []
-      },
-      {
-        "min_level": 35,
-        "max_level": 40,
-        "method": "Fur stall. Est. xp/h.",
+        "min_level": 39,
+        "max_level": 55,
+        "method": "Pirate hideout and chaos druid tower doors",
         "rate": 25000,
         "bonus_skills": []
       },
       {
-        "min_level": 40,
-        "max_level": 55,
-        "method": "Guards. Est. xp/h.",
-        "rate": 40000,
-        "bonus_skills": []
-      },
-      {
         "min_level": 55,
-        "max_level": 65,
-        "method": "Knights. Est. xp/h.",
-        "rate": 60000,
-        "bonus_skills": []
-      },
-      {
-        "min_level": 65,
-        "max_level": 70,
-        "method": "Watchmen. Est. xp/h.",
-        "rate": 80000,
-        "bonus_skills": []
-      },
-      {
-        "min_level": 70,
-        "max_level": 99,
-        "method": "Paladin. Est. xp/h.",
+        "max_level": 75,
+        "method": "Knight of Ardougne. Effective rate based on 40k/hr thieving and 4000 ticks of another skill during stuns.",
         "rate": 120000,
+        "bonus_skills": []
+      },
+      {
+        "min_level": 75,
+        "max_level": 90,
+        "method": "Knight of Ardougne. Effective rate based on 75k/hr thieving and 3500 ticks of another skill during stuns.",
+        "rate": 180000,
+        "bonus_skills": []
+      },
+      {
+        "min_level": 90,
+        "max_level": 95,
+        "method": "Knight of Ardougne. Effective rate based on 120k/hr thieving and 2400 ticks of another skill during stuns.",
+        "rate": 200000,
+        "bonus_skills": []
+      },
+      {
+        "min_level": 95,
+        "max_level": 99,
+        "method": "Knight of Ardougne. Effective rate based on 160k/hr thieving and 2000 ticks of another skill during stuns.",
+        "rate": 240000,
         "bonus_skills": []
       }
     ],
