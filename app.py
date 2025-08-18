@@ -250,7 +250,8 @@ def ValidateUsername(username):
 def check_rate_limit(username):
     """Check if username is rate limited. Returns (is_limited, timestamps)"""
     with rate_limit_lock:
-        now = datetime.utcnow().timestamp()
+        from datetime import datetime, timezone
+        now = datetime.now(timezone.utc).timestamp()
         timestamps = [ts for ts in rate_limits.get(username, []) if (now - ts) <= Config.RATE_LIMIT_WINDOW]
         rate_limits[username] = timestamps
 
@@ -355,7 +356,8 @@ def api_update():
 def update_top_ehp_player():
     """Rebuild EHP leaderboard by updating all players currently in it (limited to once per 24h)"""
     with ehp_update_lock:
-        now = datetime.utcnow()
+        from datetime import datetime, timezone
+        now = datetime.now(timezone.utc)
         last_update = LastUpdate.query.filter_by(update_type='top_ehp').first()
 
         if last_update and (now - last_update.last_update).total_seconds() < 86400:  # 24 hours
@@ -881,8 +883,8 @@ def process_and_render_data(username, database_hiscores_data, df):
     hiscores_latest = [item for item in hiscores_latest if item['skill'] not in ['Farming', 'Construction', 'Hunter']]
     ehp_data, total_ehp = compute_ehp(hiscores_latest, skill_rates)
 
-    from datetime import timedelta
-    now = datetime.utcnow()
+    from datetime import datetime, timezone
+    now = datetime.now(timezone.utc)
     today_midnight = now.replace(hour=0, minute=0, second=0, microsecond=0)
     yesterday_midnight = today_midnight - timedelta(days=1)
     week_boundary = now - timedelta(days=7)
