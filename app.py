@@ -81,7 +81,7 @@ def internal_server_error(error):
         'message': 'An unexpected error occurred'
     }), 500
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db' # or 'postgresql://' if using postgresql
 db = SQLAlchemy(app)
 
 class User(db.Model):
